@@ -95,12 +95,12 @@ abstract class AppTheme {
         labelLarge: GoogleFonts.balooThambi2(
           color: AppColors.white,
           fontSize: 18,
-          fontWeight: AppFontWeight.regular
+          fontWeight: AppFontWeight.regular,
         ),
         titleLarge: GoogleFonts.balooThambi2(
-            color: AppColors.white,
-            fontSize: 20,
-            fontWeight: AppFontWeight.extraBold
+          color: AppColors.white,
+          fontSize: 20,
+          fontWeight: AppFontWeight.extraBold,
         ),
       ),
     );

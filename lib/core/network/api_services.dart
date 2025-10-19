@@ -9,6 +9,4 @@ part 'api_services.g.dart';
 abstract class ApiServices {
   @factoryMethod
   factory ApiServices(Dio dio) = _ApiServices;
-
-
 }

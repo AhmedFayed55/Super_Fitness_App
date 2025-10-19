@@ -10,9 +10,12 @@ import 'core/l10n/translations/app_localizations.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await configureDependencies();
-  runApp(BlocProvider(
+  runApp(
+    BlocProvider(
       create: (context) => getIt<LocaleCubit>(),
-      child: const SuperFitnessApp()));
+      child: const SuperFitnessApp(),
+    ),
+  );
 }
 
 class SuperFitnessApp extends StatelessWidget {
@@ -35,4 +38,3 @@ class SuperFitnessApp extends StatelessWidget {
     );
   }
 }
-

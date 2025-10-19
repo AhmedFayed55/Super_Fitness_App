@@ -26,5 +26,4 @@ extension ThemeX on BuildContext {
 
   /// Shortcut to colorScheme
   ColorScheme get colorScheme => theme.colorScheme;
-
 }
