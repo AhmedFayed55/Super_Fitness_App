@@ -1,0 +1,30 @@
+name: Validate PR Title
+
+on:
+  pull_request:
+    branches:
+      - development
+
+jobs:
+  validate-pr-title:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Validate PR title
+        run: |
+          echo "🔍 Checking PR title..."
+          TITLE="${{ github.event.pull_request.title }}"
+
+          # Allowed types: fix, release, feat, hotfix, build, test
+          # Allowed scopes: PROJECT-123, JIRA-123, ABC-123
+          # Task name must use kebab-case (words separated by -)
+          if [[ ! "$TITLE" =~ ^(fix|release|feat|hotfix|build|test)\(([A-Z]+-[0-9]+|JIRA-[0-9]+)\):\ [a-z0-9]+(-[a-z0-9]+)*$ ]]; then
+            echo "❌ Invalid PR title: $TITLE"
+            echo "Expected format: type(SCOPE-NUM): task-name"
+            echo "Examples:"
+            echo "  feat(ECOM-27): initialize-project-setup"
+            echo "  fix(JIRA-101): handle-login-bug"
+            echo "  hotfix(APP-55): critical-crash-fix"
+            exit 1
+          fi
+
+          echo "✅ PR title is valid: $TITLE"

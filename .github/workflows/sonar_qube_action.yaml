@@ -1,0 +1,52 @@
+name: SonarCloud Analysis
+
+on:
+  pull_request:
+    branches:
+      - development
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0 # Required for SonarCloud analysis
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          flutter-version: 3.35.2
+
+      - run: flutter --version
+
+      - name: Install packages
+        run: flutter pub get
+
+      - name: Generate files
+        run: flutter pub run build_runner build --delete-conflicting-outputs
+
+      - name: Add Flutter to PATH
+        run: echo "$HOME/.pub-cache/bin" >> $GITHUB_PATH
+
+      - name: Analyze code
+        run: flutter analyze
+
+      - name: Run tests
+        run: flutter test
+
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarqube-scan-action@master
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: https://sonarcloud.io
+        with:
+          args: >
+            -Dsonar.organization=ahmedfayed55
+            -Dsonar.projectKey=AhmedFayed55_Super_Fitness_App
+            -Dsonar.sources=lib
+            -Dsonar.tests=test
+            -Dsonar.dart.analyzer.mode=FLUTTER
+            -Dsonar.coverage.exclusions=**

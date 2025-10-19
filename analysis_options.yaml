@@ -1,0 +1,12 @@
+include: package:flutter_lints/flutter.yaml
+
+linter:
+
+  rules:
+    - constant_identifier_names
+    - prefer_const_constructors
+    - prefer_const_literals_to_create_immutables
+    - unnecessary_const
+    - prefer_adjacent_string_concatenation
+    - prefer_const_declarations
+    - prefer_const_constructors_in_immutables

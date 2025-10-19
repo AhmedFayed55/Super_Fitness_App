@@ -1,0 +1,20 @@
+name: Validate Branch Name
+on:
+  pull_request:
+    branches:
+      - development
+
+jobs:
+  validate-branch-name:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check Branch Name
+        run: |
+          BRANCH_NAME=${{ github.head_ref || github.ref_name }}
+          if [[ ! $BRANCH_NAME =~ ^(feature|fix)\/ECOM-[0-9]+(-[A-Za-z]+)+$ ]]; then
+            echo "Error: Branch name '$BRANCH_NAME' does not match pattern '^(feature|fix)/ECOM-[0-9]+(-[A-Za-z]+)+$'"
+            exit 1
+          else
+            echo "Branch name '$BRANCH_NAME' is valid"
+          fi
