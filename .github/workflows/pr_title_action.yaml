@@ -21,7 +21,7 @@ jobs:
             echo "❌ Invalid PR title: $TITLE"
             echo "Expected format: type(SCOPE-NUM): task-name"
             echo "Examples:"
-            echo "  feat(ECOM-27): initialize-project-setup"
+            echo "  feat(GYM-0): initialize-project-setup"
             echo "  fix(JIRA-101): handle-login-bug"
             echo "  hotfix(APP-55): critical-crash-fix"
             exit 1

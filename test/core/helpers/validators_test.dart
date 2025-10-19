@@ -4,9 +4,9 @@ import 'package:super_fitness_app/core/helpers/validators.dart';
 import 'package:super_fitness_app/core/l10n/translations/app_localizations.dart';
 
 Future<void> _pumpLocalizedWidget(
-    WidgetTester tester,
-    void Function(BuildContext context) testBody,
-    ) async {
+  WidgetTester tester,
+  void Function(BuildContext context) testBody,
+) async {
   await tester.pumpWidget(
     MaterialApp(
       localizationsDelegates: const [AppLocalizations.delegate],
@@ -191,5 +191,4 @@ void main() {
       });
     });
   });
-
 }

@@ -4,8 +4,8 @@ import 'package:super_fitness_app/core/helpers/spacing.dart';
 
 void main() {
   testWidgets("verticalSpace returns a SizedBox with correct height", (
-      tester,
-      ) async {
+    tester,
+  ) async {
     const double height = 20;
 
     await tester.pumpWidget(
@@ -18,8 +18,8 @@ void main() {
   });
 
   testWidgets("horizontalSpace returns a SizedBox with correct width", (
-      tester,
-      ) async {
+    tester,
+  ) async {
     const double width = 15;
 
     await tester.pumpWidget(

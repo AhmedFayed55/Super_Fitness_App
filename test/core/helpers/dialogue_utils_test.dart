@@ -61,8 +61,8 @@ void main() {
   });
 
   testWidgets("showMessage should show dialog with custom actions", (
-      tester,
-      ) async {
+    tester,
+  ) async {
     bool pressed = false;
 
     await tester.pumpWidget(

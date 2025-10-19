@@ -16,7 +16,7 @@ void main() {
 
     test(
       "returns ApiErrorResult with ServerFailure when DioException is thrown",
-          () async {
+      () async {
         Future<String> mockApiCall() async {
           throw DioException(requestOptions: RequestOptions(path: "/test"));
         }
@@ -30,7 +30,7 @@ void main() {
 
     test(
       "returns ApiErrorResult with Failure when generic exception is thrown",
-          () async {
+      () async {
         Future<String> mockApiCall() async {
           throw Exception("Unexpected error");
         }

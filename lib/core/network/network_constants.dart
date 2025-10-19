@@ -4,8 +4,7 @@ abstract class NetworkConstants {
   static const String bearer = "Bearer";
 }
 
-
-abstract class EndPoints{
+abstract class EndPoints {
   static const String login = "auth/signin";
   static const String register = "auth/signup";
 }

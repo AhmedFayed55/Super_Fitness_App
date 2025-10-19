@@ -33,8 +33,7 @@ class CustomElevatedButton extends StatelessWidget {
             ? Container(
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
-                  color:
-                      containerColor ?? context.colorScheme.primary,
+                  color: containerColor ?? context.colorScheme.primary,
                   borderRadius: BorderRadius.circular(context.height * 0.1),
                 ),
                 child: SizedBox(
@@ -43,9 +42,7 @@ class CustomElevatedButton extends StatelessWidget {
                   child: Theme(
                     data: ThemeData(
                       progressIndicatorTheme: ProgressIndicatorThemeData(
-                        color:
-                            loadingColor ??
-                            context.colorScheme.onPrimary,
+                        color: loadingColor ?? context.colorScheme.onPrimary,
                       ),
                     ),
                     child: const CircularProgressIndicator(),
