@@ -1,6 +1,5 @@
 import 'package:super_fitness_app/features/auth/login/data/models/response/user_response_dto.dart';
 import 'package:super_fitness_app/features/auth/login/domain/entities/response/user_response_entity.dart';
-
 import '../../../domain/entities/request/login_request_entity.dart';
 import '../request/login_request_dto.dart';
 

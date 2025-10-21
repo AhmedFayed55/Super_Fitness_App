@@ -1,10 +1,9 @@
-import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'user_response_dto.g.dart';
 
 @JsonSerializable()
-class UserResponseDto extends Equatable {
+class UserResponseDto{
   @JsonKey(name: "_id")
   final String? id;
   @JsonKey(name: "firstName")
@@ -52,20 +51,4 @@ class UserResponseDto extends Equatable {
   Map<String, dynamic> toJson() {
     return _$UserResponseDtoToJson(this);
   }
-
-  @override
-  List<Object?> get props => [
-    id,
-    firstName,
-    lastName,
-    email,
-    gender,
-    age,
-    weight,
-    height,
-    activityLevel,
-    goal,
-    photo,
-    createdAt,
-  ];
 }
