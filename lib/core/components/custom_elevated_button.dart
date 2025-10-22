@@ -37,8 +37,8 @@ class CustomElevatedButton extends StatelessWidget {
                   borderRadius: BorderRadius.circular(context.height * 0.1),
                 ),
                 child: SizedBox(
-                  width: context.width * 0.1,
-                  height: context.width * 0.1,
+                  width: context.width * 0.08,
+                  height: context.height * 0.03,
                   child: Theme(
                     data: ThemeData(
                       progressIndicatorTheme: ProgressIndicatorThemeData(
