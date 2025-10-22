@@ -1,17 +1,17 @@
 import 'package:injectable/injectable.dart';
 import 'package:super_fitness_app/core/helpers/shared_pref.dart';
 import 'package:super_fitness_app/core/utils/constants.dart';
-import 'onboarding_ds.dart';
+import 'onboarding_local_ds.dart';
 
-@Injectable(as: OnboardingDataSource)
-class OnboardingDataSourceImpl implements OnboardingDataSource {
-  SharedPrefHelper sharedPrefHelper;
+@Injectable(as: OnboardingLocalDataSource)
+class OnboardingLocalDataSourceImpl implements OnboardingLocalDataSource {
+  final SharedPrefHelper _sharedPrefHelper;
 
-  OnboardingDataSourceImpl(this.sharedPrefHelper);
+  OnboardingLocalDataSourceImpl(this._sharedPrefHelper);
 
   @override
   Future<void> setOnboardingAsSeen() async {
-    await sharedPrefHelper.saveData(
+    await _sharedPrefHelper.saveData(
       key: AppConstants.isOnBoardingSeen,
       val: true,
     );

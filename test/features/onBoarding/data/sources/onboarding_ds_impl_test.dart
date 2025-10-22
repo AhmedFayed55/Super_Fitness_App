@@ -3,18 +3,18 @@ import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:super_fitness_app/core/helpers/shared_pref.dart';
 import 'package:super_fitness_app/core/utils/constants.dart';
-import 'package:super_fitness_app/features/onBoarding/data/sources/onboarding_ds_impl.dart';
+import 'package:super_fitness_app/features/onBoarding/data/sources/onboarding_local_ds_impl.dart';
 
 import 'onboarding_ds_impl_test.mocks.dart';
 
 @GenerateMocks([SharedPrefHelper])
 void main() {
-  late OnboardingDataSourceImpl dataSource;
+  late OnboardingLocalDataSourceImpl dataSource;
   late MockSharedPrefHelper mockSharedPrefHelper;
 
   setUp(() {
     mockSharedPrefHelper = MockSharedPrefHelper();
-    dataSource = OnboardingDataSourceImpl(mockSharedPrefHelper);
+    dataSource = OnboardingLocalDataSourceImpl(mockSharedPrefHelper);
   });
 
   group('OnboardingDataSourceImpl', () {

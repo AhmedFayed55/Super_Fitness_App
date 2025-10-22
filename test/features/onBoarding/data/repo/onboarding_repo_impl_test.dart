@@ -1,18 +1,18 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
-import 'package:super_fitness_app/features/onBoarding/data/sources/onboarding_ds.dart';
+import 'package:super_fitness_app/features/onBoarding/data/sources/onboarding_local_ds.dart';
 import 'package:super_fitness_app/features/onBoarding/data/repo/onboarding_repo_impl.dart';
 
 import 'onboarding_repo_impl_test.mocks.dart';
 
-@GenerateMocks([OnboardingDataSource])
+@GenerateMocks([OnboardingLocalDataSource])
 void main() {
   late OnboardingRepoImpl repo;
-  late MockOnboardingDataSource mockDataSource;
+  late MockOnboardingLocalDataSource mockDataSource;
 
   setUp(() {
-    mockDataSource = MockOnboardingDataSource();
+    mockDataSource = MockOnboardingLocalDataSource();
     repo = OnboardingRepoImpl(onboardingDataSource: mockDataSource);
   });
 

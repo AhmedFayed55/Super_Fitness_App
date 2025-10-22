@@ -3,7 +3,7 @@ import 'package:super_fitness_app/features/onBoarding/domain/repo/onboarding_rep
 
 @injectable
 class SetOnboardingAsSeenUsecase {
-  final OnboardingRepo onboardingRepo;
-  SetOnboardingAsSeenUsecase(this.onboardingRepo);
-  Future<void> invoke() => onboardingRepo.setOnboardingAsSeen();
+  final OnboardingRepo _onboardingRepo;
+  SetOnboardingAsSeenUsecase(this._onboardingRepo);
+  Future<void> invoke() => _onboardingRepo.setOnboardingAsSeen();
 }

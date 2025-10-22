@@ -61,7 +61,7 @@ class OnboardingBottomSection extends StatelessWidget {
                       Text(
                         'Lorem ipsum dolor sit amet consectetur. Eu urna\nut gravida quis id pretium purus. Mauris massa ',
                         style: context.theme.textTheme.displaySmall!.copyWith(
-                          color: const Color(0xFFD3D3D3),
+                          color: AppColors.grey[90],
                         ),
                         textAlign: TextAlign.center,
                       ),
@@ -81,7 +81,7 @@ class OnboardingBottomSection extends StatelessWidget {
                           dotHeight: height * 0.01,
                           dotWidth: height * 0.01,
                           activeDotColor: context.colorScheme.primary,
-                          dotColor: AppColors.white,
+                          dotColor: context.colorScheme.onPrimary,
                         ),
                       ),
                       verticalSpace(height * 0.03),
