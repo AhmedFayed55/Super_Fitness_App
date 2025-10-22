@@ -23,5 +23,9 @@
   "forget_password_ques" : "Forget Password ?",
   "dont_have_account_yet" : "Don't have an account yet ?",
   "register" : "Register",
-  "or" : "Or"
+  "or" : "Or",
+  "explore" : "Explore",
+  "chatbot" : "ChatBot",
+  "workout" : "Workout",
+  "profile" : "Profile"
 }

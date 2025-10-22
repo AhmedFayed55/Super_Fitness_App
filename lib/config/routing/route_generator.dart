@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:super_fitness_app/features/app_sections/app_sections.dart';
 import '../../features/auth/login/presentation/pages/login_screen.dart';
 import 'app_routes.dart';
 
@@ -7,7 +8,8 @@ class RouteGenerator {
     switch (settings.name) {
       case AppRoutes.login:
         return MaterialPageRoute(builder: (context) => const LoginScreen());
-
+      case AppRoutes.appSections:
+        return MaterialPageRoute(builder: (context) => const AppSections());
       default:
         return unDefinedRoute();
     }
