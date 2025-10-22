@@ -36,6 +36,7 @@ dependencies:
   internet_connection_checker: ^3.0.1
   firebase_core: ^4.2.0
   google_fonts: ^6.3.2
+  flutter_native_splash: ^2.4.7
   smooth_page_indicator: ^1.2.1
 
 
