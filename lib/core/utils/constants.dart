@@ -5,4 +5,5 @@ abstract class AppConstants {
   static const String languageCode = 'languageCode';
   static const String arKey = 'ar';
   static const String enKey = 'en';
+  static const String isOnBoardingSeen = 'onboarding_seen';
 }
