@@ -40,4 +40,17 @@
   "create_new_password": "Create New Password",
   "make_sure_it_8_characters_or_more": "Make Sure It’s 8 Characters Or More",
   "done": "Done"
+  "this_field_is_required" : "This field is required",
+  "error" : "Error",
+  "ok": "Ok",
+  "hey_there" : "Hey There",
+  "welcome_back" : "WELCOME BACK",
+  "email" : "Email",
+  "password" : "Password",
+  "forget_password_ques" : "Forget Password ?",
+  "dont_have_account_yet" : "Don't have an account yet ? ",
+  "register" : "Register",
+  "or" : "Or",
+  "something_went_wrong": "Something went wrong. Please try again later",
+  "login_successfully": "Login successfully"
 }
