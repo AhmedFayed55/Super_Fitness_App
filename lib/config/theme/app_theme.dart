@@ -91,6 +91,7 @@ abstract class AppTheme {
           fontSize: 16,
           fontWeight: AppFontWeight.semiBold,
         ),
+
         // =======================
         // Headline Texts (Section Titles)
         // =======================
@@ -109,6 +110,7 @@ abstract class AppTheme {
           fontSize: 16,
           fontWeight: AppFontWeight.medium,
         ),
+
         // =======================
         // Title Texts (Common Text)
         // =======================
@@ -127,6 +129,7 @@ abstract class AppTheme {
           fontSize: 14,
           fontWeight: AppFontWeight.regular,
         ),
+
         // =======================
         // Body Texts (Paragraphs)
         // =======================
@@ -145,6 +148,7 @@ abstract class AppTheme {
           fontSize: 12,
           fontWeight: AppFontWeight.regular,
         ),
+
         // =======================
         // Label Texts (Buttons, Captions)
         // =======================
