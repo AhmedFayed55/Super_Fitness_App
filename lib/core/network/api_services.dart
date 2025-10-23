@@ -36,4 +36,9 @@ abstract class ApiServices {
   Future<ResetPasswordResponseDto> resetPassword(
     @Body() ResetPasswordRequestDto body,
   );
+
+  @POST(EndPoints.register)
+  Future<RegisterResponseModel> register(
+      @Body() RegisterRequestModel registerRequestModel,
+      );
 }
