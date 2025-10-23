@@ -1,4 +1,10 @@
 abstract class AppAssets {
+  static const String homeIcon = 'assets/icons/home_icon.svg';
+  static const String profileIcon = 'assets/icons/profile_icon.svg';
+  static const String workoutIcon = 'assets/icons/workout_icon.svg';
+  static const String chatBotIcon = 'assets/icons/chat_bot_icon.svg';
+}
+abstract class AppAssets {
   static const String onboardingMain = "assets/images/onboarding_1_bg.png";
   static const String onboarding1 = "assets/images/onboarding_1.png";
   static const String onboarding2 = "assets/images/onboarding_2.png";

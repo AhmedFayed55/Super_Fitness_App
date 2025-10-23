@@ -51,6 +51,11 @@
   "dont_have_account_yet" : "Don't have an account yet ? ",
   "register" : "Register",
   "or" : "Or",
+  "explore" : "Explore",
+  "chatbot" : "ChatBot",
+  "workout" : "Workout",
+  "profile" : "Profile"
+  "or" : "Or",
   "skip" : "Skip",
   "next" : "Next",
   "back" : "Back",
