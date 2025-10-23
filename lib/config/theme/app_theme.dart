@@ -19,7 +19,7 @@ abstract class AppTheme {
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
           backgroundColor: AppColors.lightOrange[10],
-          disabledBackgroundColor: AppColors.grey[10],
+          disabledBackgroundColor: AppColors.grey[60],
           foregroundColor: AppColors.white,
           minimumSize: const Size(double.infinity, 38),
           shape: RoundedRectangleBorder(
@@ -46,6 +46,7 @@ abstract class AppTheme {
           fontWeight: AppFontWeight.regular,
           color: AppColors.grey[90],
         ),
+
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(30),
           borderSide: const BorderSide(color: Color(0xFFD9D9D9)),

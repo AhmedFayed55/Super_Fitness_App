@@ -15,4 +15,10 @@ abstract class AppAssets {
   static const String workoutIcon = 'assets/icons/workout_icon.svg';
   static const String chatBotIcon = 'assets/icons/chat_bot_icon.svg';
   static const String background = "assets/images/background.png";
+  static const logoImage='assets/images/logo.png';
+  static const bgImagePng='assets/images/Rectangle1.png';
+  static const arrow_back='assets/images/arrow_back.png';
 }
+
+
+
