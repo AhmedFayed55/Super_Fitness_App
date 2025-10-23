@@ -7,3 +7,15 @@ class SubmitRegisterEvent extends RegisterEvent {
 
   SubmitRegisterEvent({required this.registerRequestModel});
 }
+
+class OnSelectedGoalEvent extends RegisterEvent {
+  final String? goal;
+
+  OnSelectedGoalEvent({required this.goal});
+}
+
+class OnSelectedActivityEvent extends RegisterEvent {
+  final String? activity;
+
+  OnSelectedActivityEvent({required this.activity});
+}

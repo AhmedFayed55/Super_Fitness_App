@@ -11,12 +11,18 @@ import 'package:super_fitness_app/features/auth/goal_and_activity/presentation/m
 class RegisterViewModel extends Cubit<RegisterState> {
   final RegisterUseCase registerUseCase;
 
-  RegisterViewModel({required this.registerUseCase}) : super(RegisterState());
+  RegisterViewModel({required this.registerUseCase}) : super(const RegisterState());
 
   Future<void> doIntent(RegisterEvent event) async {
     switch (event) {
       case SubmitRegisterEvent():
         await _submitRegister(event.registerRequestModel);
+        break;
+      case OnSelectedGoalEvent():
+          _onSelectedGoal(event.goal);
+        break;
+      case OnSelectedActivityEvent():
+        _onActivityGoal(event.activity);
         break;
     }
   }
@@ -56,5 +62,13 @@ class RegisterViewModel extends Cubit<RegisterState> {
           ),
         );
     }
+  }
+
+  void _onSelectedGoal(String? goal) {
+    emit(state.copyWith(goalSelected: goal));
+  }
+
+  void _onActivityGoal(String? activity) {
+    emit(state.copyWith(activitySelected: activity));
   }
 }
