@@ -51,6 +51,11 @@
   "dont_have_account_yet" : "Don't have an account yet ? ",
   "register" : "Register",
   "or" : "Or",
+  "skip" : "Skip",
+  "next" : "Next",
+  "back" : "Back",
+  "got_it" : "Got it"
+  "or" : "Or",
   "something_went_wrong": "Something went wrong. Please try again later",
   "login_successfully": "Login successfully"
 }

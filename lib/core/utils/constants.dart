@@ -8,4 +8,5 @@ abstract class AppConstants {
   static const String noInternet = 'No Internet Connection';
   static const int animateSeconds = 300;
   static const double blurSigma = 10;
+  static const String isOnBoardingSeen = 'onboarding_seen';
 }

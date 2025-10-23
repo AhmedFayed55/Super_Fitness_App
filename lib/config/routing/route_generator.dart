@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:super_fitness_app/features/auth/forget_password/presentation/pages/forget_password_screen.dart';
+import 'package:super_fitness_app/features/onBoarding/presentation/pages/onboarding_screen.dart';
 import '../../features/auth/login/presentation/pages/login_screen.dart';
 import 'app_routes.dart';
 
@@ -13,6 +14,10 @@ class RouteGenerator {
           builder: (context) => const ForgetPasswordScreen(),
         );
 
+      case AppRoutes.onboarding:
+        return MaterialPageRoute(
+          builder: (context) => const OnboardingScreen(),
+        );
       default:
         return unDefinedRoute();
     }
