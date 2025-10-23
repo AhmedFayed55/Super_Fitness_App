@@ -20,7 +20,7 @@ abstract class AppTheme {
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
           backgroundColor: AppColors.lightOrange[10],
-          disabledBackgroundColor: AppColors.grey[10],
+          disabledBackgroundColor: AppColors.grey[60],
           foregroundColor: AppColors.white,
           minimumSize: const Size(double.infinity, 38),
           shape: RoundedRectangleBorder(
@@ -44,28 +44,29 @@ abstract class AppTheme {
           color: AppColors.red,
         ),
         hintStyle: TextStyle(
-          fontSize: 12,
+          fontSize: 16,
           fontWeight: AppFontWeight.regular,
           color: AppColors.grey[90],
         ),
+
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(30),
           borderSide: const BorderSide(color: Color(0xFFD9D9D9)),
         ),
         focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(30),
           borderSide: BorderSide(color: AppColors.grey[90]!),
         ),
         enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(30),
           borderSide: BorderSide(color: AppColors.grey[90]!),
         ),
         errorBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(30),
           borderSide: const BorderSide(color: AppColors.red),
         ),
         focusedErrorBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(30),
           borderSide: const BorderSide(color: AppColors.red),
         ),
       ),
