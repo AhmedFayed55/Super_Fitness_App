@@ -2,6 +2,8 @@ import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:super_fitness_app/core/network/network_constants.dart';
+import 'package:super_fitness_app/features/auth/goal_and_activity/data/models/register_request_model.dart';
+import 'package:super_fitness_app/features/auth/goal_and_activity/data/models/register_response_model.dart';
 import 'package:super_fitness_app/features/auth/login/data/models/response/login_response_dto.dart';
 import '../../features/auth/login/data/models/request/login_request_dto.dart';
 import 'package:super_fitness_app/features/auth/forget_password/data_sources/models/request/forget_password_request_dto.dart';

@@ -4,7 +4,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:super_fitness_app/core/extensions/extensions.dart';
 import 'package:super_fitness_app/core/utils/constants.dart';
 import 'package:super_fitness_app/core/utils/keys.dart';
-import 'package:super_fitness_app/features/auth/register/manager/register_view_model.dart';
+import 'package:super_fitness_app/features/auth/goal_and_activity/presentation/manager/register_view_model.dart';
 import 'package:super_fitness_app/features/auth/register/presentation/widget/content_text_fields.dart';
 import 'package:super_fitness_app/features/auth/register/presentation/widget/custom_circle_avatar.dart';
 import 'package:super_fitness_app/features/auth/register/presentation/widget/register_actions.dart';

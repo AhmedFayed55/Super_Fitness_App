@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:super_fitness_app/config/routing/app_routes.dart';
+import 'package:super_fitness_app/config/routing/routing_extensions.dart';
 import 'package:super_fitness_app/core/extensions/extensions.dart';
 import 'package:super_fitness_app/core/helpers/flutter_toast.dart';
 import 'package:super_fitness_app/core/helpers/spacing.dart';
@@ -58,8 +60,8 @@ class _BlurWidgetState extends State<BlurWidget> {
                         listener: (context, state) {
                           if(state.isSuccess){
                             ToastMessage.toastMsg(locale.login_successfully);
-                            Future.delayed(const Duration(seconds: 2),(){
-                              // todo: navigate to home screen
+                            Future.delayed(const Duration(seconds: 1),(){
+                              context.pushNamedAndRemoveUntil(AppRoutes.appSections, predicate: (route) => false,);
                             });
                           } else if(state.errorMsg != null && state.showToast){
                             ToastMessage.toastMsg(state.errorMsg ?? locale.something_went_wrong,backgroundColor: theme.colorScheme.error);
@@ -111,12 +113,14 @@ class _BlurWidgetState extends State<BlurWidget> {
                               verticalSpace(8),
                               Align(
                                 alignment: Alignment.centerRight,
-                                child: Text(
+                                child: TextButton(onPressed: (){
+                                  context.pushNamed(AppRoutes.forgetPassword);
+                                }, child: Text(
                                   locale.forget_password_ques,
                                   style: theme.textTheme.titleSmall!.copyWith(
                                     color: theme.colorScheme.primary,
                                   ),
-                                ),
+                                ),),
                               ),
                               verticalSpace(height * .029),
                               const OrDividerWidget(),

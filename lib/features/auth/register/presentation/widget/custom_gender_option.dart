@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:super_fitness_app/core/extensions/extensions.dart';
 import 'package:super_fitness_app/core/helpers/spacing.dart';
 import 'package:super_fitness_app/core/utils/font_weight.dart';
@@ -13,7 +14,7 @@ class CustomGenderOption extends StatelessWidget {
   });
   final bool selected;
   final String label;
-  final IconData icon;
+  final String icon;
   final VoidCallback onTap;
 
   @override
@@ -24,6 +25,7 @@ class CustomGenderOption extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: Container(
+        padding: const EdgeInsets.all(10),
         height: height * .13,
         width: width * .25,
         decoration: BoxDecoration(
@@ -38,7 +40,7 @@ class CustomGenderOption extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Icon(icon, color: color.onPrimary, size: width * .10),
+              SvgPicture.asset(icon,fit: BoxFit.cover,),
               verticalSpace(height * .01),
               Text(
                 label,

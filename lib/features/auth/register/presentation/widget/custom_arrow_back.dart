@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:super_fitness_app/core/extensions/extensions.dart';
 import 'package:super_fitness_app/core/utils/assets.dart';
-import 'package:super_fitness_app/features/auth/register/manager/register_view_model.dart';
+import 'package:super_fitness_app/features/auth/goal_and_activity/presentation/manager/register_view_model.dart';
 
 class BackArrowButton extends StatelessWidget {
   const BackArrowButton({super.key});
@@ -23,7 +23,7 @@ class BackArrowButton extends StatelessWidget {
         height: height * 0.06,
         decoration: BoxDecoration(color: color.primary, shape: BoxShape.circle),
         child: Center(
-          child: Image.asset(AppAssets.arrow_back, color: color.onPrimary),
+          child: Image.asset(AppAssets.arrowback, color: color.onPrimary),
         ),
       ),
     );

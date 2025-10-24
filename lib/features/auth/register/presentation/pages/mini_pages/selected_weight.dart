@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:super_fitness_app/core/extensions/extensions.dart';
 import 'package:super_fitness_app/core/utils/constants.dart';
-import 'package:super_fitness_app/features/auth/register/manager/register_event.dart';
-import 'package:super_fitness_app/features/auth/register/manager/register_view_model.dart';
+import 'package:super_fitness_app/features/auth/goal_and_activity/presentation/manager/register_event.dart';
+import 'package:super_fitness_app/features/auth/goal_and_activity/presentation/manager/register_view_model.dart';
 import 'package:super_fitness_app/features/auth/register/presentation/widget/custom_selected_number.dart';
 import 'package:super_fitness_app/features/auth/register/presentation/widget/custom_bar_text.dart';
 

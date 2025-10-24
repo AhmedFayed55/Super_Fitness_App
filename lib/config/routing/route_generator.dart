@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:super_fitness_app/features/auth/forget_password/presentation/pages/forget_password_screen.dart';
+import 'package:super_fitness_app/features/auth/register/presentation/pages/register_screen.dart';
 import 'package:super_fitness_app/features/onBoarding/presentation/pages/onboarding_screen.dart';
 import 'package:super_fitness_app/features/app_sections/app_sections.dart';
 import 'package:super_fitness_app/features/auth/goal_and_activity/presentation/pages/activity_screen.dart';
@@ -28,6 +29,9 @@ class RouteGenerator {
 
       case AppRoutes.activityScreen:
         return MaterialPageRoute(builder: (context) =>  ActivityScreen());
+
+      case AppRoutes.registerScreen:
+        return MaterialPageRoute(builder: (context) =>  const RegisterScreen());
 
       default:
         return unDefinedRoute();

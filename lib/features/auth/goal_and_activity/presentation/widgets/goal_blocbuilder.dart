@@ -87,10 +87,10 @@ class GoalBlocBuilder extends StatelessWidget {
                 itemCount: goals.length,
               ),
               CustomElevatedButton(
-                onPressed: () {
+                onPressed: state.goalSelected != null ? () {
                   /// Button OnPressed
-                  // registerViewModel.doIntent(SubmitRegisterEvent(registerRequestModel: registerRequestModel))
-                },
+                  context.read<RegisterViewModel>().pageController.nextPage(duration: Duration(microseconds: 300), curve: Curves.bounceIn);
+                } : null,
                 isLoading: false,
                 widget: Text(context.localization.next),
               ),

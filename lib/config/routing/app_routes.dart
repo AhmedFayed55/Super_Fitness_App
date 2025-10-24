@@ -5,4 +5,5 @@ abstract class AppRoutes {
   static const String appSections = "/appSections";
   static const String goalScreen = "/goalScreen";
   static const String activityScreen = "/activityScreen";
+  static const String registerScreen = "/registerScreen";
 }
