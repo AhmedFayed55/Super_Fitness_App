@@ -3,6 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:super_fitness_app/config/routing/app_routes.dart';
 import 'package:super_fitness_app/core/di/di.dart';
 import 'package:super_fitness_app/core/general_cubits/locale_cubit.dart';
+import 'package:super_fitness_app/core/helpers/shared_pref.dart';
+import 'package:super_fitness_app/core/utils/constants.dart';
 import 'config/routing/route_generator.dart';
 import 'config/theme/app_theme.dart';
 import 'core/l10n/translations/app_localizations.dart';
@@ -32,7 +34,9 @@ class SuperFitnessApp extends StatelessWidget {
           theme: AppTheme.darkTheme,
           debugShowCheckedModeBanner: false,
           onGenerateRoute: RouteGenerator.getRoute,
-          initialRoute: AppRoutes.onboarding,
+          initialRoute: getIt<SharedPrefHelper>().getData(key: AppConstants.isOnBoardingSeen)!= null
+              ? AppRoutes.login
+              : AppRoutes.onboarding,
         );
       },
     );

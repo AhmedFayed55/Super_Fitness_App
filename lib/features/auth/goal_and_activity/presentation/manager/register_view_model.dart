@@ -11,14 +11,10 @@ import 'package:super_fitness_app/features/auth/goal_and_activity/presentation/m
 @injectable
 class RegisterViewModel extends Cubit<RegisterState> {
   final RegisterUseCase registerUseCase;
-  // TextEditingController emailController = TextEditingController();
-  // TextEditingController passwordController = TextEditingController();
-  // TextEditingController firstName = TextEditingController();
-  // TextEditingController lastName = TextEditingController();
-  TextEditingController emailController = TextEditingController(text: "mostafa111@gmail.com");
-  TextEditingController passwordController = TextEditingController(text: "Mostafa@123");
-  TextEditingController firstName = TextEditingController(text: "MostafaMo");
-  TextEditingController lastName = TextEditingController(text: "Amer");
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+  TextEditingController firstName = TextEditingController();
+  TextEditingController lastName = TextEditingController();
   PageController pageController = PageController();
 
   RegisterViewModel({required this.registerUseCase}) : super( const RegisterState());

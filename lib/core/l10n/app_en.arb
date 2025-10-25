@@ -77,5 +77,6 @@
   "back" : "Back",
   "got_it" : "Got it",
   "something_went_wrong": "Something went wrong. Please try again later",
-  "login_successfully": "Login successfully"
+  "login_successfully": "Login successfully",
+  "register_successfully": "Register successfully"
 }

@@ -33,8 +33,8 @@ class ActivityBlocBuilder extends StatelessWidget {
     return BlocConsumer<RegisterViewModel, RegisterState>(
         listener: (context, state) {
           if(state.isSuccess){
-            ToastMessage.toastMsg(context.localization.login_successfully);
-            Future.delayed(const Duration(seconds: 2),() {
+            ToastMessage.toastMsg(context.localization.register_successfully);
+            Future.delayed(const Duration(milliseconds: 500),() {
               context.pushNamedAndRemoveUntil(AppRoutes.login, predicate: (route) => false,);
             });
           } else if(state.isError && state.showToast){
@@ -112,7 +112,7 @@ class ActivityBlocBuilder extends StatelessWidget {
                   /// Button OnPressed
                   context.read<RegisterViewModel>().doIntent(SubmitRegisterEvent(activityLevel: selectedActivityLevel));
                 } : null,
-                isLoading: false,
+                isLoading: state.isLoading,
                 widget: Text(context.localization.next),
               ),
             ],
