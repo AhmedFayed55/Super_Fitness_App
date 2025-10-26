@@ -25,8 +25,8 @@ class ForgetPasswordOtpPage extends StatefulWidget {
 class _ForgetPasswordOtpPageState extends State<ForgetPasswordOtpPage> {
   @override
   void dispose() {
-    context.read<ForgetPasswordViewModel>().otpController.dispose();
-    super.dispose();
+ context.read<ForgetPasswordViewModel>().doIntent(CloseForgetPasswordEvent());
+  super.dispose();
   }
 
   @override
@@ -118,7 +118,9 @@ class _ForgetPasswordOtpPageState extends State<ForgetPasswordOtpPage> {
                                   final otp = viewModel.otpController.text;
                                   if (otp.length == 6) {
                                     FocusScope.of(context).unfocus();
-                                    viewModel.doIntent(VerifyCodeEvent());
+                                    viewModel.doIntent(
+                                      VerifyCodeEvent(code: otp),
+                                    );
                                   }
                                 },
                         ),
@@ -136,7 +138,9 @@ class _ForgetPasswordOtpPageState extends State<ForgetPasswordOtpPage> {
                               onPressed: () {
                                 FocusScope.of(context).unfocus();
                                 if (state.email != null) {
-                                  viewModel.doIntent(ForgetPasswordEvent());
+                                  viewModel.doIntent(
+                                    ForgetPasswordEvent(email: state.email!),
+                                  );
                                 }
                               },
                               text: tr.resend_code,

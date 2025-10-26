@@ -28,7 +28,9 @@ class _ForgetPasswordResetPageState extends State<ForgetPasswordResetPage> {
 
   @override
   void dispose() {
-    context.read<ForgetPasswordViewModel>().passwordController.dispose();
+    context.read<ForgetPasswordViewModel>().doIntent(
+      CloseForgetPasswordEvent(),
+    );
     super.dispose();
   }
 
@@ -130,7 +132,12 @@ class _ForgetPasswordResetPageState extends State<ForgetPasswordResetPage> {
                               ? () {}
                               : () {
                                   if (_formKey.currentState!.validate()) {
-                                    viewModel.doIntent(ResetPasswordEvent());
+                                    viewModel.doIntent(
+                                      ResetPasswordEvent(
+                                        password:
+                                            viewModel.passwordController.text,
+                                      ),
+                                    );
                                   }
                                   FocusScope.of(context).unfocus();
                                 },

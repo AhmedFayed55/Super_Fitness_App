@@ -1,15 +1,20 @@
 sealed class ForgetPasswordPageEvent {}
 
 class ForgetPasswordEvent extends ForgetPasswordPageEvent {
-  ForgetPasswordEvent();
-}
-
-class ResetPasswordEvent extends ForgetPasswordPageEvent {
-  ResetPasswordEvent();
+  final String email;
+  ForgetPasswordEvent({required this.email});
 }
 
 class VerifyCodeEvent extends ForgetPasswordPageEvent {
-  VerifyCodeEvent();
+  final String code;
+  VerifyCodeEvent({required this.code});
+}
+
+class ResetPasswordEvent extends ForgetPasswordPageEvent {
+  final String password;
+  ResetPasswordEvent({required this.password});
 }
 
 class TogglePasswordVisibilityEvent extends ForgetPasswordPageEvent {}
+
+class CloseForgetPasswordEvent extends ForgetPasswordPageEvent {}

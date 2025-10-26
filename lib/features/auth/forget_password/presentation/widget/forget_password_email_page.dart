@@ -26,8 +26,8 @@ class _ForgetPasswordEmailPageState extends State<ForgetPasswordEmailPage> {
 
   @override
   void dispose() {
-    super.dispose();
-    context.read<ForgetPasswordViewModel>().emailController.dispose();
+ context.read<ForgetPasswordViewModel>().doIntent(CloseForgetPasswordEvent());
+  super.dispose();
   }
 
   @override
@@ -121,7 +121,11 @@ class _ForgetPasswordEmailPageState extends State<ForgetPasswordEmailPage> {
                                 : () {
                                     if (_formKey.currentState!.validate()) {
                                       FocusScope.of(context).unfocus();
-                                      viewModel.doIntent(ForgetPasswordEvent());
+                                      viewModel.doIntent(
+                                        ForgetPasswordEvent(
+                                          email: viewModel.emailController.text,
+                                        ),
+                                      );
                                     }
                                   },
                             isLoading: isLoading,

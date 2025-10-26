@@ -12,7 +12,7 @@ class ForgetPasswordUseCase {
 
   Future<ApiResult<ForgetPasswordResponseEntity>> invoke(
     ForgetPasswordRequestEntity request,
-  ) async {
-    return await _repository.forgetPassword(request);
+  ) {
+    return _repository.forgetPassword(request);
   }
 }

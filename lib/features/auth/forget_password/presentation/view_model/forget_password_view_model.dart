@@ -31,16 +31,22 @@ class ForgetPasswordViewModel extends Cubit<ForgetPasswordState> {
   Future<void> doIntent(ForgetPasswordPageEvent event) async {
     switch (event) {
       case ForgetPasswordEvent():
-        forgetPassword(emailController.text);
+        await forgetPassword(event.email);
         break;
+
       case VerifyCodeEvent():
-        verifyCode(otpController.text);
+        await verifyCode(event.code);
         break;
+
       case ResetPasswordEvent():
-        resetPassword(passwordController.text);
+        await resetPassword(event.password);
         break;
+
       case TogglePasswordVisibilityEvent():
         emit(state.copyWith(isPasswordObscure: !state.isPasswordObscure));
+        break;
+      case CloseForgetPasswordEvent():
+        await _close();
         break;
     }
   }
@@ -181,7 +187,7 @@ class ForgetPasswordViewModel extends Cubit<ForgetPasswordState> {
   }
 
   @override
-  Future<void> close() {
+  Future<void> _close() {
     emailController.dispose();
     otpController.dispose();
     passwordController.dispose();
