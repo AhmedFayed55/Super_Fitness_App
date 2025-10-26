@@ -42,76 +42,83 @@ class _RegisterScreenState extends State<RegisterScreen> {
       child: Builder(
         builder: (context) {
           return Scaffold(
-            body: Stack(
-              children: [
-                Image.asset(
-                  AppAssets.bgImagePng,
-                  fit: BoxFit.cover,
-                  width: double.infinity,
-                  height: double.infinity,
-                ),
+            body: SizedBox(
+              width: double.infinity,
+              height: double.infinity,
+              child: Stack(
+                children: [
+                  Image.asset(
+                    AppAssets.bgImagePng,
+                    fit: BoxFit.cover,
+                    width: double.infinity,
+                    height: double.infinity,
+                  ),
 
-                Column(
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.only(
-                        top: height * .06,
-                        left: width * .03,
-                        right: width * .03,
-                      ),
-                      child: Stack(
-                        alignment: Alignment.center,
-                        children: [
-                          Image.asset(AppAssets.logoImage, width: width * 0.35),
-
-                          if (_currentPage > 1) ...[
-                            const Align(
-                              alignment: Alignment.centerLeft,
-                              child: BackArrowButton(),
+                  Column(
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.only(
+                          top: height * .06,
+                          left: width * .03,
+                          right: width * .03,
+                        ),
+                        child: Stack(
+                          alignment: Alignment.center,
+                          children: [
+                            Image.asset(
+                              AppAssets.logoImage,
+                              width: width * 0.35,
                             ),
+
+                            if (_currentPage > 1) ...[
+                              const Align(
+                                alignment: Alignment.centerLeft,
+                                child: BackArrowButton(),
+                              ),
+                            ],
                           ],
-                        ],
-                      ),
-                    ),
-                    if (_currentPage > 0) ...[
-                      verticalSpace(height * .07),
-                      SizedBox(
-                        width: 40,
-                        height: 40,
-                        child: CircularPercentIndicator(
-                          backgroundColor: Colors.transparent,
-                          radius: 20.0,
-                          lineWidth: width * .01,
-                          percent: (_currentPage) / 5,
-                          center: Text('$_currentPage/ 6'),
-                          progressColor: color.primary,
                         ),
                       ),
-                      verticalSpace(height * .03),
-                    ],
-                    Expanded(
-                      child: PageView(
-                        physics: const NeverScrollableScrollPhysics(),
-                        onPageChanged: (index) {
-                          setState(() {
-                            _currentPage = index;
-                          });
-                        },
-                        controller: context
-                            .read<RegisterViewModel>()
-                            .pageController,
-                        children: const [
-                          CustomMainRegister(),
-                          SelectedGender(),
-                          SelectedAge(),
-                          SelectedWeight(),
-                          SelectedHight(),
-                        ],
+                      if (_currentPage > 0) ...[
+                        verticalSpace(height * .07),
+                        SizedBox(
+                          width: 40,
+                          height: 40,
+                          child: CircularPercentIndicator(
+                            backgroundColor: Colors.transparent,
+                            radius: 20.0,
+                            lineWidth: width * .01,
+                            percent: (_currentPage) / 5,
+                            center: Text('$_currentPage/ 6'),
+                            progressColor: color.primary,
+                          ),
+                        ),
+                        verticalSpace(height * .03),
+                      ],
+                      Expanded(
+                        child: PageView(
+                          physics: const NeverScrollableScrollPhysics(),
+                          onPageChanged: (index) {
+                            setState(() {
+                              _currentPage = index;
+                            });
+                          },
+                          controller: context
+                              .read<RegisterViewModel>()
+                              .pageController,
+                          children: const [
+                            CustomMainRegister(),
+                            SelectedGender(),
+                            SelectedAge(),
+                            SelectedWeight(),
+                            SelectedHight(),
+                          ],
+                        ),
                       ),
-                    ),
-                  ],
-                ),
-              ],
+                    ],
+                  ),
+                ],
+              ),
             ),
           );
         },

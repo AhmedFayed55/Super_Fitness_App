@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:super_fitness_app/core/extensions/extensions.dart';
 import 'package:super_fitness_app/core/utils/assets.dart';
+import 'package:super_fitness_app/core/utils/constants.dart';
 import 'package:super_fitness_app/features/auth/register/manager/register_view_model.dart';
 
 class BackArrowButton extends StatelessWidget {
@@ -15,7 +16,7 @@ class BackArrowButton extends StatelessWidget {
     return GestureDetector(
       onTap: () =>
           context.read<RegisterViewModel>().pageController.previousPage(
-            duration: const Duration(milliseconds: 300),
+            duration: const Duration(milliseconds: AppConstants.registerDuration),
             curve: Curves.easeInOut,
           ),
       child: Container(

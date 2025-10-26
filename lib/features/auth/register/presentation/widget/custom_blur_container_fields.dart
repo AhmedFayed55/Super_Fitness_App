@@ -13,7 +13,10 @@ class CustomBlurContainerFields extends StatelessWidget {
     return ClipRRect(
       borderRadius: BorderRadius.circular(screenWidth * .1),
       child: BackdropFilter(
-        filter: ImageFilter.blur(sigmaX: AppConstants.blurValueRegister, sigmaY: AppConstants.blurValueRegister),
+        filter: ImageFilter.blur(
+          sigmaX: AppConstants.blurValueRegister,
+          sigmaY: AppConstants.blurValueRegister,
+        ),
         child: const IntrinsicHeight(
           child: SizedBox(
             key: Key(AppKeys.blurContainerSizedBox),

@@ -24,7 +24,7 @@ class _ContentTextFieldsState extends State<ContentTextFields> {
   Widget build(BuildContext context) {
     final registerViewModel = context.read<RegisterViewModel>();
     var locale = context.localization;
-    final double fieldWidth = MediaQuery.of(context).size.width * 0.1;
+    final double fieldWidth = MediaQuery.of(context).size.width * 0.01;
 
     return Padding(
       padding: EdgeInsets.only(left: fieldWidth, right: fieldWidth),

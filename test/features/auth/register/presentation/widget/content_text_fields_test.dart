@@ -13,7 +13,7 @@ void main() {
       viewModel = RegisterViewModel();
     });
 
-    Future<void> _pumpWidget(WidgetTester tester) async {
+    Future<void> pumpWidget(WidgetTester tester) async {
       await tester.pumpWidget(
         MaterialApp(
           localizationsDelegates: AppLocalizations.localizationsDelegates,
@@ -32,7 +32,7 @@ void main() {
     testWidgets('renders all input fields correctly', (
       WidgetTester tester,
     ) async {
-      await _pumpWidget(tester);
+      await pumpWidget(tester);
 
       // 4 TextFormFields
       expect(find.byType(TextFormField), findsNWidgets(4));
@@ -45,7 +45,7 @@ void main() {
     testWidgets('password visibility toggles correctly', (
       WidgetTester tester,
     ) async {
-      await _pumpWidget(tester);
+      await pumpWidget(tester);
 
       expect(find.byIcon(Icons.visibility_off), findsOneWidget);
 
@@ -58,7 +58,7 @@ void main() {
     testWidgets('validators show error messages when fields are empty', (
       WidgetTester tester,
     ) async {
-      await _pumpWidget(tester);
+      await pumpWidget(tester);
 
       final formFinder = find.byType(Form);
       expect(formFinder, findsNothing);
@@ -90,7 +90,7 @@ void main() {
     testWidgets('typing in fields updates controllers correctly', (
       WidgetTester tester,
     ) async {
-      await _pumpWidget(tester);
+      await pumpWidget(tester);
 
       await tester.enterText(find.byType(TextFormField).at(0), 'Yahya');
       await tester.enterText(find.byType(TextFormField).at(1), 'Mohamed');

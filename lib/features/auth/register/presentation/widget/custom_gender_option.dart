@@ -21,33 +21,34 @@ class CustomGenderOption extends StatelessWidget {
     var color = context.colorScheme;
     var height = MediaQuery.sizeOf(context).height;
     var width = MediaQuery.sizeOf(context).width;
+    final double size = (width < height ? width : height) * 0.22;
     return InkWell(
+      borderRadius: BorderRadius.circular(size / 2),
       onTap: onTap,
       child: Container(
-        height: height * .13,
-        width: width * .25,
+        height:size,
+        width: size,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(width * .8),
+          shape: BoxShape.circle,
           border: Border.all(
             color: selected ? color.primary : color.onPrimary,
             width: 2,
           ),
           color: selected ? color.primary : Colors.transparent,
         ),
-        child: Flexible(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Icon(icon, color: color.onPrimary, size: width * .10),
-              verticalSpace(height * .01),
-              Text(
-                label,
-                style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                  fontWeight: AppFontWeight.semiBold,
-                ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(icon, color: color.onPrimary, size: width * .10),
+            verticalSpace(height * .01),
+            Text(
+              label,
+              style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                fontWeight: AppFontWeight.semiBold,
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
