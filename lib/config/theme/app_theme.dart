@@ -16,11 +16,10 @@ abstract class AppTheme {
           color: AppColors.white,
         ),
       ),
-      dividerColor: AppColors.grey[90],
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
           backgroundColor: AppColors.lightOrange[10],
-          disabledBackgroundColor: AppColors.grey[10],
+          disabledBackgroundColor: AppColors.grey[60],
           foregroundColor: AppColors.white,
           minimumSize: const Size(double.infinity, 38),
           shape: RoundedRectangleBorder(
@@ -37,35 +36,35 @@ abstract class AppTheme {
       inputDecorationTheme: InputDecorationTheme(
         prefixIconColor: AppColors.grey[90],
         suffixIconColor: AppColors.grey[90],
-
         errorStyle: const TextStyle(
           fontSize: 12,
           fontWeight: AppFontWeight.regular,
           color: AppColors.red,
         ),
         hintStyle: TextStyle(
-          fontSize: 12,
+          fontSize: 16,
           fontWeight: AppFontWeight.regular,
           color: AppColors.grey[90],
         ),
+
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(30),
           borderSide: const BorderSide(color: Color(0xFFD9D9D9)),
         ),
         focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(30),
           borderSide: BorderSide(color: AppColors.grey[90]!),
         ),
         enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(30),
           borderSide: BorderSide(color: AppColors.grey[90]!),
         ),
         errorBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(30),
           borderSide: const BorderSide(color: AppColors.red),
         ),
         focusedErrorBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(30),
           borderSide: const BorderSide(color: AppColors.red),
         ),
       ),
@@ -91,6 +90,7 @@ abstract class AppTheme {
           fontSize: 16,
           fontWeight: AppFontWeight.semiBold,
         ),
+
         // =======================
         // Headline Texts (Section Titles)
         // =======================
@@ -109,6 +109,7 @@ abstract class AppTheme {
           fontSize: 16,
           fontWeight: AppFontWeight.medium,
         ),
+
         // =======================
         // Title Texts (Common Text)
         // =======================
@@ -127,6 +128,7 @@ abstract class AppTheme {
           fontSize: 14,
           fontWeight: AppFontWeight.regular,
         ),
+
         // =======================
         // Body Texts (Paragraphs)
         // =======================
@@ -145,6 +147,7 @@ abstract class AppTheme {
           fontSize: 12,
           fontWeight: AppFontWeight.regular,
         ),
+
         // =======================
         // Label Texts (Buttons, Captions)
         // =======================
@@ -179,6 +182,7 @@ abstract class AppTheme {
       surface: AppColors.white,
       shadow: AppColors.black,
       onSurface: AppColors.grey,
+      outline: AppColors.grey[90]
     ),
   );
 }
