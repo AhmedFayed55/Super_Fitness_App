@@ -25,8 +25,10 @@ class ForgetPasswordOtpPage extends StatefulWidget {
 class _ForgetPasswordOtpPageState extends State<ForgetPasswordOtpPage> {
   @override
   void dispose() {
- context.read<ForgetPasswordViewModel>().doIntent(CloseForgetPasswordEvent());
-  super.dispose();
+    context.read<ForgetPasswordViewModel>().doIntent(
+      CloseForgetPasswordEvent(),
+    );
+    super.dispose();
   }
 
   @override

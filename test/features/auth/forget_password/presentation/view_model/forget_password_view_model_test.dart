@@ -24,6 +24,7 @@ void main() {
   late MockResetPasswordUseCase mockResetPasswordUseCase;
   late MockVerifyResetCodeUseCase mockVerifyResetCodeUseCase;
   late ForgetPasswordViewModel vm;
+
   setUpAll(() {
     provideDummy<ApiResult<ForgetPasswordResponseEntity>>(
       ApiErrorResult(failure: Failure(errorMessage: 'dummy')),
@@ -141,38 +142,42 @@ void main() {
       expect(vm.state.isPasswordObscure, !initial);
     });
 
-    test('doIntent dispatches ForgetPasswordEvent correctly', () async {
-      when(
-        mockForgetPasswordUseCase.invoke(any),
-      ).thenAnswer((_) async => ApiSuccessResult(data: forgetPasswordResponse));
+    test(
+      'doIntent dispatches ForgetPasswordEvent with email correctly',
+      () async {
+        when(mockForgetPasswordUseCase.invoke(any)).thenAnswer(
+          (_) async => ApiSuccessResult(data: forgetPasswordResponse),
+        );
 
-      vm.emailController.text = 'mail@test.com';
-      await vm.doIntent(ForgetPasswordEvent());
+        await vm.doIntent(ForgetPasswordEvent(email: 'mail@test.com'));
 
-      expect(vm.state.isVerifyCodeSent, true);
-    });
+        expect(vm.state.isVerifyCodeSent, true);
+      },
+    );
 
-    test('doIntent dispatches VerifyCodeEvent correctly', () async {
+    test('doIntent dispatches VerifyCodeEvent with code correctly', () async {
       when(
         mockVerifyResetCodeUseCase.invoke(any),
       ).thenAnswer((_) async => ApiSuccessResult(data: verifyCodeResponse));
 
-      vm.otpController.text = '9999';
-      await vm.doIntent(VerifyCodeEvent());
+      await vm.doIntent(VerifyCodeEvent(code: '9999'));
 
       expect(vm.state.isOtpCorrect, true);
     });
 
-    test('doIntent dispatches ResetPasswordEvent correctly', () async {
-      when(
-        mockResetPasswordUseCase.invoke(any),
-      ).thenAnswer((_) async => ApiSuccessResult(data: resetPasswordResponse));
+    test(
+      'doIntent dispatches ResetPasswordEvent with password correctly',
+      () async {
+        vm.emit(vm.state.copyWith(email: 'a@b.com'));
+        when(mockResetPasswordUseCase.invoke(any)).thenAnswer(
+          (_) async => ApiSuccessResult(data: resetPasswordResponse),
+        );
 
-      vm.passwordController.text = 'secret';
-      await vm.doIntent(ResetPasswordEvent());
+        await vm.doIntent(ResetPasswordEvent(password: 'secret'));
 
-      expect(vm.state.isPasswordReset, true);
-    });
+        expect(vm.state.isPasswordReset, true);
+      },
+    );
 
     test(
       'doIntent dispatches TogglePasswordVisibilityEvent correctly',
@@ -180,6 +185,14 @@ void main() {
         final initial = vm.state.isPasswordObscure;
         await vm.doIntent(TogglePasswordVisibilityEvent());
         expect(vm.state.isPasswordObscure, !initial);
+      },
+    );
+
+    test(
+      'doIntent dispatches CloseForgetPasswordEvent and disposes controllers',
+      () async {
+        await vm.doIntent(CloseForgetPasswordEvent());
+        expect(() => vm.emailController.text, returnsNormally);
       },
     );
   });

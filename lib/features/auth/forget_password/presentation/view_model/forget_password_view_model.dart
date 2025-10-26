@@ -186,7 +186,6 @@ class ForgetPasswordViewModel extends Cubit<ForgetPasswordState> {
     emit(state.copyWith(isPasswordObscure: !state.isPasswordObscure));
   }
 
-  @override
   Future<void> _close() {
     emailController.dispose();
     otpController.dispose();
