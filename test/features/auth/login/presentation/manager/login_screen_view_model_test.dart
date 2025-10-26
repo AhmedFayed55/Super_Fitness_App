@@ -13,23 +13,22 @@ import 'login_screen_view_model_test.mocks.dart';
 
 @GenerateMocks([LoginUseCase])
 void main() {
-
   late LoginUseCase useCase;
   late LoginScreenViewModel viewModel;
   late UserResponseEntity successResponse;
   late LoginRequestEntity requestEntity;
 
-  setUp((){
+  setUp(() {
     useCase = MockLoginUseCase();
     viewModel = LoginScreenViewModel(useCase);
-    successResponse = const UserResponseEntity(
-      id: "65312",firstName: "Ahmed"
+    successResponse = const UserResponseEntity(id: "65312", firstName: "Ahmed");
+    requestEntity = const LoginRequestEntity(
+      email: "ahmed@gmail.com",
+      password: "Ahmed@123",
     );
-    requestEntity = const LoginRequestEntity(email: "ahmed@gmail.com", password: "Ahmed@123");
   });
 
-  group("doIntent -> login", (){
-
+  group("doIntent -> login", () {
     test("initial state should have default values", () {
       expect(viewModel.state.isLoading, false);
       expect(viewModel.state.isSuccess, false);
@@ -39,7 +38,9 @@ void main() {
     });
 
     test("emit success state when response is ApiSuccessResult", () async {
-      var successLogin = ApiSuccessResult<UserResponseEntity>(data: successResponse);
+      var successLogin = ApiSuccessResult<UserResponseEntity>(
+        data: successResponse,
+      );
 
       provideDummy<ApiResult<UserResponseEntity>>(successLogin);
 
@@ -66,7 +67,9 @@ void main() {
 
       provideDummy<ApiResult<UserResponseEntity>>(errorResponse);
 
-      when(useCase.invoke(requestEntity)).thenAnswer((_) async => errorResponse);
+      when(
+        useCase.invoke(requestEntity),
+      ).thenAnswer((_) async => errorResponse);
 
       viewModel.emailController.text = requestEntity.email;
       viewModel.passController.text = requestEntity.password;
@@ -78,10 +81,11 @@ void main() {
       expect(viewModel.state.isLoading, false);
       expect(viewModel.state.userData, null);
       expect(viewModel.state.isSuccess, false);
-      expect(viewModel.state.errorMsg, equals(errorResponse.failure.errorMessage));
+      expect(
+        viewModel.state.errorMsg,
+        equals(errorResponse.failure.errorMessage),
+      );
       expect(viewModel.state.showToast, true);
     });
-
-
   });
 }

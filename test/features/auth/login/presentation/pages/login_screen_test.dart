@@ -21,7 +21,7 @@ void main() {
   late LocaleCubit localeCubit;
   late AppLocalizations localization;
 
-  Widget _buildLoginScreen() {
+  Widget buildLoginScreen() {
     return MaterialApp(
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
@@ -71,7 +71,7 @@ void main() {
   testWidgets('Verify LoginScreen structure correctly', (
     WidgetTester tester,
   ) async {
-    await tester.pumpWidget(_buildLoginScreen());
+    await tester.pumpWidget(buildLoginScreen());
     expect(find.text(localization.hey_there), findsOneWidget);
     expect(find.text(localization.welcome_back), findsOneWidget);
     expect(find.text(localization.login), findsNWidgets(2));
@@ -96,7 +96,7 @@ void main() {
     expect(find.byType(BlurWidget), findsOneWidget);
     expect(find.byType(Divider), findsNWidgets(2));
     expect(find.byType(CustomElevatedButton), findsOneWidget);
-    expect(find.byType(Align), findsOneWidget);
+    expect(find.byType(Align), findsNWidgets(4));
     expect(find.byType(IntrinsicHeight), findsNWidgets(2));
     expect(find.byType(Form), findsOneWidget);
     final backgroundFinder = find.byWidgetPredicate(

@@ -17,7 +17,7 @@ class OrDividerWidget extends StatelessWidget {
             color: colors.outline,
           ),
         ),
-        Text(context.localization.or,style: context.textTheme.bodyMedium),
+        Text(context.localization.or, style: context.textTheme.bodyMedium),
         Expanded(
           child: Divider(
             thickness: 2,

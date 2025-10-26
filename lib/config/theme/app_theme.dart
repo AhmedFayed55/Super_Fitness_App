@@ -177,7 +177,7 @@ abstract class AppTheme {
       surface: AppColors.white,
       shadow: AppColors.black,
       onSurface: AppColors.grey,
-      outline: AppColors.grey[90]
+      outline: AppColors.grey[90],
     ),
   );
 }

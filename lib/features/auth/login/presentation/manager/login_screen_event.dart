@@ -1,3 +1,3 @@
-sealed class LoginScreenEvent{}
+sealed class LoginScreenEvent {}
 
-class SubmitLoginEvent extends LoginScreenEvent{}
+class SubmitLoginEvent extends LoginScreenEvent {}

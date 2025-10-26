@@ -4,7 +4,7 @@ import 'package:super_fitness_app/features/auth/login/data/models/response/user_
 part 'login_response_dto.g.dart';
 
 @JsonSerializable()
-class LoginResponseDto{
+class LoginResponseDto {
   @JsonKey(name: "message")
   final String? message;
   @JsonKey(name: "user")
@@ -21,5 +21,4 @@ class LoginResponseDto{
   Map<String, dynamic> toJson() {
     return _$LoginResponseDtoToJson(this);
   }
-
 }
