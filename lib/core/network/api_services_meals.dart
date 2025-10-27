@@ -8,9 +8,10 @@ part 'api_services_meals.g.dart';
 
 @RestApi()
 @injectable
-abstract class ApiServicesMeals {
+abstract class MealsApiServices {
   @factoryMethod
-  factory ApiServicesMeals(@Named('dioMeals') Dio dio) = _ApiServicesMeals;
+  factory MealsApiServices(@Named(NetworkConstants.mealsApiClient) Dio dio) =
+      _MealsApiServices;
 
   @GET(EndPoints.recommendationForYou)
   Future<MealsCategoriesResponse> recommendationForYou();

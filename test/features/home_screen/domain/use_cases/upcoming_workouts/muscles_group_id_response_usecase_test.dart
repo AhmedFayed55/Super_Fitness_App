@@ -2,17 +2,17 @@ import 'package:super_fitness_app/core/network/api_results.dart';
 import 'package:super_fitness_app/features/home_screen/domain/entities/recommendation_to_day/muscles_dto_entity.dart';
 import 'package:super_fitness_app/features/home_screen/domain/entities/upcoming_workouts/muscle_group_dto_entity.dart';
 import 'package:super_fitness_app/features/home_screen/domain/entities/upcoming_workouts/muscles_group_id_entity.dart';
-import 'package:super_fitness_app/features/home_screen/domain/repositories/upcoming_workouts/muscles_group_id_response_repo.dart';
+import 'package:super_fitness_app/features/home_screen/domain/repositories/home_repo.dart';
 import 'package:super_fitness_app/features/home_screen/domain/use_cases/upcoming_workouts/muscles_group_id_response_usecase.dart';
 import 'package:test/test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
-import 'muscles_group_id_response_usecase_test.mocks.dart';
+import '../recommendation_for_you/recommendation_for_you_usecase_test.mocks.dart';
 
-@GenerateMocks([MusclesGroupIdResponseRepo])
+@GenerateMocks([HomeRepo])
 void main() {
-  late MockMusclesGroupIdResponseRepo mockMusclesGroupIdResponseRepo;
-  late MusclesGroupIdResponseUseCase musclesGroupIdResponseUseCase;
+  late HomeRepo repo;
+  late MusclesGroupIdResponseUseCase useCase;
   late MusclesGroupIdEntity musclesGroupIdEntity;
 
   setUp(() {
@@ -24,14 +24,11 @@ void main() {
       ],
     );
 
-    mockMusclesGroupIdResponseRepo = MockMusclesGroupIdResponseRepo();
-    musclesGroupIdResponseUseCase = MusclesGroupIdResponseUseCase(
-      musclesGroupIdResponseRepo: mockMusclesGroupIdResponseRepo,
-    );
+    repo = MockHomeRepo();
+    useCase = MusclesGroupIdResponseUseCase(repo);
   });
 
   test("success case for MusclesGroupIdResponseUseCase", () async {
-    // Arrange
     const muscleGroupId = "test";
     var mockResult = ApiSuccessResult<MusclesGroupIdEntity>(
       data: musclesGroupIdEntity,
@@ -39,13 +36,13 @@ void main() {
     provideDummy<ApiResult<MusclesGroupIdEntity>>(mockResult);
 
     when(
-      mockMusclesGroupIdResponseRepo.getMusclesGroupId(muscleGroupId),
+      repo.getMusclesGroupId(muscleGroupId),
     ).thenAnswer((_) async => mockResult);
 
-    // Act
-    var result = await musclesGroupIdResponseUseCase.call(muscleGroupId);
+    var result = await useCase.call(muscleGroupId);
 
-    // Assert
+    verify(repo.getMusclesGroupId(muscleGroupId)).called(1);
+
     expect(result, isA<ApiSuccessResult<MusclesGroupIdEntity>>());
     var successResult = result as ApiSuccessResult<MusclesGroupIdEntity>;
     expect(successResult.data.message, equals(musclesGroupIdEntity.message));
@@ -54,9 +51,5 @@ void main() {
       successResult.data.muscleGroupDtoEntity.name,
       equals(musclesGroupIdEntity.muscleGroupDtoEntity.name),
     );
-
-    verify(
-      mockMusclesGroupIdResponseRepo.getMusclesGroupId(muscleGroupId),
-    ).called(1);
   });
 }

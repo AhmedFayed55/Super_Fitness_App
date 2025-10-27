@@ -1,17 +1,18 @@
 import 'package:super_fitness_app/core/network/api_results.dart';
 import 'package:super_fitness_app/features/home_screen/domain/entities/recommendation_for_you/categories_dto_entity.dart';
 import 'package:super_fitness_app/features/home_screen/domain/entities/recommendation_for_you/meals_categories_entity.dart';
-import 'package:super_fitness_app/features/home_screen/domain/repositories/recommendation_for_you/recommendation_for_you_repo.dart';
+import 'package:super_fitness_app/features/home_screen/domain/repositories/home_repo.dart';
 import 'package:super_fitness_app/features/home_screen/domain/use_cases/recommendation_for_you/recommendation_for_you_usecase.dart';
 import 'package:test/test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
+
 import 'recommendation_for_you_usecase_test.mocks.dart';
 
-@GenerateMocks([RecommendationForYouRepo])
+@GenerateMocks([HomeRepo])
 void main() {
-  late MockRecommendationForYouRepo mockRecommendationForYouRepo;
-  late RecommendationForYouUseCase recommendationForYouUseCase;
+  late HomeRepo repo;
+  late RecommendationForYouUseCase useCase;
   late MealsCategoriesEntity mealsCategoriesEntity;
 
   setUp(() {
@@ -25,27 +26,22 @@ void main() {
         ),
       ],
     );
-    mockRecommendationForYouRepo = MockRecommendationForYouRepo();
-    recommendationForYouUseCase = RecommendationForYouUseCase(
-      recommendationForYouRepo: mockRecommendationForYouRepo,
-    );
+    repo = MockHomeRepo();
+    useCase = RecommendationForYouUseCase(repo);
   });
 
   test("success case for recommendationForYouUseCase", () async {
-    // Arrange
     var mockResult = ApiSuccessResult<MealsCategoriesEntity>(
       data: mealsCategoriesEntity,
     );
     provideDummy<ApiResult<MealsCategoriesEntity>>(mockResult);
 
-    when(
-      mockRecommendationForYouRepo.recommendationForYou(),
-    ).thenAnswer((_) async => mockResult);
+    when(repo.recommendationForYou()).thenAnswer((_) async => mockResult);
 
-    // Act
-    var result = await recommendationForYouUseCase.call();
+    var result = await useCase.call();
 
-    // Assert
+    verify(repo.recommendationForYou()).called(1);
+
     expect(result, isA<ApiSuccessResult<MealsCategoriesEntity>>());
     var successResult = result as ApiSuccessResult<MealsCategoriesEntity>;
     expect(successResult.data.categoriesDtoEntity, isNotEmpty);
@@ -53,7 +49,5 @@ void main() {
       successResult.data.categoriesDtoEntity.first.strCategory,
       equals(mealsCategoriesEntity.categoriesDtoEntity.first.strCategory),
     );
-
-    verify(mockRecommendationForYouRepo.recommendationForYou()).called(1);
   });
 }

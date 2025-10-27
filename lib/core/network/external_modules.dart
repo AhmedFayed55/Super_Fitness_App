@@ -25,8 +25,7 @@ abstract class ExternalModules {
   Dio provideMealsDio() {
     Dio dio = Dio();
     dio.options.baseUrl = NetworkConstants.baseUrlMeals;
-    dio.options.headers = {
-      'Content-Type': 'application/json'};
+    dio.options.headers = {'Content-Type': 'application/json'};
     dio.interceptors.add(getIt.get<PrettyDioLogger>());
     return dio;
   }

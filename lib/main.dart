@@ -33,7 +33,6 @@ class SuperFitnessApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           onGenerateRoute: RouteGenerator.getRoute,
           initialRoute: AppRoutes.login,
-
         );
       },
     );
