@@ -1,14 +1,14 @@
+import 'package:injectable/injectable.dart';
 import 'package:super_fitness_app/core/network/api_results.dart';
 import 'package:super_fitness_app/features/home_screen/domain/entities/upcoming_workouts/muscles_group_id_entity.dart';
-import 'package:super_fitness_app/features/home_screen/domain/repositories/upcoming_workouts/muscles_group_id_response_repo.dart';
+import 'package:super_fitness_app/features/home_screen/domain/repositories/home_repo.dart';
 
-class MusclesGroupIdResponseUseCase{
-  MusclesGroupIdResponseRepo musclesGroupIdResponseRepo;
+@injectable
+class MusclesGroupIdResponseUseCase {
+  final HomeRepo _repo;
 
-  MusclesGroupIdResponseUseCase({required this.musclesGroupIdResponseRepo});
+  MusclesGroupIdResponseUseCase(this._repo);
 
-  Future<ApiResult<MusclesGroupIdEntity>> call(String muscleGroupId) async {
-    var result = await musclesGroupIdResponseRepo.getMusclesGroupId(muscleGroupId);
-    return result;
-  }
+  Future<ApiResult<MusclesGroupIdEntity>> call(String muscleGroupId) =>
+      _repo.getMusclesGroupId(muscleGroupId);
 }

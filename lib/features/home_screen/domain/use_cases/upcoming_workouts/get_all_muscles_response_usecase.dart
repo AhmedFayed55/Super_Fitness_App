@@ -1,14 +1,13 @@
+import 'package:injectable/injectable.dart';
 import 'package:super_fitness_app/core/network/api_results.dart';
 import 'package:super_fitness_app/features/home_screen/domain/entities/upcoming_workouts/get_all_muscles_entity.dart';
-import 'package:super_fitness_app/features/home_screen/domain/repositories/upcoming_workouts/get_all_muscles_response_repo.dart';
+import 'package:super_fitness_app/features/home_screen/domain/repositories/home_repo.dart';
 
-class GetAllMusclesResponseUseCase{
-  GetAllMusclesResponseRepo getAllMusclesResponseRepo;
+@injectable
+class GetAllMusclesResponseUseCase {
+  final HomeRepo _repo;
 
-  GetAllMusclesResponseUseCase({required this.getAllMusclesResponseRepo});
+  GetAllMusclesResponseUseCase(this._repo);
 
-  Future<ApiResult<GetAllMusclesEntity>> call() async {
-    var result = await getAllMusclesResponseRepo.getAllMuscles();
-    return result;
-  }
+  Future<ApiResult<GetAllMusclesEntity>> call() => _repo.getAllMuscles();
 }

@@ -3,6 +3,7 @@ abstract class NetworkConstants {
   static const String baseUrlMeals = "www.themealdb.com/api/json/v1/1/";
   static const String authorization = 'Authorization';
   static const String bearer = "Bearer";
+  static const String mealsApiClient = 'dioMeals';
 }
 
 abstract class EndPoints {
