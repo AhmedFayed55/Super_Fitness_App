@@ -36,6 +36,7 @@ dependencies:
   internet_connection_checker: ^3.0.1
   firebase_core: ^4.2.0
   google_fonts: ^6.3.2
+  font_awesome_flutter: ^10.11.0
 
 
 
@@ -56,7 +57,7 @@ flutter:
   generate: true
 
   # To add assets to your application, add an assets section, like this:
-#  assets:
-#    - assets/images/
+  assets:
+    - assets/images/
 #    - assets/svgs/
 #    - assets/animations/
