@@ -4,6 +4,7 @@ abstract class NetworkConstants {
   static const String authorization = 'Authorization';
   static const String bearer = "Bearer";
   static const String mealsApiClient = 'dioMeals';
+  static const String mealsCategoryQueryParam  = 'c';
 }
 
 abstract class EndPoints {
@@ -13,4 +14,5 @@ abstract class EndPoints {
   static const String upcomingWorkoutsTab = "muscles";
   static const String upcomingWorkoutsTabItems = "musclesGroup/{muscleGroupId}";
   static const String recommendationForYou = "categories.php";
+  static const String getMealsByCategory = "filter.php";
 }
