@@ -51,7 +51,7 @@ class LoginScreen extends StatelessWidget {
                                   alignment: Alignment.center,
                                   child: Image.asset(AppAssets.appLogo),
                                 ),
-                                verticalSpace(context.height * .042),
+                                verticalSpace(context.height * .1),
                                 Text(
                                   locale.hey_there,
                                   style: textTheme.labelLarge,

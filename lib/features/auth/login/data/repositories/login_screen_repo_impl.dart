@@ -14,13 +14,11 @@ class LoginScreenRepoImpl implements LoginScreenRepo {
   LoginScreenRepoImpl(this._dataSource, this._tokenService);
 
   @override
-  Future<ApiResult<UserResponseEntity>> login(
-    LoginRequestEntity loginRequest,
-  ) async {
-    return await safeApiCall<UserResponseEntity>(() async {
-      var dtoRequest = loginRequest.toDto();
-      var response = await _dataSource.login(dtoRequest);
-      _tokenService.saveToken(response.token!);
+  Future<ApiResult<UserResponseEntity>> login(LoginRequestEntity loginRequest) {
+    return safeApiCall<UserResponseEntity>(() async {
+      final dtoRequest = loginRequest.toDto();
+      final response = await _dataSource.login(dtoRequest);
+      _tokenService.saveToken(response.token ?? "");
       return response.user!.toEntity();
     });
   }

@@ -4,24 +4,17 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:super_fitness_app/core/extensions/extensions.dart';
 import 'package:super_fitness_app/core/helpers/flutter_toast.dart';
 import 'package:super_fitness_app/core/helpers/spacing.dart';
-import 'package:super_fitness_app/core/helpers/validators.dart';
 import 'package:super_fitness_app/core/l10n/translations/app_localizations.dart';
 import 'package:super_fitness_app/core/utils/assets.dart';
 import 'package:super_fitness_app/features/auth/login/presentation/manager/login_screen_event.dart';
 import 'package:super_fitness_app/features/auth/login/presentation/manager/login_screen_state.dart';
 import 'package:super_fitness_app/features/auth/login/presentation/manager/login_screen_view_model.dart';
 import 'package:super_fitness_app/features/auth/login/presentation/widgets/login_button.dart';
+import 'package:super_fitness_app/features/auth/login/presentation/widgets/login_fields.dart';
 import 'or_divider_widget.dart';
 
-class BlurWidget extends StatefulWidget {
+class BlurWidget extends StatelessWidget {
   const BlurWidget({super.key});
-
-  @override
-  State<BlurWidget> createState() => _BlurWidgetState();
-}
-
-class _BlurWidgetState extends State<BlurWidget> {
-  bool isObscure = true;
 
   @override
   Widget build(BuildContext context) {
@@ -32,9 +25,8 @@ class _BlurWidgetState extends State<BlurWidget> {
     return ClipRRect(
       borderRadius: BorderRadius.circular(50),
       child: IntrinsicHeight(
-        child: Container(
+        child: SizedBox(
           width: double.infinity,
-          decoration: const BoxDecoration(color: Colors.transparent),
           child: Stack(
             children: [
               Positioned.fill(
@@ -45,7 +37,7 @@ class _BlurWidgetState extends State<BlurWidget> {
               ),
               Padding(
                 padding: EdgeInsets.symmetric(
-                  horizontal: context.width * 0.042,
+                  horizontal: 16,
                   vertical: height * 0.029,
                 ),
                 child: Column(
@@ -79,50 +71,9 @@ class _BlurWidgetState extends State<BlurWidget> {
                               key: viewModel.formKey,
                               child: Column(
                                 children: [
-                                  TextFormField(
-                                    decoration: InputDecoration(
-                                      hintText: locale.email,
-                                      prefixIcon: const Icon(
-                                        Icons.email_outlined,
-                                        size: 20,
-                                      ),
-                                    ),
-                                    validator: (value) =>
-                                        Validations.validateEmail(
-                                          context,
-                                          value,
-                                        ),
-                                    controller: viewModel.emailController,
-                                  ),
-                                  verticalSpace(14),
-                                  TextFormField(
-                                    obscureText: isObscure,
-                                    validator: (value) =>
-                                        Validations.validatePassword(
-                                          context,
-                                          value,
-                                        ),
-                                    controller: viewModel.passController,
-                                    decoration: InputDecoration(
-                                      hintText: locale.password,
-                                      prefixIcon: const Icon(
-                                        Icons.lock_open_outlined,
-                                        size: 20,
-                                      ),
-                                      suffixIcon: IconButton(
-                                        onPressed: () {
-                                          setState(() {
-                                            isObscure = !isObscure;
-                                          });
-                                        },
-                                        icon: Icon(
-                                          isObscure
-                                              ? Icons.visibility_off_outlined
-                                              : Icons.visibility_outlined,
-                                          size: 20,
-                                        ),
-                                      ),
-                                    ),
+                                  LoginFields(
+                                    email: viewModel.emailController,
+                                    password: viewModel.passController,
                                   ),
                                   verticalSpace(8),
                                   Align(
@@ -158,7 +109,14 @@ class _BlurWidgetState extends State<BlurWidget> {
                                     loginTap: () {
                                       if (viewModel.formKey.currentState!
                                           .validate()) {
-                                        viewModel.doIntent(SubmitLoginEvent());
+                                        viewModel.doIntent(
+                                          SubmitLoginEvent(
+                                            email:
+                                                viewModel.emailController.text,
+                                            password:
+                                                viewModel.passController.text,
+                                          ),
+                                        );
                                       }
                                     },
                                     isLoading: state.isLoading,

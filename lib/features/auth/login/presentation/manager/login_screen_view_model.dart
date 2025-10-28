@@ -19,13 +19,8 @@ class LoginScreenViewModel extends Cubit<LoginScreenState> {
 
   doIntent(LoginScreenEvent event) {
     switch (event) {
-      case SubmitLoginEvent():
-        _login(
-          LoginRequestEntity(
-            email: emailController.text,
-            password: passController.text,
-          ),
-        );
+      case SubmitLoginEvent(:final email, :final password):
+        _login(LoginRequestEntity(email: email, password: password));
     }
   }
 

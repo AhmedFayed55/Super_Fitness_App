@@ -91,7 +91,7 @@ void main() {
     expect(find.byType(LayoutBuilder), findsOneWidget);
     expect(find.byType(Stack), findsNWidgets(3));
     expect(find.byType(SingleChildScrollView), findsOneWidget);
-    expect(find.byType(Column), findsNWidgets(5));
+    expect(find.byType(Column), findsNWidgets(6));
     expect(find.byType(Icon), findsNWidgets(6));
     expect(find.byType(BlurWidget), findsOneWidget);
     expect(find.byType(Divider), findsNWidgets(2));

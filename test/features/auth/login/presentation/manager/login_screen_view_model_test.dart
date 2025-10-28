@@ -46,10 +46,9 @@ void main() {
 
       when(useCase.invoke(requestEntity)).thenAnswer((_) async => successLogin);
 
-      viewModel.emailController.text = requestEntity.email;
-      viewModel.passController.text = requestEntity.password;
-
-      await viewModel.doIntent(SubmitLoginEvent());
+      await viewModel.doIntent(
+        SubmitLoginEvent(email: "ahmed@gmail.com", password: "Ahmed@123"),
+      );
 
       verify(useCase.invoke(requestEntity)).called(1);
 
@@ -71,10 +70,9 @@ void main() {
         useCase.invoke(requestEntity),
       ).thenAnswer((_) async => errorResponse);
 
-      viewModel.emailController.text = requestEntity.email;
-      viewModel.passController.text = requestEntity.password;
-
-      await viewModel.doIntent(SubmitLoginEvent());
+      await viewModel.doIntent(
+        SubmitLoginEvent(email: "ahmed@gmail.com", password: "Ahmed@123"),
+      );
 
       verify(useCase.invoke(requestEntity)).called(1);
 
