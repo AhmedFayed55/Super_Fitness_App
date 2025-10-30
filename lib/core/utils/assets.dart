@@ -24,5 +24,4 @@ abstract class AppAssets {
 
   static const String emptyAnimation = "assets/animations/empty.json";
   static const String workoutBg = 'assets/images/workout-bg.png';
-
 }

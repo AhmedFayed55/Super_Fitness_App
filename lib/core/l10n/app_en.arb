@@ -52,7 +52,7 @@
   "make_sure_it_8_characters_or_more": "Make Sure It’s 8 Characters Or More",
   "done": "Done",
    "something_went_wrong": "Something went wrong. Please try again later",
-  "login_successfully": "Login successfully".
+  "login_successfully": "Login successfully",
   "this_field_is_required" : "This field is required",
   "error" : "Error",
   "ok": "Ok",
