@@ -39,5 +39,8 @@
   "password_reset_successfully": "Password reset successfully!",
   "create_new_password": "Create New Password",
   "make_sure_it_8_characters_or_more": "Make Sure It’s 8 Characters Or More",
-  "done": "Done"
+  "done": "Done",
+   "something_went_wrong": "Something went wrong. Please try again later",
+  "login_successfully": "Login successfully"
 }
+
