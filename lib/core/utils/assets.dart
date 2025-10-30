@@ -7,5 +7,4 @@ abstract class AppAssets {
   static const String appLogoSvg = "assets/images/logo.png";
   static const String fieldsBackground = "assets/images/fields_background.png";
   static const String workoutBg = 'assets/images/workout-bg.png';
-
 }
