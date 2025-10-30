@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:super_fitness_app/features/auth/forget_password/presentation/pages/forget_password_screen.dart';
 import 'package:super_fitness_app/features/workouts/presentation/pages/workouts_screen.dart';
-
 import '../../features/auth/login/presentation/pages/login_screen.dart';
 import 'app_routes.dart';
 
@@ -14,6 +13,9 @@ class RouteGenerator {
         return MaterialPageRoute(
           builder: (context) => const ForgetPasswordScreen(),
         );
+
+      case AppRoutes.workouts:
+        return MaterialPageRoute(builder: (context) => const WorkoutsScreen());
 
       case AppRoutes.workouts:
         return MaterialPageRoute(builder: (context) => const WorkoutsScreen());
