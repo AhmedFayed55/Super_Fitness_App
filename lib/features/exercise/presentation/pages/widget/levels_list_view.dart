@@ -35,12 +35,17 @@ class _LevelsListViewState extends State<LevelsListView> {
             child: SizedBox(
               height: context.mdH(30),
               child: levels.length == 1
-                  ? Row( 
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      SizedBox(child: LevelWidget(isSelected: true, level: levels[0].name)),
-                    ],
-                  )
+                  ? Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        SizedBox(
+                          child: LevelWidget(
+                            isSelected: true,
+                            level: levels[0].name,
+                          ),
+                        ),
+                      ],
+                    )
                   : ListView.separated(
                       scrollDirection: Axis.horizontal,
                       padding: EdgeInsets.symmetric(

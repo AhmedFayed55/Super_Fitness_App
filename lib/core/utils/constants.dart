@@ -7,5 +7,4 @@ abstract class AppConstants {
   static const String enKey = 'en';
   static const String exercises = 'exercises';
   static const String difficulties = 'difficulties';
-
 }

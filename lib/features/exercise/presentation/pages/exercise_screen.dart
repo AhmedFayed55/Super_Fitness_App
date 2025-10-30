@@ -28,7 +28,7 @@ class ExerciseScreen extends StatelessWidget {
     required this.exercises,
     required this.difficulties,
   }) : mode = ExerciseScreenMode.byPreloadedData,
-      muscleId = null;
+       muscleId = null;
 
   final ExerciseCubit viewModel = getIt.get<ExerciseCubit>();
 
@@ -52,7 +52,6 @@ class ExerciseScreen extends StatelessWidget {
           scrolledUnderElevation: 0,
           backgroundColor: Colors.transparent,
           leading: Container(
-           
             decoration: BoxDecoration(
               color: context.theme.colorScheme.primaryContainer,
               shape: BoxShape.circle,

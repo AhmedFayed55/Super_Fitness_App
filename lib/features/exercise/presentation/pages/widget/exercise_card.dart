@@ -23,10 +23,8 @@ class ExerciseCard extends StatelessWidget {
           onTap: () => Navigator.of(context).pop(),
           child: Stack(
             children: [
-              
               Container(color: Colors.black.withValues(alpha: 0.4)),
 
-            
               Center(
                 child: GestureDetector(
                   onTap: () {},

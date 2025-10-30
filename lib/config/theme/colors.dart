@@ -6,7 +6,6 @@ abstract class AppColors {
   static const Color red = Color(0xFFFF0000);
   static const Color cmykColor = Color(0xFF242424);
 
-
   static const MaterialColor grey = MaterialColor(0xFF0C1015, <int, Color>{
     10: Color(0xFF242424),
     20: Color(0xFF3A3A3A),

@@ -16,10 +16,10 @@ class RouteGenerator {
         var args = settings.arguments;
 
         var exercises =
-            (args as Map<String, dynamic>)[AppConstants.exercises] as List<ExerciseEntity>;
+            (args as Map<String, dynamic>)[AppConstants.exercises]
+                as List<ExerciseEntity>;
         var difficulties =
-            (args)[AppConstants.difficulties]
-                as List<DifficultyLevelEntity>;
+            (args)[AppConstants.difficulties] as List<DifficultyLevelEntity>;
 
         return MaterialPageRoute(
           builder: (context) => ExerciseScreen.byPreloadedData(
@@ -32,7 +32,7 @@ class RouteGenerator {
 
         String id = args as String;
         return MaterialPageRoute(
-          builder: (context) => ExerciseScreen.byMuscleId(muscleId:id),
+          builder: (context) => ExerciseScreen.byMuscleId(muscleId: id),
         );
 
       default:

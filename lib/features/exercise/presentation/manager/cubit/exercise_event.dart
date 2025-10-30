@@ -6,7 +6,6 @@ class GetExercisesDifficultiesEvent extends ExerciseEvent {
 }
 
 class SwitchExerciseEvent extends ExerciseEvent {
-
   final String difficultyId;
   SwitchExerciseEvent({required this.difficultyId});
 }
@@ -14,5 +13,8 @@ class SwitchExerciseEvent extends ExerciseEvent {
 class GetExercisesByDifficultyEvent extends ExerciseEvent {
   final String muscleId;
   final String difficultyId;
-  GetExercisesByDifficultyEvent({required this.muscleId, required this.difficultyId});
+  GetExercisesByDifficultyEvent({
+    required this.muscleId,
+    required this.difficultyId,
+  });
 }

@@ -1,4 +1,1 @@
-enum ExerciseScreenMode {
-  byMuscleId,
-  byPreloadedData,
-}
+enum ExerciseScreenMode { byMuscleId, byPreloadedData }

@@ -18,26 +18,26 @@ class ExerciseState extends Equatable {
   });
 
   factory ExerciseState.initial() => const ExerciseState(
-        selectedMuscleId: null,
-        loadingStatus: ExerciseLodaingStatus(
-          isScreenLoading: false,
-          isExercisesLoading: false,
-        ),
-        successStatus: ExerciseSuccessStatus(
-          isScreenSuccess: false,
-          isExercisesSuccess: false,
-        ),
-        errorMessage: ExerciseErrorMessage(
-          screenErrorMessage: null,
-          exercisesErrorMessage: null,
-        ),
-        data: ExerciseData(
-          difficulties: [],
-          exercises: [],
-          selectedDifficultyId: null,
-        ),
-        videoController: null,
-      );
+    selectedMuscleId: null,
+    loadingStatus: ExerciseLodaingStatus(
+      isScreenLoading: false,
+      isExercisesLoading: false,
+    ),
+    successStatus: ExerciseSuccessStatus(
+      isScreenSuccess: false,
+      isExercisesSuccess: false,
+    ),
+    errorMessage: ExerciseErrorMessage(
+      screenErrorMessage: null,
+      exercisesErrorMessage: null,
+    ),
+    data: ExerciseData(
+      difficulties: [],
+      exercises: [],
+      selectedDifficultyId: null,
+    ),
+    videoController: null,
+  );
 
   ExerciseState copyWith({
     String? selectedMuscleId,
@@ -59,13 +59,13 @@ class ExerciseState extends Equatable {
 
   @override
   List<Object?> get props => [
-        selectedMuscleId,
-        loadingStatus,
-        successStatus,
-        errorMessage,
-        data,
-        videoController,
-      ];
+    selectedMuscleId,
+    loadingStatus,
+    successStatus,
+    errorMessage,
+    data,
+    videoController,
+  ];
 }
 
 class ExerciseData extends Equatable {
@@ -92,11 +92,7 @@ class ExerciseData extends Equatable {
   }
 
   @override
-  List<Object?> get props => [
-        difficulties,
-        exercises,
-        selectedDifficultyId,
-      ];
+  List<Object?> get props => [difficulties, exercises, selectedDifficultyId];
 }
 
 class ExerciseLodaingStatus extends Equatable {
@@ -119,10 +115,7 @@ class ExerciseLodaingStatus extends Equatable {
   }
 
   @override
-  List<Object?> get props => [
-        isScreenLoading,
-        isExercisesLoading,
-      ];
+  List<Object?> get props => [isScreenLoading, isExercisesLoading];
 }
 
 class ExerciseErrorMessage extends Equatable {
@@ -140,15 +133,13 @@ class ExerciseErrorMessage extends Equatable {
   }) {
     return ExerciseErrorMessage(
       screenErrorMessage: screenErrorMessage ?? this.screenErrorMessage,
-      exercisesErrorMessage: exercisesErrorMessage ?? this.exercisesErrorMessage,
+      exercisesErrorMessage:
+          exercisesErrorMessage ?? this.exercisesErrorMessage,
     );
   }
 
   @override
-  List<Object?> get props => [
-        screenErrorMessage,
-        exercisesErrorMessage,
-      ];
+  List<Object?> get props => [screenErrorMessage, exercisesErrorMessage];
 }
 
 class ExerciseSuccessStatus extends Equatable {
@@ -171,8 +162,5 @@ class ExerciseSuccessStatus extends Equatable {
   }
 
   @override
-  List<Object?> get props => [
-        isScreenSuccess,
-        isExercisesSuccess,
-      ];
+  List<Object?> get props => [isScreenSuccess, isExercisesSuccess];
 }

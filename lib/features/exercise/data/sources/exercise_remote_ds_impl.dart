@@ -23,7 +23,7 @@ class ExerciseRemoteDataSourceImpl implements ExerciseRemoteDataSource {
   @override
   Future<GetDifficultyLevelRespone> getDifficultyLevelsByPrimeMover(
     String primeMoverMuscleId,
-  )async {
+  ) async {
     return await _apiServices.getDifficultyLevelsByPrimeMover(
       primeMoverMuscleId,
     );

@@ -9,8 +9,8 @@ class ExerciseListShimmer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Shimmer.fromColors(
-      baseColor: Colors.white.withValues(alpha: 0.3), 
-      highlightColor: Colors.white.withValues(alpha:0.5),
+      baseColor: Colors.white.withValues(alpha: 0.3),
+      highlightColor: Colors.white.withValues(alpha: 0.5),
       child: ListView.separated(
         physics: const NeverScrollableScrollPhysics(),
         padding: EdgeInsets.symmetric(
@@ -69,7 +69,7 @@ class ExerciseListShimmer extends StatelessWidget {
           );
         },
         separatorBuilder: (_, __) => verticalSpace(context.mdH(16)),
-        itemCount: 5, 
+        itemCount: 5,
       ),
     );
   }

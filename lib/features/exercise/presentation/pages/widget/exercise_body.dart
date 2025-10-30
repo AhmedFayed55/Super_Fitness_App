@@ -13,7 +13,6 @@ class ExerciseBody extends StatefulWidget {
 }
 
 class _ExerciseBodyState extends State<ExerciseBody> {
-
   @override
   void initState() {
     super.initState();

@@ -20,7 +20,11 @@ extension ContextExtension on BuildContext {
 
   /// Responsive Icon Size (based on both height & width)
   /// Example: context.mdIcon(24)
-  double mdIcon(double value, {double designWidth = 375, double designHeight = 812}) {
+  double mdIcon(
+    double value, {
+    double designWidth = 375,
+    double designHeight = 812,
+  }) {
     // Average scale between width & height for balanced icon size
     final scale = ((width / designWidth) + (height / designHeight)) / 2;
     return value * scale;
@@ -49,8 +53,6 @@ extension ThemeX on BuildContext {
   /// Shortcut to colorScheme
   ColorScheme get colorScheme => theme.colorScheme;
 }
-
-
 
 extension SizingX on BuildContext {
   /// Calculates a responsive icon size based on screen height

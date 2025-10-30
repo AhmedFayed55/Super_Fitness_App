@@ -20,9 +20,7 @@ class ExercisesListViewBuilder extends StatelessWidget {
         child: BlocBuilder<ExerciseCubit, ExerciseState>(
           builder: (context, state) {
             if (state.loadingStatus.isExercisesLoading) {
-              return const Center(
-                child: ExerciseListShimmer(),
-              );
+              return const Center(child: ExerciseListShimmer());
             }
             if (state.errorMessage.exercisesErrorMessage != null) {
               return Center(
@@ -42,7 +40,10 @@ class ExercisesListViewBuilder extends StatelessWidget {
                     children: [
                       verticalSpace(context.mdH(8)),
                       Padding(
-                        padding: EdgeInsets.only(left: context.mdW(8) , right: context.mdW(8)),
+                        padding: EdgeInsets.only(
+                          left: context.mdW(8),
+                          right: context.mdW(8),
+                        ),
                         child: ExerciseCard(exercise: exercises[index]),
                       ),
                       if (!isLast)

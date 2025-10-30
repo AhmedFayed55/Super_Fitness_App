@@ -11,7 +11,8 @@ class LanguageInterceptor extends Interceptor {
 
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
-    final langCode = sharedPrefHelper.getData(key: AppConstants.languageCode) ?? 'en';
+    final langCode =
+        sharedPrefHelper.getData(key: AppConstants.languageCode) ?? 'en';
     options.headers['Accept-Language'] = langCode;
     handler.next(options);
   }
