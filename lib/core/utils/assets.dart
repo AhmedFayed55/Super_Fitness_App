@@ -29,4 +29,13 @@ abstract class AppAssets {
   static const String arrowBack = 'assets/svgs/arrow_back.svg';
   static const bgDetailsFood='assets/images/bg_details_food.png';
   static const arrowBackk='assets/images/arrow_back.png';
+  static const String foodBackground = "assets/images/food_background.png";
+
+  //svgs
+
+  static const String arrowBackIcon = "assets/svgs/arrow_back_svg.svg";
+
+  //animation
+
+  static const String emptyAnimation = "assets/animations/empty.json";
 }

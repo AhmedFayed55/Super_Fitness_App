@@ -90,5 +90,6 @@
   "energy":"Energy",
   "protein":"Protein",
   "carbs":"Carbs",
-  "fat":"Fat"
+  "fat":"Fat",
+  "food_recommendation" : "Food Recommendation"
 }

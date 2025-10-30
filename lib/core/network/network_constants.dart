@@ -6,6 +6,7 @@ abstract class NetworkConstants {
   static const String mealsApiClient = 'dioMeals';
   static const String primeMoverMuscleId = 'primeMoverMuscleId';
   static const String difficultyLevelId = 'difficultyLevelId';
+  static const String mealsCategoryQueryParam = 'c';
 }
 
 abstract class EndPoints {
@@ -23,5 +24,6 @@ abstract class EndPoints {
   static const String difficultyLevels =
       "levels/difficulty-levels/by-prime-mover";
   static const String detailsFood='lookup.php';
+  static const String getMealsByCategory = "filter.php";
 }
 

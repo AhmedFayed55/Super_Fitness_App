@@ -9,16 +9,18 @@ import 'package:super_fitness_app/features/details_food/presentation/manager/det
 import 'package:super_fitness_app/features/details_food/presentation/widget/custom_ingredient_widget.dart';
 import 'package:super_fitness_app/features/details_food/presentation/widget/custom_recommendation_widget.dart';
 import 'package:super_fitness_app/features/details_food/presentation/widget/video_player_widget.dart';
+import 'package:super_fitness_app/features/food/domain/entities/meals_response_entity.dart';
 
 class DetailsFoodScreen extends StatelessWidget {
-  const DetailsFoodScreen({super.key});
-
+  const DetailsFoodScreen({super.key,required this.mealId});
+// final List<MealsResponseEntity> meals; 
+ final String mealId;
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) =>
           getIt<DetailsFoodViewModel>()
-            ..doIntent(DetailsDataFoodEvent(idMeal: '52959')),
+            ..doIntent(DetailsDataFoodEvent(idMeal: mealId)),
       child: SafeArea(
         child: Scaffold(
           body: BlocBuilder<DetailsFoodViewModel, DetailsFoodState>(
