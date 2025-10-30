@@ -25,5 +25,6 @@
   "register" : "Register",
   "or" : "Or",
   "something_went_wrong": "Something went wrong. Please try again later",
-  "login_successfully": "Login successfully"
+  "login_successfully": "Login successfully",
+  "food_recommendation" : "Food Recommendation"
 }
