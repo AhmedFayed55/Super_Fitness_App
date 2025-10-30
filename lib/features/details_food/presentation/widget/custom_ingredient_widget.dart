@@ -46,15 +46,21 @@ class CustomIngredientWidget extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        cubit.state.detailsFoodEntity?.ingredients[index].name??'uuuu',
+                        cubit
+                                .state
+                                .detailsFoodEntity
+                                ?.ingredients[index]
+                                .name ??
+                            'uuuu',
                         style: theme.displaySmall,
                       ),
                       Text(
                         cubit
-                            .state
-                            .detailsFoodEntity
-                            ?.ingredients[index]
-                            .measure??'',
+                                .state
+                                .detailsFoodEntity
+                                ?.ingredients[index]
+                                .measure ??
+                            '',
 
                         style: theme.titleSmall!.copyWith(color: color.primary),
                       ),
