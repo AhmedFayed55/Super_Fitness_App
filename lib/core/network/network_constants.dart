@@ -11,15 +11,15 @@ abstract class NetworkConstants {
 abstract class EndPoints {
   static const String login = "auth/signin";
   static const String register = "auth/signup";
-
   static const String forgotPassword = "auth/forgotPassword";
   static const String verifyResetCode = "auth/verifyResetCode";
+  static const String resetPassword = "auth/resetPassword";
 
   static const String recommendationToDay = "muscles/random";
   static const String upcomingWorkoutsTab = "muscles";
   static const String upcomingWorkoutsTabItems = "musclesGroup/{muscleGroupId}";
   static const String recommendationForYou = "categories.php";
-
   static const String exercises = "exercises/by-muscle-difficulty";
   static const String difficultyLevels =
+      "levels/difficulty-levels/by-prime-mover";
 }
