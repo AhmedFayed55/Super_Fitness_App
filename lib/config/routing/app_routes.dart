@@ -12,4 +12,5 @@ abstract class AppRoutes {
   static const String pTExercise = "/popular_to_exercise";
   static const String detailsMeal='/detailsMeal';
   static const String foodScreen = "/foodScreen";
+  static const String homeScreen = "/homeScreen";
 }

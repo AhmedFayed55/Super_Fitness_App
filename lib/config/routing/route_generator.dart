@@ -11,6 +11,7 @@ import 'package:super_fitness_app/core/utils/constants.dart';
 import 'package:super_fitness_app/features/exercise/domain/entity/difficulty_level_entity.dart';
 import 'package:super_fitness_app/features/exercise/domain/entity/exercise_entity.dart';
 import 'package:super_fitness_app/features/details_food/presentation/pages/details_food_screen.dart';
+import 'package:super_fitness_app/features/home_screen/presentation/pages/home_screen.dart';
 import '../../features/auth/login/presentation/pages/login_screen.dart';
 import 'package:super_fitness_app/features/auth/login/presentation/pages/login_screen.dart';
 import 'package:super_fitness_app/features/food/presentation/pages/food_screen.dart';
@@ -79,6 +80,9 @@ class RouteGenerator {
 
       case AppRoutes.foodScreen:
         return MaterialPageRoute(builder: (context) => const FoodScreen());
+
+      case AppRoutes.homeScreen:
+        return MaterialPageRoute(builder: (context) => HomeScreen());
 
       default:
         return unDefinedRoute();

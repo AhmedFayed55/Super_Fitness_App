@@ -45,6 +45,7 @@ class SuperFitnessApp extends StatelessWidget {
           //         null
           //     ? AppRoutes.login
           //     : AppRoutes.onboarding,
+          initialRoute: AppRoutes.homeScreen,
         );
       },
     );
