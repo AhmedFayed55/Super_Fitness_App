@@ -5,6 +5,7 @@ import 'package:super_fitness_app/features/onBoarding/presentation/pages/onboard
 import 'package:super_fitness_app/features/app_sections/app_sections.dart';
 import 'package:super_fitness_app/features/auth/goal_and_activity/presentation/pages/activity_screen.dart';
 import 'package:super_fitness_app/features/auth/goal_and_activity/presentation/pages/goal_screen.dart';
+import 'package:super_fitness_app/features/workouts/presentation/pages/workouts_screen.dart';
 import '../../features/auth/login/presentation/pages/login_screen.dart';
 import 'app_routes.dart';
 
@@ -20,6 +21,7 @@ class RouteGenerator {
           builder: (context) => const ForgetPasswordScreen(),
         );
 
+
       case AppRoutes.onboarding:
         return MaterialPageRoute(
           builder: (context) => const OnboardingScreen(),
@@ -32,6 +34,10 @@ class RouteGenerator {
 
       case AppRoutes.registerScreen:
         return MaterialPageRoute(builder: (context) =>  const RegisterScreen());
+
+      case AppRoutes.workouts:
+        return MaterialPageRoute(builder: (context) => const WorkoutsScreen());
+
 
       default:
         return unDefinedRoute();

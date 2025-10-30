@@ -37,6 +37,7 @@ class SuperFitnessApp extends StatelessWidget {
           initialRoute: getIt<SharedPrefHelper>().getData(key: AppConstants.isOnBoardingSeen)!= null
               ? AppRoutes.login
               : AppRoutes.onboarding,
+
         );
       },
     );

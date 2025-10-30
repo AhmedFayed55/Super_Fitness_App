@@ -19,29 +19,38 @@ class LoginScreenViewModel extends Cubit<LoginScreenState> {
 
   doIntent(LoginScreenEvent event) {
     switch (event) {
-      case SubmitLoginEvent():
-        _login(
-          LoginRequestEntity(
-            email: emailController.text,
-            password: passController.text,
-          ),
-        );
+      case SubmitLoginEvent(:final email, :final password):
+        _login(LoginRequestEntity(email: email, password: password));
     }
   }
 
   Future<void> _login(LoginRequestEntity request) async {
-    emit(state.copyWith(isLoading: true, errorMsg: null, userData: null,isSuccess: false,showToast: false));
+    emit(
+      state.copyWith(
+        isLoading: true,
+        errorMsg: null,
+        userData: null,
+        isSuccess: false,
+        showToast: false,
+      ),
+    );
     var response = await _useCase.invoke(request);
 
     switch (response) {
       case ApiSuccessResult<UserResponseEntity>():
-        emit(state.copyWith(isLoading: false, userData: response.data,isSuccess: true));
+        emit(
+          state.copyWith(
+            isLoading: false,
+            userData: response.data,
+            isSuccess: true,
+          ),
+        );
       case ApiErrorResult<UserResponseEntity>():
         emit(
           state.copyWith(
             isLoading: false,
             errorMsg: response.failure.errorMessage,
-            showToast: true
+            showToast: true,
           ),
         );
     }

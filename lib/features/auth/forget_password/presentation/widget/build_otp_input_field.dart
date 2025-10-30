@@ -53,7 +53,8 @@ class OtpInputField extends StatelessWidget {
       showCursor: true,
       onCompleted: (pin) {
         if (pin.length == 6) {
-          viewModel.doIntent(VerifyCodeEvent());
+
+          viewModel.doIntent(VerifyCodeEvent(code: pin));
         }
       },
     );

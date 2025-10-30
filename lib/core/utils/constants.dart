@@ -9,7 +9,6 @@ abstract class AppConstants {
   static const int animateSeconds = 300;
   static const double blurSigma = 10;
   static const String isOnBoardingSeen = 'onboarding_seen';
-  static const int registerDuration=300;
-  static const double blurValueRegister=34;
-
+  static const int registerDuration = 300;
+  static const double blurValueRegister = 34;
 }

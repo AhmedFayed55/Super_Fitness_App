@@ -13,6 +13,18 @@
   "password_and_confirm_password_must_be_same": "Password and confirm password must be same!",
   "phone_number_is_required": "Phone number is required!",
   "phone_number_is_not_valid": "This phone number is not valid",
+
+  "this_field_is_required": "This field is required",
+  "error": "Error",
+  "ok": "OK",
+  "hey_there": "Hey There",
+  "welcome_back": "WELCOME BACK",
+  "email": "Email",
+  "password": "Password",
+  "forget_password_ques": "Forget Password ?",
+  "dont_have_account_yet": "Don't have an account yet ?",
+  "register": "Register",
+  "or": "Or",
   "confirm_password": "Confirm Password",
   "enter_your_email": "Enter Your Email",
   "forget_password": "Forget Password",
@@ -29,6 +41,9 @@
   "create_new_password": "Create New Password",
   "make_sure_it_8_characters_or_more": "Make Sure It’s 8 Characters Or More",
   "done": "Done",
+
+   "something_went_wrong": "Something went wrong. Please try again later",
+  "login_successfully": "Login successfully",
   "this_field_is_required" : "This field is required",
   "error" : "Error",
   "ok": "Ok",
@@ -37,9 +52,10 @@
   "email" : "Email",
   "password" : "Password",
   "forget_password_ques" : "Forget Password ?",
-  "dont_have_account_yet" : "Don't have an account yet ? ",
+  "dont_have_account_yet" : "Don't have an account yet ?",
   "register" : "Register",
   "or" : "Or",
+
   "already_have_account":"Already Have an account ?",
   "create_an_account":"CREATE AN ACCOUNT",
   "first_name":"First Name",
@@ -79,4 +95,9 @@
   "something_went_wrong": "Something went wrong. Please try again later",
   "login_successfully": "Login successfully",
   "register_successfully": "Register successfully"
+  "workouts_title": "Workouts",
+  "workouts_no_exercises": "No exercises available",
+  "workouts_loading": "Loading workouts...",
+  "workouts_error": "Failed to load workouts. Please try again.",
+  "workouts_empty_group": "No workouts found for this muscle group."
 }

@@ -12,7 +12,7 @@ class ResetPasswordUseCase {
 
   Future<ApiResult<ResetPasswordResponseEntity>> invoke(
     ResetPasswordRequestEntity request,
-  ) async {
-    return await _repository.resetPassword(request);
+  ) {
+    return _repository.resetPassword(request);
   }
 }

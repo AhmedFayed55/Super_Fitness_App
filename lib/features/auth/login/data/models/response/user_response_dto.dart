@@ -3,7 +3,7 @@ import 'package:json_annotation/json_annotation.dart';
 part 'user_response_dto.g.dart';
 
 @JsonSerializable()
-class UserResponseDto{
+class UserResponseDto {
   @JsonKey(name: "_id")
   final String? id;
   @JsonKey(name: "firstName")

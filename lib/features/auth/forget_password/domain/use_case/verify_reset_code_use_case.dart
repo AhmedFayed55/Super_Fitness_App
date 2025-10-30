@@ -12,7 +12,7 @@ class VerifyResetCodeUseCase {
 
   Future<ApiResult<VerifyResetCodeResponseEntity>> invoke(
     VerifyResetCodeRequestEntity request,
-  ) async {
-    return await _repository.verifyResetCode(request);
+  ) {
+    return _repository.verifyResetCode(request);
   }
 }
