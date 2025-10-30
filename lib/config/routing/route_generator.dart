@@ -34,6 +34,9 @@ class RouteGenerator {
       case AppRoutes.workouts:
         return MaterialPageRoute(builder: (context) => const WorkoutsScreen());
 
+      case AppRoutes.workouts:
+        return MaterialPageRoute(builder: (context) => const WorkoutsScreen());
+
       default:
         return unDefinedRoute();
     }
