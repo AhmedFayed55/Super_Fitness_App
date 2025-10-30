@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:super_fitness_app/config/routing/routing_extensions.dart';
 import 'package:super_fitness_app/core/extensions/extensions.dart';
 import 'package:super_fitness_app/core/utils/assets.dart';
 
@@ -14,7 +15,9 @@ class ArrowBackButton extends StatelessWidget {
         horizontal: context.mdW(20),
       ),
       child: GestureDetector(
-        onTap: () {},
+        onTap: () {
+          context.pop();
+        },
         child: Container(
           width: context.mdW(24),
           height: context.mdH(24),
