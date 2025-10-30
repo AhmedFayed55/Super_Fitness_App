@@ -21,7 +21,7 @@ abstract class ExternalModules {
   }
 
   @lazySingleton
-  @Named('dioMeals')
+  @Named(NetworkConstants.mealsApiClient)
   Dio provideMealsDio() {
     Dio dio = Dio();
     dio.options.baseUrl = NetworkConstants.baseUrlMeals;
