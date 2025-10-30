@@ -29,11 +29,7 @@ void main() {
           strMeal: 'Chicken',
           strMealThumb: 'hen.png',
         ),
-        MealsResponseDto(
-          idMeal: '2',
-          strMeal: 'Beef',
-          strMealThumb: 'cow.png',
-        ),
+        MealsResponseDto(idMeal: '2', strMeal: 'Beef', strMealThumb: 'cow.png'),
       ],
     );
   });
@@ -43,9 +39,9 @@ void main() {
       const categoryName = 'Beef';
 
       test('should return ApiSuccessResult when successful', () async {
-
-        when(dataSource.getMealsByCategory(categoryName))
-            .thenAnswer((_) async => responseDto);
+        when(
+          dataSource.getMealsByCategory(categoryName),
+        ).thenAnswer((_) async => responseDto);
 
         final result = await repo.getMealsByCategory(categoryName);
 
@@ -55,23 +51,31 @@ void main() {
         result as ApiSuccessResult<List<MealsResponseEntity>>;
         expect(result.data, isNotNull);
         expect(result.data.length, equals(responseDto.meals?.length));
-        expect(result.data.first.idMeal, equals(responseDto.meals?.first.idMeal));
+        expect(
+          result.data.first.idMeal,
+          equals(responseDto.meals?.first.idMeal),
+        );
       });
 
-      test('should return ApiSuccessResult with empty list when meals is null', () async {
-        when(dataSource.getMealsByCategory(categoryName))
-            .thenAnswer((_) async => MealsByCategoryResponseDto(meals: null));
+      test(
+        'should return ApiSuccessResult with empty list when meals is null',
+        () async {
+          when(
+            dataSource.getMealsByCategory(categoryName),
+          ).thenAnswer((_) async => MealsByCategoryResponseDto(meals: null));
 
-        final result = await repo.getMealsByCategory(categoryName);
+          final result = await repo.getMealsByCategory(categoryName);
 
-        expect(result, isA<ApiSuccessResult<List<MealsResponseEntity>>>());
-        result as ApiSuccessResult<List<MealsResponseEntity>>;
-        expect(result.data, isEmpty);
-      });
+          expect(result, isA<ApiSuccessResult<List<MealsResponseEntity>>>());
+          result as ApiSuccessResult<List<MealsResponseEntity>>;
+          expect(result.data, isEmpty);
+        },
+      );
 
       test('should return ApiErrorResult on DioException', () async {
-        when(dataSource.getMealsByCategory(categoryName))
-            .thenThrow(DioException(requestOptions: RequestOptions()));
+        when(
+          dataSource.getMealsByCategory(categoryName),
+        ).thenThrow(DioException(requestOptions: RequestOptions()));
 
         final result = await repo.getMealsByCategory(categoryName);
 
@@ -81,8 +85,9 @@ void main() {
       });
 
       test('should return ApiErrorResult on generic Exception', () async {
-        when(dataSource.getMealsByCategory(categoryName))
-            .thenThrow(Exception('Unexpected error'));
+        when(
+          dataSource.getMealsByCategory(categoryName),
+        ).thenThrow(Exception('Unexpected error'));
 
         final result = await repo.getMealsByCategory(categoryName);
 

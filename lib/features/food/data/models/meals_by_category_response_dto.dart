@@ -8,9 +8,7 @@ class MealsByCategoryResponseDto {
   @JsonKey(name: "meals")
   final List<MealsResponseDto>? meals;
 
-  MealsByCategoryResponseDto ({
-    this.meals,
-  });
+  MealsByCategoryResponseDto({this.meals});
 
   factory MealsByCategoryResponseDto.fromJson(Map<String, dynamic> json) {
     return _$MealsByCategoryResponseDtoFromJson(json);
@@ -20,7 +18,3 @@ class MealsByCategoryResponseDto {
     return _$MealsByCategoryResponseDtoToJson(this);
   }
 }
-
-
-
-

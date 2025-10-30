@@ -6,13 +6,15 @@ import 'package:super_fitness_app/features/food/domain/entities/meals_response_e
 import 'package:super_fitness_app/features/food/domain/repositories/food_repo.dart';
 
 @Injectable(as: FoodRepo)
-class FoodRepoImpl implements FoodRepo{
+class FoodRepoImpl implements FoodRepo {
   final FoodDataSource _dataSource;
   FoodRepoImpl(this._dataSource);
 
   @override
-  Future<ApiResult<List<MealsResponseEntity>>> getMealsByCategory(String categoryName) {
-    return safeApiCall(()async{
+  Future<ApiResult<List<MealsResponseEntity>>> getMealsByCategory(
+    String categoryName,
+  ) {
+    return safeApiCall(() async {
       final response = await _dataSource.getMealsByCategory(categoryName);
       final meals = response.meals;
 
@@ -20,5 +22,4 @@ class FoodRepoImpl implements FoodRepo{
       return meals.map((meal) => meal.toEntity()).toList();
     });
   }
-
 }

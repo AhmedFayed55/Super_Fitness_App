@@ -4,7 +4,7 @@ import 'package:super_fitness_app/features/food/domain/entities/meals_response_e
 import 'package:super_fitness_app/features/food/domain/repositories/food_repo.dart';
 
 @injectable
-class GetMealsByCategoryUseCase{
+class GetMealsByCategoryUseCase {
   final FoodRepo _repo;
   GetMealsByCategoryUseCase(this._repo);
 

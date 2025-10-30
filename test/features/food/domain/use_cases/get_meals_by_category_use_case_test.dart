@@ -9,7 +9,6 @@ import 'package:super_fitness_app/features/food/domain/repositories/food_repo.da
 
 import 'get_meals_by_category_use_case_test.mocks.dart';
 
-
 @GenerateMocks([FoodRepo])
 void main() {
   late FoodRepo repo;
@@ -36,23 +35,29 @@ void main() {
   group('GetMealsByCategoryUseCase', () {
     const categoryName = 'Beef';
 
-    test('should return ApiSuccessResult when repo returns data successfully', () async {
-      final mockResult = ApiSuccessResult<List<MealsResponseEntity>>(data: mealsList);
-      provideDummy<ApiResult<List<MealsResponseEntity>>>(mockResult);
+    test(
+      'should return ApiSuccessResult when repo returns data successfully',
+      () async {
+        final mockResult = ApiSuccessResult<List<MealsResponseEntity>>(
+          data: mealsList,
+        );
+        provideDummy<ApiResult<List<MealsResponseEntity>>>(mockResult);
 
-      when(repo.getMealsByCategory(categoryName))
-          .thenAnswer((_) async => mockResult);
+        when(
+          repo.getMealsByCategory(categoryName),
+        ).thenAnswer((_) async => mockResult);
 
-      final result = await useCase.call(categoryName);
+        final result = await useCase.call(categoryName);
 
-      verify(repo.getMealsByCategory(categoryName)).called(1);
+        verify(repo.getMealsByCategory(categoryName)).called(1);
 
-      expect(result, isA<ApiSuccessResult<List<MealsResponseEntity>>>());
-      result as ApiSuccessResult<List<MealsResponseEntity>>;
-      expect(result.data.length, mealsList.length);
-      expect(result.data, isNotEmpty);
-      expect(result.data.first.idMeal, equals(mealsList.first.idMeal));
-    });
+        expect(result, isA<ApiSuccessResult<List<MealsResponseEntity>>>());
+        result as ApiSuccessResult<List<MealsResponseEntity>>;
+        expect(result.data.length, mealsList.length);
+        expect(result.data, isNotEmpty);
+        expect(result.data.first.idMeal, equals(mealsList.first.idMeal));
+      },
+    );
 
     test('should return ApiErrorResult when repo throws error', () async {
       final mockError = ApiErrorResult<List<MealsResponseEntity>>(
@@ -60,14 +65,18 @@ void main() {
       );
       provideDummy<ApiResult<List<MealsResponseEntity>>>(mockError);
 
-      when(repo.getMealsByCategory(categoryName))
-          .thenAnswer((_) async => mockError);
+      when(
+        repo.getMealsByCategory(categoryName),
+      ).thenAnswer((_) async => mockError);
 
       final result = await useCase.call(categoryName);
 
       expect(result, isA<ApiErrorResult<List<MealsResponseEntity>>>());
       result as ApiErrorResult<List<MealsResponseEntity>>;
-      expect(result.failure.errorMessage, equals(mockError.failure.errorMessage));
+      expect(
+        result.failure.errorMessage,
+        equals(mockError.failure.errorMessage),
+      );
     });
   });
 }
