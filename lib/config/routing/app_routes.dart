@@ -8,4 +8,6 @@ abstract class AppRoutes {
   static const String registerScreen = "/registerScreen";
   static const String workouts = "/WorkoutsScreen";
 
+  static const String exercise = "/exercise";
+  static const String pTExercise = "/popular_to_exercise";
 }

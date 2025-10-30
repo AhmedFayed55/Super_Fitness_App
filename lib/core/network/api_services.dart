@@ -15,6 +15,8 @@ import '../../features/auth/login/data/models/request/login_request_dto.dart';
 import '../../features/home_screen/data/models/recommendation_to_day/muscles_random_response.dart';
 import '../../features/home_screen/data/models/upcoming_workouts/get_all_muscles_response.dart';
 import '../../features/home_screen/data/models/upcoming_workouts/muscles_group_id_response.dart';
+import 'package:super_fitness_app/features/exercise/data/models/get_all_exerecises/get_all_exerecises_response.dart';
+import 'package:super_fitness_app/features/exercise/data/models/get_difficulty_level/get_difficulty_level_respone.dart';
 
 part 'api_services.g.dart';
 
@@ -54,5 +56,15 @@ abstract class ApiServices {
   @GET(EndPoints.upcomingWorkoutsTabItems)
   Future<MusclesGroupIdResponse> upcomingWorkoutsTabItems(
     @Path("muscleGroupId") String muscleGroupId,
+  );
+  @GET(EndPoints.exercises)
+  Future<GetAllExerecisesResponse> getAllExercisesByDifficulty(
+    @Query(NetworkConstants.primeMoverMuscleId) String muscleId,
+    @Query(NetworkConstants.difficultyLevelId) String difficultyId,
+  );
+
+  @GET(EndPoints.difficultyLevels)
+  Future<GetDifficultyLevelRespone> getDifficultyLevelsByPrimeMover(
+    @Query(NetworkConstants.primeMoverMuscleId) String primeMoverMuscleId,
   );
 }

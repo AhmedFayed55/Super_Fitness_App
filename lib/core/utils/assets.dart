@@ -3,6 +3,8 @@ abstract class AppAssets {
   static const String authBackground = 'assets/images/auth_bg.png';
   static const String appLogo = 'assets/images/app-logo.png';
   static const String workoutBg = 'assets/images/workout-bg.png';
+  static const String exerciseScreenBackground =
+      'assets/images/exercise_bg.png';
 
   // SVGs
   static const String loginBackground = "assets/images/login_background.png";
@@ -24,4 +26,5 @@ abstract class AppAssets {
   static const String chatBotIcon = 'assets/icons/chat_bot_icon.svg';
   static const String maleIcon = 'assets/images/male_icon.svg';
   static const String femaleIcon = 'assets/images/female_icon.svg';
+  static const String arrowBack = 'assets/svgs/arrow_back.svg';
 }
