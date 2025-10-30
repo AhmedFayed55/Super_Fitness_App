@@ -1,13 +1,12 @@
 name: super_fitness_app
 description: "A new Flutter project."
 
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
 
 version: 1.0.0+1
 
 environment:
   sdk: ^3.9.0
-
 
 dependencies:
   flutter:
@@ -36,9 +35,8 @@ dependencies:
   internet_connection_checker: ^3.0.1
   firebase_core: ^4.2.0
   google_fonts: ^6.3.2
-
-
-
+  youtube_player_flutter: ^9.1.3
+  shimmer: ^3.0.0
 
 dev_dependencies:
   flutter_test:
@@ -56,7 +54,7 @@ flutter:
   generate: true
 
   # To add assets to your application, add an assets section, like this:
-#  assets:
-#    - assets/images/
-#    - assets/svgs/
+  assets:
+    - assets/images/
+    - assets/svgs/
 #    - assets/animations/

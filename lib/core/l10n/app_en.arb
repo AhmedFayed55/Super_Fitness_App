@@ -23,5 +23,6 @@
   "forget_password_ques" : "Forget Password ?",
   "dont_have_account_yet" : "Don't have an account yet ?",
   "register" : "Register",
-  "or" : "Or"
+  "or" : "Or",
+  "no_exercises_available" : "No exercises available."
 }
