@@ -94,7 +94,7 @@
   "got_it" : "Got it",
   "something_went_wrong": "Something went wrong. Please try again later",
   "login_successfully": "Login successfully",
-  "register_successfully": "Register successfully"
+  "register_successfully": "Register successfully",
   "workouts_title": "Workouts",
   "workouts_no_exercises": "No exercises available",
   "workouts_loading": "Loading workouts...",
