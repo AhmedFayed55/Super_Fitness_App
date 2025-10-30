@@ -22,4 +22,6 @@ abstract class EndPoints {
   static const String exercises = "exercises/by-muscle-difficulty";
   static const String difficultyLevels =
       "levels/difficulty-levels/by-prime-mover";
+  static const String detailsFood='lookup.php';
 }
+

@@ -84,5 +84,11 @@
   "workouts_loading": "Loading workouts...",
   "workouts_error": "Failed to load workouts. Please try again.",
   "workouts_empty_group": "No workouts found for this muscle group.",
-  "no_exercises_available": "No exercises available."
+  "no_exercises_available": "No exercises available.",
+  "ingredients":"Ingredients",
+  "recommendation":"Recommendation",
+  "energy":"Energy",
+  "protein":"Protein",
+  "carbs":"Carbs",
+  "fat":"Fat"
 }

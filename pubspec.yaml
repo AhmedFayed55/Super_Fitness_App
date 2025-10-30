@@ -45,6 +45,7 @@ dependencies:
   percent_indicator: ^4.2.5
   blur: ^4.0.2
 
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

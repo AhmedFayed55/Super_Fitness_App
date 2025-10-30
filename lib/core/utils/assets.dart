@@ -27,4 +27,6 @@ abstract class AppAssets {
   static const String maleIcon = 'assets/images/male_icon.svg';
   static const String femaleIcon = 'assets/images/female_icon.svg';
   static const String arrowBack = 'assets/svgs/arrow_back.svg';
+  static const bgDetailsFood='assets/images/bg_details_food.png';
+  static const arrowBackk='assets/images/arrow_back.png';
 }

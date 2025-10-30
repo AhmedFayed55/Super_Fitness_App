@@ -9,6 +9,7 @@ import 'package:super_fitness_app/features/workouts/presentation/pages/workouts_
 import 'package:super_fitness_app/core/utils/constants.dart';
 import 'package:super_fitness_app/features/exercise/domain/entity/difficulty_level_entity.dart';
 import 'package:super_fitness_app/features/exercise/domain/entity/exercise_entity.dart';
+import 'package:super_fitness_app/features/details_food/presentation/pages/details_food_screen.dart';
 import '../../features/auth/login/presentation/pages/login_screen.dart';
 import 'app_routes.dart';
 import '../../features/exercise/presentation/pages/exercise_screen.dart';
@@ -65,6 +66,9 @@ class RouteGenerator {
         return MaterialPageRoute(
           builder: (context) => ExerciseScreen.byMuscleId(muscleId: id),
         );
+
+      case AppRoutes.detailsMeal:
+      return MaterialPageRoute(builder:(context)=>const DetailsFoodScreen());
 
       default:
         return unDefinedRoute();
