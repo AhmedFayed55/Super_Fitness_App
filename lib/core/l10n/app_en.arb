@@ -23,5 +23,19 @@
   "forget_password_ques" : "Forget Password ?",
   "dont_have_account_yet" : "Don't have an account yet ?",
   "register" : "Register",
-  "or" : "Or"
+  "or" : "Or",
+  "hi" : "Hi",
+  "lets_start_your_day" : "Let’s start your day",
+  "category" : "Category",
+  "gym" : "gym",
+  "fitness" : "fitness",
+  "yoga" : "yoga",
+  "aerobics" : "aerobics",
+  "trainer" : "trainer",
+  "recommendation_to_day" : "Recommendation To Day",
+  "recommendation_for_you" : "Recommendation For You",
+  "something_went_wrong" : "Something went wrong",
+  "upcoming_workouts" : "Upcoming Workouts",
+  "see_all" : "See All",
+  "nothing_exists" : "Nothing exists"
 }

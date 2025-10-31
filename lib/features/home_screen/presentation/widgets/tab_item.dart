@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:super_fitness_app/config/theme/colors.dart';
 import 'package:super_fitness_app/features/home_screen/domain/entities/upcoming_workouts/muscles_group_dto_entity.dart';
 
 class TabItem extends StatelessWidget {
@@ -14,10 +15,10 @@ class TabItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(8),
+      padding: const EdgeInsets.all(8),
       decoration: BoxDecoration(
         borderRadius: BorderRadiusGeometry.circular(20),
-        color: selected ? Colors.red : Colors.transparent,
+        color: selected ? AppColors.lightOrange[10] : Colors.transparent,
       ),
       child: Text(
         musclesGroupDtoEntity.name,

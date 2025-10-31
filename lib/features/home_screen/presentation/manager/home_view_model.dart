@@ -109,7 +109,7 @@ class HomeCubit extends Cubit<HomeState> {
       _recommendationToDay(),
       _recommendationForYou(),
       _upcomingWorkoutsTab(),
-      // _upcomingWorkoutsTabItems("muscleGroupId"),
+      _upcomingWorkoutsTabItems("67c79f3526895f87ce0aa96b"),
     ]);
   }
 }

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:super_fitness_app/config/theme/colors.dart';
+import 'package:super_fitness_app/core/extensions/extensions.dart';
 import 'package:super_fitness_app/core/helpers/spacing.dart';
 import 'package:super_fitness_app/features/home_screen/presentation/manager/home_state.dart';
 import 'package:super_fitness_app/features/home_screen/presentation/manager/home_view_model.dart';
@@ -9,95 +11,152 @@ class RecommendationForYou extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var cubit = context.read<HomeCubit>();
+    var screenWidth = context.width;
+    var screenHeight = context.height;
     return BlocBuilder<HomeCubit, HomeState>(
       builder: (context, state) {
-        final data = state.forYouData?.categoriesDtoEntity ?? [];
-        return Expanded(child: Column(
+        var cubitState = state.forYouData?.categoriesDtoEntity;
+        return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  "Recommendation for you",
+                  context.localization.recommendation_for_you,
                   style: Theme.of(context).textTheme.displaySmall,
                 ),
                 InkWell(
                   onTap: () {
-                    /// onPressed Recommendation for you
+                    /// onPressed See All
                   },
                   child: Text(
-                    "See All",
-                    style: TextStyle(
-                      color: Color(0xFFFF4100),
+                    context.localization.see_all,
+                    style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                      color: AppColors.lightOrange[10],
                       decoration: TextDecoration.underline,
+                      decorationColor: AppColors.lightOrange[10],
                       decorationStyle: TextDecorationStyle.solid,
-                      decorationColor: Color(0xFFFF4100),
                     ),
                   ),
                 ),
               ],
             ),
-            verticalSpace(8),
-            SizedBox(
-              height: 104,
-              child: ListView.separated(
-                itemCount: data.length,
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (context, index) {
-                  return Stack(
-                    alignment: Alignment.bottomCenter,
-                    children: [
-                      Container(
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                            width: 2,
-                            color: Color(0xff242424),
+            verticalSpace(screenHeight * 0.01),
+            if (state.forYou == ScreenStatus.isLoading)
+              SizedBox(
+                height: screenWidth * 0.28,
+                child: Center(
+                  child: CircularProgressIndicator(
+                    color: AppColors.lightOrange[10],
+                  ),
+                ),
+              )
+            else if (state.forYou == ScreenStatus.isError)
+              Center(
+                child: Text(
+                  context.localization.something_went_wrong,
+                  style: Theme.of(context).textTheme.bodySmall,
+                ),
+              )
+            else
+              SizedBox(
+                height: screenWidth * 0.28,
+                child: ListView.separated(
+                  itemCount: cubitState?.length ?? 0,
+                  scrollDirection: Axis.horizontal,
+                  separatorBuilder: (context, index) {
+                    return horizontalSpace(screenWidth * 0.043);
+                  },
+                  itemBuilder: (context, index) {
+                    return Stack(
+                      alignment: Alignment.bottomCenter,
+                      children: [
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(20),
+                          child:
+                              (cubitState?[index].strCategoryThumb == null ||
+                                  cubitState![index].strCategoryThumb.isEmpty)
+                              ? Container(
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(20),
+                                    border: Border.all(
+                                      width: 2,
+                                      color: AppColors.grey[10]!,
+                                    ),
+                                  ),
+                                  alignment: Alignment.center,
+                                  height: screenWidth * 0.28,
+                                  width: screenWidth * 0.28,
+                                  child: const Icon(
+                                    Icons.error_outline,
+                                    size: 30,
+                                    color: AppColors.grey,
+                                  ),
+                                )
+                              : Container(
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadiusGeometry.circular(
+                                      20,
+                                    ),
+                                    border: Border.all(
+                                      width: 2,
+                                      color: AppColors.grey[20]!,
+                                    ),
+                                  ),
+                                  child: Image.network(
+                                    cubitState[index].strCategoryThumb,
+                                    fit: BoxFit.fill,
+                                    height: screenWidth * 0.28,
+                                    width: screenWidth * 0.28,
+                                    loadingBuilder:
+                                        (context, child, loadingProgress) {
+                                          if (loadingProgress == null) {
+                                            return child;
+                                          }
+                                          return Center(
+                                            child: Container(
+                                              alignment: Alignment.center,
+                                              height: screenWidth * 0.28,
+                                              width: screenWidth * 0.28,
+                                              child: CircularProgressIndicator(
+                                                color:
+                                                    AppColors.lightOrange[10],
+                                              ),
+                                            ),
+                                          );
+                                        },
+                                  ),
+                                ),
+                        ),
+                        Positioned(
+                          bottom: 0,
+                          left: 0,
+                          right: 0,
+                          child: Container(
+                            alignment: Alignment.center,
+                            height: screenHeight * 0.037,
+                            padding: const EdgeInsets.all(8),
+                            decoration: BoxDecoration(
+                              color: AppColors.grey[10]?.withValues(alpha: 0.7),
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            child: Text(
+                              cubitState?[index].strCategory ??
+                                  context.localization.error,
+                              style: Theme.of(context).textTheme.bodySmall,
+                              overflow: TextOverflow.ellipsis,
+                              maxLines: 1,
+                            ),
                           ),
-                          borderRadius: BorderRadius.circular(20),
                         ),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(20),
-                          child:(state.forYouData?.categoriesDtoEntity[index].strCategoryThumb == null ||
-                              state.forYouData!.categoriesDtoEntity[index].strCategoryThumb.isEmpty)
-                              ? const Icon(
-                            Icons.image_not_supported,
-                            size: 50,
-                            color: Colors.grey,
-                          )
-                              :
-                          Image.network(
-                            "${state.forYouData?.categoriesDtoEntity[index].strCategoryThumb}",
-                            height: 100,
-                            width: 100,
-                          ),
-                        ),
-                      ),
-                      Container(
-                        alignment: Alignment.center,
-                        height: 30,
-                        width: 100,
-                        padding: EdgeInsets.all(8),
-                        decoration: BoxDecoration(
-                          color: Color(0xFF242424).withValues(alpha: 0.8),
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        child: Text(
-                          "${state.forYouData?.categoriesDtoEntity[index].strCategory}",
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                      ),
-                    ],
-                  );
-                },
-                separatorBuilder: (context, index) {
-                  return horizontalSpace(16);
-                },
+                      ],
+                    );
+                  },
+                ),
               ),
-            ),
           ],
-        ));
+        );
       },
     );
   }
