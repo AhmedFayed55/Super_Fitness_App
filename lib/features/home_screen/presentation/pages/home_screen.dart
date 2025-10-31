@@ -1,46 +1,61 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:super_fitness_app/core/di/di.dart';
+import 'package:super_fitness_app/core/extensions/extensions.dart';
 import 'package:super_fitness_app/core/helpers/spacing.dart';
+import 'package:super_fitness_app/core/utils/assets.dart';
 import 'package:super_fitness_app/features/home_screen/presentation/manager/home_event.dart';
 import 'package:super_fitness_app/features/home_screen/presentation/manager/home_view_model.dart';
 import 'package:super_fitness_app/features/home_screen/presentation/widgets/category_bar.dart';
 import 'package:super_fitness_app/features/home_screen/presentation/widgets/recommendation_for_you.dart';
 import 'package:super_fitness_app/features/home_screen/presentation/widgets/recommendation_to_day.dart';
-import 'package:super_fitness_app/features/home_screen/presentation/widgets/upcoming_workouts.dart';
+import 'package:super_fitness_app/features/home_screen/presentation/widgets/upcoming_workouts_items.dart';
+import 'package:super_fitness_app/features/home_screen/presentation/widgets/upcoming_workouts_tab.dart';
 import 'package:super_fitness_app/features/home_screen/presentation/widgets/user_profile.dart';
 
-
 class HomeScreen extends StatelessWidget {
-   HomeScreen({super.key});
+  HomeScreen({super.key});
 
   final homeCubit = getIt.get<HomeCubit>();
 
   @override
   Widget build(BuildContext context) {
+    var screenWidth = context.width;
+    var screenHeight = context.height;
     return BlocProvider(
       create: (context) => homeCubit..doIntent(GetAllHomeDataEvent()),
-      child: Scaffold(
-        body: Padding(
-          padding: EdgeInsets.fromLTRB(
-            16,
-            MediaQuery.of(context).padding.top,
-            16,
-            16,
+      child: Container(
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            fit: BoxFit.fill,
+            image: AssetImage(AppAssets.homeBackground),
           ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              UserProfile(),
-              verticalSpace(24),
-              CategoryBar(),
-              verticalSpace(24),
-              RecommendationToDay(),
-              verticalSpace(24),
-              UpcomingWorkouts(),
-              verticalSpace(24),
-              RecommendationForYou(),
-            ],
+        ),
+        child: Scaffold(
+          backgroundColor: Colors.transparent,
+          body: Padding(
+            padding: EdgeInsets.fromLTRB(
+              screenWidth * 0.043,
+              MediaQuery.of(context).padding.top,
+              screenWidth * 0.043,
+              screenHeight * 0.02,
+            ),
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  const UserProfile(),
+                  verticalSpace(24),
+                  const CategoryBar(),
+                  verticalSpace(24),
+                  const RecommendationToDay(),
+                  verticalSpace(24),
+                  const UpcomingWorkoutsTab(),
+                  const UpcomingWorkoutsItems(),
+                  verticalSpace(24),
+                  const RecommendationForYou(),
+                ],
+              ),
+            ),
           ),
         ),
       ),

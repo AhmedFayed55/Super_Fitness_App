@@ -5,6 +5,12 @@ abstract class AppAssets {
   static const String workoutBg = 'assets/images/workout-bg.png';
   static const String exerciseScreenBackground =
       'assets/images/exercise_bg.png';
+  static const String homeBackground = "assets/images/home_background.png";
+  static const String aerobics = "assets/images/aerobics.png";
+  static const String fitness = "assets/images/fitness.png";
+  static const String gym = "assets/images/gym.png";
+  static const String trainer = "assets/images/trainer.png";
+  static const String yoga = "assets/images/yoga.png";
 
   // SVGs
   static const String loginBackground = "assets/images/login_background.png";

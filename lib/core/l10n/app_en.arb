@@ -91,5 +91,18 @@
   "protein":"Protein",
   "carbs":"Carbs",
   "fat":"Fat",
-  "food_recommendation" : "Food Recommendation"
+  "food_recommendation" : "Food Recommendation",
+  "hi" : "Hi",
+  "lets_start_your_day" : "Let’s start your day",
+  "category" : "Category",
+  "gym" : "gym",
+  "fitness" : "fitness",
+  "yoga" : "yoga",
+  "aerobics" : "aerobics",
+  "trainer" : "trainer",
+  "recommendation_to_day" : "Recommendation To Day",
+  "recommendation_for_you" : "Recommendation For You",
+  "upcoming_workouts" : "Upcoming Workouts",
+  "see_all" : "See All",
+  "nothing_exists" : "Nothing exists"
 }
