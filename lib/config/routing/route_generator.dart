@@ -12,6 +12,7 @@ import 'package:super_fitness_app/features/exercise/domain/entity/difficulty_lev
 import 'package:super_fitness_app/features/exercise/domain/entity/exercise_entity.dart';
 import 'package:super_fitness_app/features/details_food/presentation/pages/details_food_screen.dart';
 import 'package:super_fitness_app/features/home_screen/presentation/pages/home_screen.dart';
+import 'package:super_fitness_app/features/popular_training/presentation/pages/popular.dart';
 import '../../features/auth/login/presentation/pages/login_screen.dart';
 import 'package:super_fitness_app/features/food/presentation/pages/food_screen.dart';
 import 'app_routes.dart';
@@ -28,6 +29,7 @@ class RouteGenerator {
         return MaterialPageRoute(
           builder: (context) => const ForgetPasswordScreen(),
         );
+
 
       case AppRoutes.onboarding:
         return MaterialPageRoute(

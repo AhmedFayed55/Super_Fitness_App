@@ -25,5 +25,6 @@ abstract class EndPoints {
       "levels/difficulty-levels/by-prime-mover";
   static const String detailsFood='lookup.php';
   static const String getMealsByCategory = "filter.php";
+  static const String allExercises = "exercises";
 }
 
