@@ -11,16 +11,20 @@ import 'package:super_fitness_app/features/food/presentation/manager/food_screen
 import 'package:super_fitness_app/features/food/presentation/widgets/food_grid_view.dart';
 import 'package:super_fitness_app/features/food/presentation/widgets/food_screen_app_bar.dart';
 import 'package:super_fitness_app/features/food/presentation/widgets/food_tab_bar_bloc_builder.dart';
+import 'package:super_fitness_app/features/home_screen/domain/entities/recommendation_for_you/categories_entity.dart';
 
 class FoodScreen extends StatefulWidget {
-  const FoodScreen({super.key});
+  const FoodScreen({super.key,this.index,this.categories});
+
+  final int? index;
+  final List<CategoriesEntity>? categories;
 
   @override
   State<FoodScreen> createState() => _FoodScreenState();
 }
 
 class _FoodScreenState extends State<FoodScreen> {
-  int currentIndex = 0;
+  late int currentIndex = widget.index ?? 0;
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +53,11 @@ class _FoodScreenState extends State<FoodScreen> {
                     children: [
                       const FoodScreenAppBar(),
                       verticalSpace(height * 0.039),
-                      FoodTabBarBlocBuilder(index: currentIndex),
+                      FoodTabBarBlocBuilder(
+                        index: currentIndex,
+                        categories: widget.categories ?? [],
+                      ),
+
                       verticalSpace(height * 0.02),
                       Expanded(
                         child:

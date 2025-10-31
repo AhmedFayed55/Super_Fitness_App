@@ -7,6 +7,7 @@ import 'package:super_fitness_app/core/helpers/spacing.dart';
 import 'package:super_fitness_app/core/utils/assets.dart';
 import 'package:super_fitness_app/features/chat_bot/presentation/page/chat_bot_page.dart';
 import 'package:super_fitness_app/features/explore/presentation/page/explore_page.dart';
+import 'package:super_fitness_app/features/home_screen/presentation/pages/home_screen.dart';
 import 'package:super_fitness_app/features/profile/presentation/page/profile_page.dart';
 import 'package:super_fitness_app/features/workouts/presentation/pages/workouts_screen.dart';
 
@@ -24,7 +25,7 @@ class _AppSectionsState extends State<AppSections> {
   Widget build(BuildContext context) {
     final localization = context.localization;
     final List<Widget> pages = [
-      const ExplorePage(),
+      HomeScreen(),
       const ChatBotPage(),
       const WorkoutsScreen(),
       const ProfilePage(),

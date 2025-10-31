@@ -14,7 +14,7 @@ class FoodGridView extends StatelessWidget {
     final Size screenSize = MediaQuery.of(context).size;
     return GridView.builder(
       padding: const EdgeInsets.only(top: 8),
-      itemCount: 8,
+      itemCount: meals.length,
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
         mainAxisSpacing: screenSize.width * 0.045,

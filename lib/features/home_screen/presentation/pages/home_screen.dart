@@ -37,7 +37,7 @@ class HomeScreen extends StatelessWidget {
               verticalSpace(24),
               RecommendationToDay(),
               verticalSpace(24),
-              // UpcomingWorkouts(),
+              UpcomingWorkouts(),
               verticalSpace(24),
               RecommendationForYou(),
             ],

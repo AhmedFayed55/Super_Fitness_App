@@ -36,7 +36,7 @@ class SuperFitnessApp extends StatelessWidget {
           theme: AppTheme.darkTheme,
           debugShowCheckedModeBanner: false,
           onGenerateRoute: RouteGenerator.getRoute,
-          initialRoute: AppRoutes.foodScreen,
+          initialRoute: AppRoutes.appSections,
 
           // initialRoute:
           //     getIt<SharedPrefHelper>().getData(
@@ -45,7 +45,6 @@ class SuperFitnessApp extends StatelessWidget {
           //         null
           //     ? AppRoutes.login
           //     : AppRoutes.onboarding,
-          initialRoute: AppRoutes.homeScreen,
         );
       },
     );

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:super_fitness_app/features/auth/forget_password/presentation/pages/forget_password_screen.dart';
 import 'package:super_fitness_app/features/auth/register/presentation/pages/register_screen.dart';
-import 'package:super_fitness_app/features/food/domain/entities/meals_response_entity.dart';
+import 'package:super_fitness_app/features/home_screen/domain/entities/recommendation_for_you/categories_entity.dart';
 import 'package:super_fitness_app/features/onBoarding/presentation/pages/onboarding_screen.dart';
 import 'package:super_fitness_app/features/app_sections/app_sections.dart';
 import 'package:super_fitness_app/features/auth/goal_and_activity/presentation/pages/activity_screen.dart';
@@ -13,7 +13,6 @@ import 'package:super_fitness_app/features/exercise/domain/entity/exercise_entit
 import 'package:super_fitness_app/features/details_food/presentation/pages/details_food_screen.dart';
 import 'package:super_fitness_app/features/home_screen/presentation/pages/home_screen.dart';
 import '../../features/auth/login/presentation/pages/login_screen.dart';
-import 'package:super_fitness_app/features/auth/login/presentation/pages/login_screen.dart';
 import 'package:super_fitness_app/features/food/presentation/pages/food_screen.dart';
 import 'app_routes.dart';
 import '../../features/exercise/presentation/pages/exercise_screen.dart';
@@ -79,7 +78,10 @@ class RouteGenerator {
         );
 
       case AppRoutes.foodScreen:
-        return MaterialPageRoute(builder: (context) => const FoodScreen());
+        final args = settings.arguments as Map<String,dynamic>;
+        final int? index = args['index'];
+        final List<CategoriesEntity>? list = args['list'];
+        return MaterialPageRoute(builder: (context) => FoodScreen(index: index,categories: list ,));
 
       case AppRoutes.homeScreen:
         return MaterialPageRoute(builder: (context) => HomeScreen());
