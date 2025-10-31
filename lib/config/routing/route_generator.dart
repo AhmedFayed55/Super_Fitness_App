@@ -71,10 +71,10 @@ class RouteGenerator {
       case AppRoutes.detailsMeal:
         final args = settings.arguments as Map<String, dynamic>;
         final id = args['id'];
-       // final mealList = args['mealList'] as List<MealsResponseEntity>;
+        final mealList = args['mealsList'] as List<MealsResponseEntity>;
 
         return MaterialPageRoute(
-          builder: (context) => DetailsFoodScreen(mealId: id,),
+          builder: (context) => DetailsFoodScreen(mealId: id,meals: mealList,),
         );
 
       case AppRoutes.foodScreen:

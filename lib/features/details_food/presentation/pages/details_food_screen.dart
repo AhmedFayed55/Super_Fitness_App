@@ -12,8 +12,8 @@ import 'package:super_fitness_app/features/details_food/presentation/widget/vide
 import 'package:super_fitness_app/features/food/domain/entities/meals_response_entity.dart';
 
 class DetailsFoodScreen extends StatelessWidget {
-  const DetailsFoodScreen({super.key,required this.mealId});
-// final List<MealsResponseEntity> meals; 
+  const DetailsFoodScreen({super.key,required this.mealId,required this.meals});
+ final List<MealsResponseEntity> meals; 
  final String mealId;
   @override
   Widget build(BuildContext context) {
@@ -35,12 +35,12 @@ class DetailsFoodScreen extends StatelessWidget {
                     Positioned.fill(
                       child: Image.asset(AppAssets.bgDetailsFood),
                     ),
-                    const Column(
+                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        VideoPlayerWidget(),
-                        CustomIngredientWidget(),
-                        CustomRecommendationWidget(),
+                        const VideoPlayerWidget(),
+                        const CustomIngredientWidget(),
+                        CustomRecommendationWidget(mealsList: meals,),
                       ],
                     ),
                   ],
