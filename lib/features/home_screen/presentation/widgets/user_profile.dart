@@ -32,7 +32,8 @@ class UserProfile extends StatelessWidget {
           ],
         ),
         CircleAvatar(
-          radius: min(screenWidth, screenHeight) * 0.1,
+          // radius: min(screenWidth, screenHeight) * 0.1,
+          radius: 33,
           backgroundColor: AppColors.lightOrange[30],
         ),
       ],

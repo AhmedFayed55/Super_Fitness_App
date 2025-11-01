@@ -12,9 +12,11 @@ import 'package:super_fitness_app/features/home_screen/presentation/widgets/reco
 import 'package:super_fitness_app/features/home_screen/presentation/widgets/upcoming_workouts_items.dart';
 import 'package:super_fitness_app/features/home_screen/presentation/widgets/upcoming_workouts_tab.dart';
 import 'package:super_fitness_app/features/home_screen/presentation/widgets/user_profile.dart';
+import 'package:super_fitness_app/features/popular_training/presentation/pages/popular.dart';
 
 class HomeScreen extends StatelessWidget {
-  HomeScreen({super.key});
+  final Function? onPressed;
+  HomeScreen({super.key,required this.onPressed});
 
   final homeCubit = getIt.get<HomeCubit>();
 
@@ -42,6 +44,7 @@ class HomeScreen extends StatelessWidget {
             ),
             child: SingleChildScrollView(
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const UserProfile(),
                   verticalSpace(24),
@@ -49,10 +52,19 @@ class HomeScreen extends StatelessWidget {
                   verticalSpace(24),
                   const RecommendationToDay(),
                   verticalSpace(24),
-                  const UpcomingWorkoutsTab(),
+                  UpcomingWorkoutsTab(onClick: (){
+                    if(onPressed != null) {
+                      onPressed!();
+                    }
+                  },),
                   const UpcomingWorkoutsItems(),
                   verticalSpace(24),
                   const RecommendationForYou(),
+                  verticalSpace(24),
+                  Text("popular training", style: Theme.of(context).textTheme.displaySmall),
+                  verticalSpace(8),
+                  Popular(),
+                  SizedBox(height: 120,)
                 ],
               ),
             ),

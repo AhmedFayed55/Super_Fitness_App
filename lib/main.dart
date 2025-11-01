@@ -37,7 +37,6 @@ class SuperFitnessApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           onGenerateRoute: RouteGenerator.getRoute,
           initialRoute: AppRoutes.appSections,
-
           // initialRoute:
           //     getIt<SharedPrefHelper>().getData(
           //           key: AppConstants.isOnBoardingSeen,

@@ -9,7 +9,8 @@ import 'package:super_fitness_app/features/home_screen/presentation/manager/home
 import 'tab_item.dart';
 
 class UpcomingWorkoutsTab extends StatefulWidget {
-  const UpcomingWorkoutsTab({super.key});
+  final Function onClick;
+  const UpcomingWorkoutsTab({super.key,required this.onClick});
 
   @override
   State<UpcomingWorkoutsTab> createState() => _UpcomingWorkoutsTabState();
@@ -36,7 +37,7 @@ class _UpcomingWorkoutsTabState extends State<UpcomingWorkoutsTab> {
                 ),
                 InkWell(
                   onTap: () {
-                    /// onPressed Upcoming Workouts
+                      widget.onClick();
                   },
                   child: Text(
                     context.localization.see_all,

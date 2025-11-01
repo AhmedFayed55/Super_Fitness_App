@@ -25,7 +25,11 @@ class _AppSectionsState extends State<AppSections> {
   Widget build(BuildContext context) {
     final localization = context.localization;
     final List<Widget> pages = [
-      HomeScreen(),
+      HomeScreen(onPressed: (){
+        _currentIndex = 2;
+        setState(() {
+        });
+      },),
       const ChatBotPage(),
       const WorkoutsScreen(),
       const ProfilePage(),

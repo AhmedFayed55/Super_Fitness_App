@@ -20,8 +20,10 @@ class Popular extends StatelessWidget {
         child: BlocBuilder<PopularCubit, PopularState>(
           builder: (context, state) {
             if (state.isLoading) {
-              return CircularProgressIndicator(
-                color: context.colorScheme.primary,
+              return Center(
+                child: CircularProgressIndicator(
+                  color: context.colorScheme.primary,
+                ),
               );
             }
             if (state.errorMessage != null) {
