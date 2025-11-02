@@ -7,4 +7,7 @@ abstract class AppConstants {
   static const String enKey = 'en';
   static const String exercises = 'exercises';
   static const String difficulties = 'difficulties';
+  static const String noInternet = 'No Internet Connection';
+  static const int animateSeconds = 300;
+  static const double blurSigma = 10;
 }
