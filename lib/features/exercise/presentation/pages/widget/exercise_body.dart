@@ -5,18 +5,8 @@ import 'package:super_fitness_app/features/exercise/presentation/pages/widget/ba
 import 'package:super_fitness_app/features/exercise/presentation/pages/widget/exercises_list_view_builder.dart';
 import 'package:super_fitness_app/features/exercise/presentation/pages/widget/levels_list_view.dart';
 
-class ExerciseBody extends StatefulWidget {
+class ExerciseBody extends StatelessWidget {
   const ExerciseBody({super.key});
-
-  @override
-  State<ExerciseBody> createState() => _ExerciseBodyState();
-}
-
-class _ExerciseBodyState extends State<ExerciseBody> {
-  @override
-  void initState() {
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
