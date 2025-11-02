@@ -12,16 +12,22 @@ class FoodGridView extends StatelessWidget {
     final Size screenSize = MediaQuery.of(context).size;
     return GridView.builder(
       padding: const EdgeInsets.only(top: 8),
-      itemCount: 8,
+      itemCount: meals.length,
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
         mainAxisSpacing: screenSize.width * 0.045,
         crossAxisSpacing: screenSize.height * 0.02,
       ),
       itemBuilder: (context, index) {
-        return MealGridViewItemWidget(
-          title: meals[index].strMeal,
-          imagePath: meals[index].strMealThumb,
+        return GestureDetector(
+          //   onTap: ()=>context.pushNamed(AppRoutes.detailsMeal,arguments: {
+          //   'id':meals[index].idMeal,
+          //   'mealsList':meals,
+          // }) ,
+          child: MealGridViewItemWidget(
+            title: meals[index].strMeal,
+            imagePath: meals[index].strMealThumb,
+          ),
         );
       },
     );

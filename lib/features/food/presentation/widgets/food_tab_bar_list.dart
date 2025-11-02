@@ -18,7 +18,7 @@ class FoodTabBarList extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
-      height: context.height * 0.036,
+      height: context.height * 0.04,
       child: ListView.builder(
         itemCount: categories.length,
         scrollDirection: Axis.horizontal,
