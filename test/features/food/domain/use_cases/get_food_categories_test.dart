@@ -4,7 +4,7 @@ import 'package:super_fitness_app/core/network/failures.dart';
 import 'package:super_fitness_app/features/food/domain/use_cases/get_food_categories.dart';
 import 'package:test/test.dart';
 import 'package:super_fitness_app/core/network/api_results.dart';
-import 'package:super_fitness_app/features/home_screen/domain/entities/recommendation_for_you/categories_dto_entity.dart';
+import 'package:super_fitness_app/features/home_screen/domain/entities/recommendation_for_you/categories_entity.dart';
 import 'package:super_fitness_app/features/home_screen/domain/entities/recommendation_for_you/meals_categories_entity.dart';
 import 'package:super_fitness_app/features/home_screen/domain/repositories/home_repo.dart';
 
@@ -21,7 +21,7 @@ void main() {
     useCase = GetFoodCategoriesUseCase(repo);
     mealsCategoriesEntity = MealsCategoriesEntity(
       categoriesDtoEntity: [
-        CategoriesDtoEntity(
+        CategoriesEntity(
           idCategory: "1",
           strCategory: "Dessert",
           strCategoryThumb: "dessert.png",
@@ -42,7 +42,7 @@ void main() {
 
         when(repo.recommendationForYou()).thenAnswer((_) async => mockResult);
 
-        final result = await useCase.getFoodCategories();
+        final result = await useCase.call();
 
         verify(repo.recommendationForYou()).called(1);
 
@@ -68,7 +68,7 @@ void main() {
 
       when(repo.recommendationForYou()).thenAnswer((_) async => mockError);
 
-      final result = await useCase.getFoodCategories();
+      final result = await useCase.call();
 
       expect(result, isA<ApiErrorResult<MealsCategoriesEntity>>());
       result as ApiErrorResult<MealsCategoriesEntity>;

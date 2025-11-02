@@ -11,11 +11,7 @@ class MealsResponseDto {
   @JsonKey(name: "idMeal")
   final String? idMeal;
 
-  MealsResponseDto ({
-    this.strMeal,
-    this.strMealThumb,
-    this.idMeal,
-  });
+  MealsResponseDto({this.strMeal, this.strMealThumb, this.idMeal});
 
   factory MealsResponseDto.fromJson(Map<String, dynamic> json) {
     return _$MealsResponseDtoFromJson(json);

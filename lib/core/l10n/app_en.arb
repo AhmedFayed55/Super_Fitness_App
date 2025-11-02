@@ -21,7 +21,10 @@
   "email" : "Email",
   "password" : "Password",
   "forget_password_ques" : "Forget Password ?",
-  "dont_have_account_yet" : "Don't have an account yet ?",
+  "dont_have_account_yet" : "Don't have an account yet ? ",
   "register" : "Register",
-  "or" : "Or"
+  "or" : "Or",
+  "something_went_wrong": "Something went wrong. Please try again later",
+  "login_successfully": "Login successfully",
+  "food_recommendation" : "Food Recommendation"
 }

@@ -11,7 +11,6 @@ import '../../../home_screen/data/data_sources/home_ds_impl_test.mocks.dart';
 
 @GenerateMocks([ApiServices])
 void main() {
-
   late MealsApiServices apiServices;
   late FoodDataSourceImpl dataSource;
   late MealsByCategoryResponseDto response;
@@ -24,27 +23,33 @@ void main() {
         MealsResponseDto(idMeal: "1", strMeal: "Teriyaki Chicken"),
         MealsResponseDto(idMeal: "2", strMeal: "Chicken Alfredo"),
         MealsResponseDto(idMeal: "3", strMeal: "Beef"),
-      ]
+      ],
     );
   });
 
   group('FoodDataSourceImpl Tests', () {
-    test('getMealsByCategory returns MealsByCategoryResponseDto correctly', () async {
+    test(
+      'getMealsByCategory returns MealsByCategoryResponseDto correctly',
+      () async {
+        const testCategory = "Chicken";
 
-      const testCategory = "Chicken";
+        when(
+          apiServices.filterMealsByCategory(testCategory),
+        ).thenAnswer((_) async => response);
 
-      when(apiServices.filterMealsByCategory(testCategory))
-          .thenAnswer((_) async => response);
+        final result = await dataSource.getMealsByCategory(testCategory);
 
-      final result = await dataSource.getMealsByCategory(testCategory);
+        verify(apiServices.filterMealsByCategory(testCategory)).called(1);
 
-      verify(apiServices.filterMealsByCategory(testCategory)).called(1);
-
-      expect(result, isA<MealsByCategoryResponseDto>());
-      expect(result.meals, isA<List<MealsResponseDto>>());
-      expect(result.meals, isNotEmpty);
-      expect(result.meals?.length, equals(response.meals?.length));
-      expect(result.meals?.first.idMeal, equals(response.meals?.first.idMeal));
-    });
+        expect(result, isA<MealsByCategoryResponseDto>());
+        expect(result.meals, isA<List<MealsResponseDto>>());
+        expect(result.meals, isNotEmpty);
+        expect(result.meals?.length, equals(response.meals?.length));
+        expect(
+          result.meals?.first.idMeal,
+          equals(response.meals?.first.idMeal),
+        );
+      },
+    );
   });
 }

@@ -20,6 +20,6 @@ abstract class MealsApiServices {
 
   @GET(EndPoints.getMealsByCategory)
   Future<MealsByCategoryResponseDto> filterMealsByCategory(
-      @Query(NetworkConstants.mealsCategoryQueryParam) String category);
-
+    @Query(NetworkConstants.mealsCategoryQueryParam) String category,
+  );
 }
