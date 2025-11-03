@@ -21,7 +21,7 @@ class PopularTrainingCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var videoId = YoutubePlayer.convertUrlToId(imageUrl) ?? "azjQG10quYw";
+    // var videoId = YoutubePlayer.convertUrlToId(imageUrl) ?? "azjQG10quYw";
     return GestureDetector(
       onTap: onTap,
       child: Container(

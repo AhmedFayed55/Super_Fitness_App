@@ -13,8 +13,11 @@ class PopularTrainingListViewBuilder extends StatelessWidget {
       scrollDirection: Axis.horizontal,
       itemCount: data.length,
       itemBuilder: (context, index) => PopularTrainingCard(
-        imageUrl: data[index].exercises!.first.inDepthYoutubeExplanationLink,
-        title: data[index].exercises!.first.primeMoverMuscle,
+        imageUrl:
+            data[index].exercises!.first.inDepthYoutubeExplanationLink ??
+            data[index].exercises!.first.shortYoutubeDemonstrationLink ??
+            '',
+        title: data[index].exercises!.first.primeMoverMuscle ?? '',
         level: data[index].level.name,
         tasksCount: data[index].exercises!.length.toString(),
         onTap: () {},

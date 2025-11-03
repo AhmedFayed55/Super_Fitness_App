@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 import 'package:super_fitness_app/core/network/api_results.dart';
 import 'package:super_fitness_app/core/utils/enums.dart';
-import 'package:super_fitness_app/features/popular_training/domain/entities/exercise_entity.dart';
+import 'package:super_fitness_app/features/exercise/domain/entity/exercise_entity.dart';
 import 'package:super_fitness_app/features/popular_training/domain/entities/request/get_all_exercises_request_entity.dart';
 import 'package:super_fitness_app/features/popular_training/domain/entities/response/get_all_exercises_response_entity.dart';
 import 'package:super_fitness_app/features/popular_training/domain/use_case/get_all_exercises_use_case.dart';
@@ -19,14 +19,13 @@ class PopularCubit extends Cubit<PopularState> {
     emit(state.copyWith(isLoading: true));
 
     var response = await getAllExercisesUseCase.invoke(
-      const GetAllExercisesRequestEntity(page: 1, limit: 50),
+      const GetAllExercisesRequestEntity(page: 1, limit: 100),
     );
 
     switch (response) {
       case ApiSuccessResult():
         var data = _filterExercisesByLevel(response.data);
-        log(data.first.level.toString());
-        log(data.first.exercises!.first.exercise.toString());
+
         emit(
           state.copyWith(isLoading: false, isSuccess: true, popularData: data),
         );
@@ -52,7 +51,7 @@ class PopularCubit extends Cubit<PopularState> {
     for (final exercise in allExercises) {
       final levelString = exercise.difficultyLevel;
 
-      groupedByLevelString.putIfAbsent(levelString, () => []);
+      groupedByLevelString.putIfAbsent(levelString ?? "", () => []);
 
       groupedByLevelString[levelString]!.add(exercise);
     }
