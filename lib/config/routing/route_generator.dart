@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:super_fitness_app/features/auth/login/presentation/pages/login_screen.dart';
 import 'package:super_fitness_app/features/food/presentation/pages/food_screen.dart';
 import 'package:super_fitness_app/features/home_screen/domain/entities/recommendation_for_you/categories_entity.dart';
+import 'package:super_fitness_app/features/auth/forget_password/presentation/pages/forget_password_screen.dart';
+import '../../features/auth/login/presentation/pages/login_screen.dart';
 import 'app_routes.dart';
 
 class RouteGenerator {
@@ -9,6 +11,10 @@ class RouteGenerator {
     switch (settings.name) {
       case AppRoutes.login:
         return MaterialPageRoute(builder: (context) => const LoginScreen());
+      case AppRoutes.forgetPassword:
+        return MaterialPageRoute(
+          builder: (context) => const ForgetPasswordScreen(),
+        );
 
       case AppRoutes.foodScreen:
         final args = settings.arguments as Map<String, dynamic>;
