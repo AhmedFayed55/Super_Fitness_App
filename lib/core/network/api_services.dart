@@ -36,6 +36,7 @@ abstract class ApiServices {
   @PUT(EndPoints.resetPassword)
   Future<ResetPasswordResponseDto> resetPassword(
     @Body() ResetPasswordRequestDto body,
+  );
   @POST(EndPoints.login)
   Future<LoginResponseDto> login(@Body() LoginRequestDto loginRequest);
 
