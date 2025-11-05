@@ -5,8 +5,8 @@ import 'package:super_fitness_app/features/food/presentation/widgets/food_tab_ba
 import 'package:super_fitness_app/features/home_screen/domain/entities/recommendation_for_you/categories_entity.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class FoodTabBarBlocBuilder extends StatefulWidget {
-  const FoodTabBarBlocBuilder({
+class FoodTabBarBuilder extends StatefulWidget {
+  const FoodTabBarBuilder({
     super.key,
     required this.index,
     required this.categories,
@@ -16,10 +16,10 @@ class FoodTabBarBlocBuilder extends StatefulWidget {
   final List<CategoriesEntity> categories;
 
   @override
-  State<FoodTabBarBlocBuilder> createState() => _FoodTabBarBlocBuilderState();
+  State<FoodTabBarBuilder> createState() => _FoodTabBarBuilderState();
 }
 
-class _FoodTabBarBlocBuilderState extends State<FoodTabBarBlocBuilder> {
+class _FoodTabBarBuilderState extends State<FoodTabBarBuilder> {
   late int currentIndex = widget.index;
 
   @override

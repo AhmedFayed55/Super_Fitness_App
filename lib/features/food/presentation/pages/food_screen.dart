@@ -5,12 +5,11 @@ import 'package:super_fitness_app/core/di/di.dart';
 import 'package:super_fitness_app/core/extensions/extensions.dart';
 import 'package:super_fitness_app/core/helpers/spacing.dart';
 import 'package:super_fitness_app/core/utils/assets.dart';
-import 'package:super_fitness_app/features/food/presentation/manager/food_screen_event.dart';
 import 'package:super_fitness_app/features/food/presentation/manager/food_screen_state.dart';
 import 'package:super_fitness_app/features/food/presentation/manager/food_screen_view_model.dart';
 import 'package:super_fitness_app/features/food/presentation/widgets/food_grid_view.dart';
 import 'package:super_fitness_app/features/food/presentation/widgets/food_screen_app_bar.dart';
-import 'package:super_fitness_app/features/food/presentation/widgets/food_tab_bar_bloc_builder.dart';
+import 'package:super_fitness_app/features/food/presentation/widgets/food_tab_bar_builder.dart';
 import 'package:super_fitness_app/features/home_screen/domain/entities/recommendation_for_you/categories_entity.dart';
 
 class FoodScreen extends StatefulWidget {
@@ -31,8 +30,7 @@ class _FoodScreenState extends State<FoodScreen> {
     final double height = context.height;
 
     return BlocProvider(
-      create: (context) =>
-          getIt<FoodScreenViewModel>()..doIntent(GetFoodCategoriesEvent()),
+      create: (context) => getIt<FoodScreenViewModel>(),
       child: Scaffold(
         body: LayoutBuilder(
           builder: (context, constraints) {
@@ -53,7 +51,7 @@ class _FoodScreenState extends State<FoodScreen> {
                     children: [
                       const FoodScreenAppBar(),
                       verticalSpace(height * 0.039),
-                      FoodTabBarBlocBuilder(
+                      FoodTabBarBuilder(
                         index: currentIndex,
                         categories: widget.categories ?? [],
                       ),
