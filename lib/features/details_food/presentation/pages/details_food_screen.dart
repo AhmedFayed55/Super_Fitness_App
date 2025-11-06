@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:skeletonizer/skeletonizer.dart';
 import 'package:super_fitness_app/core/di/di.dart';
 import 'package:super_fitness_app/core/utils/assets.dart';
 import 'package:super_fitness_app/features/details_food/presentation/manager/details_food_event.dart';
@@ -8,6 +7,7 @@ import 'package:super_fitness_app/features/details_food/presentation/manager/det
 import 'package:super_fitness_app/features/details_food/presentation/manager/details_food_view_model.dart';
 import 'package:super_fitness_app/features/details_food/presentation/widget/custom_ingredient_widget.dart';
 import 'package:super_fitness_app/features/details_food/presentation/widget/custom_recommendation_widget.dart';
+import 'package:super_fitness_app/features/details_food/presentation/widget/video_player_loading_shimmer.dart';
 import 'package:super_fitness_app/features/details_food/presentation/widget/video_player_widget.dart';
 
 class DetailsFoodScreen extends StatelessWidget {
@@ -15,10 +15,10 @@ class DetailsFoodScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var cubit = getIt<DetailsFoodViewModel>();
     return BlocProvider(
       create: (context) =>
-          getIt<DetailsFoodViewModel>()
-            ..doIntent(DetailsDataFoodEvent(idMeal: '52959')),
+          cubit..doIntent(DetailsDataFoodEvent(idMeal: '52959')),
       child: SafeArea(
         child: Scaffold(
           body: BlocBuilder<DetailsFoodViewModel, DetailsFoodState>(
@@ -26,23 +26,22 @@ class DetailsFoodScreen extends StatelessWidget {
               if (state.errorMessage.isNotEmpty) {
                 return Center(child: Text(state.errorMessage));
               }
-              return Skeletonizer(
-                enabled: state.isLoading,
-                child: Stack(
-                  children: [
-                    Positioned.fill(
-                      child: Image.asset(AppAssets.bgDetailsFood),
-                    ),
-                    const Column(
+              return Stack(
+                children: [
+                  Positioned.fill(child: Image.asset(AppAssets.bgDetailsFood)),
+                  SingleChildScrollView(
+                    child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        VideoPlayerWidget(),
-                        CustomIngredientWidget(),
-                        CustomRecommendationWidget(),
+                        state.isLoading
+                            ? const VideoPlayerLoadingShimmer()
+                            : const VideoPlayerWidget(),
+                        const CustomIngredientWidget(),
+                        const CustomRecommendationWidget(),
                       ],
                     ),
-                  ],
-                ),
+                  ),
+                ],
               );
             },
           ),

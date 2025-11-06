@@ -10,7 +10,9 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (context) => const LoginScreen());
 
       case AppRoutes.detailsMeal:
-      return MaterialPageRoute(builder:(context)=>const DetailsFoodScreen());
+        return MaterialPageRoute(
+          builder: (context) => const DetailsFoodScreen(),
+        );
 
       default:
         return unDefinedRoute();

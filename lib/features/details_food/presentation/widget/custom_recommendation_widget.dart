@@ -27,7 +27,7 @@ class CustomRecommendationWidget extends StatelessWidget {
               itemCount: 10,
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) =>
-                  CustomRecommendationCard(title: 'yahya', imagePath: ''),
+                  const CustomRecommendationCard(title: 'yahya', imagePath: ''),
             ),
           ),
         ],

@@ -3,7 +3,8 @@ import 'package:super_fitness_app/core/extensions/extensions.dart';
 import 'package:super_fitness_app/core/utils/assets.dart';
 
 class ArrowBackButton extends StatelessWidget {
-  const ArrowBackButton({super.key});
+  final VoidCallback? onTap;
+  const ArrowBackButton({super.key, this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +15,7 @@ class ArrowBackButton extends StatelessWidget {
         horizontal: context.mdW(20),
       ),
       child: GestureDetector(
-        onTap: () {},
+        onTap: onTap,
         child: Container(
           width: context.mdW(24),
           height: context.mdH(24),

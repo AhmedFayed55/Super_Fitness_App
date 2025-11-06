@@ -3,12 +3,16 @@ import 'package:flutter/material.dart';
 import 'package:super_fitness_app/core/extensions/extensions.dart';
 
 class CustomRecommendationCard extends StatelessWidget {
-  const CustomRecommendationCard({super.key, required this.title, required this.imagePath});
+  const CustomRecommendationCard({
+    super.key,
+    required this.title,
+    required this.imagePath,
+  });
 
   final String title;
   final String imagePath;
   @override
-    Widget build(BuildContext context) {
+  Widget build(BuildContext context) {
     final Size screenSize = MediaQuery.of(context).size;
     final colorScheme = context.colorScheme;
     return SizedBox(
@@ -55,33 +59,33 @@ class CustomRecommendationCard extends StatelessWidget {
               ),
             ),
             Align(
-          alignment: Alignment.bottomCenter,
-          child: Padding(
-            padding: const EdgeInsets.only(bottom: 10),
-            child: Text(
-              formatMealTitle(title),
-              textAlign: TextAlign.center,
-              style: const TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
-                fontSize: 16,
-                shadows: [
-                  Shadow(
-                    offset: Offset(0, 1),
-                    blurRadius: 4,
-                    color: Colors.black54,
+              alignment: Alignment.bottomCenter,
+              child: Padding(
+                padding: const EdgeInsets.only(bottom: 10),
+                child: Text(
+                  formatMealTitle(title),
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16,
+                    shadows: [
+                      Shadow(
+                        offset: Offset(0, 1),
+                        blurRadius: 4,
+                        color: Colors.black54,
+                      ),
+                    ],
                   ),
-                ],
+                ),
               ),
             ),
-          ),)
           ],
         ),
       ),
     );
   }
 }
-
 
 String formatMealTitle(String title) {
   final words = title.split(' ');

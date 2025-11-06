@@ -10,35 +10,37 @@ import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 class DetailsFoodViewModel extends Cubit<DetailsFoodState> {
   final DetailsFoodUseCase _detailsFoodUseCase;
   DetailsFoodViewModel(this._detailsFoodUseCase) : super(DetailsFoodState());
-  late YoutubePlayerController _youtubeController;
+
+  @override
+  Future<void> close() {
+    state.youtubeController?.dispose();
+    return super.close();
+  }
 
   void doIntent(DetailsFoodEvent event) {
-    print(">>>>>>>>>> doIntent called with $event");
-
     switch (event) {
       case DetailsDataFoodEvent():
         _getDetailsData(event.idMeal);
     }
   }
 
-  @override
-  Future<void> close() {
-    _youtubeController.dispose();
-    return super.close();
-  }
-
   Future<void> _getDetailsData(String mealId) async {
-    print(">>>>>>>>>> _getDetailsData called with $mealId");
-
     emit(state.copyWith(isLoading: true));
-    var result = await _detailsFoodUseCase.call(mealId);
-    print(">>>>>>>>>> _getDetailsData called with $mealId");
+
+    final result = await _detailsFoodUseCase.call(mealId);
 
     switch (result) {
       case ApiSuccessResult():
-        _initYoutubeVideo(result.data.youtubeUrl);
-        print(">>>>>>>>>>>>>${result.data.youtubeUrl}");
-        emit(state.copyWith(isLoading: false, detailsFoodEntity: result.data));
+        final controller = _initYoutubeVideo(result.data.youtubeUrl);
+        emit(
+          state.copyWith(
+            isLoading: false,
+            detailsFoodEntity: result.data,
+            youtubeController: controller,
+          ),
+        );
+        break;
+
       case ApiErrorResult():
         emit(
           state.copyWith(
@@ -46,18 +48,17 @@ class DetailsFoodViewModel extends Cubit<DetailsFoodState> {
             errorMessage: result.failure.errorMessage,
           ),
         );
+        break;
     }
   }
 
-  void _initYoutubeVideo(String url) {
+  YoutubePlayerController? _initYoutubeVideo(String url) {
     final videoId = YoutubePlayer.convertUrlToId(url);
-    if (videoId == null) {
-      return;
-    }
-    _youtubeController = YoutubePlayerController(
+    if (videoId == null) return null;
+
+    return YoutubePlayerController(
       initialVideoId: videoId,
       flags: const YoutubePlayerFlags(autoPlay: false),
     );
-    emit(state.copyWith(youtubeController: _youtubeController));
   }
 }
