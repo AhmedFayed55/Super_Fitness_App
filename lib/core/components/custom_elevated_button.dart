@@ -12,7 +12,7 @@ class CustomElevatedButton extends StatelessWidget {
     this.containerColor,
   });
 
-  final void Function() onPressed;
+  final void Function()? onPressed;
   final bool isLoading;
   final Widget widget;
   final Color? textColor;
@@ -31,24 +31,24 @@ class CustomElevatedButton extends StatelessWidget {
         curve: Curves.easeInOut,
         child: isLoading
             ? Container(
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                  color: containerColor ?? context.colorScheme.primary,
-                  borderRadius: BorderRadius.circular(context.height * 0.1),
+          alignment: Alignment.center,
+          decoration: BoxDecoration(
+            color: containerColor ?? context.colorScheme.primary,
+            borderRadius: BorderRadius.circular(context.height * 0.1),
+          ),
+          child: SizedBox(
+            width: context.width * 0.08,
+            height: context.height * 0.03,
+            child: Theme(
+              data: ThemeData(
+                progressIndicatorTheme: ProgressIndicatorThemeData(
+                  color: loadingColor ?? context.colorScheme.onPrimary,
                 ),
-                child: SizedBox(
-                  width: context.width * 0.1,
-                  height: context.width * 0.1,
-                  child: Theme(
-                    data: ThemeData(
-                      progressIndicatorTheme: ProgressIndicatorThemeData(
-                        color: loadingColor ?? context.colorScheme.onPrimary,
-                      ),
-                    ),
-                    child: const CircularProgressIndicator(),
-                  ),
-                ),
-              )
+              ),
+              child: const CircularProgressIndicator(),
+            ),
+          ),
+        )
             : ElevatedButton(onPressed: onPressed, child: widget),
       ),
     );
