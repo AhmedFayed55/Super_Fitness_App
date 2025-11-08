@@ -8,4 +8,7 @@ abstract class AppConstants {
   static const String noInternet = 'No Internet Connection';
   static const int animateSeconds = 300;
   static const double blurSigma = 10;
+  static const String helpContentKey = "help_screen_content";
+  static const String privacyPolicyContentKey = "privacy_policy";
+  static const String securityRolesContentKey = "security_roles_config";
 }
