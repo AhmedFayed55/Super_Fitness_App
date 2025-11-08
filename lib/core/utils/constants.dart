@@ -8,4 +8,10 @@ abstract class AppConstants {
   static const String noInternet = 'No Internet Connection';
   static const int animateSeconds = 300;
   static const double blurSigma = 10;
+  static const String firstName = "firstName";
+  static const String lastName = "lastName";
+  static const String email = "email";
+  static const String weight = "weight";
+  static const String activityLevel = "activityLevel";
+  static const String goal = "goal";
 }
