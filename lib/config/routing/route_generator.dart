@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:super_fitness_app/features/app_sections/app_sections.dart';
 import 'package:super_fitness_app/features/onBoarding/presentation/pages/onboarding_screen.dart';
 import '../../features/auth/login/presentation/pages/login_screen.dart';
 import 'package:super_fitness_app/features/food/presentation/pages/food_screen.dart';
@@ -11,6 +12,8 @@ class RouteGenerator {
     switch (settings.name) {
       case AppRoutes.login:
         return MaterialPageRoute(builder: (context) => const LoginScreen());
+      case AppRoutes.appSections:
+        return MaterialPageRoute(builder: (context) => const AppSections());
       case AppRoutes.onboarding:
         return MaterialPageRoute(
           builder: (context) => const OnboardingScreen(),
