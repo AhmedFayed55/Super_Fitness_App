@@ -43,7 +43,7 @@ abstract class ApiServices {
   @POST(EndPoints.login)
   Future<LoginResponseDto> login(@Body() LoginRequestDto loginRequest);
 
-  @POST(EndPoints.changePassword)
+  @PATCH(EndPoints.changePassword)
   Future<ChangePasswordResponse> changePassword(@Body() ChangePasswordRequest body);
 
   @GET(EndPoints.recommendationToDay)

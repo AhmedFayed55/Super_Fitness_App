@@ -41,6 +41,10 @@
   "make_sure_it_8_characters_or_more": "Make Sure It’s 8 Characters Or More",
   "done": "Done",
    "something_went_wrong": "Something went wrong. Please try again later",
-  "login_successfully": "Login successfully"
+  "login_successfully": "Login successfully",
+  "current_password": "current password",
+  "make_sure_its_8_characters_or_more": "make sure its 8 characters or more\n",
+  "new_password": "new password",
+  "confirm_new_password": "confirm new password"
 }
 
