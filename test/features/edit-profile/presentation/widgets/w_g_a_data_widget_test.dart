@@ -43,7 +43,7 @@ void main() {
         ),
       ),
       navigatorObservers: [mockNavigatorObserver],
-    
+
       routes: {
         AppRoutes.weightGoalActivityEdit: (context) =>
             const Scaffold(body: Center(child: Text('Edit Screen'))),
@@ -214,8 +214,8 @@ void main() {
           .widgetList<TextField>(find.byType(TextField))
           .toList();
 
-      expect(textFields[0].enabled, isTrue); 
-      expect(textFields[1].enabled, isTrue); 
+      expect(textFields[0].enabled, isTrue);
+      expect(textFields[1].enabled, isTrue);
       expect(textFields[2].enabled, isFalse);
     });
 
@@ -341,7 +341,6 @@ void main() {
 
       await tester.pumpAndSettle();
 
-    
       expect(find.text('Edit Screen'), findsOneWidget);
     });
   });

@@ -57,7 +57,6 @@ void main() {
 
     final numberPicker = find.byType(NumberPicker);
 
- 
     (tester.widget(numberPicker) as NumberPicker).onChanged(75);
     await tester.pump();
 
