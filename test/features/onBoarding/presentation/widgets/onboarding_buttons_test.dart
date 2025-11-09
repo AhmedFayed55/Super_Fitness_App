@@ -68,7 +68,9 @@ void main() {
     testWidgets('renders Got it button on last page and triggers usecase', (
       WidgetTester tester,
     ) async {
-      when(mockUsecase.invoke()).thenAnswer((_) async {});
+      when(mockUsecase.invoke()).thenAnswer((_) async {
+        return;
+      });
       await tester.pumpWidget(
         MaterialApp(
           routes: {
