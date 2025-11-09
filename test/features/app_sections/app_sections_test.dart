@@ -8,13 +8,13 @@ import 'package:super_fitness_app/features/profile/presentation/page/profile_pag
 import 'package:super_fitness_app/features/workout/presentation/page/workout_page.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
   group('AppSections widget tests', () {
-    testWidgets('renders AppSections and shows ExplorePage initially',
-        (WidgetTester tester) async {
+    testWidgets('renders AppSections and shows ExplorePage initially', (
+      WidgetTester tester,
+    ) async {
       await tester.pumpWidget(
         const MaterialApp(
           localizationsDelegates: AppLocalizations.localizationsDelegates,
@@ -30,8 +30,9 @@ void main() {
       expect(find.byType(ProfilePage), findsNothing);
     });
 
-    testWidgets('switches pages when navigation items are tapped',
-        (WidgetTester tester) async {
+    testWidgets('switches pages when navigation items are tapped', (
+      WidgetTester tester,
+    ) async {
       await tester.pumpWidget(
         const MaterialApp(
           localizationsDelegates: AppLocalizations.localizationsDelegates,
@@ -40,7 +41,7 @@ void main() {
         ),
       );
 
-      expect(find.text('explore'), findsNothing); 
+      expect(find.text('explore'), findsNothing);
       expect(find.byType(SvgPicture), findsNWidgets(4));
 
       await tester.tap(find.byType(GestureDetector).at(1));

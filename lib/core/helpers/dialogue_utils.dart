@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../../config/theme/colors.dart';
 import '../l10n/translations/app_localizations.dart';
 
 abstract class DialogueUtils {
@@ -11,7 +10,9 @@ abstract class DialogueUtils {
       barrierDismissible: false,
       context: context,
       builder: (context) {
+        final theme = Theme.of(context);
         return AlertDialog(
+          backgroundColor: theme.colorScheme.surface,
           content: Row(
             children: [
               const CircularProgressIndicator(),
@@ -19,10 +20,8 @@ abstract class DialogueUtils {
                 padding: const EdgeInsets.all(8),
                 child: Text(
                   message,
-                  style: const TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w500,
-                    color: AppColors.lightOrange,
+                  style: theme.textTheme.bodyMedium?.copyWith(
+                    color: theme.colorScheme.onSurface,
                   ),
                 ),
               ),
@@ -34,21 +33,36 @@ abstract class DialogueUtils {
   }
 
   static void showAlertDialog(BuildContext context, String errorMessage) {
+    final theme = Theme.of(context);
     showDialog(
       context: context,
       builder: (context) {
         return AlertDialog(
-          title: Text(AppLocalizations.of(context)!.error),
+          backgroundColor: theme.colorScheme.surface,
+          title: Text(
+            AppLocalizations.of(context)!.error,
+            style: theme.textTheme.titleMedium?.copyWith(
+              color: theme.colorScheme.onSurface,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
           content: Text(
             errorMessage,
-            style: Theme.of(context).textTheme.labelSmall,
+            style: theme.textTheme.bodyMedium?.copyWith(
+              color: theme.colorScheme.onSurface,
+            ),
           ),
           actions: [
             TextButton(
               onPressed: () {
                 Navigator.pop(context);
               },
-              child: Text(AppLocalizations.of(context)!.ok),
+              child: Text(
+                AppLocalizations.of(context)!.ok,
+                style: theme.textTheme.labelLarge?.copyWith(
+                  color: theme.colorScheme.primary,
+                ),
+              ),
             ),
           ],
         );
@@ -69,6 +83,7 @@ abstract class DialogueUtils {
     String? ngeActionName,
     Function? ngeAction,
   }) {
+    final theme = Theme.of(context);
     List<Widget> actions = [];
 
     if (posActionName != null) {
@@ -78,7 +93,12 @@ abstract class DialogueUtils {
             Navigator.pop(context);
             posAction?.call();
           },
-          child: Text(posActionName),
+          child: Text(
+            posActionName,
+            style: theme.textTheme.labelLarge?.copyWith(
+              color: theme.colorScheme.primary,
+            ),
+          ),
         ),
       );
     }
@@ -90,7 +110,12 @@ abstract class DialogueUtils {
             Navigator.pop(context);
             ngeAction?.call();
           },
-          child: Text(ngeActionName),
+          child: Text(
+            ngeActionName,
+            style: theme.textTheme.labelLarge?.copyWith(
+              color: theme.colorScheme.primary,
+            ),
+          ),
         ),
       );
     }
@@ -99,13 +124,20 @@ abstract class DialogueUtils {
       context: context,
       builder: (context) {
         return AlertDialog(
-          content: Text(message),
-          title: Text(
-            title ?? "",
-            style: const TextStyle(
-              fontSize: 14,
-              fontWeight: FontWeight.w500,
-              color: AppColors.lightOrange,
+          backgroundColor: theme.colorScheme.surface,
+          title: title != null
+              ? Text(
+                  title,
+                  style: theme.textTheme.titleMedium?.copyWith(
+                    color: theme.colorScheme.onSurface,
+                    fontWeight: FontWeight.bold,
+                  ),
+                )
+              : null,
+          content: Text(
+            message,
+            style: theme.textTheme.bodyMedium?.copyWith(
+              color: theme.colorScheme.onSurface,
             ),
           ),
           actions: actions,
