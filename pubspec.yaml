@@ -71,10 +71,8 @@ flutter:
   assets:
     - assets/icons/
     - assets/images/
-<<<<<<< HEAD
-=======
     - assets/svg/
     - secret.env
->>>>>>> 1ff4c1d (Add comprehensive tests for SmartChat feature and implement Firebase configuration)
     - assets/svgs/
     - assets/animations/
+
