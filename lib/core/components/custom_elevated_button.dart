@@ -49,7 +49,15 @@ class CustomElevatedButton extends StatelessWidget {
                   ),
                 ),
               )
-            : ElevatedButton(onPressed: onPressed, child: widget),
+            : ElevatedButton(
+                onPressed: onPressed,
+                style: ElevatedButton.styleFrom(
+                  side: BorderSide(color: context.colorScheme.primary),
+                  backgroundColor:
+                      containerColor ?? context.colorScheme.primary,
+                ),
+                child: widget,
+              ),
       ),
     );
   }
