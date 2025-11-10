@@ -7,4 +7,5 @@ abstract class AppRoutes {
   static const String workouts = "/WorkoutsScreen";
   static const String changePassword = "/changePassword";
   static const String chat = "/ChatScreen";
+  static const String chatConversation = "/ChatConversationView";
 }

@@ -5,9 +5,9 @@ import 'package:super_fitness_app/config/theme/colors.dart';
 import 'package:super_fitness_app/core/extensions/extensions.dart';
 import 'package:super_fitness_app/core/helpers/spacing.dart';
 import 'package:super_fitness_app/core/utils/assets.dart';
-import 'package:super_fitness_app/features/chat_bot/presentation/page/chat_bot_page.dart';
 import 'package:super_fitness_app/features/explore/presentation/page/explore_page.dart';
 import 'package:super_fitness_app/features/profile/presentation/page/profile_page.dart';
+import 'package:super_fitness_app/features/smart_coach/presentation/pages/chat_screen.dart';
 import 'package:super_fitness_app/features/workout/presentation/page/workout_page.dart';
 
 class AppSections extends StatefulWidget {
@@ -25,7 +25,7 @@ class _AppSectionsState extends State<AppSections> {
     final localization = context.localization;
     final List<Widget> pages = [
       const ExplorePage(),
-      const ChatBotPage(),
+      const ChatScreen(),
       const WorkoutPage(),
       const ProfilePage(),
     ];

@@ -6,18 +6,20 @@ import 'package:super_fitness_app/config/theme/colors.dart';
 import 'package:super_fitness_app/core/components/custom_elevated_button.dart';
 import 'package:super_fitness_app/core/extensions/extensions.dart';
 import 'package:super_fitness_app/core/utils/assets.dart';
+import 'package:super_fitness_app/features/smart_coach/presentation/view_model/smart_chat_event.dart';
 import 'package:super_fitness_app/features/smart_coach/presentation/view_model/smart_chat_state.dart';
 import 'package:super_fitness_app/features/smart_coach/presentation/view_model/smart_chat_view_model.dart';
+import 'package:super_fitness_app/features/smart_coach/presentation/widget/view/chat_conversation.dart';
+import 'package:super_fitness_app/features/smart_coach/presentation/widget/view/previous_conversations_drawer.dart';
 import 'package:super_fitness_app/widgets/blur_container.dart';
 
 class ChatWelcomeView extends StatelessWidget {
-  final VoidCallback onGetStarted;
-
-  const ChatWelcomeView({super.key, required this.onGetStarted});
+  const ChatWelcomeView({super.key});
 
   @override
   Widget build(BuildContext context) {
     final theme = context.theme;
+    final viewModel = context.read<SmartChatViewModel>();
 
     return Scaffold(
       body: Stack(
@@ -57,14 +59,12 @@ class ChatWelcomeView extends StatelessWidget {
                       ),
                       const Spacer(flex: 1),
                       GestureDetector(
+                        onTap: () => viewModel.doIntent(ToggleDrawerEvent()),
                         child: SvgPicture.asset(
                           AppAssets.chatList,
-                          width: context.mdIcon(24),
-                          height: context.mdIcon(24),
+                          width: 24,
+                          height: 24,
                         ),
-                        onTap: () {
-                          //  show chat list
-                        },
                       ),
                     ],
                   ),
@@ -75,22 +75,7 @@ class ChatWelcomeView extends StatelessWidget {
                     child: SizedBox(
                       width: context.mdW(350),
                       height: context.mdH(450),
-                      child: Stack(
-                        alignment: Alignment.center,
-                        children: [
-                          Container(
-                            width: context.mdW(343),
-                            height: context.mdW(428),
-                            decoration: const BoxDecoration(
-                              shape: BoxShape.circle,
-                            ),
-                            child: Image.asset(
-                              AppAssets.robot,
-                              fit: BoxFit.contain,
-                            ),
-                          ),
-                        ],
-                      ),
+                      child: Image.asset(AppAssets.robot, fit: BoxFit.contain),
                     ),
                   ),
                 ),
@@ -118,13 +103,68 @@ class ChatWelcomeView extends StatelessWidget {
                     CustomElevatedButton(
                       widget: Text(context.localization.get_started),
                       isLoading: false,
-                      onPressed: onGetStarted,
+                      onPressed: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (_) => BlocProvider.value(
+                              value: viewModel,
+                              child: const ChatConversationView(),
+                            ),
+                          ),
+                        );
+                      },
                     ),
                   ],
                 ),
                 SizedBox(height: context.mdH(24)),
               ],
             ),
+          ),
+
+          BlocBuilder<SmartChatViewModel, SmartChatState>(
+            buildWhen: (prev, curr) =>
+                prev.showDrawer != curr.showDrawer ||
+                prev.isLoadingChats != curr.isLoadingChats ||
+                prev.userChats.length != curr.userChats.length,
+            builder: (context, drawerState) {
+              if (!drawerState.showDrawer) return const SizedBox.shrink();
+
+              return AnimatedPositioned(
+                duration: const Duration(milliseconds: 300),
+                right: 0,
+                top: 0,
+                bottom: 0,
+                child: PreviousConversationsDrawer(
+                  conversations: drawerState.userChats.map((chat) {
+                    return {
+                      'id': chat.id,
+                      'title': chat.title,
+                      'createdAt': chat.createdAt,
+                      'lastMessageAt': chat.lastMessageAt,
+                      'messageCount': chat.messageCount,
+                    };
+                  }).toList(),
+                  isLoading: drawerState.isLoadingChats,
+                  onClose: () => viewModel.doIntent(ToggleDrawerEvent()),
+                  onSelectConversation: (chatId) async {
+                    await viewModel.doIntent(SelectChatEvent(chatId));
+                    viewModel.doIntent(ToggleDrawerEvent());
+                    // ignore: use_build_context_synchronously
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (_) => BlocProvider.value(
+                          value: viewModel,
+                          child: const ChatConversationView(),
+                        ),
+                      ),
+                    );
+                  },
+                  onDeleteConversation: (chatId) {
+                    viewModel.doIntent(DeleteChatEvent(chatId));
+                  },
+                ),
+              );
+            },
           ),
         ],
       ),

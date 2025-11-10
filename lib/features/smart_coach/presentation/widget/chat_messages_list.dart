@@ -91,10 +91,10 @@ class ChatMessagesList extends StatelessWidget {
 
                     return Padding(
                       padding: EdgeInsets.only(
-                        left: isSentByMe ? context.mdW(50) : context.mdW(12),
-                        right: isSentByMe ? context.mdW(12) : context.mdW(50),
-                        top: context.mdH(6),
-                        bottom: context.mdH(6),
+                        left: isSentByMe ? 50 : 12,
+                        right: isSentByMe ? 12 : 50,
+                        top: 6,
+                        bottom: 6,
                       ),
                       child: Row(
                         mainAxisAlignment: isSentByMe
@@ -104,7 +104,7 @@ class ChatMessagesList extends StatelessWidget {
                         children: [
                           if (!isSentByMe)
                             CircleAvatar(
-                              radius: context.mdW(18),
+                              radius: 18,
                               backgroundImage: const AssetImage(
                                 AppAssets.robot,
                               ),
@@ -117,9 +117,9 @@ class ChatMessagesList extends StatelessWidget {
 
                           Flexible(
                             child: Container(
-                              padding: EdgeInsets.symmetric(
-                                horizontal: context.mdW(14),
-                                vertical: context.mdH(10),
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 14,
+                                vertical: 10,
                               ),
                               decoration: BoxDecoration(
                                 color: isSentByMe
@@ -128,18 +128,14 @@ class ChatMessagesList extends StatelessWidget {
                                     // ignore: deprecated_member_use
                                     : (AppColors.grey[10]!.withOpacity(0.5)),
                                 borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(
-                                    context.mdRadius(16),
-                                  ),
-                                  topRight: Radius.circular(
-                                    context.mdRadius(16),
-                                  ),
+                                  topLeft: const Radius.circular(16),
+                                  topRight: const Radius.circular(16),
                                   bottomLeft: isSentByMe
-                                      ? Radius.circular(context.mdRadius(16))
+                                      ? const Radius.circular(16)
                                       : Radius.zero,
                                   bottomRight: isSentByMe
                                       ? Radius.zero
-                                      : Radius.circular(context.mdRadius(16)),
+                                      : const Radius.circular(16),
                                 ),
                               ),
                               child: Directionality(
@@ -161,7 +157,7 @@ class ChatMessagesList extends StatelessWidget {
                           if (isSentByMe) SizedBox(width: context.mdW(8)),
                           if (isSentByMe)
                             CircleAvatar(
-                              radius: context.mdW(18),
+                              radius: 18,
                               backgroundImage: hasUserPhoto
                                   ? NetworkImage(userPhoto)
                                   : const AssetImage(AppAssets.robot)
@@ -186,9 +182,9 @@ class ChatMessagesList extends StatelessWidget {
 
               return Padding(
                 padding: EdgeInsets.only(
-                  left: isRtl ? context.mdW(60) : context.mdW(8),
-                  right: isRtl ? context.mdW(8) : context.mdW(60),
-                  bottom: context.mdH(6),
+                  left: isRtl ? 60 : 8,
+                  right: isRtl ? 8 : 60,
+                  bottom: 6,
                 ),
                 child: Row(
                   mainAxisAlignment: isRtl
@@ -198,30 +194,30 @@ class ChatMessagesList extends StatelessWidget {
                   children: [
                     if (!isRtl)
                       CircleAvatar(
-                        radius: context.mdW(18),
+                        radius: 18,
                         backgroundImage: const AssetImage(AppAssets.robot),
                         // ignore: deprecated_member_use
                         backgroundColor: colorScheme.surface.withOpacity(0.1),
                       ),
-                    if (!isRtl) SizedBox(width: context.mdW(6)),
+                    if (!isRtl) const SizedBox(width: 6),
 
                     Flexible(
                       child: Container(
-                        padding: EdgeInsets.symmetric(
-                          horizontal: context.mdW(14),
-                          vertical: context.mdH(10),
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 14,
+                          vertical: 10,
                         ),
                         decoration: BoxDecoration(
                           // ignore: deprecated_member_use
                           color: (AppColors.grey[10]!.withOpacity(0.5)),
                           borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(context.mdRadius(16)),
-                            topRight: Radius.circular(context.mdRadius(16)),
+                            topLeft: const Radius.circular(16),
+                            topRight: const Radius.circular(16),
                             bottomRight: isRtl
                                 ? Radius.zero
-                                : Radius.circular(context.mdRadius(16)),
+                                : const Radius.circular(16),
                             bottomLeft: isRtl
-                                ? Radius.circular(context.mdRadius(16))
+                                ? const Radius.circular(16)
                                 : Radius.zero,
                           ),
                         ),
@@ -229,10 +225,10 @@ class ChatMessagesList extends StatelessWidget {
                       ),
                     ),
 
-                    if (isRtl) SizedBox(width: context.mdW(6)),
+                    if (isRtl) const SizedBox(width: 6),
                     if (isRtl)
                       CircleAvatar(
-                        radius: context.mdW(18),
+                        radius: 18,
                         backgroundImage: const AssetImage(AppAssets.robot),
                         // ignore: deprecated_member_use
                         backgroundColor: colorScheme.surface.withOpacity(0.1),
