@@ -1,10 +1,10 @@
-class CategoriesDtoEntity {
+class CategoriesEntity {
   final String idCategory;
   final String strCategory;
   final String strCategoryThumb;
   final String strCategoryDescription;
 
-  CategoriesDtoEntity({
+  CategoriesEntity({
     required this.idCategory,
     required this.strCategory,
     required this.strCategoryThumb,

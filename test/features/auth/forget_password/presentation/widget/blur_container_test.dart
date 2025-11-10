@@ -2,7 +2,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:super_fitness_app/config/theme/colors.dart';
-import 'package:super_fitness_app/features/auth/forget_password/presentation/widget/blur_container.dart';
+import 'package:super_fitness_app/widgets/blur_container.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();

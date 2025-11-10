@@ -1,7 +1,10 @@
 include: package:flutter_lints/flutter.yaml
 
-linter:
+analyzer:
+  exclude:
+    - test/**.mocks.dart
 
+linter:
   rules:
     - constant_identifier_names
     - prefer_const_constructors
