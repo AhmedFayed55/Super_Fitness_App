@@ -24,4 +24,5 @@ abstract class EndPoints {
   static const String recommendationForYou = "categories.php";
   static const String allExercises = "exercises";
   static const String getMealsByCategory = "filter.php";
+  static const String changePassword = "auth/change-password";
 }

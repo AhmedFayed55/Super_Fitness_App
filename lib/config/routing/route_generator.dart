@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:super_fitness_app/core/utils/constants.dart';
 import 'package:super_fitness_app/features/exercise/domain/entity/difficulty_level_entity.dart';
 import 'package:super_fitness_app/features/exercise/domain/entity/exercise_entity.dart';
+import 'package:super_fitness_app/features/auth/change_password/presentation/pages/change_password_screen.dart';
 import 'package:super_fitness_app/features/app_sections/app_sections.dart';
 import 'package:super_fitness_app/features/onBoarding/presentation/pages/onboarding_screen.dart';
 import 'package:super_fitness_app/features/auth/forget_password/presentation/pages/forget_password_screen.dart';
@@ -58,7 +59,11 @@ class RouteGenerator {
 
         String id = args as String;
         return MaterialPageRoute(
-          builder: (context) => ExerciseScreen.byMuscleId(muscleId: id),
+          builder: (context) => ExerciseScreen.byMuscleId(muscleId: id));
+          
+      case AppRoutes.changePassword:
+        return MaterialPageRoute(
+          builder: (context) => const ChangePasswordScreen(),
         );
 
       default:
