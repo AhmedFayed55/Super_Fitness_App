@@ -25,7 +25,6 @@ class RouteGenerator {
         );
       case AppRoutes.chat:
         return MaterialPageRoute(builder: (context) => const ChatScreen());
-
       case AppRoutes.foodScreen:
         final args = settings.arguments as Map<String, dynamic>;
         final int? index = args['index'];
@@ -33,6 +32,7 @@ class RouteGenerator {
         return MaterialPageRoute(
           builder: (context) => FoodScreen(index: index, categories: list),
         );
+
 
       default:
         return unDefinedRoute();

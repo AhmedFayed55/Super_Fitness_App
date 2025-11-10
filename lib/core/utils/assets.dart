@@ -20,11 +20,9 @@ abstract class AppAssets {
   static const String foodBackground = "assets/images/food_background.png";
 
   //svgs
-
   static const String arrowBackIcon = "assets/svgs/arrow_back_svg.svg";
 
   //animation
-
   static const String emptyAnimation = "assets/animations/empty.json";
   static const String chatList = "assets/svg/chat_list.svg";
   static const String backButton = "assets/svg/back_btn.svg";
