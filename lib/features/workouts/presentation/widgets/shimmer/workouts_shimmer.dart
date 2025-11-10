@@ -19,6 +19,15 @@ class WorkoutsShimmer extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            Container(
+              width: context.mdW(120),
+              height: context.mdH(24),
+              decoration: BoxDecoration(
+                color: AppColors.grey[20],
+                borderRadius: BorderRadius.circular(context.mdRadius(25)),
+              ),
+            ),
+            SizedBox(height: context.mdH(24)),
             SizedBox(
               height: context.mdH(40),
               child: ListView.separated(
@@ -33,16 +42,6 @@ class WorkoutsShimmer extends StatelessWidget {
                     borderRadius: BorderRadius.circular(context.mdRadius(25)),
                   ),
                 ),
-              ),
-            ),
-            SizedBox(height: context.mdH(24)),
-
-            Container(
-              width: context.mdW(120),
-              height: context.mdH(24),
-              decoration: BoxDecoration(
-                color: AppColors.grey[20],
-                borderRadius: BorderRadius.circular(context.mdRadius(25)),
               ),
             ),
             SizedBox(height: context.mdH(24)),

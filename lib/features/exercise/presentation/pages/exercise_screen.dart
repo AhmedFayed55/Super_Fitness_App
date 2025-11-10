@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:super_fitness_app/config/routing/routing_extensions.dart';
 import 'package:super_fitness_app/core/di/di.dart';
 import 'package:super_fitness_app/core/extensions/extensions.dart';
 import 'package:super_fitness_app/core/utils/assets.dart';
@@ -51,15 +52,18 @@ class ExerciseScreen extends StatelessWidget {
         appBar: AppBar(
           scrolledUnderElevation: 0,
           backgroundColor: Colors.transparent,
-          leading: Container(
-            decoration: BoxDecoration(
-              color: context.theme.colorScheme.primaryContainer,
-              shape: BoxShape.circle,
-            ),
-            child: Center(
-              child: SvgPicture.asset(
-                height: context.mdH(13),
-                AppAssets.arrowBack,
+          leading: GestureDetector(
+            onTap: () => context.pop(),
+            child: Container(
+              decoration: BoxDecoration(
+                color: context.theme.colorScheme.primaryContainer,
+                shape: BoxShape.circle,
+              ),
+              child: Center(
+                child: SvgPicture.asset(
+                  height: context.mdH(13),
+                  AppAssets.arrowBack,
+                ),
               ),
             ),
           ),
