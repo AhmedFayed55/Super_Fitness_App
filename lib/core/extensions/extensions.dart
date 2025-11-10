@@ -53,3 +53,20 @@ extension ThemeX on BuildContext {
   /// Shortcut to colorScheme
   ColorScheme get colorScheme => theme.colorScheme;
 }
+
+extension SizingX on BuildContext {
+  /// Calculates a responsive icon size based on screen height
+  /// usage: context.iconSize(24)
+  double iconSize(double size) {
+    final height = this.height;
+    final ratio = size / height;
+    return ratio * height;
+  }
+
+  /// مثال تاني لو عايز تستخدمها كنسبة مش رقم
+  /// usage: context.iconSizeByFactor(0.07)
+  double iconSizeByFactor(double factor) {
+    final shortest = MediaQuery.of(this).size.shortestSide;
+    return shortest * factor;
+  }
+}

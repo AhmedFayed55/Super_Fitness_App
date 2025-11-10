@@ -1,4 +1,6 @@
 abstract class AppAssets {
+  static const String exerciseScreenBackground =
+      'assets/images/exercise_bg.png';
   static const String homeIcon = 'assets/icons/home_icon.svg';
   static const String profileIcon = 'assets/icons/profile_icon.svg';
   static const String workoutIcon = 'assets/icons/workout_icon.svg';
@@ -10,6 +12,8 @@ abstract class AppAssets {
   // Images
   static const String authBackground = 'assets/images/auth_bg.png';
   static const String appLogo = 'assets/images/app-logo.png';
+  static const String editBackground = 'assets/images/edit_bg.png';
+  static const String wgaBackground = 'assets/images/WGA_bg.png';
   static const String changePasswordBackground =
       'assets/images/change_pass_background.png';
   static const String robot = 'assets/images/robot.png';
@@ -19,6 +23,8 @@ abstract class AppAssets {
   static const String loginBackground = "assets/images/login_background.png";
   static const String appLogoSvg = "assets/images/logo.png";
   static const String fieldsBackground = "assets/images/fields_background.png";
+  static const String arrowBack = 'assets/svgs/arrow_back.svg';
+  static const String edit = 'assets/svgs/edit.svg';
   static const String foodBackground = "assets/images/food_background.png";
 
   //svgs

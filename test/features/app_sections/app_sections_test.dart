@@ -5,7 +5,7 @@ import 'package:super_fitness_app/features/app_sections/app_sections.dart';
 import 'package:super_fitness_app/features/explore/presentation/page/explore_page.dart';
 import 'package:super_fitness_app/features/profile/presentation/page/profile_page.dart';
 import 'package:super_fitness_app/features/smart_coach/presentation/pages/chat_screen.dart';
-import 'package:super_fitness_app/features/workout/presentation/page/workout_page.dart';
+import 'package:super_fitness_app/features/workouts/presentation/pages/workouts_screen.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -24,7 +24,7 @@ void main() {
 
       expect(find.byType(ExplorePage), findsOneWidget);
       expect(find.byType(ChatScreen), findsNothing);
-      expect(find.byType(WorkoutPage), findsNothing);
+      expect(find.byType(WorkoutsScreen), findsNothing);
       expect(find.byType(ProfilePage), findsNothing);
     });
 

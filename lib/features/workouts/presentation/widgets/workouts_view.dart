@@ -1,6 +1,8 @@
 import 'package:blur/blur.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:super_fitness_app/config/routing/app_routes.dart';
+import 'package:super_fitness_app/config/routing/routing_extensions.dart';
 import 'package:super_fitness_app/core/extensions/extensions.dart';
 import 'package:super_fitness_app/core/helpers/dialogue_utils.dart';
 import 'package:super_fitness_app/core/utils/assets.dart';
@@ -59,8 +61,11 @@ class WorkoutsView extends StatelessWidget {
                 return Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    SizedBox(height: context.mdH(27)),
-
+                    Text(
+                      context.localization.workouts_title,
+                      style: theme.textTheme.displayLarge,
+                    ),
+                    SizedBox(height: context.mdH(24)),
                     BlocBuilder<WorkoutsViewModel, WorkoutsState>(
                       buildWhen: (prev, curr) =>
                           prev.isLoadingGroups != curr.isLoadingGroups ||
@@ -97,12 +102,6 @@ class WorkoutsView extends StatelessWidget {
                           ),
                         );
                       },
-                    ),
-
-                    SizedBox(height: context.mdH(24)),
-                    Text(
-                      context.localization.workouts_title,
-                      style: theme.textTheme.displayLarge,
                     ),
                     SizedBox(height: context.mdH(24)),
 
@@ -161,7 +160,10 @@ class WorkoutsView extends StatelessWidget {
                               return ExerciseCard(
                                 exercise: exercise,
                                 onTap: () {
-                                  // Navigate to details
+                                  context.pushNamed(
+                                    AppRoutes.exercise,
+                                    arguments: exercise.id,
+                                  );
                                 },
                               );
                             },

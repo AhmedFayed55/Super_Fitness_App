@@ -9,6 +9,8 @@ abstract class AppConstants {
   static const String languageCode = 'languageCode';
   static const String arKey = 'ar';
   static const String enKey = 'en';
+  static const String exercises = 'exercises';
+  static const String difficulties = 'difficulties';
   static const String isOnBoardingSeen = 'onboarding_seen';
 
   // 🔹 General Constants
@@ -50,4 +52,10 @@ User Profile Context:
 
 User Message: {message}
 ''';
+  static const String firstName = "firstName";
+  static const String lastName = "lastName";
+  static const String email = "email";
+  static const String weight = "weight";
+  static const String activityLevel = "activityLevel";
+  static const String goal = "goal";
 }
