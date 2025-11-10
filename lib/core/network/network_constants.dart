@@ -3,6 +3,8 @@ abstract class NetworkConstants {
   static const String baseUrlMeals = "https://www.themealdb.com/api/json/v1/1/";
   static const String authorization = 'Authorization';
   static const String bearer = "Bearer";
+  static const String primeMoverMuscleId = 'primeMoverMuscleId';
+  static const String difficultyLevelId = 'difficultyLevelId';
   static const String mealsApiClient = 'dioMeals';
   static const String mealsCategoryQueryParam = 'c';
 }
@@ -10,6 +12,9 @@ abstract class NetworkConstants {
 abstract class EndPoints {
   static const String login = "auth/signin";
   static const String register = "auth/signup";
+  static const String exercises = "exercises/by-muscle-difficulty";
+  static const String difficultyLevels =
+      "levels/difficulty-levels/by-prime-mover";
   static const String forgotPassword = "auth/forgotPassword";
   static const String verifyResetCode = "auth/verifyResetCode";
   static const String resetPassword = "auth/resetPassword";
@@ -18,5 +23,7 @@ abstract class EndPoints {
   static const String upcomingWorkoutsTabItems = "musclesGroup/{muscleGroupId}";
   static const String recommendationForYou = "categories.php";
   static const String editProfile = "auth/editProfile";
+  static const String allExercises = "exercises";
   static const String getMealsByCategory = "filter.php";
+  static const String changePassword = "auth/change-password";
 }

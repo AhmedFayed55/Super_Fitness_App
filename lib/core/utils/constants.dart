@@ -5,6 +5,8 @@ abstract class AppConstants {
   static const String languageCode = 'languageCode';
   static const String arKey = 'ar';
   static const String enKey = 'en';
+  static const String exercises = 'exercises';
+  static const String difficulties = 'difficulties';
   static const String isOnBoardingSeen = 'onboarding_seen';
   static const String noInternet = 'No Internet Connection';
   static const int animateSeconds = 300;

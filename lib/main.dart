@@ -32,7 +32,7 @@ class SuperFitnessApp extends StatelessWidget {
           theme: AppTheme.darkTheme,
           debugShowCheckedModeBanner: false,
           onGenerateRoute: RouteGenerator.getRoute,
-          initialRoute: AppRoutes.foodScreen,
+          initialRoute: AppRoutes.appSections,
         );
       },
     );
