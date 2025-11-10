@@ -11,7 +11,6 @@ import 'package:super_fitness_app/features/exercise/domain/entity/difficulty_lev
 import 'package:super_fitness_app/features/exercise/domain/entity/exercise_entity.dart';
 import 'package:super_fitness_app/features/auth/change_password/presentation/pages/change_password_screen.dart';
 import 'package:super_fitness_app/features/app_sections/app_sections.dart';
-import 'package:super_fitness_app/features/food/domain/entities/meals_response_entity.dart';
 import 'package:super_fitness_app/features/onBoarding/presentation/pages/onboarding_screen.dart';
 import 'package:super_fitness_app/features/workouts/presentation/pages/workouts_screen.dart';
 import 'package:super_fitness_app/features/smart_coach/presentation/pages/chat_screen.dart';
