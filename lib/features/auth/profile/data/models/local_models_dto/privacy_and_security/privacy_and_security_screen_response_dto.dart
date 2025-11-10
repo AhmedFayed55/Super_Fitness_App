@@ -1,32 +1,86 @@
-import 'package:json_annotation/json_annotation.dart';
-import 'package:super_fitness_app/features/auth/profile/data/models/local_models_dto/common/content_dto.dart';
-import 'package:super_fitness_app/features/auth/profile/data/models/local_models_dto/common/style_dto.dart';
-
-part 'privacy_and_security_screen_response_dto.g.dart';
-
-@JsonSerializable()
-class PrivacyAndSecurityScreenResponseDto {
-  @JsonKey(name: "section")
+class PrivacyPolicyResponseDto {
   final String? section;
-  @JsonKey(name: "content")
-  final ContentDto? content;
-  @JsonKey(name: "style")
+  final ContentDto? title;
+  final List<ContentDto>? content;
   final StyleDto? style;
+  final List<PrivacyPolicyResponseDto>? subSections;
 
-  PrivacyAndSecurityScreenResponseDto ({
+  PrivacyPolicyResponseDto({
     this.section,
+    this.title,
     this.content,
     this.style,
+    this.subSections,
   });
 
-  factory PrivacyAndSecurityScreenResponseDto.fromJson(Map<String, dynamic> json) {
-    return _$PrivacyAndSecurityScreenResponseDtoFromJson(json);
-  }
+  factory PrivacyPolicyResponseDto.fromJson(Map<String, dynamic> json) {
+    ContentDto? titleDto;
+    if (json['title'] != null) {
+      titleDto = ContentDto.fromJson(json['title']);
+    }
 
-  Map<String, dynamic> toJson() {
-    return _$PrivacyAndSecurityScreenResponseDtoToJson(this);
+    List<ContentDto>? contentList;
+    final contentJson = json['content'];
+    if (contentJson != null) {
+      if (contentJson is String) {
+        contentList = [ContentDto(en: contentJson)];
+      } else if (contentJson is Map<String, dynamic>) {
+        contentList = [ContentDto.fromJson(contentJson)];
+      } else if (contentJson is List) {
+        contentList = contentJson.map((e) => ContentDto.fromJson(e)).toList();
+      }
+    }
+
+    List<PrivacyPolicyResponseDto>? subSectionsList;
+    if (json['sub_sections'] != null && json['sub_sections'] is List) {
+      subSectionsList = (json['sub_sections'] as List)
+          .map((e) => PrivacyPolicyResponseDto.fromJson(e))
+          .toList();
+    }
+
+    return PrivacyPolicyResponseDto(
+      section: json['section'] as String?,
+      title: titleDto,
+      content: contentList,
+      style: json['style'] != null ? StyleDto.fromJson(json['style']) : null,
+      subSections: subSectionsList,
+    );
   }
 }
 
+class ContentDto {
+  final dynamic en; // String أو List<String>
 
+  ContentDto({this.en});
 
+  factory ContentDto.fromJson(dynamic json) {
+    if (json == null) return ContentDto();
+    if (json is Map<String, dynamic>) return ContentDto(en: json['en']);
+    if (json is String) return ContentDto(en: json);
+    return ContentDto();
+  }
+}
+
+class StyleDto {
+  final double? fontSize;
+  final String? fontWeight;
+  final String? color;
+  final Map<String, String>? textAlign;
+  final String? backgroundColor;
+
+  StyleDto({this.fontSize, this.fontWeight, this.color, this.textAlign, this.backgroundColor});
+
+  factory StyleDto.fromJson(Map<String, dynamic> json) {
+    Map<String, String>? align;
+    if (json['textAlign'] != null && json['textAlign'] is Map) {
+      align = (json['textAlign'] as Map).map((key, value) => MapEntry(key.toString(), value.toString()));
+    }
+    return StyleDto(
+      fontSize: (json['fontSize'] != null) ? (json['fontSize'] as num).toDouble() : null,
+      fontWeight: json['fontWeight'] as String?,
+      color: json['color'] as String?,
+      textAlign: align,
+      backgroundColor: json['backgroundColor'] as String?,
+    );
+  }
+}

@@ -8,6 +8,6 @@ class SecurityScreenContentUseCase {
   final ProfileRepo _repo;
   SecurityScreenContentUseCase(this._repo);
 
-  Future<ApiResult<List<SecurityRolesConfigResponseEntity>>> call() =>
+  Future<ApiResult<List<SecurityRolesConfigEntity>>> call() =>
       _repo.getSecurityRolesConfigScreenContent();
 }
