@@ -1,7 +1,7 @@
-import 'categories_dto_entity.dart';
+import 'categories_entity.dart';
 
 class MealsCategoriesEntity {
-  final List<CategoriesDtoEntity> categoriesDtoEntity;
+  final List<CategoriesEntity> categoriesDtoEntity;
 
   MealsCategoriesEntity({required this.categoriesDtoEntity});
 }
