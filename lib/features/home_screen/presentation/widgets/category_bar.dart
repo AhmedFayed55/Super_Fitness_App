@@ -11,43 +11,46 @@ class CategoryBar extends StatelessWidget {
   Widget build(BuildContext context) {
     var screenHeight = context.height;
     var categories = CategoryModel.getCategory(context);
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          context.localization.category,
-          style: Theme.of(context).textTheme.displaySmall,
-        ),
-        verticalSpace(screenHeight * 0.009),
-        Container(
-          height: screenHeight * 0.11,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20),
-            color: AppColors.grey[10],
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            context.localization.category,
+            style: Theme.of(context).textTheme.displaySmall,
           ),
-          child: Row(
-            children: [
-              for (int i = 0; i < categories.length; i++) ...[
-                Expanded(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Image.asset(categories[i].image),
-                      Text(categories[i].name),
-                    ],
+          verticalSpace(screenHeight * 0.009),
+          Container(
+            height: screenHeight * 0.11,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20),
+              color: AppColors.grey[10],
+            ),
+            child: Row(
+              children: [
+                for (int i = 0; i < categories.length; i++) ...[
+                  Expanded(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Image.asset(categories[i].image),
+                        Text(categories[i].name),
+                      ],
+                    ),
                   ),
-                ),
-                if (i != categories.length - 1)
-                  VerticalDivider(
-                    color: AppColors.grey[20],
-                    indent: screenHeight * 0.01,
-                    endIndent: screenHeight * 0.01,
-                  ),
+                  if (i != categories.length - 1)
+                    VerticalDivider(
+                      color: AppColors.grey[20],
+                      indent: screenHeight * 0.01,
+                      endIndent: screenHeight * 0.01,
+                    ),
+                ],
               ],
-            ],
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

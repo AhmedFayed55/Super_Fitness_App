@@ -34,6 +34,7 @@ class UpcomingWorkoutsItems extends StatelessWidget {
           return SizedBox(
             height: screenHeight * 0.1,
             child: ListView.separated(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
               scrollDirection: Axis.horizontal,
               itemCount: cubitState?.length ?? 0,
               separatorBuilder: (context, index) {

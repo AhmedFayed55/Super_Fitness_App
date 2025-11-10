@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:super_fitness_app/core/di/di.dart';
-import 'package:super_fitness_app/core/extensions/extensions.dart';
 import 'package:super_fitness_app/core/helpers/spacing.dart';
 import 'package:super_fitness_app/core/utils/assets.dart';
 import 'package:super_fitness_app/features/home_screen/presentation/manager/home_event.dart';
@@ -20,8 +19,6 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var screenWidth = context.width;
-    var screenHeight = context.height;
     return BlocProvider(
       create: (context) => homeCubit..doIntent(GetAllHomeDataEvent()),
       child: Container(
@@ -34,12 +31,7 @@ class HomeScreen extends StatelessWidget {
         child: Scaffold(
           backgroundColor: Colors.transparent,
           body: Padding(
-            padding: EdgeInsets.fromLTRB(
-              screenWidth * 0.043,
-              MediaQuery.of(context).padding.top,
-              screenWidth * 0.043,
-              screenHeight * 0.02,
-            ),
+            padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top),
             child: SingleChildScrollView(
               child: Column(
                 children: [

@@ -19,28 +19,31 @@ class RecommendationForYou extends StatelessWidget {
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  context.localization.recommendation_for_you,
-                  style: Theme.of(context).textTheme.displaySmall,
-                ),
-                InkWell(
-                  onTap: () {
-                    /// onPressed See All
-                  },
-                  child: Text(
-                    context.localization.see_all,
-                    style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                      color: AppColors.lightOrange[10],
-                      decoration: TextDecoration.underline,
-                      decorationColor: AppColors.lightOrange[10],
-                      decorationStyle: TextDecorationStyle.solid,
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    context.localization.recommendation_for_you,
+                    style: Theme.of(context).textTheme.displaySmall,
+                  ),
+                  InkWell(
+                    onTap: () {
+                      /// onPressed See All
+                    },
+                    child: Text(
+                      context.localization.see_all,
+                      style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                        color: AppColors.lightOrange[10],
+                        decoration: TextDecoration.underline,
+                        decorationColor: AppColors.lightOrange[10],
+                        decorationStyle: TextDecorationStyle.solid,
+                      ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
             verticalSpace(screenHeight * 0.01),
             if (state.forYou == ScreenStatus.isLoading)
@@ -63,6 +66,7 @@ class RecommendationForYou extends StatelessWidget {
               SizedBox(
                 height: screenWidth * 0.28,
                 child: ListView.separated(
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
                   itemCount: cubitState?.length ?? 0,
                   scrollDirection: Axis.horizontal,
                   separatorBuilder: (context, index) {

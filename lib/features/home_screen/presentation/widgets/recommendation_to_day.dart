@@ -19,9 +19,12 @@ class RecommendationToDay extends StatelessWidget {
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              context.localization.recommendation_to_day,
-              style: Theme.of(context).textTheme.displaySmall,
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: Text(
+                context.localization.recommendation_to_day,
+                style: Theme.of(context).textTheme.displaySmall,
+              ),
             ),
             verticalSpace(screenHeight * 0.01),
             if (state.today == ScreenStatus.isLoading)
@@ -44,6 +47,7 @@ class RecommendationToDay extends StatelessWidget {
               SizedBox(
                 height: screenWidth * 0.28,
                 child: ListView.separated(
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
                   itemCount: cubitState?.length ?? 0,
                   scrollDirection: Axis.horizontal,
                   separatorBuilder: (context, index) {

@@ -21,34 +21,36 @@ class _UpcomingWorkoutsTabState extends State<UpcomingWorkoutsTab> {
   @override
   Widget build(BuildContext context) {
     var screenHeight = context.height;
-    var screenWidth = context.width;
     return BlocBuilder<HomeCubit, HomeState>(
       builder: (context, state) {
         var cubitState = state.upcomingTabData;
         return Column(
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  context.localization.upcoming_workouts,
-                  style: Theme.of(context).textTheme.displaySmall,
-                ),
-                InkWell(
-                  onTap: () {
-                    /// onPressed Upcoming Workouts
-                  },
-                  child: Text(
-                    context.localization.see_all,
-                    style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                      color: AppColors.lightOrange[10],
-                      decoration: TextDecoration.underline,
-                      decorationColor: AppColors.lightOrange[10],
-                      decorationStyle: TextDecorationStyle.solid,
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    context.localization.upcoming_workouts,
+                    style: Theme.of(context).textTheme.displaySmall,
+                  ),
+                  InkWell(
+                    onTap: () {
+                      /// onPressed Upcoming Workouts
+                    },
+                    child: Text(
+                      context.localization.see_all,
+                      style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                        color: AppColors.lightOrange[10],
+                        decoration: TextDecoration.underline,
+                        decorationColor: AppColors.lightOrange[10],
+                        decorationStyle: TextDecorationStyle.solid,
+                      ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
             verticalSpace(screenHeight * 0.01),
             if (cubitState == null ||
