@@ -33,7 +33,6 @@ class RouteGenerator {
           builder: (context) => FoodScreen(index: index, categories: list),
         );
 
-
       default:
         return unDefinedRoute();
     }
