@@ -62,7 +62,7 @@ class ExerciseScreen extends StatelessWidget {
               child: Center(
                 child: SvgPicture.asset(
                   height: context.mdH(13),
-                  AppAssets.arrowBack,
+                  AppAssets.arrowBackIcon,
                 ),
               ),
             ),

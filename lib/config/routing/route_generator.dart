@@ -1,5 +1,8 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:super_fitness_app/core/utils/enums.dart';
+import 'package:super_fitness_app/features/auth/profile/domain/entities/logged_user_data/user_data_response_entity.dart';
 import 'package:super_fitness_app/features/details_food/presentation/pages/details_food_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:super_fitness_app/features/auth/forget_password/presentation/pages/forget_password_screen.dart';
@@ -65,7 +68,25 @@ class RouteGenerator {
         );
 
       case AppRoutes.editProfile:
-        var user = settings.arguments as UserEntity;
+        var data = settings.arguments as UserDataResponseEntity;
+        var user = UserEntity(
+          id: data.id,
+          firstName: data.firstName,
+          lastName: data.lastName,
+          email: data.email,
+          gender: data.gender,
+          age: data.age.toInt(),
+          weight: data.weight.toInt(),
+          height: data.height.toInt(),
+          activityLevel: ActivityLevel.fromRspone(
+            data.activityLevel,
+          ).displayName,
+          goal: data.goal,
+          photo: data.photo,
+          createdAt: DateTime.parse(data.createdAt),
+        );
+        log(user.toString());
+
         return MaterialPageRoute(builder: (context) => EditProfile(user: user));
 
       case AppRoutes.foodScreen:

@@ -1,5 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:super_fitness_app/config/routing/app_routes.dart';
+import 'package:super_fitness_app/config/routing/routing_extensions.dart';
 import 'package:super_fitness_app/core/components/custom_elevated_button.dart';
 import 'package:super_fitness_app/core/extensions/extensions.dart';
 import 'package:super_fitness_app/core/l10n/translations/app_localizations.dart';
@@ -41,7 +43,7 @@ class LoginButton extends StatelessWidget {
                 ),
                 recognizer: TapGestureRecognizer()
                   ..onTap = () {
-                    // todo: navigate to register screen
+                    
                   },
               ),
             ],

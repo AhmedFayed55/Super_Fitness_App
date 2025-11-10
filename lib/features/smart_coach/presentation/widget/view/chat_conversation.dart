@@ -48,6 +48,7 @@ class _ChatConversationViewState extends State<ChatConversationView> {
         leading: CustomBackButton(onTap: () => context.pop()),
         backgroundColor: Colors.transparent,
         elevation: 0,
+        scrolledUnderElevation: 0,
         centerTitle: true,
         title: Text(
           context.localization.smart_coach_title,

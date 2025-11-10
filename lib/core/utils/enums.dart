@@ -118,6 +118,23 @@ enum ActivityLevel {
     }
   }
 
+  static ActivityLevel fromRspone(String value) {
+    switch (value.toLowerCase()) {
+      case "level1":
+        return ActivityLevel.rookie;
+      case "level2":
+        return ActivityLevel.beginner;
+      case "level3":
+        return ActivityLevel.intermediate;
+      case "level4":
+        return ActivityLevel.advance;
+      case "level5":
+        return ActivityLevel.trueBeast;
+      default:
+        throw Exception("Invalid activity level: $value");
+    }
+  }
+
   static String toLevelName(String value) {
     switch (value.toLowerCase()) {
       case "rookie":
