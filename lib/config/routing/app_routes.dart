@@ -5,4 +5,5 @@ abstract class AppRoutes {
   static const String foodScreen = "/foodScreen";
   static const String forgetPassword = "/forgetPassword";
   static const String workouts = "/WorkoutsScreen";
+  static const String changePassword = "/changePassword";
 }

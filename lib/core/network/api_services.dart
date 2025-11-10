@@ -2,6 +2,8 @@ import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:super_fitness_app/core/network/network_constants.dart';
+import 'package:super_fitness_app/features/auth/change_password/data/models/change_pass_response.dart';
+import 'package:super_fitness_app/features/auth/change_password/data/models/change_password_request.dart';
 import 'package:super_fitness_app/features/auth/forget_password/data_sources/models/request/forget_password_request_dto.dart';
 import 'package:super_fitness_app/features/auth/forget_password/data_sources/models/request/reset_password_request_dto.dart';
 import 'package:super_fitness_app/features/auth/forget_password/data_sources/models/request/verify_reset_code_request_dto.dart';
@@ -38,8 +40,12 @@ abstract class ApiServices {
   Future<ResetPasswordResponseDto> resetPassword(
     @Body() ResetPasswordRequestDto body,
   );
+
   @POST(EndPoints.login)
   Future<LoginResponseDto> login(@Body() LoginRequestDto loginRequest);
+
+  @PATCH(EndPoints.changePassword)
+  Future<ChangePasswordResponse> changePassword(@Body() ChangePasswordRequest body);
 
   @GET(EndPoints.recommendationToDay)
   Future<MusclesRandomResponse> recommendationToDay();
