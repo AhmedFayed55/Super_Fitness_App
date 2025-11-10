@@ -27,19 +27,11 @@ class ChatComposer extends StatelessWidget {
     final borderColor = colorScheme.outline;
 
     return Container(
-      padding: EdgeInsets.symmetric(
-        horizontal: context.mdW(16),
-        vertical: context.mdH(10),
-      ),
-      margin: EdgeInsets.fromLTRB(
-        context.mdW(12),
-        context.mdH(4),
-        context.mdW(12),
-        context.mdH(12),
-      ),
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+      margin: const EdgeInsets.fromLTRB(12, 4, 12, 12),
       decoration: BoxDecoration(
         color: bgColor,
-        borderRadius: BorderRadius.circular(context.mdRadius(24)),
+        borderRadius: BorderRadius.circular(24),
         // ignore: deprecated_member_use
         border: Border.all(color: borderColor.withOpacity(0.3), width: 1),
       ),
@@ -67,19 +59,19 @@ class ChatComposer extends StatelessWidget {
               onChanged: (_) {},
             ),
           ),
-          SizedBox(width: context.mdW(8)),
+          const SizedBox(width: 8),
           GestureDetector(
             onTap: () => onSend(controller.text),
             child: Container(
-              width: context.mdW(42),
-              height: context.mdW(42),
+              width: 42,
+              height: 42,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 color: colorScheme.primary,
               ),
               child: state.isSendingOrReceivingMessage
                   ? Padding(
-                      padding: EdgeInsets.all(context.mdW(10)),
+                      padding: const EdgeInsets.all(10),
                       child: CircularProgressIndicator(
                         color: colorScheme.onPrimary,
                         strokeWidth: 2,
@@ -88,7 +80,7 @@ class ChatComposer extends StatelessWidget {
                   : Icon(
                       Icons.send_rounded,
                       color: colorScheme.onPrimary,
-                      size: context.mdW(20),
+                      size: 20,
                     ),
             ),
           ),

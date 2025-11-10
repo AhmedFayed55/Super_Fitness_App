@@ -6,7 +6,6 @@ import 'package:super_fitness_app/features/smart_coach/presentation/view_model/s
 import 'package:super_fitness_app/features/smart_coach/presentation/view_model/smart_chat_state.dart';
 import 'package:super_fitness_app/features/smart_coach/presentation/view_model/smart_chat_view_model.dart';
 import 'package:super_fitness_app/features/smart_coach/presentation/widget/shimmer/chat_welcome_shimmer.dart';
-import 'package:super_fitness_app/features/smart_coach/presentation/widget/view/chat_conversation.dart';
 import 'package:super_fitness_app/features/smart_coach/presentation/widget/view/chat_welcome.dart';
 
 class ChatScreen extends StatefulWidget {
@@ -17,8 +16,6 @@ class ChatScreen extends StatefulWidget {
 }
 
 class _ChatScreenState extends State<ChatScreen> {
-  bool _showWelcome = true;
-
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -30,7 +27,7 @@ class _ChatScreenState extends State<ChatScreen> {
       },
       child: BlocBuilder<SmartChatViewModel, SmartChatState>(
         builder: (context, state) {
-          if (state.isLoadingUser || state.isLoadingChats || state.isLoading) {
+          if (state.isLoadingUser || state.isLoading || state.isLoadingChats) {
             return const ChatWelcomeShimmer();
           }
 
@@ -42,16 +39,8 @@ class _ChatScreenState extends State<ChatScreen> {
             );
           }
 
-          if (_showWelcome) {
-            return ChatWelcomeView(
-              onGetStarted: () async {
-                setState(() => _showWelcome = false);
-              },
-            );
-          }
-
           if (state.userChats.isNotEmpty || state.currentChatId != null) {
-            return const ChatConversationView();
+            return const ChatWelcomeView();
           }
 
           return Scaffold(

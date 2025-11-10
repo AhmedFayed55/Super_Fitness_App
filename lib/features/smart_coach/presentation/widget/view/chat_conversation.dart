@@ -55,13 +55,9 @@ class _ChatConversationViewState extends State<ChatConversationView> {
         ),
         actions: [
           IconButton(
-            padding: EdgeInsets.symmetric(horizontal: context.mdW(16)),
+            padding: const EdgeInsets.symmetric(horizontal: 16),
             onPressed: () => viewModel.doIntent(ToggleDrawerEvent()),
-            icon: SvgPicture.asset(
-              AppAssets.chatList,
-              width: context.mdIcon(24),
-              height: context.mdIcon(24),
-            ),
+            icon: SvgPicture.asset(AppAssets.chatList, width: 24, height: 24),
           ),
         ],
       ),
