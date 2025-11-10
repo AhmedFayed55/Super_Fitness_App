@@ -2,9 +2,9 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:super_fitness_app/core/network/api_services.dart';
+import 'package:super_fitness_app/features/exercise/data/models/get_all_exerecises/exercise_dto.dart';
 import 'package:super_fitness_app/features/popular_training/data_sources/models/request/get_all_exercises_request_dto.dart';
 import 'package:super_fitness_app/features/popular_training/data_sources/models/response/get_all_exercises_response_dto.dart';
-import 'package:super_fitness_app/features/popular_training/data_sources/models/exercise_dto.dart';
 import 'package:super_fitness_app/features/popular_training/data_sources/sources/remote/popular_training_remote_ds_impl.dart';
 import 'popular_training_remote_ds_impl_test.mocks.dart';
 

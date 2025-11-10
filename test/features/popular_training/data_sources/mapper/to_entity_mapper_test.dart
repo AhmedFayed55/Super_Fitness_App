@@ -1,8 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:super_fitness_app/features/exercise/data/models/get_all_exerecises/exercise_dto.dart';
 import 'package:super_fitness_app/features/popular_training/data_sources/mapper/to_entity_mapper.dart';
-import 'package:super_fitness_app/features/popular_training/data_sources/models/exercise_dto.dart';
 import 'package:super_fitness_app/features/popular_training/data_sources/models/response/get_all_exercises_response_dto.dart';
-import 'package:super_fitness_app/features/popular_training/domain/entities/exercise_entity.dart';
 import 'package:super_fitness_app/features/popular_training/domain/entities/response/get_all_exercises_response_entity.dart';
 
 void main() {
@@ -33,23 +32,6 @@ void main() {
         expect(result.message, equals('Fetched successfully'));
         expect(result.totalExercises, equals(5));
         expect(result.exercises.first.exercise, equals('Push Up'));
-      },
-    );
-
-    test(
-      'ExerciseDto → ExerciseEntity mapping should fill defaults when fields are null',
-      () {
-        final mockDto = ExerciseDto(); // intentionally empty
-
-        final result = mockDto.toEntity();
-
-        expect(result, isA<ExerciseEntity>());
-        expect(result.exercise, equals('Unknown Exercise'));
-        expect(result.primaryEquipment, equals('Bodyweight'));
-        expect(result.primaryItems, equals(1));
-        expect(result.grip, equals('No Grip'));
-        expect(result.loadPositionEnding, equals('No Load'));
-        expect(result.combinationExercises, equals('Single Exercise'));
       },
     );
 

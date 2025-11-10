@@ -1,5 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:super_fitness_app/features/popular_training/data_sources/models/exercise_dto.dart';
+import 'package:super_fitness_app/features/exercise/data/models/get_all_exerecises/exercise_dto.dart';
 
 part 'get_all_exercises_response_dto.g.dart';
 

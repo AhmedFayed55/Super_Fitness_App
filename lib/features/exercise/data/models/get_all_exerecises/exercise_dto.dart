@@ -1,71 +1,72 @@
 import 'package:json_annotation/json_annotation.dart';
+
 part 'exercise_dto.g.dart';
 
 @JsonSerializable()
 class ExerciseDto {
   @JsonKey(name: '_id')
-  final String? id;
-  final String? exercise;
+  String? id;
+  String? exercise;
   @JsonKey(name: 'short_youtube_demonstration')
-  final String? shortYoutubeDemonstration;
+  String? shortYoutubeDemonstration;
   @JsonKey(name: 'in_depth_youtube_explanation')
-  final String? inDepthYoutubeExplanation;
+  String? inDepthYoutubeExplanation;
   @JsonKey(name: 'difficulty_level')
-  final String? difficultyLevel;
+  String? difficultyLevel;
   @JsonKey(name: 'target_muscle_group')
-  final String? targetMuscleGroup;
+  String? targetMuscleGroup;
   @JsonKey(name: 'prime_mover_muscle')
-  final String? primeMoverMuscle;
+  String? primeMoverMuscle;
   @JsonKey(name: 'secondary_muscle')
-  final String? secondaryMuscle;
+  dynamic secondaryMuscle;
   @JsonKey(name: 'tertiary_muscle')
-  final String? tertiaryMuscle;
+  dynamic tertiaryMuscle;
   @JsonKey(name: 'primary_equipment')
-  final String? primaryEquipment;
+  String? primaryEquipment;
   @JsonKey(name: '_primary_items')
-  final int? primaryItems;
+  int? primaryItems;
   @JsonKey(name: 'secondary_equipment')
-  final String? secondaryEquipment;
+  dynamic secondaryEquipment;
   @JsonKey(name: '_secondary_items')
-  final int? secondaryItems;
-  final String? posture;
+  int? secondaryItems;
+  String? posture;
   @JsonKey(name: 'single_or_double_arm')
-  final String? singleOrDoubleArm;
+  String? singleOrDoubleArm;
   @JsonKey(name: 'continuous_or_alternating_arms')
-  final String? continuousOrAlternatingArms;
-  final String? grip;
+  String? continuousOrAlternatingArms;
+  String? grip;
   @JsonKey(name: 'load_position_ending')
-  final String? loadPositionEnding;
+  String? loadPositionEnding;
   @JsonKey(name: 'continuous_or_alternating_legs')
-  final String? continuousOrAlternatingLegs;
+  String? continuousOrAlternatingLegs;
   @JsonKey(name: 'foot_elevation')
-  final String? footElevation;
+  String? footElevation;
   @JsonKey(name: 'combination_exercises')
-  final String? combinationExercises;
+  String? combinationExercises;
   @JsonKey(name: 'movement_pattern_1')
-  final String? movementPattern1;
+  String? movementPattern1;
   @JsonKey(name: 'movement_pattern_2')
-  final String? movementPattern2;
+  dynamic movementPattern2;
   @JsonKey(name: 'movement_pattern_3')
-  final String? movementPattern3;
+  dynamic movementPattern3;
   @JsonKey(name: 'plane_of_motion_1')
-  final String? planeOfMotion1;
+  String? planeOfMotion1;
   @JsonKey(name: 'plane_of_motion_2')
-  final String? planeOfMotion2;
+  dynamic planeOfMotion2;
   @JsonKey(name: 'plane_of_motion_3')
-  final String? planeOfMotion3;
+  dynamic planeOfMotion3;
   @JsonKey(name: 'body_region')
-  final String? bodyRegion;
+  String? bodyRegion;
   @JsonKey(name: 'force_type')
-  final String? forceType;
-  final String? mechanics;
-  final String? laterality;
+  String? forceType;
+  String? mechanics;
+  String? laterality;
   @JsonKey(name: 'primary_exercise_classification')
-  final String? primaryExerciseClassification;
+  String? primaryExerciseClassification;
   @JsonKey(name: 'short_youtube_demonstration_link')
-  final String? shortYoutubeDemonstrationLink;
+  String? shortYoutubeDemonstrationLink;
   @JsonKey(name: 'in_depth_youtube_explanation_link')
-  final String? inDepthYoutubeExplanationLink;
+  String? inDepthYoutubeExplanationLink;
 
   ExerciseDto({
     this.id,
@@ -104,8 +105,9 @@ class ExerciseDto {
     this.inDepthYoutubeExplanationLink,
   });
 
-  factory ExerciseDto.fromJson(Map<String, dynamic> json) =>
-      _$ExerciseDtoFromJson(json);
+  factory ExerciseDto.fromJson(Map<String, dynamic> json) {
+    return _$ExerciseDtoFromJson(json);
+  }
 
   Map<String, dynamic> toJson() => _$ExerciseDtoToJson(this);
 }

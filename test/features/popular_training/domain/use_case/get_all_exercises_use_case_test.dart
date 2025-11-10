@@ -3,7 +3,7 @@ import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:super_fitness_app/core/network/api_results.dart';
 import 'package:super_fitness_app/core/network/failures.dart';
-import 'package:super_fitness_app/features/popular_training/domain/entities/exercise_entity.dart';
+import 'package:super_fitness_app/features/exercise/domain/entity/exercise_entity.dart';
 import 'package:super_fitness_app/features/popular_training/domain/entities/request/get_all_exercises_request_entity.dart';
 import 'package:super_fitness_app/features/popular_training/domain/entities/response/get_all_exercises_response_entity.dart';
 import 'package:super_fitness_app/features/popular_training/domain/repositories/popular_training_repo.dart';
