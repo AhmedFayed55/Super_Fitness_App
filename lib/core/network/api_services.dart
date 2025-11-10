@@ -2,6 +2,8 @@ import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:super_fitness_app/core/network/network_constants.dart';
+import 'package:super_fitness_app/features/exercise/data/models/get_all_exerecises/get_all_exerecises_response.dart';
+import 'package:super_fitness_app/features/exercise/data/models/get_difficulty_level/get_difficulty_level_respone.dart';
 import 'package:super_fitness_app/features/auth/change_password/data/models/change_pass_response.dart';
 import 'package:super_fitness_app/features/auth/change_password/data/models/change_password_request.dart';
 import 'package:super_fitness_app/features/auth/forget_password/data_sources/models/request/forget_password_request_dto.dart';
@@ -26,6 +28,17 @@ abstract class ApiServices {
   @factoryMethod
   factory ApiServices(Dio dio) = _ApiServices;
 
+  @GET(EndPoints.exercises)
+  Future<GetAllExerecisesResponse> getAllExercisesByDifficulty(
+    @Query(NetworkConstants.primeMoverMuscleId) String muscleId,
+    @Query(NetworkConstants.difficultyLevelId) String difficultyId,
+  );
+
+  @GET(EndPoints.difficultyLevels)
+  Future<GetDifficultyLevelRespone> getDifficultyLevelsByPrimeMover(
+    @Query(NetworkConstants.primeMoverMuscleId) String primeMoverMuscleId,
+  );
+
   @POST(EndPoints.forgotPassword)
   Future<ForgetPasswordResponseDto> forgotPassword(
     @Body() ForgetPasswordRequestDto body,
@@ -45,7 +58,9 @@ abstract class ApiServices {
   Future<LoginResponseDto> login(@Body() LoginRequestDto loginRequest);
 
   @PATCH(EndPoints.changePassword)
-  Future<ChangePasswordResponse> changePassword(@Body() ChangePasswordRequest body);
+  Future<ChangePasswordResponse> changePassword(
+    @Body() ChangePasswordRequest body,
+  );
 
   @GET(EndPoints.recommendationToDay)
   Future<MusclesRandomResponse> recommendationToDay();

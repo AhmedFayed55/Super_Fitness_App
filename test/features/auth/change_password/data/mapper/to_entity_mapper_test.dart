@@ -7,7 +7,10 @@ void main() {
   group("Test ChangePasswordResponseMapper", () {
     test("ChangePasswordResponseMapper convert from response to Entity", () {
       /// Arrange
-      final response = ChangePasswordResponse(message: 'Success', token: 'token');
+      final response = ChangePasswordResponse(
+        message: 'Success',
+        token: 'token',
+      );
 
       /// Act
       final entity = response.toEntity();
@@ -29,5 +32,5 @@ void main() {
       expect(entity.message, equals(''));
       expect(entity.token, equals(''));
     });
-  },);
+  });
 }

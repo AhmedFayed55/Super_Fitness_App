@@ -1,4 +1,7 @@
 abstract class AppAssets {
+  static const String exerciseScreenBackground =
+      'assets/images/exercise_bg.png';
+  static const String arrowBack = 'assets/svgs/arrow_back.svg';
   static const String homeIcon = 'assets/icons/home_icon.svg';
   static const String profileIcon = 'assets/icons/profile_icon.svg';
   static const String workoutIcon = 'assets/icons/workout_icon.svg';

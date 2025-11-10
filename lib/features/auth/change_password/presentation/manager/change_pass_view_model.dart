@@ -13,7 +13,7 @@ class ChangePasswordViewModel extends Cubit<ChangePasswordState> {
 
   ChangePasswordViewModel(this._useCase) : super(ChangePasswordState());
 
-  Future<void> doIntent(ChangePasswordEvent event) async{
+  Future<void> doIntent(ChangePasswordEvent event) async {
     switch (event) {
       case ChangePasswordSubmitted():
         _changePasswordSubmitted(event.changePasswordRequest);
