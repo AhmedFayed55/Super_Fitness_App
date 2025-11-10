@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:super_fitness_app/features/details_food/presentation/pages/details_food_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:super_fitness_app/features/auth/forget_password/presentation/pages/forget_password_screen.dart';
 import 'package:super_fitness_app/features/edit-profile/domain/entities/user.dart';
@@ -93,6 +94,15 @@ class RouteGenerator {
       case AppRoutes.changePassword:
         return MaterialPageRoute(
           builder: (context) => const ChangePasswordScreen(),
+        );
+
+      case AppRoutes.detailsMeal:
+        final args = settings.arguments as Map<String, dynamic>;
+        final id = args[AppConstants.mealId]??'';
+        final mealList =
+            args[AppConstants.mealList] ;
+        return MaterialPageRoute(
+          builder: (context) => DetailsFoodScreen(mealId: id, meals: mealList),
         );
 
       default:

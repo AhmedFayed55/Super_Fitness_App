@@ -1,5 +1,6 @@
 abstract class AppRoutes {
   static const String login = "/login";
+  static const String detailsMeal = '/detailsMeal';
   static const String exercise = "/exercise";
   static const String pTExercise = "/popular_to_exercise";
   static const String appSections = "/appSections";
