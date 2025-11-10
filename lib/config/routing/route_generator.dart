@@ -12,6 +12,8 @@ import 'package:super_fitness_app/features/auth/change_password/presentation/pag
 import 'package:super_fitness_app/features/app_sections/app_sections.dart';
 import 'package:super_fitness_app/features/onBoarding/presentation/pages/onboarding_screen.dart';
 import 'package:super_fitness_app/features/workouts/presentation/pages/workouts_screen.dart';
+import 'package:super_fitness_app/features/smart_coach/presentation/pages/chat_screen.dart';
+import 'package:super_fitness_app/features/smart_coach/presentation/widget/view/chat_conversation.dart';
 import '../../features/auth/login/presentation/pages/login_screen.dart';
 import 'package:super_fitness_app/features/food/presentation/pages/food_screen.dart';
 import 'package:super_fitness_app/features/home_screen/domain/entities/recommendation_for_you/categories_entity.dart';
@@ -32,6 +34,12 @@ class RouteGenerator {
       case AppRoutes.forgetPassword:
         return MaterialPageRoute(
           builder: (context) => const ForgetPasswordScreen(),
+        );
+      case AppRoutes.chat:
+        return MaterialPageRoute(builder: (context) => const ChatScreen());
+      case AppRoutes.chatConversation:
+        return MaterialPageRoute(
+          builder: (context) => const ChatConversationView(),
         );
       case AppRoutes.weightGoalActivityEdit:
         var viewModel = settings.arguments as EditProfileCubit;

@@ -83,5 +83,30 @@
   "workouts_error": "Failed to load workouts. Please try again.",
   "workouts_empty_group": "No workouts found for this muscle group.",
   "there_is_no_exercises": "There is no exercises",
-  "some_thing_went_wrong": "Something went wrong."
+  "some_thing_went_wrong": "Something went wrong.",
+   "something_went_wrong": "Something went wrong. Please try again later",
+  "login_successfully": "Login successfully",
+   "name_is_required": "Name is required!",
+  "smart_coach_title": "Smart Coach",
+  "loading_messages": "Loading messages...",
+  "something_went_wrong": "⚠️ Something went wrong. Please try again.",
+   "name_is_required": "Name is required!",
+  "hi": "Hi",
+  "user": "User",
+  "i_am_your_smart_coach": "I Am Your Smart Coach",
+  "how_can_i_assist_you": "How Can I Assist You",
+  "today": "Today?",
+  "get_started": "Get Started",
+  "previous_conversations": "Previous Conversations",
+  "no_conversations_yet": "No conversations yet",
+  "delete_conversation": "Delete Conversation",
+  "are_you_sure_delete": "Are you sure you want to delete \"{title}\"?",
+  "delete": "Delete",
+  "cancel": "Cancel",
+  "you": "You",
+  "type_your_message": "Type your message...",
+  "typing": "typing",
+   "some_thing_went_wrong": "Something went wrong."
 }
+
+

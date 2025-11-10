@@ -41,8 +41,15 @@ dependencies:
   smooth_page_indicator: ^1.2.1
   pinput: ^5.0.2
   font_awesome_flutter: ^10.11.0
-  numberpicker: ^2.1.2
+  flutter_chat_ui: ^2.9.1
+  google_generative_ai: ^0.4.7
+  cloud_firestore: ^6.0.3
   blur: ^4.0.2
+  flutter_chat_core: ^2.8.0
+  flutter_dotenv: ^6.0.0
+  flutter_markdown: ^0.7.7+1
+  flutter_chat_types: ^3.6.2
+  numberpicker: ^2.1.2
 
 dev_dependencies:
   flutter_test:
@@ -65,5 +72,7 @@ flutter:
   assets:
     - assets/icons/
     - assets/images/
+    - assets/svg/
+    - secret.env
     - assets/svgs/
     - assets/animations/

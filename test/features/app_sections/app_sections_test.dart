@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:super_fitness_app/core/l10n/translations/app_localizations.dart';
 import 'package:super_fitness_app/features/app_sections/app_sections.dart';
-import 'package:super_fitness_app/features/chat_bot/presentation/page/chat_bot_page.dart';
 import 'package:super_fitness_app/features/explore/presentation/page/explore_page.dart';
 import 'package:super_fitness_app/features/profile/presentation/page/profile_page.dart';
+import 'package:super_fitness_app/features/smart_coach/presentation/pages/chat_screen.dart';
 import 'package:super_fitness_app/features/workouts/presentation/pages/workouts_screen.dart';
 
 void main() {
@@ -23,8 +23,7 @@ void main() {
       );
 
       expect(find.byType(ExplorePage), findsOneWidget);
-
-      expect(find.byType(ChatBotPage), findsNothing);
+      expect(find.byType(ChatScreen), findsNothing);
       expect(find.byType(WorkoutsScreen), findsNothing);
       expect(find.byType(ProfilePage), findsNothing);
     });
@@ -46,12 +45,12 @@ void main() {
     //   await tester.tap(find.byType(GestureDetector).at(1));
     //   await tester.pumpAndSettle(const Duration(milliseconds: 400));
 
-    //   expect(find.byType(ChatBotPage), findsOneWidget);
+    //   expect(find.byType(ChatScreen), findsOneWidget);
 
     //   await tester.tap(find.byType(GestureDetector).at(2));
     //   await tester.pumpAndSettle(const Duration(milliseconds: 400));
 
-    //   expect(find.byType(WorkoutsScreen), findsOneWidget);
+    //   expect(find.byType(WorkoutPage), findsOneWidget);
 
     //   await tester.tap(find.byType(GestureDetector).at(3));
     //   await tester.pumpAndSettle(const Duration(milliseconds: 400));
