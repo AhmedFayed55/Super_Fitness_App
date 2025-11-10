@@ -13,7 +13,6 @@ import 'package:super_fitness_app/features/auth/profile/presentation/widgets/pri
 import 'package:super_fitness_app/features/auth/profile/presentation/widgets/profile_app_bar.dart';
 import 'package:super_fitness_app/features/auth/profile/presentation/widgets/security_content_builder.dart';
 
-
 class ContentScreen extends StatelessWidget {
   const ContentScreen({super.key, required this.type});
 
@@ -24,14 +23,12 @@ class ContentScreen extends StatelessWidget {
     final height = context.height;
 
     return BlocProvider(
-      create: (context) => getIt<ProfileScreenViewModel>()
-        ..doIntent(
-          switch (type) {
+      create: (context) =>
+          getIt<ProfileScreenViewModel>()..doIntent(switch (type) {
             ContentType.privacy => LoadPrivacyContentEvent(),
             ContentType.security => LoadSecurityContentEvent(),
             ContentType.help => LoadHelpContentEvent(),
-          },
-        ),
+          }),
       child: Scaffold(
         body: Stack(
           children: [

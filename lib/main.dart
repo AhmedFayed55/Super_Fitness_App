@@ -1,7 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:super_fitness_app/config/routing/app_routes.dart';
 import 'package:super_fitness_app/core/di/di.dart';
 import 'package:super_fitness_app/core/general_cubits/locale_cubit.dart';
@@ -12,7 +11,7 @@ import 'core/l10n/translations/app_localizations.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await dotenv.load(fileName: "secret.env");
+  // await dotenv.load(fileName: "secret.env");
 
   try {
     await Firebase.initializeApp(
@@ -48,7 +47,7 @@ class SuperFitnessApp extends StatelessWidget {
           theme: AppTheme.darkTheme,
           debugShowCheckedModeBanner: false,
           onGenerateRoute: RouteGenerator.getRoute,
-          initialRoute: AppRoutes.appSections,
+          initialRoute: AppRoutes.login,
         );
       },
     );

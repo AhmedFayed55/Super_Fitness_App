@@ -7,7 +7,7 @@ import 'package:super_fitness_app/core/utils/font_weight.dart';
 
 class ProfileScreenAppBar extends StatelessWidget {
   const ProfileScreenAppBar({super.key, this.title});
-  final String? title ;
+  final String? title;
 
   @override
   Widget build(BuildContext context) {

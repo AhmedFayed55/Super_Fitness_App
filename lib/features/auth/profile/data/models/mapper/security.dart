@@ -15,11 +15,8 @@ extension SecurityRolesMapper on SecurityRolesConfigResponseDto {
 }
 
 extension PermissionMapper on PermissionDto {
-  PermissionEntity toEntity() => PermissionEntity(
-    key: key,
-    name: name?.en,
-    description: description?.en,
-  );
+  PermissionEntity toEntity() =>
+      PermissionEntity(key: key, name: name?.en, description: description?.en);
 }
 
 extension StyleMapper on StyleDto {

@@ -4,7 +4,7 @@ import 'package:super_fitness_app/features/auth/profile/domain/repositories/prof
 import 'package:injectable/injectable.dart';
 
 @injectable
-class GetUserDataUseCase{
+class GetUserDataUseCase {
   final ProfileRepo _repo;
   GetUserDataUseCase(this._repo);
 

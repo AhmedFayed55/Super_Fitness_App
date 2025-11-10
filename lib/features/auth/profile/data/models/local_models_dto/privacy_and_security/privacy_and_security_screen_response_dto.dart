@@ -49,7 +49,7 @@ class PrivacyPolicyResponseDto {
 }
 
 class ContentDto {
-  final dynamic en; // String أو List<String>
+  final dynamic en;
 
   ContentDto({this.en});
 
@@ -68,15 +68,25 @@ class StyleDto {
   final Map<String, String>? textAlign;
   final String? backgroundColor;
 
-  StyleDto({this.fontSize, this.fontWeight, this.color, this.textAlign, this.backgroundColor});
+  StyleDto({
+    this.fontSize,
+    this.fontWeight,
+    this.color,
+    this.textAlign,
+    this.backgroundColor,
+  });
 
   factory StyleDto.fromJson(Map<String, dynamic> json) {
     Map<String, String>? align;
     if (json['textAlign'] != null && json['textAlign'] is Map) {
-      align = (json['textAlign'] as Map).map((key, value) => MapEntry(key.toString(), value.toString()));
+      align = (json['textAlign'] as Map).map(
+        (key, value) => MapEntry(key.toString(), value.toString()),
+      );
     }
     return StyleDto(
-      fontSize: (json['fontSize'] != null) ? (json['fontSize'] as num).toDouble() : null,
+      fontSize: (json['fontSize'] != null)
+          ? (json['fontSize'] as num).toDouble()
+          : null,
       fontWeight: json['fontWeight'] as String?,
       color: json['color'] as String?,
       textAlign: align,

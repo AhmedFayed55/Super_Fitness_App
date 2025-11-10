@@ -5,7 +5,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:super_fitness_app/features/auth/forget_password/presentation/pages/forget_password_screen.dart';
 import 'package:super_fitness_app/features/auth/login/presentation/pages/login_screen.dart';
 import 'package:super_fitness_app/features/auth/profile/presentation/pages/content_screen.dart';
-import 'package:super_fitness_app/features/auth/profile/presentation/pages/profile_screen.dart';
 import 'package:super_fitness_app/features/auth/logout/presentation/pages/logout_screen.dart';
 import 'package:super_fitness_app/features/edit-profile/domain/entities/user.dart';
 import 'package:super_fitness_app/features/edit-profile/presentation/manager/cubit/edit_profile_cubit.dart';
@@ -20,7 +19,6 @@ import 'package:super_fitness_app/features/onBoarding/presentation/pages/onboard
 import 'package:super_fitness_app/features/workouts/presentation/pages/workouts_screen.dart';
 import 'package:super_fitness_app/features/smart_coach/presentation/pages/chat_screen.dart';
 import 'package:super_fitness_app/features/smart_coach/presentation/widget/view/chat_conversation.dart';
-import '../../features/auth/login/presentation/pages/login_screen.dart';
 import 'package:super_fitness_app/features/food/presentation/pages/food_screen.dart';
 import 'package:super_fitness_app/features/home_screen/domain/entities/recommendation_for_you/categories_entity.dart';
 import 'app_routes.dart';
@@ -46,7 +44,9 @@ class RouteGenerator {
 
       case AppRoutes.contentScreen:
         final args = settings.arguments as ContentType;
-        return MaterialPageRoute(builder: (context) => ContentScreen(type: args));
+        return MaterialPageRoute(
+          builder: (context) => ContentScreen(type: args),
+        );
       case AppRoutes.chat:
         return MaterialPageRoute(builder: (context) => const ChatScreen());
       case AppRoutes.chatConversation:
@@ -109,9 +109,8 @@ class RouteGenerator {
 
       case AppRoutes.detailsMeal:
         final args = settings.arguments as Map<String, dynamic>;
-        final id = args[AppConstants.mealId]??'';
-        final mealList =
-            args[AppConstants.mealList] ;
+        final id = args[AppConstants.mealId] ?? '';
+        final mealList = args[AppConstants.mealList];
         return MaterialPageRoute(
           builder: (context) => DetailsFoodScreen(mealId: id, meals: mealList),
         );

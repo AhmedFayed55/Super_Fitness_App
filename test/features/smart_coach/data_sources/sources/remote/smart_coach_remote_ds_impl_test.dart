@@ -25,7 +25,9 @@ void main() {
         user: null,
       );
 
-      when(mockApiServices.getUserData()).thenAnswer((_) async => response);
+      when(
+        mockApiServices.getUserDataSmartCoach(),
+      ).thenAnswer((_) async => response);
 
       final result = await dataSource.getUserData();
 

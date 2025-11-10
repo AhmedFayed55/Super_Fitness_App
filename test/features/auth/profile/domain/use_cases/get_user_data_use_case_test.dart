@@ -30,30 +30,34 @@ void main() {
       weight: 75,
       activityLevel: "hard",
       createdAt: "10-10-2020",
-      gender: "male"
+      gender: "male",
     );
   });
 
   group('GetUserDataUseCase', () {
-    test('should return ApiSuccessResult when repo returns data successfully', () async {
-      final mockResult = ApiSuccessResult<UserDataResponseEntity>(data: userEntity);
-      provideDummy<ApiResult<UserDataResponseEntity>>(mockResult);
+    test(
+      'should return ApiSuccessResult when repo returns data successfully',
+      () async {
+        final mockResult = ApiSuccessResult<UserDataResponseEntity>(
+          data: userEntity,
+        );
+        provideDummy<ApiResult<UserDataResponseEntity>>(mockResult);
 
-      when(repo.getUserData()).thenAnswer((_) async => mockResult);
+        when(repo.getUserData()).thenAnswer((_) async => mockResult);
 
-      final result = await useCase.call();
+        final result = await useCase.call();
 
-      verify(repo.getUserData()).called(1);
-      expect(result, isA<ApiSuccessResult<UserDataResponseEntity>>());
-      result as ApiSuccessResult<UserDataResponseEntity>;
-      expect(result.data, isNotNull);
-      expect(result.data.firstName, equals(userEntity.firstName));
-      expect(result.data.id, equals(userEntity.id));
-      expect(result.data.email, equals(userEntity.email));
-    });
+        verify(repo.getUserData()).called(1);
+        expect(result, isA<ApiSuccessResult<UserDataResponseEntity>>());
+        result as ApiSuccessResult<UserDataResponseEntity>;
+        expect(result.data, isNotNull);
+        expect(result.data.firstName, equals(userEntity.firstName));
+        expect(result.data.id, equals(userEntity.id));
+        expect(result.data.email, equals(userEntity.email));
+      },
+    );
 
     test('should return ApiErrorResult when repo returns failure', () async {
-
       final mockError = ApiErrorResult<UserDataResponseEntity>(
         failure: Failure(errorMessage: "Failed to load user data"),
       );
@@ -65,7 +69,10 @@ void main() {
 
       expect(result, isA<ApiErrorResult<UserDataResponseEntity>>());
       result as ApiErrorResult<UserDataResponseEntity>;
-      expect(result.failure.errorMessage, equals(mockError.failure.errorMessage));
+      expect(
+        result.failure.errorMessage,
+        equals(mockError.failure.errorMessage),
+      );
     });
   });
 }

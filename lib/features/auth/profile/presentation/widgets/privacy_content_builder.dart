@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:super_fitness_app/features/auth/profile/domain/entities/local_models_entity/privacy_and_security/privacy_and_security_screen_response_dto.dart' as privacy;
+import 'package:super_fitness_app/features/auth/profile/domain/entities/local_models_entity/privacy_and_security/privacy_and_security_screen_response_dto.dart'
+    as privacy;
 import 'package:super_fitness_app/features/auth/profile/presentation/widgets/hex_color.dart';
 import 'styled_text_widget.dart';
 
@@ -20,11 +21,16 @@ class PrivacyContentBuilder extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          if (entity.title != null) StyledText(text: entity.title!, style: entity.style),
+          if (entity.title != null)
+            StyledText(text: entity.title!, style: entity.style),
           if (entity.content != null)
-            ...entity.content!.map((line) => StyledText(text: line ?? '', style: entity.style)),
+            ...entity.content!.map(
+              (line) => StyledText(text: line ?? '', style: entity.style),
+            ),
           if (entity.subSections != null)
-            ...entity.subSections!.map((sub) => PrivacyContentBuilder(entity: sub)),
+            ...entity.subSections!.map(
+              (sub) => PrivacyContentBuilder(entity: sub),
+            ),
         ],
       ),
     );

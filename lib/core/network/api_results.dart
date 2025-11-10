@@ -41,9 +41,6 @@ Future<ApiResult<T>> safeLocalCall<T>(Future<T> Function() localCall) async {
     final result = await localCall();
     return ApiSuccessResult<T>(data: result);
   } catch (error) {
-    return ApiErrorResult<T>(
-      failure: Failure(errorMessage: error.toString()),
-    );
+    return ApiErrorResult<T>(failure: Failure(errorMessage: error.toString()));
   }
 }
-

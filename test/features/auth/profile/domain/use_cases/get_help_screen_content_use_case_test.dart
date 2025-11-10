@@ -17,15 +17,18 @@ void main() {
     mockRepo = MockProfileRepo();
     useCase = HelpScreenContentUseCase(mockRepo);
 
-    provideDummy<ApiResult<List<HelpScreenResponseEntity>>>(ApiSuccessResult(data: []));
+    provideDummy<ApiResult<List<HelpScreenResponseEntity>>>(
+      ApiSuccessResult(data: []),
+    );
   });
 
   test('should return ApiSuccessResult with help content', () async {
     final mockHelp = [
-      HelpScreenResponseEntity(title: 'Help Title', content: 'Help Content')
+      HelpScreenResponseEntity(title: 'Help Title', content: 'Help Content'),
     ];
-    when(mockRepo.getHelpScreenContent())
-        .thenAnswer((_) async => ApiSuccessResult(data: mockHelp));
+    when(
+      mockRepo.getHelpScreenContent(),
+    ).thenAnswer((_) async => ApiSuccessResult(data: mockHelp));
 
     final result = await useCase.call();
 
@@ -36,8 +39,9 @@ void main() {
   });
 
   test('should return ApiErrorResult when repo fails', () async {
-    when(mockRepo.getHelpScreenContent())
-        .thenAnswer((_) async => ApiErrorResult(failure: Failure(errorMessage: 'error')));
+    when(mockRepo.getHelpScreenContent()).thenAnswer(
+      (_) async => ApiErrorResult(failure: Failure(errorMessage: 'error')),
+    );
 
     final result = await useCase.call();
 

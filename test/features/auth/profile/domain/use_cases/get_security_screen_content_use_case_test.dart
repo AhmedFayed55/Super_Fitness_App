@@ -18,15 +18,18 @@ void main() {
     mockRepo = MockProfileRepo();
     useCase = SecurityScreenContentUseCase(mockRepo);
 
-    provideDummy<ApiResult<List<SecurityRolesConfigEntity>>>(ApiSuccessResult(data: []));
+    provideDummy<ApiResult<List<SecurityRolesConfigEntity>>>(
+      ApiSuccessResult(data: []),
+    );
   });
 
   test('should return ApiSuccessResult with security roles content', () async {
     final mockSecurity = [
-      SecurityRolesConfigEntity(title: "Security Title", permissions: [])
+      SecurityRolesConfigEntity(title: "Security Title", permissions: []),
     ];
-    when(mockRepo.getSecurityRolesConfigScreenContent())
-        .thenAnswer((_) async => ApiSuccessResult(data: mockSecurity));
+    when(
+      mockRepo.getSecurityRolesConfigScreenContent(),
+    ).thenAnswer((_) async => ApiSuccessResult(data: mockSecurity));
 
     final result = await useCase.call();
 
@@ -37,8 +40,9 @@ void main() {
   });
 
   test('should return ApiErrorResult when repo fails', () async {
-    when(mockRepo.getSecurityRolesConfigScreenContent())
-        .thenAnswer((_) async => ApiErrorResult(failure: Failure(errorMessage: "error")));
+    when(mockRepo.getSecurityRolesConfigScreenContent()).thenAnswer(
+      (_) async => ApiErrorResult(failure: Failure(errorMessage: "error")),
+    );
 
     final result = await useCase.call();
 

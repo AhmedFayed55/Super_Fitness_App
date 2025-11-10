@@ -18,52 +18,47 @@ class ProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final double height = context.height;
     return BlocProvider(
-      create: (context) => getIt<ProfileScreenViewModel>()..doIntent(LoadUserDataEvent()),
+      create: (context) =>
+          getIt<ProfileScreenViewModel>()..doIntent(LoadUserDataEvent()),
       child: Scaffold(
         body: LayoutBuilder(
-          builder: (context, constraints) =>
-              Stack(
-                children: [
-                  Positioned.fill(
-                    child: Image.asset(
-                      AppAssets.profileBackground,
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: 16,
-                      vertical: height * 0.049,
-                    ),
-                    child: Column(
-                      children: [
-                        const ProfileScreenAppBar(),
-                        verticalSpace(height * 0.05),
-                        SingleChildScrollView(
-                          child: Column(
-                            children: [
-                              BlocBuilder<ProfileScreenViewModel,ProfileScreenState>(
-                                builder: (context, state) {
-                                  if(state.userData != null){
-                                    return UserPhotoAndName(user: state.userData!);
-                                  }else if(state.userDataErrorMsg != null){
-                                    return Text(state.userDataErrorMsg!);
-                                  }else{
-                                    return CircularProgressIndicator(
-                                        color: context.colorScheme.primary);
-                                  }
-                                },
-                              ),
-                              verticalSpace(height * 0.05),
-                              const ProfileOptions(),
-                            ],
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                ],
+          builder: (context, constraints) => Stack(
+            children: [
+              Positioned.fill(
+                child: Image.asset(
+                  AppAssets.profileBackground,
+                  fit: BoxFit.cover,
+                ),
               ),
+              Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: 16,
+                  vertical: height * 0.049,
+                ),
+                child: Column(
+                  children: [
+                    const ProfileScreenAppBar(),
+                    verticalSpace(height * 0.05),
+                    BlocBuilder<ProfileScreenViewModel, ProfileScreenState>(
+                      builder: (context, state) {
+                        if (state.userData != null) {
+                          return UserPhotoAndName(user: state.userData!);
+                        } else if (state.userDataErrorMsg != null) {
+                          return Text(state.userDataErrorMsg!);
+                        } else {
+                          return CircularProgressIndicator(
+                            color: context.colorScheme.primary,
+                          );
+                        }
+                      },
+                    ),
+                    verticalSpace(height * 0.05),
+                    const ProfileOptions(),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

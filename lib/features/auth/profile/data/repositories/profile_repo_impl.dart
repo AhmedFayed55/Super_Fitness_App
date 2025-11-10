@@ -13,14 +13,14 @@ import 'package:super_fitness_app/features/auth/profile/domain/entities/logged_u
 import 'package:super_fitness_app/features/auth/profile/domain/repositories/profile_repo.dart';
 
 @Injectable(as: ProfileRepo)
-class ProfileRepoImpl implements ProfileRepo{
+class ProfileRepoImpl implements ProfileRepo {
   final ProfileRemoteDataSource _remoteDataSource;
   final ProfileLocalDataSource _localDataSource;
-  ProfileRepoImpl(this._remoteDataSource,this._localDataSource);
+  ProfileRepoImpl(this._remoteDataSource, this._localDataSource);
 
   @override
   Future<ApiResult<UserDataResponseEntity>> getUserData() {
-    return safeApiCall<UserDataResponseEntity>(()async{
+    return safeApiCall<UserDataResponseEntity>(() async {
       final response = await _remoteDataSource.getUserData();
       final userDto = response.user;
       if (userDto == null) {
@@ -39,19 +39,22 @@ class ProfileRepoImpl implements ProfileRepo{
   }
 
   @override
-  Future<ApiResult<List<PrivacyPolicyEntity>>> getPrivacyAndSecurityScreenContent() {
-    return safeLocalCall<List<PrivacyPolicyEntity>>(()async{
-      final dtoList = await _localDataSource.getPrivacyAndSecurityScreenContent();
+  Future<ApiResult<List<PrivacyPolicyEntity>>>
+  getPrivacyAndSecurityScreenContent() {
+    return safeLocalCall<List<PrivacyPolicyEntity>>(() async {
+      final dtoList = await _localDataSource
+          .getPrivacyAndSecurityScreenContent();
       return dtoList.map((e) => e.toEntity()).toList();
     });
   }
 
   @override
-  Future<ApiResult<List<SecurityRolesConfigEntity>>> getSecurityRolesConfigScreenContent() {
-    return safeLocalCall<List<SecurityRolesConfigEntity>>(()async{
-      final dtoList = await _localDataSource.getSecurityRolesConfigScreenContent();
+  Future<ApiResult<List<SecurityRolesConfigEntity>>>
+  getSecurityRolesConfigScreenContent() {
+    return safeLocalCall<List<SecurityRolesConfigEntity>>(() async {
+      final dtoList = await _localDataSource
+          .getSecurityRolesConfigScreenContent();
       return dtoList.map((e) => e.toEntity()).toList();
     });
   }
-
 }

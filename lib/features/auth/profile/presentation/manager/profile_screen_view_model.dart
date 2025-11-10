@@ -79,15 +79,34 @@ class ProfileScreenViewModel extends Cubit<ProfileScreenState> {
       case ApiSuccessResult():
         switch (type) {
           case ContentType.help:
-            emit(state.copyWith(isLoadingContent: false, helpContent: result.data as List<HelpScreenResponseEntity>));
+            emit(
+              state.copyWith(
+                isLoadingContent: false,
+                helpContent: result.data as List<HelpScreenResponseEntity>,
+              ),
+            );
           case ContentType.privacy:
-            emit(state.copyWith(isLoadingContent: false, privacyContent: result.data as List<PrivacyPolicyEntity>));
+            emit(
+              state.copyWith(
+                isLoadingContent: false,
+                privacyContent: result.data as List<PrivacyPolicyEntity>,
+              ),
+            );
           case ContentType.security:
-            emit(state.copyWith(isLoadingContent: false, securityContent: result.data as List<SecurityRolesConfigEntity>));
+            emit(
+              state.copyWith(
+                isLoadingContent: false,
+                securityContent: result.data as List<SecurityRolesConfigEntity>,
+              ),
+            );
         }
       case ApiErrorResult():
-        emit(state.copyWith(isLoadingContent: false, contentErrorMsg: result.failure.errorMessage));
+        emit(
+          state.copyWith(
+            isLoadingContent: false,
+            contentErrorMsg: result.failure.errorMessage,
+          ),
+        );
     }
   }
-
 }

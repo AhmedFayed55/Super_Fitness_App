@@ -8,19 +8,21 @@ import 'package:super_fitness_app/core/l10n/translations/app_localizations.dart'
 import 'package:super_fitness_app/core/utils/assets.dart';
 import 'package:super_fitness_app/core/utils/constants.dart';
 import 'package:super_fitness_app/core/utils/enums.dart';
+import 'package:super_fitness_app/features/auth/logout/presentation/pages/logout_screen.dart';
 import 'package:super_fitness_app/features/auth/profile/presentation/manager/profile_screen_view_model.dart';
 import 'package:super_fitness_app/features/auth/profile/presentation/widgets/profile_tile.dart';
+
+import '../../../../edit-profile/domain/entities/user.dart';
 
 class ProfileOptions extends StatelessWidget {
   const ProfileOptions({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final vm = context.read<ProfileScreenViewModel>();
     final AppLocalizations l10n = context.localization;
     return Container(
       decoration: BoxDecoration(
-        color: Colors.black.withValues(alpha: 0.3),
+        color: const Color(0xff2D2D2D),
         borderRadius: BorderRadius.circular(12),
       ),
       child: ListView(
@@ -32,14 +34,36 @@ class ProfileOptions extends StatelessWidget {
             icon: AppAssets.editProfileIcon,
             title: l10n.edit_profile,
             onTap: () {
-              //todo: navigate to edit profile screen
+              final user = context
+                  .read<ProfileScreenViewModel>()
+                  .state
+                  .userData;
+              if (user != null) {
+                context.pushNamed(
+                  AppRoutes.editProfile,
+                  arguments: UserEntity(
+                    id: user.id,
+                    firstName: user.firstName,
+                    lastName: user.lastName,
+                    email: user.email,
+                    gender: user.gender,
+                    age: user.age.toInt(),
+                    weight: user.weight.toInt(),
+                    height: user.height.toInt(),
+                    activityLevel: user.activityLevel,
+                    goal: user.goal,
+                    photo: user.photo,
+                    createdAt: DateTime.parse(user.createdAt),
+                  ),
+                );
+              }
             },
           ),
           ProfileTile(
             icon: AppAssets.changePasswordIcon,
             title: l10n.change_password,
             onTap: () {
-              //todo: navigate to change password screen
+              context.pushNamed(AppRoutes.changePassword);
             },
           ),
           BlocBuilder<LocaleCubit, Locale>(
@@ -47,7 +71,8 @@ class ProfileOptions extends StatelessWidget {
               bool isEnglish = localeState.languageCode == AppConstants.enKey;
               return ProfileTile(
                 icon: AppAssets.languageIcon,
-                title: "${l10n.select_language} (${isEnglish ? l10n.english : l10n.arabic})",
+                title:
+                    "${l10n.select_language} (${isEnglish ? l10n.english : l10n.arabic})",
                 trailing: Switch(
                   value: isEnglish,
                   onChanged: (val) {
@@ -61,29 +86,33 @@ class ProfileOptions extends StatelessWidget {
             icon: AppAssets.securityIcon,
             title: l10n.security,
             onTap: () {
-              context.pushNamed(AppRoutes.contentScreen,arguments: ContentType.security);
+              context.pushNamed(
+                AppRoutes.contentScreen,
+                arguments: ContentType.security,
+              );
             },
           ),
           ProfileTile(
             icon: AppAssets.privacyPolicyIcon,
             title: l10n.privacy_policy,
             onTap: () {
-              context.pushNamed(AppRoutes.contentScreen,arguments: ContentType.privacy);
+              context.pushNamed(
+                AppRoutes.contentScreen,
+                arguments: ContentType.privacy,
+              );
             },
           ),
           ProfileTile(
             icon: AppAssets.helpIcon,
             title: l10n.help,
             onTap: () {
-              context.pushNamed(AppRoutes.contentScreen,arguments: ContentType.help);
+              context.pushNamed(
+                AppRoutes.contentScreen,
+                arguments: ContentType.help,
+              );
             },
           ),
-          ProfileTile(
-            icon: AppAssets.logoutIcon,
-            title: l10n.logout,
-            textColor: context.colorScheme.primary,
-            onTap: () {},
-          ),
+          const LogoutScreen(),
         ],
       ),
     );

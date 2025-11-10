@@ -30,11 +30,15 @@ class SecurityRolesConfigResponseDto {
     return SecurityRolesConfigResponseDto(
       section: json['section'] as String?,
       title: json['title'] != null ? ContentDto.fromJson(json['title']) : null,
-      content: json['content'] != null ? ContentDto.fromJson(json['content']) : null,
+      content: json['content'] != null
+          ? ContentDto.fromJson(json['content'])
+          : null,
       style: json['style'] != null ? StyleDto.fromJson(json['style']) : null,
       roleId: json['role_id'] as String?,
       name: json['name'] != null ? ContentDto.fromJson(json['name']) : null,
-      description: json['description'] != null ? ContentDto.fromJson(json['description']) : null,
+      description: json['description'] != null
+          ? ContentDto.fromJson(json['description'])
+          : null,
       permissions: perms,
     );
   }
@@ -61,7 +65,9 @@ class PermissionDto {
   factory PermissionDto.fromJson(Map<String, dynamic> json) => PermissionDto(
     key: json['key'] as String?,
     name: json['name'] != null ? ContentDto.fromJson(json['name']) : null,
-    description: json['description'] != null ? ContentDto.fromJson(json['description']) : null,
+    description: json['description'] != null
+        ? ContentDto.fromJson(json['description'])
+        : null,
   );
 
   Map<String, dynamic> toJson() => {
@@ -78,7 +84,9 @@ class ContentDto {
 
   factory ContentDto.fromJson(dynamic json) {
     if (json == null) return ContentDto();
-    if (json is Map<String, dynamic>) return ContentDto(en: json['en'] as String?);
+    if (json is Map<String, dynamic>) {
+      return ContentDto(en: json['en'] as String?);
+    }
     if (json is String) return ContentDto(en: json);
     return ContentDto();
   }
@@ -94,15 +102,26 @@ class StyleDto {
   final String? backgroundColor;
   final String? highlightColor;
 
-  StyleDto({this.fontSize, this.fontWeight, this.color, this.textAlign, this.backgroundColor, this.highlightColor});
+  StyleDto({
+    this.fontSize,
+    this.fontWeight,
+    this.color,
+    this.textAlign,
+    this.backgroundColor,
+    this.highlightColor,
+  });
 
   factory StyleDto.fromJson(Map<String, dynamic> json) {
     Map<String, String>? align;
     if (json['textAlign'] != null && json['textAlign'] is Map) {
-      align = (json['textAlign'] as Map).map((key, value) => MapEntry(key.toString(), value.toString()));
+      align = (json['textAlign'] as Map).map(
+        (key, value) => MapEntry(key.toString(), value.toString()),
+      );
     }
     return StyleDto(
-      fontSize: (json['fontSize'] != null) ? (json['fontSize'] as num).toDouble() : null,
+      fontSize: (json['fontSize'] != null)
+          ? (json['fontSize'] as num).toDouble()
+          : null,
       fontWeight: json['fontWeight'] as String?,
       color: json['color'] as String?,
       textAlign: align,

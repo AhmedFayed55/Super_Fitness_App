@@ -1,4 +1,3 @@
-import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:super_fitness_app/config/routing/app_routes.dart';
@@ -40,53 +39,50 @@ class LogoutAlertDialog extends StatelessWidget {
       child: Center(
         child: ClipRRect(
           borderRadius: BorderRadius.circular(20),
-          child: BackdropFilter(
-            filter: ImageFilter.blur(sigmaX: 34, sigmaY: 34),
-            child: Container(
-              width: MediaQuery.of(context).size.width * 0.85,
-              padding: const EdgeInsets.all(24),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-              ),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Text(
-                    localizations.are_you_sure_to_close_the_application,
-                    textAlign: TextAlign.center,
-                    style: theme.textTheme.displaySmall!.copyWith(fontSize: 20),
-                  ),
-                  verticalSpace(16),
-
-                  verticalSpace(24),
-                  Row(
-                    children: [
-                      Expanded(
-                        child: CustomElevatedButton(
-                          onPressed: () => context.pop(),
-                          isLoading: false,
-                          widget: Text(locale.no),
-                          containerColor: Colors.transparent,
-                        ),
+          child: Container(
+            margin: EdgeInsets.symmetric(horizontal: context.width * 0.15),
+            width: MediaQuery.of(context).size.width * 0.85,
+            padding: const EdgeInsets.all(24),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20),
+              color: const Color(0xff2D2D2D),
+            ),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  localizations.are_you_sure_to_close_the_application,
+                  textAlign: TextAlign.center,
+                  style: theme.textTheme.displaySmall!.copyWith(fontSize: 20),
+                ),
+                verticalSpace(context.height * 0.028),
+                Row(
+                  children: [
+                    Expanded(
+                      child: CustomElevatedButton(
+                        onPressed: () => context.pop(),
+                        isLoading: false,
+                        widget: Text(locale.no),
+                        containerColor: Colors.transparent,
                       ),
-                      horizontalSpace(50),
-                      Expanded(
-                        child: BlocBuilder<LogoutViewModel, LogoutState>(
-                          builder: (context, state) {
-                            return CustomElevatedButton(
-                              isLoading: state.isLoading,
-                              widget: Text(locale.yes),
-                              onPressed: () => context
-                                  .read<LogoutViewModel>()
-                                  .doIntent(SubmitLogoutEvent()),
-                            );
-                          },
-                        ),
+                    ),
+                    horizontalSpace(50),
+                    Expanded(
+                      child: BlocBuilder<LogoutViewModel, LogoutState>(
+                        builder: (context, state) {
+                          return CustomElevatedButton(
+                            isLoading: state.isLoading,
+                            widget: Text(locale.yes),
+                            onPressed: () => context
+                                .read<LogoutViewModel>()
+                                .doIntent(SubmitLogoutEvent()),
+                          );
+                        },
                       ),
-                    ],
-                  ),
-                ],
-              ),
+                    ),
+                  ],
+                ),
+              ],
             ),
           ),
         ),

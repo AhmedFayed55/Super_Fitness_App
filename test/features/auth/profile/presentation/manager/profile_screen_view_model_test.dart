@@ -12,11 +12,11 @@ import 'package:super_fitness_app/features/auth/profile/presentation/manager/pro
 import 'package:super_fitness_app/features/auth/profile/presentation/manager/profile_screen_state.dart';
 import 'package:super_fitness_app/features/auth/profile/presentation/manager/profile_screen_view_model.dart';
 import 'package:super_fitness_app/features/auth/profile/domain/entities/local_models_entity/help/help_screen_response_entity.dart'
-as help;
+    as help;
 import 'package:super_fitness_app/features/auth/profile/domain/entities/local_models_entity/privacy_and_security/privacy_and_security_screen_response_dto.dart'
-as privacy;
+    as privacy;
 import 'package:super_fitness_app/features/auth/profile/domain/entities/local_models_entity/security_roles_config/security_roles_screen_response_dto.dart'
-as security;
+    as security;
 import 'profile_screen_view_model_test.mocks.dart';
 
 @GenerateMocks([
@@ -47,18 +47,18 @@ void main() {
 
   group('ProfileScreenViewModel Tests', () {
     final mockUser = UserDataResponseEntity(
-        firstName: "john",
-        lastName: "doe",
-        id: "4154",
-        photo: "photo@example.png",
-        email: "jhon@yahoo.com",
-        age: 22,
-        goal: "lose weight",
-        height: 180,
-        weight: 75,
-        activityLevel: "hard",
-        createdAt: "10-10-2020",
-        gender: "male"
+      firstName: "john",
+      lastName: "doe",
+      id: "4154",
+      photo: "photo@example.png",
+      email: "jhon@yahoo.com",
+      age: 22,
+      goal: "lose weight",
+      height: 180,
+      weight: 75,
+      activityLevel: "hard",
+      createdAt: "10-10-2020",
+      gender: "male",
     );
 
     final helpList = [
@@ -77,10 +77,14 @@ void main() {
               method: help.StyleEntity(color: '#333333'),
               details: help.StyleEntity(color: '#777777'),
             ),
-          )
+          ),
         ],
         faqs: [
-          help.FaqEntity(id: '1', question: 'How to use?', answer: 'Just open app'),
+          help.FaqEntity(
+            id: '1',
+            question: 'How to use?',
+            answer: 'Just open app',
+          ),
         ],
       ),
     ];
@@ -104,7 +108,10 @@ void main() {
         name: 'Admin',
         permissions: [
           security.PermissionEntity(
-              key: 'READ', name: 'Read Access', description: 'Can read data'),
+            key: 'READ',
+            name: 'Read Access',
+            description: 'Can read data',
+          ),
         ],
       ),
     ];
@@ -114,7 +121,9 @@ void main() {
     });
 
     test('LoadUserDataEvent success updates user data', () async {
-      final successResult = ApiSuccessResult<UserDataResponseEntity>(data: mockUser);
+      final successResult = ApiSuccessResult<UserDataResponseEntity>(
+        data: mockUser,
+      );
       provideDummy<ApiResult<UserDataResponseEntity>>(successResult);
 
       when(mockGetUserDataUseCase()).thenAnswer((_) async => successResult);
@@ -137,11 +146,16 @@ void main() {
       await viewModel.doIntent(LoadUserDataEvent());
 
       expect(viewModel.state.userData, null);
-      expect(viewModel.state.userDataErrorMsg, equals(errorResult.failure.errorMessage));
+      expect(
+        viewModel.state.userDataErrorMsg,
+        equals(errorResult.failure.errorMessage),
+      );
     });
 
     test('LoadHelpContentEvent success updates help content', () async {
-      final success = ApiSuccessResult<List<help.HelpScreenResponseEntity>>(data: helpList);
+      final success = ApiSuccessResult<List<help.HelpScreenResponseEntity>>(
+        data: helpList,
+      );
       provideDummy<ApiResult<List<help.HelpScreenResponseEntity>>>(success);
 
       when(mockHelpUseCase()).thenAnswer((_) async => success);
@@ -154,7 +168,9 @@ void main() {
     });
 
     test('LoadPrivacyContentEvent success updates privacy content', () async {
-      final success = ApiSuccessResult<List<privacy.PrivacyPolicyEntity>>(data: privacyList);
+      final success = ApiSuccessResult<List<privacy.PrivacyPolicyEntity>>(
+        data: privacyList,
+      );
       provideDummy<ApiResult<List<privacy.PrivacyPolicyEntity>>>(success);
 
       when(mockPrivacyUseCase()).thenAnswer((_) async => success);
@@ -167,8 +183,12 @@ void main() {
 
     test('LoadSecurityContentEvent success updates security content', () async {
       final success =
-      ApiSuccessResult<List<security.SecurityRolesConfigEntity>>(data: securityList);
-      provideDummy<ApiResult<List<security.SecurityRolesConfigEntity>>>(success);
+          ApiSuccessResult<List<security.SecurityRolesConfigEntity>>(
+            data: securityList,
+          );
+      provideDummy<ApiResult<List<security.SecurityRolesConfigEntity>>>(
+        success,
+      );
 
       when(mockSecurityUseCase()).thenAnswer((_) async => success);
 
@@ -188,7 +208,10 @@ void main() {
 
       await viewModel.doIntent(LoadHelpContentEvent());
 
-      expect(viewModel.state.contentErrorMsg, equals(error.failure.errorMessage));
+      expect(
+        viewModel.state.contentErrorMsg,
+        equals(error.failure.errorMessage),
+      );
       expect(viewModel.state.helpContent, null);
     });
   });

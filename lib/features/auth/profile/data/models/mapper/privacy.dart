@@ -6,15 +6,17 @@ extension PrivacyPolicyMapper on PrivacyPolicyResponseDto {
     section: section,
     title: title != null
         ? (title!.en is String
-        ? title!.en as String
-        : (title!.en is List ? (title!.en as List).join("\n") : null))
+              ? title!.en as String
+              : (title!.en is List ? (title!.en as List).join("\n") : null))
         : null,
     content: content
-        ?.map((e) => e.en is String
-        ? e.en as String
-        : e.en is List
-        ? (e.en as List).join("\n")
-        : null)
+        ?.map(
+          (e) => e.en is String
+              ? e.en as String
+              : e.en is List
+              ? (e.en as List).join("\n")
+              : null,
+        )
         .toList(),
     style: style?.toEntity(),
     subSections: subSections?.map((e) => e.toEntity()).toList(),

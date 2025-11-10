@@ -69,19 +69,13 @@ void main() {
     });
 
     test('toEntity throws Exception when id is null', () {
-      final dto = UserDataResponseDto(
-        id: null,
-        email: 'test@example.com',
-      );
+      final dto = UserDataResponseDto(id: null, email: 'test@example.com');
 
       expect(() => dto.toEntity(), throwsA(isA<Exception>()));
     });
 
     test('toEntity throws Exception when email is null', () {
-      final dto = UserDataResponseDto(
-        id: '1',
-        email: null,
-      );
+      final dto = UserDataResponseDto(id: '1', email: null);
 
       expect(() => dto.toEntity(), throwsA(isA<Exception>()));
     });

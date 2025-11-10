@@ -29,7 +29,7 @@ class UserDataResponseDto {
   @JsonKey(name: "createdAt")
   final String? createdAt;
 
-  UserDataResponseDto ({
+  UserDataResponseDto({
     this.id,
     this.firstName,
     this.lastName,

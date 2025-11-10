@@ -4,9 +4,11 @@ import 'package:super_fitness_app/features/auth/profile/domain/entities/local_mo
 import 'package:super_fitness_app/features/auth/profile/domain/entities/local_models_entity/security_roles_config/security_roles_screen_response_dto.dart';
 import 'package:super_fitness_app/features/auth/profile/domain/entities/logged_user_data/user_data_response_entity.dart';
 
-abstract interface class ProfileRepo{
+abstract interface class ProfileRepo {
   Future<ApiResult<UserDataResponseEntity>> getUserData();
   Future<ApiResult<List<HelpScreenResponseEntity>>> getHelpScreenContent();
-  Future<ApiResult<List<PrivacyPolicyEntity>>> getPrivacyAndSecurityScreenContent();
-  Future<ApiResult<List<SecurityRolesConfigEntity>>> getSecurityRolesConfigScreenContent();
+  Future<ApiResult<List<PrivacyPolicyEntity>>>
+  getPrivacyAndSecurityScreenContent();
+  Future<ApiResult<List<SecurityRolesConfigEntity>>>
+  getSecurityRolesConfigScreenContent();
 }

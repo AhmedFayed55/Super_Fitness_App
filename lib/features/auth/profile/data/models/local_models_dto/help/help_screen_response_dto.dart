@@ -64,9 +64,13 @@ class ContactDto {
   factory ContactDto.fromJson(Map<String, dynamic> json) => ContactDto(
     id: json['id'] as String?,
     method: json['method'] != null ? ContentDto.fromJson(json['method']) : null,
-    details: json['details'] != null ? ContentDto.fromJson(json['details']) : null,
+    details: json['details'] != null
+        ? ContentDto.fromJson(json['details'])
+        : null,
     value: json['value'] as String?,
-    style: json['style'] != null ? ContactStyleDto.fromJson(json['style']) : null,
+    style: json['style'] != null
+        ? ContactStyleDto.fromJson(json['style'])
+        : null,
   );
 
   Map<String, dynamic> toJson() => {
@@ -87,7 +91,9 @@ class FaqDto {
 
   factory FaqDto.fromJson(Map<String, dynamic> json) => FaqDto(
     id: json['id'] as String?,
-    question: json['question'] != null ? ContentDto.fromJson(json['question']) : null,
+    question: json['question'] != null
+        ? ContentDto.fromJson(json['question'])
+        : null,
     answer: json['answer'] != null ? ContentDto.fromJson(json['answer']) : null,
   );
 
@@ -104,10 +110,15 @@ class ContactStyleDto {
 
   ContactStyleDto({this.method, this.details});
 
-  factory ContactStyleDto.fromJson(Map<String, dynamic> json) => ContactStyleDto(
-    method: json['method'] != null ? StyleDto.fromJson(json['method']) : null,
-    details: json['details'] != null ? StyleDto.fromJson(json['details']) : null,
-  );
+  factory ContactStyleDto.fromJson(Map<String, dynamic> json) =>
+      ContactStyleDto(
+        method: json['method'] != null
+            ? StyleDto.fromJson(json['method'])
+            : null,
+        details: json['details'] != null
+            ? StyleDto.fromJson(json['details'])
+            : null,
+      );
 
   Map<String, dynamic> toJson() => {
     'method': method?.toJson(),
@@ -122,7 +133,9 @@ class ContentDto {
 
   factory ContentDto.fromJson(dynamic json) {
     if (json == null) return ContentDto();
-    if (json is Map<String, dynamic>) return ContentDto(en: json['en'] as String?);
+    if (json is Map<String, dynamic>) {
+      return ContentDto(en: json['en'] as String?);
+    }
     if (json is String) return ContentDto(en: json);
     return ContentDto();
   }
@@ -137,15 +150,25 @@ class StyleDto {
   final Map<String, String>? textAlign;
   final String? backgroundColor;
 
-  StyleDto({this.fontSize, this.fontWeight, this.color, this.textAlign, this.backgroundColor});
+  StyleDto({
+    this.fontSize,
+    this.fontWeight,
+    this.color,
+    this.textAlign,
+    this.backgroundColor,
+  });
 
   factory StyleDto.fromJson(Map<String, dynamic> json) {
     Map<String, String>? align;
     if (json['textAlign'] != null && json['textAlign'] is Map) {
-      align = (json['textAlign'] as Map).map((key, value) => MapEntry(key.toString(), value.toString()));
+      align = (json['textAlign'] as Map).map(
+        (key, value) => MapEntry(key.toString(), value.toString()),
+      );
     }
     return StyleDto(
-      fontSize: (json['fontSize'] != null) ? (json['fontSize'] as num).toDouble() : null,
+      fontSize: (json['fontSize'] != null)
+          ? (json['fontSize'] as num).toDouble()
+          : null,
       fontWeight: json['fontWeight'] as String?,
       color: json['color'] as String?,
       textAlign: align,

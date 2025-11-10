@@ -25,8 +25,12 @@ class StyledText extends StatelessWidget {
       textAlign: align,
       style: TextStyle(
         fontSize: styleMap?.fontSize,
-        fontWeight: styleMap?.fontWeight == 'bold' ? FontWeight.bold : FontWeight.normal,
-        color: styleMap?.color != null ? HexColor.fromHex(styleMap.color!) : Colors.black,
+        fontWeight: styleMap?.fontWeight == 'bold'
+            ? FontWeight.bold
+            : FontWeight.normal,
+        color: styleMap?.color != null
+            ? HexColor.fromHex(styleMap.color!)
+            : Colors.black,
         backgroundColor: styleMap?.backgroundColor != null
             ? HexColor.fromHex(styleMap.backgroundColor!)
             : null,

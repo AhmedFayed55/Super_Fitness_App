@@ -36,5 +36,12 @@ class StyleEntity {
   final String? backgroundColor;
   final String? highlightColor;
 
-  StyleEntity({this.fontSize, this.fontWeight, this.color, this.textAlign, this.backgroundColor, this.highlightColor});
+  StyleEntity({
+    this.fontSize,
+    this.fontWeight,
+    this.color,
+    this.textAlign,
+    this.backgroundColor,
+    this.highlightColor,
+  });
 }

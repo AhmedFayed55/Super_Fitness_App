@@ -18,6 +18,7 @@ class LogoutScreen extends StatelessWidget {
       create: (_) => getIt<LogoutViewModel>(),
       child: Material(
         // color: Colors.black87,
+        color: Colors.transparent,
         child: Center(
           child: ListTile(
             leading: Image.asset(AppAssets.logout),
@@ -31,7 +32,7 @@ class LogoutScreen extends StatelessWidget {
             trailing: Icon(
               Icons.arrow_forward_ios_rounded,
               color: color.primary,
-              size: 24,
+              size: 16,
             ),
             onTap: () => _logout(context),
           ),

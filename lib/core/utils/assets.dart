@@ -11,7 +11,8 @@ abstract class AppAssets {
   static const String onboarding3 = "assets/images/onboarding_3.png";
   // Images
   static const String authBackground = 'assets/images/auth_bg.png';
-  static const String profileBackground = 'assets/images/profile_background.png';
+  static const String profileBackground =
+      'assets/images/profile_background.png';
   static const String appLogo = 'assets/images/app-logo.png';
   static const String logout = 'assets/images/logout.png';
   static const String editBackground = 'assets/images/edit_bg.png';
@@ -34,18 +35,16 @@ abstract class AppAssets {
   static const String editProfileIcon = "assets/svgs/profile.svg";
   static const String securityIcon = "assets/svgs/security.svg";
 
-
   // json
   static const String helpJson = 'assets/json/help.json';
-  static const String privacyAndSecurityJson = 'assets/json/privacy_and_security.json';
-  static const String securityRolesConfigJson = 'assets/json/security_roles_config.json';
+  static const String privacyAndSecurityJson =
+      'assets/json/privacy_and_security.json';
+  static const String securityRolesConfigJson =
+      'assets/json/security_roles_config.json';
   static const bgDetailsFood = 'assets/images/bg_details_food.png';
   static const arrowBack = 'assets/images/arrow_back.png';
   static const String edit = 'assets/svgs/edit.svg';
   static const String foodBackground = "assets/images/food_background.png";
-
-  //svgs
-  static const String arrowBackIcon = "assets/svgs/arrow_back_svg.svg";
 
   //animation
   static const String emptyAnimation = "assets/animations/empty.json";

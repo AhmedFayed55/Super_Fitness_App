@@ -7,7 +7,6 @@ import 'package:super_fitness_app/features/auth/profile/data/models/logged_user_
 import 'package:super_fitness_app/features/auth/profile/data/models/logged_user_data/user_data_response_dto.dart';
 import '../../../../forget_password/data_sources/sources/remote/forget_password_remote_ds_impl_test.mocks.dart';
 
-
 @GenerateMocks([ApiServices])
 void main() {
   late ApiServices mockApiServices;
@@ -19,16 +18,18 @@ void main() {
     dataSource = ProfileRemoteDataSourceImpl(mockApiServices);
 
     mockResponse = LoggedUserDataResponseDto(
-      user: UserDataResponseDto(id: "6515",firstName: "Ahmed"),
-      message: "Success"
+      user: UserDataResponseDto(id: "6515", firstName: "Ahmed"),
+      message: "Success",
     );
   });
 
   group('ProfileRemoteDataSourceImpl Tests', () {
     test(
       'getUserData should call ApiServices.getUserData and return LoggedUserDataResponseDto',
-          () async {
-        when(mockApiServices.getUserData()).thenAnswer((_) async => mockResponse);
+      () async {
+        when(
+          mockApiServices.getUserData(),
+        ).thenAnswer((_) async => mockResponse);
 
         final result = await dataSource.getUserData();
 
@@ -41,8 +42,10 @@ void main() {
 
     test(
       'getUserData should throw exception when ApiServices throws',
-          () async {
-        when(mockApiServices.getUserData()).thenThrow(Exception('Network error'));
+      () async {
+        when(
+          mockApiServices.getUserData(),
+        ).thenThrow(Exception('Network error'));
         expect(() => dataSource.getUserData(), throwsException);
         verify(mockApiServices.getUserData()).called(1);
       },

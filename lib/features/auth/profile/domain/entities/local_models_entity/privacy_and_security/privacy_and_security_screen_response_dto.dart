@@ -21,5 +21,11 @@ class StyleEntity {
   final Map<String, String>? textAlign;
   final String? backgroundColor;
 
-  StyleEntity({this.fontSize, this.fontWeight, this.color, this.textAlign, this.backgroundColor});
+  StyleEntity({
+    this.fontSize,
+    this.fontWeight,
+    this.color,
+    this.textAlign,
+    this.backgroundColor,
+  });
 }

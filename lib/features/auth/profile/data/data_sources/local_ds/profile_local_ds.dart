@@ -5,5 +5,6 @@ import 'package:super_fitness_app/features/auth/profile/data/models/local_models
 abstract class ProfileLocalDataSource {
   Future<List<HelpScreenResponseDto>> getHelpScreenContent();
   Future<List<PrivacyPolicyResponseDto>> getPrivacyAndSecurityScreenContent();
-  Future<List<SecurityRolesConfigResponseDto>> getSecurityRolesConfigScreenContent();
+  Future<List<SecurityRolesConfigResponseDto>>
+  getSecurityRolesConfigScreenContent();
 }

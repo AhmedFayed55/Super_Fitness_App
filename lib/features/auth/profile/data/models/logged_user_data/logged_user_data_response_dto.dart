@@ -10,10 +10,7 @@ class LoggedUserDataResponseDto {
   @JsonKey(name: "user")
   final UserDataResponseDto? user;
 
-  LoggedUserDataResponseDto ({
-    this.message,
-    this.user,
-  });
+  LoggedUserDataResponseDto({this.message, this.user});
 
   factory LoggedUserDataResponseDto.fromJson(Map<String, dynamic> json) {
     return _$LoggedUserDataResponseDtoFromJson(json);
@@ -23,7 +20,3 @@ class LoggedUserDataResponseDto {
     return _$LoggedUserDataResponseDtoToJson(this);
   }
 }
-
-
-
-

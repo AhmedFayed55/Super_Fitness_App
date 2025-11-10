@@ -18,15 +18,18 @@ void main() {
     mockRepo = MockProfileRepo();
     useCase = GetPrivacyScreenContentUseCase(mockRepo);
 
-    provideDummy<ApiResult<List<PrivacyPolicyEntity>>>(ApiSuccessResult(data: []));
+    provideDummy<ApiResult<List<PrivacyPolicyEntity>>>(
+      ApiSuccessResult(data: []),
+    );
   });
 
   test('should return ApiSuccessResult with privacy content', () async {
     final mockPrivacy = [
-      PrivacyPolicyEntity(title: 'Privacy Title', content: ['Privacy Content'])
+      PrivacyPolicyEntity(title: 'Privacy Title', content: ['Privacy Content']),
     ];
-    when(mockRepo.getPrivacyAndSecurityScreenContent())
-        .thenAnswer((_) async => ApiSuccessResult(data: mockPrivacy));
+    when(
+      mockRepo.getPrivacyAndSecurityScreenContent(),
+    ).thenAnswer((_) async => ApiSuccessResult(data: mockPrivacy));
 
     final result = await useCase.call();
 
@@ -37,8 +40,9 @@ void main() {
   });
 
   test('should return ApiErrorResult when repo fails', () async {
-    when(mockRepo.getPrivacyAndSecurityScreenContent())
-        .thenAnswer((_) async => ApiErrorResult(failure: Failure(errorMessage: 'error')));
+    when(mockRepo.getPrivacyAndSecurityScreenContent()).thenAnswer(
+      (_) async => ApiErrorResult(failure: Failure(errorMessage: 'error')),
+    );
 
     final result = await useCase.call();
 

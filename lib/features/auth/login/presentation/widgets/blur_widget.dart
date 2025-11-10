@@ -58,9 +58,17 @@ class BlurWidget extends StatelessWidget {
                                 ToastMessage.toastMsg(
                                   locale.login_successfully,
                                 );
-                                Future.delayed(const Duration(seconds: 2), () {
-                                  // todo: navigate to home screen
-                                });
+                                Future.delayed(
+                                  const Duration(milliseconds: 500),
+                                  () {
+                                    WidgetsBinding.instance
+                                        .addPostFrameCallback((_) {
+                                          context.pushReplacementNamed(
+                                            AppRoutes.appSections,
+                                          );
+                                        });
+                                  },
+                                );
                               } else if (state.errorMsg != null &&
                                   state.showToast) {
                                 ToastMessage.toastMsg(

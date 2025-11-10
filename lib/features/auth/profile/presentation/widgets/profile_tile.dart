@@ -10,7 +10,8 @@ class ProfileTile extends StatelessWidget {
   final Widget? trailing;
   final Color? textColor;
 
-  const ProfileTile({super.key,
+  const ProfileTile({
+    super.key,
     required this.icon,
     required this.title,
     this.onTap,
@@ -37,7 +38,7 @@ class ProfileTile extends StatelessWidget {
         ),
       ),
       trailing:
-      trailing ??
+          trailing ??
           Icon(
             Icons.arrow_forward_ios,
             size: 16,

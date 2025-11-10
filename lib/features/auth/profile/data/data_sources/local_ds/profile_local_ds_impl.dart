@@ -31,9 +31,7 @@ class ProfileLocalDataSourceImpl implements ProfileLocalDataSource {
 
     final List<dynamic> jsonList =
         jsonData[AppConstants.privacyPolicyContentKey];
-    return jsonList
-        .map((e) => PrivacyPolicyResponseDto.fromJson(e))
-        .toList();
+    return jsonList.map((e) => PrivacyPolicyResponseDto.fromJson(e)).toList();
   }
 
   @override
@@ -51,5 +49,3 @@ class ProfileLocalDataSourceImpl implements ProfileLocalDataSource {
         .toList();
   }
 }
-
-

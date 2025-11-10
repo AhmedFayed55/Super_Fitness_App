@@ -12,7 +12,6 @@ extension HelpScreenMapper on HelpScreenResponseDto {
   );
 }
 
-
 extension StyleMapper on StyleDto {
   StyleEntity toEntity() => StyleEntity(
     fontSize: fontSize,
@@ -22,7 +21,6 @@ extension StyleMapper on StyleDto {
     backgroundColor: backgroundColor,
   );
 }
-
 
 extension ContactMapper on ContactDto {
   ContactEntity toEntity() => ContactEntity(
@@ -42,9 +40,6 @@ extension ContactStyleMapper on ContactStyleDto {
 }
 
 extension FaqMapper on FaqDto {
-  FaqEntity toEntity() => FaqEntity(
-    id: id,
-    question: question?.en,
-    answer: answer?.en,
-  );
+  FaqEntity toEntity() =>
+      FaqEntity(id: id, question: question?.en, answer: answer?.en);
 }

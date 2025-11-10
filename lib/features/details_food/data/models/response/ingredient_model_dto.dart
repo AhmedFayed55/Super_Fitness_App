@@ -4,8 +4,8 @@ part 'ingredient_model_dto.g.dart';
 
 @JsonSerializable()
 class IngredientModelDto {
-  final String ?name;
-  final String ?measure;
+  final String? name;
+  final String? measure;
 
   IngredientModelDto({required this.name, required this.measure});
 

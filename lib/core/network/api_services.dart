@@ -59,9 +59,6 @@ abstract class ApiServices {
     @Body() ResetPasswordRequestDto body,
   );
 
-  );
-  );
-
   @POST(EndPoints.login)
   Future<LoginResponseDto> login(@Body() LoginRequestDto loginRequest);
 
@@ -89,11 +86,10 @@ abstract class ApiServices {
   );
 
   @GET(EndPoints.profileData)
-  Future<GetUserDataResponseDto> getUserData();
+  Future<GetUserDataResponseDto> getUserDataSmartCoach();
   @GET(EndPoints.logout)
   Future<LogoutResponseDto> logout();
 
   @GET(EndPoints.profileData)
   Future<LoggedUserDataResponseDto> getUserData();
-
 }

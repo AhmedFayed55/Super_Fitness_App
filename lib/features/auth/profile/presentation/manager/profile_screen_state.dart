@@ -35,16 +35,14 @@ class ProfileScreenState {
     List<SecurityRolesConfigEntity>? securityContent,
     bool? isLoadingContent,
     String? contentErrorMsg,
-  }) =>
-      ProfileScreenState(
-        userData: userData ?? this.userData,
-        isLoadingUserData: isLoadingUserData ?? this.isLoadingUserData,
-        userDataErrorMsg: userDataErrorMsg ?? this.userDataErrorMsg,
-        privacyContent: privacyContent ?? this.privacyContent,
-        helpContent: helpContent ?? this.helpContent,
-        securityContent: securityContent ?? this.securityContent,
-        isLoadingContent: isLoadingContent ?? this.isLoadingContent,
-        contentErrorMsg: contentErrorMsg ?? this.contentErrorMsg,
-      );
+  }) => ProfileScreenState(
+    userData: userData ?? this.userData,
+    isLoadingUserData: isLoadingUserData ?? this.isLoadingUserData,
+    userDataErrorMsg: userDataErrorMsg ?? this.userDataErrorMsg,
+    privacyContent: privacyContent ?? this.privacyContent,
+    helpContent: helpContent ?? this.helpContent,
+    securityContent: securityContent ?? this.securityContent,
+    isLoadingContent: isLoadingContent ?? this.isLoadingContent,
+    contentErrorMsg: contentErrorMsg ?? this.contentErrorMsg,
+  );
 }
-
