@@ -13,6 +13,9 @@ import 'package:super_fitness_app/features/auth/forget_password/data_sources/mod
 import 'package:super_fitness_app/features/auth/forget_password/data_sources/models/response/reset_password_response_dto.dart';
 import 'package:super_fitness_app/features/auth/forget_password/data_sources/models/response/verify_reset_code_response_dto.dart';
 import 'package:super_fitness_app/features/auth/login/data/models/response/login_response_dto.dart';
+import 'package:super_fitness_app/features/auth/profile/data/models/logged_user_data/logged_user_data_response_dto.dart';
+import 'package:super_fitness_app/features/auth/logout/data/model/logout_response_dto.dart';
+
 import 'package:super_fitness_app/features/edit-profile/data/model/edit_user_respone/edit_user_respone.dart';
 import 'package:super_fitness_app/features/popular_training/data_sources/models/request/get_all_exercises_request_dto.dart';
 import 'package:super_fitness_app/features/popular_training/data_sources/models/response/get_all_exercises_response_dto.dart';
@@ -83,5 +86,10 @@ abstract class ApiServices {
   );
 
   @GET(EndPoints.profileData)
-  Future<GetUserDataResponseDto> getUserData();
+  Future<GetUserDataResponseDto> getUserDataSmartCoach();
+  @GET(EndPoints.logout)
+  Future<LogoutResponseDto> logout();
+
+  @GET(EndPoints.profileData)
+  Future<LoggedUserDataResponseDto> getUserData();
 }

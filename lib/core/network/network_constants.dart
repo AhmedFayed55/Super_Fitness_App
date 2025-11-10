@@ -18,14 +18,15 @@ abstract class EndPoints {
   static const String forgotPassword = "auth/forgotPassword";
   static const String verifyResetCode = "auth/verifyResetCode";
   static const String resetPassword = "auth/resetPassword";
+  static const String profileData = "auth/profile-data";
   static const String recommendationToDay = "muscles/random";
   static const String upcomingWorkoutsTab = "muscles";
   static const String upcomingWorkoutsTabItems = "musclesGroup/{muscleGroupId}";
   static const String recommendationForYou = "categories.php";
+  static const String logout = 'auth/logout';
   static const String detailsFood = 'lookup.php';
   static const String editProfile = "auth/editProfile";
   static const String allExercises = "exercises";
   static const String getMealsByCategory = "filter.php";
   static const String changePassword = "auth/change-password";
-  static const String profileData = "auth/profile-data";
 }

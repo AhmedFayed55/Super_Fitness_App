@@ -1,3 +1,5 @@
+enum ContentType { help, privacy, security }
+
 enum ExerciseScreenMode { byMuscleId, byPreloadedData }
 
 enum Level {

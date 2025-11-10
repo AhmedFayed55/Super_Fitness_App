@@ -13,21 +13,17 @@ void main() {
   group('test Details food Data Source', () {
     test(
       'verify when call details food data source is should call detailsFoodById from api service meal',
-      ()async {
+      () async {
         var mockApiServiceMeal = MockMealsApiServices();
-        var data=DetailsFoodDataSourceImp(mockApiServiceMeal);
-        var mockResponseDto
-         = DetailsFoodResponseDto(
-          meals: [
-           MealModelDto()
-          ],
-        );
-        when(mockApiServiceMeal.detailsFoodById('')).thenAnswer((_)async=>mockResponseDto);
-      var result=await data.detailsFoodByIdDataSource('');
-      verify(mockApiServiceMeal.detailsFoodById('')).called(1);
-      expect(result, isA<DetailsFoodResponseDto>());
-      expect(result.meals,isNotEmpty);
-      
+        var data = DetailsFoodDataSourceImp(mockApiServiceMeal);
+        var mockResponseDto = DetailsFoodResponseDto(meals: [MealModelDto()]);
+        when(
+          mockApiServiceMeal.detailsFoodById(''),
+        ).thenAnswer((_) async => mockResponseDto);
+        var result = await data.detailsFoodByIdDataSource('');
+        verify(mockApiServiceMeal.detailsFoodById('')).called(1);
+        expect(result, isA<DetailsFoodResponseDto>());
+        expect(result.meals, isNotEmpty);
       },
     );
   });

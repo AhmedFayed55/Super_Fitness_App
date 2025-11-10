@@ -4,7 +4,6 @@ import 'package:super_fitness_app/features/details_food/domain/entities/ingredie
 
 extension DetailsFoodMapper on MealModelDto {
   DetailsFoodEntity toEntity() {
-    
     final ingredientsList = <IngredientEntity>[];
     for (int i = 1; i <= 20; i++) {
       final ingredient = _getFieldValue('strIngredient$i') as String?;
@@ -20,7 +19,6 @@ extension DetailsFoodMapper on MealModelDto {
       }
     }
 
-    
     return DetailsFoodEntity(
       id: idMeal ?? '',
       name: strMeal ?? 'no name',
@@ -35,9 +33,8 @@ extension DetailsFoodMapper on MealModelDto {
     );
   }
 
-  
   dynamic _getFieldValue(String fieldName) {
-    final map = toJson(); 
+    final map = toJson();
     return map[fieldName];
   }
 }

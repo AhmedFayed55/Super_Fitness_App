@@ -12,6 +12,6 @@ class SmartCoachRemoteDsImpl implements SmartCoachRemoteDs {
 
   @override
   Future<GetUserDataResponseDto> getUserData() {
-    return _apiService.getUserData();
+    return _apiService.getUserDataSmartCoach();
   }
 }

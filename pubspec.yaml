@@ -51,6 +51,7 @@ dependencies:
   flutter_chat_types: ^3.6.2
   numberpicker: ^2.1.2
 
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -73,6 +74,8 @@ flutter:
     - assets/icons/
     - assets/images/
     - assets/svg/
-    - secret.env
-    - assets/svgs/
+#    - secret.env
     - assets/animations/
+    - assets/json/
+    - assets/svgs/
+#    - assets/animations/

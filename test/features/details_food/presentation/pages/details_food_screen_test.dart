@@ -35,7 +35,7 @@ void main() {
       supportedLocales: AppLocalizations.supportedLocales,
       home: BlocProvider<DetailsFoodViewModel>.value(
         value: mockViewModel,
-        child:const  DetailsFoodScreen(mealId: '',meals:[]), 
+        child: const DetailsFoodScreen(mealId: '', meals: []),
       ),
     );
   }

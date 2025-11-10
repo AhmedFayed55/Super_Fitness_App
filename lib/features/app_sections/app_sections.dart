@@ -5,8 +5,8 @@ import 'package:super_fitness_app/config/theme/colors.dart';
 import 'package:super_fitness_app/core/extensions/extensions.dart';
 import 'package:super_fitness_app/core/helpers/spacing.dart';
 import 'package:super_fitness_app/core/utils/assets.dart';
+import 'package:super_fitness_app/features/auth/profile/presentation/pages/profile_screen.dart';
 import 'package:super_fitness_app/features/explore/presentation/page/explore_page.dart';
-import 'package:super_fitness_app/features/profile/presentation/page/profile_page.dart';
 import 'package:super_fitness_app/features/smart_coach/presentation/pages/chat_screen.dart';
 import 'package:super_fitness_app/features/workouts/presentation/pages/workouts_screen.dart';
 
@@ -27,7 +27,7 @@ class _AppSectionsState extends State<AppSections> {
       const ExplorePage(),
       const ChatScreen(),
       const WorkoutsScreen(),
-      const ProfilePage(),
+      const ProfileScreen(),
     ];
 
     return Scaffold(
