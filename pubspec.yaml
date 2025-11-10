@@ -75,4 +75,3 @@ flutter:
     - secret.env
     - assets/svgs/
     - assets/animations/
-
