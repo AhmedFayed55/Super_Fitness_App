@@ -8,6 +8,6 @@ class GetPrivacyScreenContentUseCase {
   final ProfileRepo _repo;
   GetPrivacyScreenContentUseCase(this._repo);
 
-  Future<ApiResult<List<PrivacyAndSecurityScreenResponseEntity>>> call() =>
+  Future<ApiResult<List<PrivacyPolicyEntity>>> call() =>
       _repo.getPrivacyAndSecurityScreenContent();
 }

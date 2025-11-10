@@ -41,6 +41,16 @@
   "make_sure_it_8_characters_or_more": "Make Sure It’s 8 Characters Or More",
   "done": "Done",
    "something_went_wrong": "Something went wrong. Please try again later",
-  "login_successfully": "Login successfully"
+  "login_successfully": "Login successfully",
+  "profile": "Profile",
+  "edit_profile" : "Edit Profile",
+  "change_password": "Change Password",
+  "select_language" : "Select Language",
+  "english": "English",
+  "arabic": "Arabic",
+  "security": "Security",
+  "privacy_policy": "Privacy Policy",
+  "help": "Help",
+  "logout": "Logout",
+  "no_content" : "No content available."
 }
-
