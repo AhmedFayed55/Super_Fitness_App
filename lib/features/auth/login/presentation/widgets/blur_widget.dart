@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:super_fitness_app/config/routing/app_routes.dart';
+import 'package:super_fitness_app/config/routing/routing_extensions.dart';
 import 'package:super_fitness_app/core/extensions/extensions.dart';
 import 'package:super_fitness_app/core/helpers/flutter_toast.dart';
 import 'package:super_fitness_app/core/helpers/spacing.dart';
@@ -78,12 +80,19 @@ class BlurWidget extends StatelessWidget {
                                   verticalSpace(8),
                                   Align(
                                     alignment: Alignment.centerRight,
-                                    child: Text(
-                                      locale.forget_password_ques,
-                                      style: theme.textTheme.titleSmall!
-                                          .copyWith(
-                                            color: theme.colorScheme.primary,
-                                          ),
+                                    child: GestureDetector(
+                                      onTap: () {
+                                        context.pushNamed(
+                                          AppRoutes.forgetPassword,
+                                        );
+                                      },
+                                      child: Text(
+                                        locale.forget_password_ques,
+                                        style: theme.textTheme.titleSmall!
+                                            .copyWith(
+                                              color: theme.colorScheme.primary,
+                                            ),
+                                      ),
                                     ),
                                   ),
                                   verticalSpace(height * .029),

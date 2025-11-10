@@ -9,16 +9,23 @@ import 'package:super_fitness_app/features/details_food/presentation/widget/cust
 import 'package:super_fitness_app/features/details_food/presentation/widget/custom_recommendation_widget.dart';
 import 'package:super_fitness_app/features/details_food/presentation/widget/video_player_loading_shimmer.dart';
 import 'package:super_fitness_app/features/details_food/presentation/widget/video_player_widget.dart';
+import 'package:super_fitness_app/features/food/domain/entities/meals_response_entity.dart';
 
 class DetailsFoodScreen extends StatelessWidget {
-  const DetailsFoodScreen({super.key});
+  const DetailsFoodScreen({
+    super.key,
+    required this.mealId,
+    required this.meals,
+  });
+  final List<MealsResponseEntity> meals;
+  final String mealId;
 
   @override
   Widget build(BuildContext context) {
     var cubit = getIt<DetailsFoodViewModel>();
     return BlocProvider(
       create: (context) =>
-          cubit..doIntent(DetailsDataFoodEvent(idMeal: '52959')),
+          cubit..doIntent(DetailsDataFoodEvent(idMeal: mealId)),
       child: SafeArea(
         child: Scaffold(
           body: BlocBuilder<DetailsFoodViewModel, DetailsFoodState>(
@@ -37,7 +44,7 @@ class DetailsFoodScreen extends StatelessWidget {
                             ? const VideoPlayerLoadingShimmer()
                             : const VideoPlayerWidget(),
                         const CustomIngredientWidget(),
-                        const CustomRecommendationWidget(),
+                        CustomRecommendationWidget(mealsList: meals),
                       ],
                     ),
                   ),

@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:super_fitness_app/core/extensions/extensions.dart';
 import 'package:super_fitness_app/core/helpers/spacing.dart';
 import 'package:super_fitness_app/features/details_food/presentation/widget/custom_recommendation_card.dart';
+import 'package:super_fitness_app/features/food/domain/entities/meals_response_entity.dart';
 
 class CustomRecommendationWidget extends StatelessWidget {
-  const CustomRecommendationWidget({super.key});
+  const CustomRecommendationWidget({super.key, required this.mealsList});
+  final List<MealsResponseEntity> mealsList;
 
   @override
   Widget build(BuildContext context) {
@@ -24,10 +26,12 @@ class CustomRecommendationWidget extends StatelessWidget {
             child: ListView.separated(
               separatorBuilder: (context, index) =>
                   horizontalSpace(context.mdW(10)),
-              itemCount: 10,
+              itemCount: mealsList.length,
               scrollDirection: Axis.horizontal,
-              itemBuilder: (context, index) =>
-                  const CustomRecommendationCard(title: 'yahya', imagePath: ''),
+              itemBuilder: (context, index) => CustomRecommendationCard(
+                title: mealsList[index].strMeal,
+                imagePath: mealsList[index].strMealThumb,
+              ),
             ),
           ),
         ],

@@ -18,14 +18,11 @@ void main() {
   setUp(() {
     mockViewModel = MockDetailsFoodViewModel();
 
-    // Stub للـ state و stream
     when(mockViewModel.state).thenReturn(DetailsFoodState());
     when(
       mockViewModel.stream,
     ).thenAnswer((_) => Stream.value(DetailsFoodState()));
-    // when(mockViewModel.doIntent(any)).thenReturn(null);
 
-    // تسجيل الـ mock في GetIt
     if (getIt.isRegistered<DetailsFoodViewModel>()) {
       getIt.unregister<DetailsFoodViewModel>();
     }
@@ -38,7 +35,7 @@ void main() {
       supportedLocales: AppLocalizations.supportedLocales,
       home: BlocProvider<DetailsFoodViewModel>.value(
         value: mockViewModel,
-        child: const DetailsFoodScreen(), // بدون const
+        child:const  DetailsFoodScreen(mealId: '',meals:[]), 
       ),
     );
   }
