@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:firebase_core/firebase_core.dart';
 
 class Failure {
   final String errorMessage;
@@ -62,6 +63,43 @@ class ServerFailure extends Failure {
         return ServerFailure(
           errorMessage: response.data["error"],
           code: response.data["code"].toString(),
+        );
+    }
+  }
+
+  factory ServerFailure.fromFirebaseError({
+    required FirebaseException exception,
+  }) {
+    switch (exception.code) {
+      case 'permission-denied':
+        return ServerFailure(
+          errorMessage: "You don't have permission to perform this action.",
+          code: exception.code,
+        );
+      case 'unavailable':
+        return ServerFailure(
+          errorMessage: "Service is currently unavailable. Try again later.",
+          code: exception.code,
+        );
+      case 'not-found':
+        return ServerFailure(
+          errorMessage: "Requested document was not found.",
+          code: exception.code,
+        );
+      case 'already-exists':
+        return ServerFailure(
+          errorMessage: "The document already exists.",
+          code: exception.code,
+        );
+      case 'cancelled':
+        return ServerFailure(
+          errorMessage: "The operation was cancelled.",
+          code: exception.code,
+        );
+      default:
+        return ServerFailure(
+          errorMessage: exception.message ?? "Unknown Firebase error occurred.",
+          code: exception.code,
         );
     }
   }

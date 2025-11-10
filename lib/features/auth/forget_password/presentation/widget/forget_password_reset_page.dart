@@ -12,7 +12,7 @@ import 'package:super_fitness_app/core/utils/constants.dart';
 import 'package:super_fitness_app/features/auth/forget_password/presentation/view_model/forget_password_event.dart';
 import 'package:super_fitness_app/features/auth/forget_password/presentation/view_model/forget_password_state.dart';
 import 'package:super_fitness_app/features/auth/forget_password/presentation/view_model/forget_password_view_model.dart';
-import 'package:super_fitness_app/features/auth/forget_password/presentation/widget/blur_container.dart';
+import 'package:super_fitness_app/widgets/blur_container.dart';
 import 'package:super_fitness_app/features/auth/forget_password/presentation/widget/build_password_and_confirm_field.dart';
 
 class ForgetPasswordResetPage extends StatefulWidget {

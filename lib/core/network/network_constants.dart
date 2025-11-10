@@ -18,4 +18,5 @@ abstract class EndPoints {
   static const String upcomingWorkoutsTabItems = "musclesGroup/{muscleGroupId}";
   static const String recommendationForYou = "categories.php";
   static const String getMealsByCategory = "filter.php";
+  static const String profileData = "auth/profile-data";
 }
