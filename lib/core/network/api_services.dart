@@ -17,7 +17,6 @@ import 'package:super_fitness_app/features/edit-profile/data/model/edit_user_res
 import 'package:super_fitness_app/features/popular_training/data_sources/models/request/get_all_exercises_request_dto.dart';
 import 'package:super_fitness_app/features/popular_training/data_sources/models/response/get_all_exercises_response_dto.dart';
 import 'package:super_fitness_app/features/smart_coach/data_sources/models/response/get_user_data_response_dto.dart';
-import 'package:super_fitness_app/features/smart_coach/data_sources/models/response/get_user_data_response_dto.dart';
 import '../../features/auth/login/data/models/request/login_request_dto.dart';
 import '../../features/home_screen/data/models/recommendation_to_day/muscles_random_response.dart';
 import '../../features/home_screen/data/models/upcoming_workouts/get_all_muscles_response.dart';
