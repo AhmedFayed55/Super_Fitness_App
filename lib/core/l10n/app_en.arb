@@ -53,4 +53,10 @@
   "help": "Help",
   "logout": "Logout",
   "no_content" : "No content available."
+  "login_successfully": "Login successfully",
+  "are_you_sure_to_close_the_application":"Are you sure to close the application?",
+  "yes":"Yes",
+  "no":"No",
+  "logout_successfully":"Logout successfully",
+  "logout":"Logout"
 }

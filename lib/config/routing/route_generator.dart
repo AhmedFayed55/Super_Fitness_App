@@ -4,6 +4,8 @@ import 'package:super_fitness_app/features/auth/forget_password/presentation/pag
 import 'package:super_fitness_app/features/auth/login/presentation/pages/login_screen.dart';
 import 'package:super_fitness_app/features/auth/profile/presentation/pages/content_screen.dart';
 import 'package:super_fitness_app/features/auth/profile/presentation/pages/profile_screen.dart';
+import 'package:super_fitness_app/features/auth/logout/presentation/pages/logout_screen.dart';
+import '../../features/auth/login/presentation/pages/login_screen.dart';
 import 'app_routes.dart';
 
 class RouteGenerator {
@@ -15,6 +17,8 @@ class RouteGenerator {
         return MaterialPageRoute(
           builder: (context) => const ForgetPasswordScreen(),
         );
+      case AppRoutes.logout:
+        return MaterialPageRoute(builder: (context) => const LogoutScreen());
 
       case AppRoutes.contentScreen:
         final args = settings.arguments as ContentType;
