@@ -7,7 +7,7 @@ import 'package:super_fitness_app/features/home_screen/data/models/upcoming_work
 import 'package:super_fitness_app/features/home_screen/data/models/upcoming_workouts/muscle_group_dto.dart';
 import 'package:super_fitness_app/features/home_screen/data/models/upcoming_workouts/muscles_group_dto.dart';
 import 'package:super_fitness_app/features/home_screen/data/models/upcoming_workouts/muscles_group_id_response.dart';
-import 'package:super_fitness_app/features/home_screen/domain/entities/recommendation_for_you/categories_dto_entity.dart';
+import 'package:super_fitness_app/features/home_screen/domain/entities/recommendation_for_you/categories_entity.dart';
 import 'package:super_fitness_app/features/home_screen/data/models/recommendation_for_you/categories_dto.dart';
 import 'package:super_fitness_app/features/home_screen/domain/entities/recommendation_for_you/meals_categories_entity.dart';
 import 'package:super_fitness_app/features/home_screen/domain/entities/recommendation_to_day/muscles_dto_entity.dart';
@@ -21,7 +21,7 @@ void main() {
   group("Test convert from entity to Dto", () {
     test("CategoriesDtoEntityMapper", () {
       // Arrange
-      final entity = CategoriesDtoEntity(
+      final entity = CategoriesEntity(
         idCategory: 'idCategory',
         strCategory: 'strCategory',
         strCategoryThumb: 'strCategoryThumb',
@@ -43,7 +43,7 @@ void main() {
       // Arrange
       final entity = MealsCategoriesEntity(
         categoriesDtoEntity: [
-          CategoriesDtoEntity(
+          CategoriesEntity(
             idCategory: 'idCategory',
             strCategory: 'strCategory',
             strCategoryThumb: 'strCategoryThumb',

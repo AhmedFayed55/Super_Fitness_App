@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:super_fitness_app/core/extensions/extensions.dart';
 import 'package:super_fitness_app/features/popular_training/presentation/widgets/custom_circuler_container.dart';
-import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class PopularTrainingCard extends StatelessWidget {
   final String imageUrl;
