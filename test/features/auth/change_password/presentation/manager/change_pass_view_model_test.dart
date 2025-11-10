@@ -81,7 +81,6 @@ void main() {
         expect(changePasswordViewModel.state.isError, true);
         expect(changePasswordViewModel.state.showMessage, showMessage);
 
-
         verify(mockUseCase.call(request)).called(1);
       },
     );

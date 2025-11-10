@@ -46,7 +46,9 @@ abstract class ApiServices {
   Future<LoginResponseDto> login(@Body() LoginRequestDto loginRequest);
 
   @PATCH(EndPoints.changePassword)
-  Future<ChangePasswordResponse> changePassword(@Body() ChangePasswordRequest body);
+  Future<ChangePasswordResponse> changePassword(
+    @Body() ChangePasswordRequest body,
+  );
 
   @GET(EndPoints.recommendationToDay)
   Future<MusclesRandomResponse> recommendationToDay();
@@ -58,7 +60,7 @@ abstract class ApiServices {
   Future<MusclesGroupIdResponse> upcomingWorkoutsTabItems(
     @Path("muscleGroupId") String muscleGroupId,
   );
-  
+
   @GET(EndPoints.allExercises)
   Future<GetAllExercisesResponseDto> getAllExercises(
     @Queries() GetAllExercisesRequestDto request,
