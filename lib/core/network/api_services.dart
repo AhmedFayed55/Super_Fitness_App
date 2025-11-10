@@ -9,6 +9,7 @@ import 'package:super_fitness_app/features/auth/forget_password/data_sources/mod
 import 'package:super_fitness_app/features/auth/forget_password/data_sources/models/response/reset_password_response_dto.dart';
 import 'package:super_fitness_app/features/auth/forget_password/data_sources/models/response/verify_reset_code_response_dto.dart';
 import 'package:super_fitness_app/features/auth/login/data/models/response/login_response_dto.dart';
+import 'package:super_fitness_app/features/smart_coach/data_sources/models/response/get_user_data_response_dto.dart';
 
 import '../../features/auth/login/data/models/request/login_request_dto.dart';
 import '../../features/home_screen/data/models/recommendation_to_day/muscles_random_response.dart';
@@ -36,6 +37,7 @@ abstract class ApiServices {
   @PUT(EndPoints.resetPassword)
   Future<ResetPasswordResponseDto> resetPassword(
     @Body() ResetPasswordRequestDto body,
+  );
   @POST(EndPoints.login)
   Future<LoginResponseDto> login(@Body() LoginRequestDto loginRequest);
 
@@ -49,4 +51,6 @@ abstract class ApiServices {
   Future<MusclesGroupIdResponse> upcomingWorkoutsTabItems(
     @Path("muscleGroupId") String muscleGroupId,
   );
+  @GET(EndPoints.profileData)
+  Future<GetUserDataResponseDto> getUserData();
 }
