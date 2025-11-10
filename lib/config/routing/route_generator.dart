@@ -23,7 +23,6 @@ class RouteGenerator {
         return MaterialPageRoute(
           builder: (context) => const ForgetPasswordScreen(),
         );
-
       case AppRoutes.foodScreen:
         final args = settings.arguments as Map<String, dynamic>;
         final int? index = args['index'];
@@ -31,6 +30,7 @@ class RouteGenerator {
         return MaterialPageRoute(
           builder: (context) => FoodScreen(index: index, categories: list),
         );
+
       case AppRoutes.workouts:
         return MaterialPageRoute(builder: (context) => const WorkoutsScreen());
 
