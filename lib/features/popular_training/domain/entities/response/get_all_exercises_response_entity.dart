@@ -1,4 +1,4 @@
-import 'package:super_fitness_app/features/popular_training/domain/entities/exercise_entity.dart';
+import 'package:super_fitness_app/features/exercise/domain/entity/exercise_entity.dart';
 
 class GetAllExercisesResponseEntity {
   final String message;
