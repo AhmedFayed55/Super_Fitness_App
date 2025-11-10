@@ -33,11 +33,11 @@ void main() {
 
       expect(result, isA<GetUserDataResponseDto>());
       expect(result.message, 'User data fetched successfully');
-      verify(mockApiServices.getUserData()).called(1);
+      verify(mockApiServices.getUserDataSmartCoach()).called(1);
     });
 
     test('throws DioException when API fails', () async {
-      when(mockApiServices.getUserData()).thenThrow(
+      when(mockApiServices.getUserDataSmartCoach()).thenThrow(
         DioException(requestOptions: RequestOptions(path: '/get-user-data')),
       );
 
