@@ -1,4 +1,5 @@
 enum ExerciseScreenMode { byMuscleId, byPreloadedData }
+
 enum Level {
   beginner,
   intermediate,

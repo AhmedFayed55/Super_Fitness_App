@@ -59,8 +59,9 @@ class RouteGenerator {
 
         String id = args as String;
         return MaterialPageRoute(
-          builder: (context) => ExerciseScreen.byMuscleId(muscleId: id));
-          
+          builder: (context) => ExerciseScreen.byMuscleId(muscleId: id),
+        );
+
       case AppRoutes.changePassword:
         return MaterialPageRoute(
           builder: (context) => const ChangePasswordScreen(),

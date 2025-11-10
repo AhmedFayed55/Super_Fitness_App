@@ -24,7 +24,6 @@ void main() {
       getIt.unregister<ChangePasswordViewModel>();
     }
     getIt.registerSingleton<ChangePasswordViewModel>(mockViewModel);
-
   });
 
   testWidgets('renders header and password form sections', (tester) async {

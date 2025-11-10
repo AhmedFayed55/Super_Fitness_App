@@ -58,7 +58,9 @@ abstract class ApiServices {
   Future<LoginResponseDto> login(@Body() LoginRequestDto loginRequest);
 
   @PATCH(EndPoints.changePassword)
-  Future<ChangePasswordResponse> changePassword(@Body() ChangePasswordRequest body);
+  Future<ChangePasswordResponse> changePassword(
+    @Body() ChangePasswordRequest body,
+  );
 
   @GET(EndPoints.recommendationToDay)
   Future<MusclesRandomResponse> recommendationToDay();
