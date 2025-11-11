@@ -3,10 +3,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:super_fitness_app/core/components/custom_elevated_button.dart';
 import 'package:super_fitness_app/core/extensions/extensions.dart';
 import 'package:super_fitness_app/core/helpers/enum.dart';
+import 'package:super_fitness_app/core/utils/assets.dart';
 import 'package:super_fitness_app/core/utils/constants.dart';
-import 'package:super_fitness_app/core/utils/keys.dart';
-import 'package:super_fitness_app/features/auth/register/manager/register_event.dart';
-import 'package:super_fitness_app/features/auth/register/manager/register_view_model.dart';
+import 'package:super_fitness_app/features/auth/goal_and_activity/presentation/manager/register_event.dart';
+import 'package:super_fitness_app/features/auth/goal_and_activity/presentation/manager/register_view_model.dart';
 import 'package:super_fitness_app/features/auth/register/presentation/widget/custom_blur_page_view.dart';
 import 'package:super_fitness_app/features/auth/register/presentation/widget/custom_gender_option.dart';
 import 'package:super_fitness_app/features/auth/register/presentation/widget/custom_bar_text.dart';
@@ -28,8 +28,6 @@ class _SelectedGenderState extends State<SelectedGender> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         CustomBarText(
-          key1: const Key(AppKeys.selectedGenderTitle),
-          key2: const Key(AppKeys.selectedGenderSubtitle),
           text1: locale.tell_us_about_yourself,
           text2: locale.we_need_to_know_your_gender,
         ),
@@ -48,7 +46,7 @@ class _SelectedGenderState extends State<SelectedGender> {
                   selected:
                       context.watch<RegisterViewModel>().state.gender ==
                       Gender.male.name,
-                  icon: Icons.male_sharp,
+                  icon: AppAssets.maleIcon,
                   label: locale.male,
                 ),
                 CustomGenderOption(
@@ -60,11 +58,10 @@ class _SelectedGenderState extends State<SelectedGender> {
                   selected:
                       context.watch<RegisterViewModel>().state.gender ==
                       Gender.female.name,
-                  icon: Icons.female,
+                  icon: AppAssets.femaleIcon,
                   label: locale.female,
                 ),
                 CustomElevatedButton(
-                  key: const Key(AppKeys.selectedGenderButton),
                   isLoading: false,
                   onPressed:
                       context.watch<RegisterViewModel>().state.gender == null

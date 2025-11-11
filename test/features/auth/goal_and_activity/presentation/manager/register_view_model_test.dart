@@ -51,7 +51,7 @@ void main() {
       return viewModel;
     },
     act: (cubit) =>
-        cubit.doIntent(SubmitRegisterEvent(registerRequestModel: requestModel)),
+        cubit.doIntent(SubmitRegisterEvent(activityLevel: '')),
     expect: () => [
       const RegisterState(
         isLoading: true,
@@ -85,7 +85,7 @@ void main() {
       return viewModel;
     },
     act: (cubit) =>
-        cubit.doIntent(SubmitRegisterEvent(registerRequestModel: requestModel)),
+        cubit.doIntent(SubmitRegisterEvent(activityLevel: '')),
     expect: () => [
       const RegisterState(
         isLoading: true,

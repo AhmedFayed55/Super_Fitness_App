@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:super_fitness_app/core/extensions/extensions.dart';
 import 'package:super_fitness_app/core/helpers/spacing.dart';
 import 'package:super_fitness_app/core/utils/font_weight.dart';
@@ -11,9 +12,10 @@ class CustomGenderOption extends StatelessWidget {
     required this.icon,
     required this.label,
   });
+
   final bool selected;
   final String label;
-  final IconData icon;
+  final String icon;
   final VoidCallback onTap;
 
   @override
@@ -21,34 +23,34 @@ class CustomGenderOption extends StatelessWidget {
     var color = context.colorScheme;
     var height = MediaQuery.sizeOf(context).height;
     var width = MediaQuery.sizeOf(context).width;
-    final double size = (width < height ? width : height) * 0.22;
     return InkWell(
-      borderRadius: BorderRadius.circular(size / 2),
       onTap: onTap,
       child: Container(
-        height:size,
-        width: size,
+        padding: const EdgeInsets.all(10),
+        height: height * .13,
+        width: width * .25,
         decoration: BoxDecoration(
-          shape: BoxShape.circle,
+          borderRadius: BorderRadius.circular(width * .8),
           border: Border.all(
             color: selected ? color.primary : color.onPrimary,
             width: 2,
           ),
           color: selected ? color.primary : Colors.transparent,
         ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Icon(icon, color: color.onPrimary, size: width * .10),
-            verticalSpace(height * .01),
-            Text(
-              label,
-              style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                fontWeight: AppFontWeight.semiBold,
+        child: Flexible(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              SvgPicture.asset(icon, fit: BoxFit.cover),
+              verticalSpace(height * .01),
+              Text(
+                label,
+                style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                  fontWeight: AppFontWeight.semiBold,
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

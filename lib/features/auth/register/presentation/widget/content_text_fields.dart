@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:super_fitness_app/core/extensions/extensions.dart';
 import 'package:super_fitness_app/core/helpers/validators.dart';
-import 'package:super_fitness_app/features/auth/register/manager/register_view_model.dart';
+import 'package:super_fitness_app/features/auth/goal_and_activity/presentation/manager/register_view_model.dart';
 
 class ContentTextFields extends StatefulWidget {
   const ContentTextFields({super.key});
@@ -24,7 +24,7 @@ class _ContentTextFieldsState extends State<ContentTextFields> {
   Widget build(BuildContext context) {
     final registerViewModel = context.read<RegisterViewModel>();
     var locale = context.localization;
-    final double fieldWidth = MediaQuery.of(context).size.width * 0.01;
+    final double fieldWidth = MediaQuery.of(context).size.width * 0.1;
 
     return Padding(
       padding: EdgeInsets.only(left: fieldWidth, right: fieldWidth),

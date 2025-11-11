@@ -5,14 +5,14 @@ import 'package:mockito/mockito.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:super_fitness_app/core/l10n/translations/app_localizations.dart';
 import 'package:super_fitness_app/core/utils/keys.dart';
-import 'package:super_fitness_app/features/auth/register/manager/register_view_model.dart';
-import 'package:super_fitness_app/features/auth/register/manager/register_state.dart';
+import 'package:super_fitness_app/features/auth/goal_and_activity/presentation/manager/register_state.dart';
+import 'package:super_fitness_app/features/auth/goal_and_activity/presentation/manager/register_view_model.dart';
 import 'package:super_fitness_app/features/auth/register/presentation/pages/mini_pages/selected_gender.dart';
 
-import 'selected_gender_test.mocks.dart';
+import '../../../../goal_and_activity/presentation/pages/activity_screen_test.mocks.dart';
 
 @GenerateMocks([RegisterViewModel])
-void main() {
+Future<void> main() async {
   late MockRegisterViewModel mockViewModel;
 
   setUp(() {
@@ -58,7 +58,7 @@ void main() {
     expect(tester.widget<ElevatedButton>(nextButton).onPressed, isNull);
   });
 testWidgets('Tapping on Male triggers onTap', (tester) async {
-    when(mockViewModel.state).thenReturn(RegisterState(gender: 'male'));
+    when(mockViewModel.state).thenReturn(const RegisterState(gender: 'male'));
 
   await tester.pumpWidget(
     MaterialApp(localizationsDelegates: AppLocalizations.localizationsDelegates,

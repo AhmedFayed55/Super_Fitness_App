@@ -6,6 +6,7 @@ import 'package:super_fitness_app/features/auth/register/presentation/widget/cus
 
 class CustomBlurContainerFields extends StatelessWidget {
   const CustomBlurContainerFields({super.key});
+
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;

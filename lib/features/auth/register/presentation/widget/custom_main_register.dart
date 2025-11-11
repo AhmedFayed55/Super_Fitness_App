@@ -29,7 +29,7 @@ class CustomMainRegister extends StatelessWidget {
               style: Theme.of(context).textTheme.titleLarge,
             ),
           ),
-        const  CustomBlurContainerFields(),
+          const CustomBlurContainerFields(),
         ],
       ),
     );

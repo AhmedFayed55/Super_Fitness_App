@@ -4,13 +4,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mockito/annotations.dart';
 import 'package:super_fitness_app/core/l10n/translations/app_localizations.dart';
 import 'package:super_fitness_app/core/utils/keys.dart';
-import 'package:super_fitness_app/features/auth/register/manager/register_view_model.dart';
+import 'package:super_fitness_app/features/auth/goal_and_activity/presentation/manager/register_view_model.dart';
 import 'package:super_fitness_app/features/auth/register/presentation/widget/custom_circle_avatar.dart';
 import 'package:super_fitness_app/features/auth/register/presentation/widget/custom_form_register.dart';
 import 'package:mockito/mockito.dart';
 import 'package:super_fitness_app/features/auth/register/presentation/widget/register_actions.dart';
 
-import 'custom_form_register_test.mocks.dart';
+import '../../../goal_and_activity/presentation/pages/activity_screen_test.mocks.dart';
 
 @GenerateMocks([RegisterViewModel])
 void main() {

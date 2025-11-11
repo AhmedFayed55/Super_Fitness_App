@@ -7,6 +7,7 @@ import 'package:super_fitness_app/core/utils/keys.dart';
 
 class RegisterActions extends StatelessWidget {
   const RegisterActions({super.key, required this.onTapRegister});
+
   final void Function() onTapRegister;
 
   @override

@@ -25,14 +25,9 @@
   "register" : "Register",
   "or" : "Or",
   "already_have_account":"Already Have an account ?",
-  "hey_there":"Hey There",
   "create_an_account":"CREATE AN ACCOUNT",
   "first_name":"First Name",
   "last_name":"Last Name",
-  "email":"Email",
-  "password":"Password",
-  "register":"Register",
-  "or":"Or",
   "male":"Male",
   "female":"Female",
   "tell_us_about_yourself":"tell us about yourself!",
@@ -45,7 +40,6 @@
   "next":"Next",
   "kg":"Kg",
   "cm":"Cm",
-  "next" : "Next",
   "gain_weight" : "Gain Weight",
   "lose_weight" : "Lose Weight",
   "get_fitter" : "Get Fitter",
@@ -58,5 +52,7 @@
   "beginner": "Beginner",
   "intermediate": "Intermediate",
   "advance": "Advance",
-  "true_beast": "True Beast"
+  "true_beast": "True Beast",
+  "register_successfully": "Register Successfully",
+  "something_went_wrong": "something went wrong"
 }

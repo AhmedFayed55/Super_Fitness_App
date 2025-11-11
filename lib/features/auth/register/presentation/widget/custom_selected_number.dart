@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:numberpicker/numberpicker.dart';
 import 'package:super_fitness_app/core/components/custom_elevated_button.dart';
 import 'package:super_fitness_app/features/auth/register/presentation/widget/custom_blur_page_view.dart';
-import 'package:numberpicker/numberpicker.dart';
+
 class SelectNumber extends StatelessWidget {
   const SelectNumber({
     super.key,
