@@ -27,7 +27,6 @@ import 'package:super_fitness_app/features/home_screen/domain/entities/recommend
 import 'package:super_fitness_app/features/home_screen/presentation/pages/home_screen.dart';
 import 'package:super_fitness_app/features/auth/goal_and_activity/presentation/pages/activity_screen.dart';
 import 'package:super_fitness_app/features/auth/goal_and_activity/presentation/pages/goal_screen.dart';
-import '../../features/auth/login/presentation/pages/login_screen.dart';
 import 'app_routes.dart';
 import '../../features/exercise/presentation/pages/exercise_screen.dart';
 
