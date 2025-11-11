@@ -1,11 +1,31 @@
 import 'package:flutter/material.dart';
+import 'package:skeletonizer/skeletonizer.dart';
 import 'package:super_fitness_app/config/theme/colors.dart';
 import 'package:super_fitness_app/core/extensions/extensions.dart';
 import 'package:super_fitness_app/core/helpers/spacing.dart';
 import 'package:super_fitness_app/features/home_screen/presentation/models_ui/category_ui_model.dart';
 
-class CategoryBar extends StatelessWidget {
+class CategoryBar extends StatefulWidget {
   const CategoryBar({super.key});
+
+  @override
+  State<CategoryBar> createState() => _CategoryBarState();
+}
+
+class _CategoryBarState extends State<CategoryBar> {
+  bool _isLoading = true;
+
+  @override
+  void initState() {
+    super.initState();
+    Future.delayed(const Duration(seconds: 3), () {
+      if (mounted) {
+        setState(() {
+          _isLoading = false;
+        });
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -16,37 +36,43 @@ class CategoryBar extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            context.localization.category,
-            style: Theme.of(context).textTheme.displaySmall,
+          Skeletonizer(
+            enabled: _isLoading,
+            child: Text(
+              context.localization.category,
+              style: Theme.of(context).textTheme.displaySmall,
+            ),
           ),
           verticalSpace(screenHeight * 0.009),
-          Container(
-            height: screenHeight * 0.11,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20),
-              color: AppColors.grey[10],
-            ),
-            child: Row(
-              children: [
-                for (int i = 0; i < categories.length; i++) ...[
-                  Expanded(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Image.asset(categories[i].image),
-                        Text(categories[i].name),
-                      ],
+          Skeletonizer(
+            enabled: _isLoading,
+            child: Container(
+              height: screenHeight * 0.11,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                color: AppColors.grey[10],
+              ),
+              child: Row(
+                children: [
+                  for (int i = 0; i < categories.length; i++) ...[
+                    Expanded(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Image.asset(categories[i].image),
+                          Text(categories[i].name),
+                        ],
+                      ),
                     ),
-                  ),
-                  if (i != categories.length - 1)
-                    VerticalDivider(
-                      color: AppColors.grey[20],
-                      indent: screenHeight * 0.01,
-                      endIndent: screenHeight * 0.01,
-                    ),
+                    if (i != categories.length - 1)
+                      VerticalDivider(
+                        color: AppColors.grey[20],
+                        indent: screenHeight * 0.01,
+                        endIndent: screenHeight * 0.01,
+                      ),
+                  ],
                 ],
-              ],
+              ),
             ),
           ),
         ],

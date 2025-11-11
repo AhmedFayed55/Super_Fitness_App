@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:skeletonizer/skeletonizer.dart';
 import 'package:super_fitness_app/config/theme/colors.dart';
 import 'package:super_fitness_app/core/extensions/extensions.dart';
 import 'package:super_fitness_app/core/helpers/spacing.dart';
+import 'package:super_fitness_app/features/home_screen/presentation/manager/home_event.dart';
 import 'package:super_fitness_app/features/home_screen/presentation/manager/home_state.dart';
 import 'package:super_fitness_app/features/home_screen/presentation/manager/home_view_model.dart';
 
@@ -21,9 +23,18 @@ class _UpcomingWorkoutsTabState extends State<UpcomingWorkoutsTab> {
   @override
   Widget build(BuildContext context) {
     var screenHeight = context.height;
+
     return BlocBuilder<HomeCubit, HomeState>(
+      buildWhen: (previous, current) =>
+      previous.upcomingTabData != current.upcomingTabData,
       builder: (context, state) {
         var cubitState = state.upcomingTabData;
+        var homeCubit = context.read<HomeCubit>();
+
+        if (cubitState == null) {
+          return const SizedBox();
+        }
+
         return Column(
           children: [
             Padding(
@@ -53,41 +64,38 @@ class _UpcomingWorkoutsTabState extends State<UpcomingWorkoutsTab> {
               ),
             ),
             verticalSpace(screenHeight * 0.01),
-            if (cubitState == null ||
-                state.upcomingTabItems == ScreenStatus.isLoading)
-              Center(
-                child: CircularProgressIndicator(
-                  color: AppColors.lightOrange[10],
-                ),
-              )
-            else if (state.upcomingTabItems == ScreenStatus.isSuccess)
-              DefaultTabController(
-                length: cubitState.musclesGroupDtoEntity.length,
-                child: TabBar(
-                  onTap: (value) {
-                    selectedIndex = value;
-                    setState(() {});
-                  },
-                  isScrollable: true,
-                  indicator: const BoxDecoration(),
-                  dividerColor: Colors.transparent,
-                  tabAlignment: TabAlignment.start,
-                  tabs: cubitState.musclesGroupDtoEntity
-                      .map(
-                        (e) => Tab(
-                          child: TabItem(
-                            musclesGroupDtoEntity: e,
-                            selected:
-                                cubitState.musclesGroupDtoEntity.elementAt(
-                                  selectedIndex,
-                                ) ==
-                                e,
-                          ),
-                        ),
-                      )
-                      .toList(),
-                ),
+
+            DefaultTabController(
+              length: cubitState.musclesGroupDtoEntity.length,
+              child: TabBar(
+                onTap: (value) {
+                  selectedIndex = value;
+                  setState(() {});
+                  homeCubit.doIntent(
+                    UpcomingWorkoutsTabItemsEvent(
+                      musclesGroupId: cubitState
+                          .musclesGroupDtoEntity[selectedIndex].id,
+                    ),
+                  );
+                },
+                isScrollable: true,
+                indicator: const BoxDecoration(),
+                dividerColor: Colors.transparent,
+                tabAlignment: TabAlignment.start,
+                tabs: cubitState.musclesGroupDtoEntity
+                    .map(
+                      (e) => Tab(
+                    child: TabItem(
+                      musclesGroupDtoEntity: e,
+                      selected: cubitState.musclesGroupDtoEntity
+                          .elementAt(selectedIndex) ==
+                          e,
+                    ),
+                  ),
+                )
+                    .toList(),
               ),
+            ),
           ],
         );
       },

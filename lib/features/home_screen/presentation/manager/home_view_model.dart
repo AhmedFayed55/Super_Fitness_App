@@ -26,7 +26,7 @@ class HomeCubit extends Cubit<HomeState> {
     this._upcomingWorkoutsTabItemsUseCase,
   ) : super(const HomeState());
 
-  void doIntent(HomeEvent event) async {
+  Future<void> doIntent(HomeEvent event) async {
     switch (event) {
       case RecommendationToDayEvent():
         _recommendationToDay();

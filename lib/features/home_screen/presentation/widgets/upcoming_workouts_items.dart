@@ -17,9 +17,9 @@ class UpcomingWorkoutsItems extends StatelessWidget {
       builder: (context, state) {
         var cubitState = state.upcomingTabItemsData?.musclesDtoEntity;
         if (state.upcomingTabItems == ScreenStatus.isLoading) {
-          return Center(
-            child: CircularProgressIndicator(color: AppColors.lightOrange[10]),
-          );
+          return SizedBox(
+              height: screenHeight * 0.1,
+              child: Center(child: CircularProgressIndicator(color: AppColors.lightOrange[10])));
         } else if (state.upcomingTabItemsData?.musclesDtoEntity == null ||
             state.upcomingTabItemsData!.musclesDtoEntity.isEmpty) {
           return Container(
@@ -41,77 +41,82 @@ class UpcomingWorkoutsItems extends StatelessWidget {
                 return horizontalSpace(screenWidth * 0.043);
               },
               itemBuilder: (context, index) {
-                return Stack(
-                  alignment: Alignment.bottomCenter,
-                  children: [
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(20),
-                      child:
-                          (cubitState?[index].image == null ||
-                              cubitState![index].image.isEmpty)
-                          ? Container(
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(20),
-                                border: Border.all(
-                                  width: 2,
-                                  color: AppColors.grey[20]!,
+                return InkWell(
+                  onTap: () {
+                    // print("${cubitState?[index].id}");
+                  },
+                  child: Stack(
+                    alignment: Alignment.bottomCenter,
+                    children: [
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(20),
+                        child:
+                            (cubitState?[index].image == null ||
+                                cubitState![index].image.isEmpty)
+                            ? Container(
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(20),
+                                  border: Border.all(
+                                    width: 2,
+                                    color: AppColors.grey[20]!,
+                                  ),
                                 ),
-                              ),
-                              alignment: Alignment.center,
-                              height: screenHeight * 0.1,
-                              width: screenHeight * 0.1,
-                              child: const Icon(
-                                Icons.error_outline,
-                                size: 30,
-                                color: AppColors.grey,
-                              ),
-                            )
-                          : Image.network(
-                              cubitState[index].image,
-                              fit: BoxFit.fill,
-                              height: screenHeight * 0.1,
-                              width: screenHeight * 0.1,
-                              loadingBuilder:
-                                  (context, child, loadingProgress) {
-                                    if (loadingProgress == null) {
-                                      return child;
-                                    }
-                                    return Center(
-                                      child: Container(
-                                        alignment: Alignment.center,
-                                        height: screenHeight * 0.1,
-                                        width: screenHeight * 0.1,
-                                        child: CircularProgressIndicator(
-                                          color: AppColors.lightOrange[10],
+                                alignment: Alignment.center,
+                                height: screenHeight * 0.1,
+                                width: screenHeight * 0.1,
+                                child: const Icon(
+                                  Icons.error_outline,
+                                  size: 30,
+                                  color: AppColors.grey,
+                                ),
+                              )
+                            : Image.network(
+                                cubitState[index].image,
+                                fit: BoxFit.fill,
+                                height: screenHeight * 0.1,
+                                width: screenHeight * 0.1,
+                                loadingBuilder:
+                                    (context, child, loadingProgress) {
+                                      if (loadingProgress == null) {
+                                        return child;
+                                      }
+                                      return Center(
+                                        child: Container(
+                                          alignment: Alignment.center,
+                                          height: screenHeight * 0.1,
+                                          width: screenHeight * 0.1,
+                                          child: CircularProgressIndicator(
+                                            color: AppColors.lightOrange[10],
+                                          ),
                                         ),
-                                      ),
-                                    );
-                                  },
+                                      );
+                                    },
+                              ),
+                      ),
+                      Positioned(
+                        bottom: 0,
+                        left: 0,
+                        right: 0,
+                        child: Container(
+                          alignment: Alignment.center,
+                          height: screenHeight * 0.027,
+                          padding: const EdgeInsets.all(4),
+                          decoration: BoxDecoration(
+                            color: AppColors.grey[10]?.withValues(alpha: 0.9),
+                            borderRadius: const BorderRadius.vertical(
+                              bottom: Radius.circular(20),
                             ),
-                    ),
-                    Positioned(
-                      bottom: 0,
-                      left: 0,
-                      right: 0,
-                      child: Container(
-                        alignment: Alignment.center,
-                        height: screenHeight * 0.027,
-                        padding: const EdgeInsets.all(4),
-                        decoration: BoxDecoration(
-                          color: AppColors.grey[10]?.withValues(alpha: 0.9),
-                          borderRadius: const BorderRadius.vertical(
-                            bottom: Radius.circular(20),
+                          ),
+                          child: Text(
+                            cubitState?[index].name ?? context.localization.error,
+                            style: Theme.of(context).textTheme.bodySmall,
+                            overflow: TextOverflow.ellipsis,
+                            maxLines: 1,
                           ),
                         ),
-                        child: Text(
-                          cubitState?[index].name ?? context.localization.error,
-                          style: Theme.of(context).textTheme.bodySmall,
-                          overflow: TextOverflow.ellipsis,
-                          maxLines: 1,
-                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 );
               },
             ),
