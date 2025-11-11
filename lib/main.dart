@@ -52,5 +52,5 @@ class SuperFitnessApp extends StatelessWidget {
         );
       },
     );
-  }
+  } 
 }
