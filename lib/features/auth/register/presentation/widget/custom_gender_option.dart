@@ -37,20 +37,18 @@ class CustomGenderOption extends StatelessWidget {
           ),
           color: selected ? color.primary : Colors.transparent,
         ),
-        child: Flexible(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              SvgPicture.asset(icon, fit: BoxFit.cover),
-              verticalSpace(height * .01),
-              Text(
-                label,
-                style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                  fontWeight: AppFontWeight.semiBold,
-                ),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            SvgPicture.asset(icon, fit: BoxFit.cover),
+            verticalSpace(height * .01),
+            Text(
+              label,
+              style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                fontWeight: AppFontWeight.semiBold,
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
