@@ -23,7 +23,7 @@ AppBar customAppBar(BuildContext context) {
         color: context.colorScheme.primary,
       ),
       child: IconButton(
-        icon: SvgPicture.asset(height: 15, AppAssets.arrowBack),
+        icon: SvgPicture.asset(height: 15, AppAssets.arrowBackIcon),
         onPressed: () {
           Navigator.pop(context);
         },

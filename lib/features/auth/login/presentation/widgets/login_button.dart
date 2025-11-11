@@ -39,10 +39,7 @@ class LoginButton extends StatelessWidget {
                   decorationColor: theme.colorScheme.primary,
                   color: theme.colorScheme.primary,
                 ),
-                recognizer: TapGestureRecognizer()
-                  ..onTap = () {
-                    // todo: navigate to register screen
-                  },
+                recognizer: TapGestureRecognizer()..onTap = () {},
               ),
             ],
           ),

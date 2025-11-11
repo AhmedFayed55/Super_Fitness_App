@@ -12,7 +12,6 @@ import 'package:super_fitness_app/features/auth/logout/presentation/pages/logout
 import 'package:super_fitness_app/features/auth/profile/presentation/manager/profile_screen_view_model.dart';
 import 'package:super_fitness_app/features/auth/profile/presentation/widgets/profile_tile.dart';
 
-import '../../../../edit-profile/domain/entities/user.dart';
 
 class ProfileOptions extends StatelessWidget {
   const ProfileOptions({super.key});
@@ -39,23 +38,7 @@ class ProfileOptions extends StatelessWidget {
                   .state
                   .userData;
               if (user != null) {
-                context.pushNamed(
-                  AppRoutes.editProfile,
-                  arguments: UserEntity(
-                    id: user.id,
-                    firstName: user.firstName,
-                    lastName: user.lastName,
-                    email: user.email,
-                    gender: user.gender,
-                    age: user.age.toInt(),
-                    weight: user.weight.toInt(),
-                    height: user.height.toInt(),
-                    activityLevel: user.activityLevel,
-                    goal: user.goal,
-                    photo: user.photo,
-                    createdAt: DateTime.parse(user.createdAt),
-                  ),
-                );
+                context.pushNamed(AppRoutes.editProfile, arguments: user);
               }
             },
           ),

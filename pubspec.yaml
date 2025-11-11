@@ -74,7 +74,7 @@ flutter:
     - assets/icons/
     - assets/images/
     - assets/svg/
-#    - secret.env
+    - secret.env
     - assets/animations/
     - assets/json/
     - assets/svgs/
