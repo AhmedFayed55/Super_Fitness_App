@@ -4,6 +4,7 @@ import 'package:injectable/injectable.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:super_fitness_app/core/services/language_interceptor.dart';
 import '../di/di.dart';
 import '../services/token_interceptor.dart';
 import 'network_constants.dart';
@@ -16,7 +17,18 @@ abstract class ExternalModules {
     dio.options.baseUrl = NetworkConstants.baseUrl;
     dio.options.headers = {'Content-Type': 'application/json'};
     dio.interceptors.add(getIt.get<PrettyDioLogger>());
+    dio.interceptors.add(getIt.get<LanguageInterceptor>());
     dio.interceptors.add(getIt.get<TokenInterceptor>());
+    return dio;
+  }
+
+  @lazySingleton
+  @Named(NetworkConstants.mealsApiClient)
+  Dio provideMealsDio() {
+    Dio dio = Dio();
+    dio.options.baseUrl = NetworkConstants.baseUrlMeals;
+    dio.options.headers = {'Content-Type': 'application/json'};
+    dio.interceptors.add(getIt.get<PrettyDioLogger>());
     return dio;
   }
 

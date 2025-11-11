@@ -16,7 +16,6 @@ abstract class AppTheme {
           color: AppColors.white,
         ),
       ),
-      dividerColor: AppColors.grey[90],
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
           backgroundColor: AppColors.lightOrange[10],
@@ -37,7 +36,6 @@ abstract class AppTheme {
       inputDecorationTheme: InputDecorationTheme(
         prefixIconColor: AppColors.grey[90],
         suffixIconColor: AppColors.grey[90],
-
         errorStyle: const TextStyle(
           fontSize: 12,
           fontWeight: AppFontWeight.regular,
@@ -92,6 +90,7 @@ abstract class AppTheme {
           fontSize: 16,
           fontWeight: AppFontWeight.semiBold,
         ),
+
         // =======================
         // Headline Texts (Section Titles)
         // =======================
@@ -110,6 +109,7 @@ abstract class AppTheme {
           fontSize: 16,
           fontWeight: AppFontWeight.medium,
         ),
+
         // =======================
         // Title Texts (Common Text)
         // =======================
@@ -128,6 +128,7 @@ abstract class AppTheme {
           fontSize: 14,
           fontWeight: AppFontWeight.regular,
         ),
+
         // =======================
         // Body Texts (Paragraphs)
         // =======================
@@ -146,6 +147,7 @@ abstract class AppTheme {
           fontSize: 12,
           fontWeight: AppFontWeight.regular,
         ),
+
         // =======================
         // Label Texts (Buttons, Captions)
         // =======================
@@ -180,6 +182,7 @@ abstract class AppTheme {
       surface: AppColors.white,
       shadow: AppColors.black,
       onSurface: AppColors.grey,
+      outline: AppColors.grey[90],
     ),
   );
 }

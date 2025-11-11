@@ -31,25 +31,33 @@ class CustomElevatedButton extends StatelessWidget {
         curve: Curves.easeInOut,
         child: isLoading
             ? Container(
-          alignment: Alignment.center,
-          decoration: BoxDecoration(
-            color: containerColor ?? context.colorScheme.primary,
-            borderRadius: BorderRadius.circular(context.height * 0.1),
-          ),
-          child: SizedBox(
-            width: context.width * 0.08,
-            height: context.height * 0.03,
-            child: Theme(
-              data: ThemeData(
-                progressIndicatorTheme: ProgressIndicatorThemeData(
-                  color: loadingColor ?? context.colorScheme.onPrimary,
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  color: containerColor ?? context.colorScheme.primary,
+                  borderRadius: BorderRadius.circular(context.height * 0.1),
                 ),
+                child: SizedBox(
+                  width: context.width * 0.08,
+                  height: context.height * 0.03,
+                  child: Theme(
+                    data: ThemeData(
+                      progressIndicatorTheme: ProgressIndicatorThemeData(
+                        color: loadingColor ?? context.colorScheme.onPrimary,
+                      ),
+                    ),
+                    child: const CircularProgressIndicator(),
+                  ),
+                ),
+              )
+            : ElevatedButton(
+                onPressed: onPressed,
+                style: ElevatedButton.styleFrom(
+                  side: BorderSide(color: context.colorScheme.primary),
+                  backgroundColor:
+                      containerColor ?? context.colorScheme.primary,
+                ),
+                child: widget,
               ),
-              child: const CircularProgressIndicator(),
-            ),
-          ),
-        )
-            : ElevatedButton(onPressed: onPressed, child: widget),
       ),
     );
   }

@@ -1,0 +1,14 @@
+flutter_native_splash:
+  android: true
+  ios: true
+  web: false
+  
+  color: "#242424"
+  fullscreen: true
+
+  image: assets/images/splash.png
+
+  android_12:
+    image: assets/images/splash_android.png
+    color: "#242424"
+    
