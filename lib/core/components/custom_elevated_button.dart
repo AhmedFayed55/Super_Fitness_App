@@ -12,7 +12,7 @@ class CustomElevatedButton extends StatelessWidget {
     this.containerColor,
   });
 
-  final void Function() onPressed;
+  final void Function()? onPressed;
   final bool isLoading;
   final Widget widget;
   final Color? textColor;
@@ -49,7 +49,15 @@ class CustomElevatedButton extends StatelessWidget {
                   ),
                 ),
               )
-            : ElevatedButton(onPressed: onPressed, child: widget),
+            : ElevatedButton(
+                onPressed: onPressed,
+                style: ElevatedButton.styleFrom(
+                  side: BorderSide(color: context.colorScheme.primary),
+                  backgroundColor:
+                      containerColor ?? context.colorScheme.primary,
+                ),
+                child: widget,
+              ),
       ),
     );
   }

@@ -35,3 +35,12 @@ Future<ApiResult<T>> safeApiCall<T>(Future<T> Function() apiCall) async {
     return ApiErrorResult<T>(failure: Failure(errorMessage: error.toString()));
   }
 }
+
+Future<ApiResult<T>> safeLocalCall<T>(Future<T> Function() localCall) async {
+  try {
+    final result = await localCall();
+    return ApiSuccessResult<T>(data: result);
+  } catch (error) {
+    return ApiErrorResult<T>(failure: Failure(errorMessage: error.toString()));
+  }
+}
