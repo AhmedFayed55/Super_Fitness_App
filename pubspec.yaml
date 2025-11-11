@@ -50,6 +50,9 @@ dependencies:
   flutter_markdown: ^0.7.7+1
   flutter_chat_types: ^3.6.2
   numberpicker: ^2.1.2
+  percent_indicator: ^4.2.5
+
+
 
 
 dev_dependencies:

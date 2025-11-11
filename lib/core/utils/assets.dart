@@ -15,6 +15,7 @@ abstract class AppAssets {
   static const String onboarding1 = "assets/images/onboarding_1.png";
   static const String onboarding2 = "assets/images/onboarding_2.png";
   static const String onboarding3 = "assets/images/onboarding_3.png";
+
   // Images
   static const String authBackground = 'assets/images/auth_bg.png';
   static const String profileBackground =
@@ -25,6 +26,8 @@ abstract class AppAssets {
   static const String wgaBackground = 'assets/images/WGA_bg.png';
   static const String changePasswordBackground =
       'assets/images/change_pass_background.png';
+  static const logoImage = 'assets/images/logo.png';
+  static const bgImagePng = 'assets/images/Rectangle1.png';
   static const String robot = 'assets/images/robot.png';
   static const String chatBackground = 'assets/images/chat_bg.png';
 
@@ -40,6 +43,13 @@ abstract class AppAssets {
   static const String privacyPolicyIcon = "assets/svgs/privacy_policy.svg";
   static const String editProfileIcon = "assets/svgs/profile.svg";
   static const String securityIcon = "assets/svgs/security.svg";
+  static const String maleIcon = 'assets/images/male_icon.svg';
+  static const String femaleIcon = 'assets/images/female_icon.svg';
+  static const String arrowBack = 'assets/svgs/arrow_back.svg';
+  static const bgDetailsFood = 'assets/images/bg_details_food.png';
+  static const arrowBackk = 'assets/images/arrow_back.png';
+  static const String foodBackground = "assets/images/food_background.png";
+  static const arrowback = 'assets/images/arrow_back.png';
 
   // json
   static const String helpJson = 'assets/json/help.json';
@@ -47,10 +57,7 @@ abstract class AppAssets {
       'assets/json/privacy_and_security.json';
   static const String securityRolesConfigJson =
       'assets/json/security_roles_config.json';
-  static const bgDetailsFood = 'assets/images/bg_details_food.png';
-  static const arrowBack = 'assets/images/arrow_back.png';
   static const String edit = 'assets/svgs/edit.svg';
-  static const String foodBackground = "assets/images/food_background.png";
 
   //animation
   static const String emptyAnimation = "assets/animations/empty.json";

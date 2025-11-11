@@ -25,6 +25,8 @@ import 'package:super_fitness_app/features/smart_coach/presentation/widget/view/
 import 'package:super_fitness_app/features/food/presentation/pages/food_screen.dart';
 import 'package:super_fitness_app/features/home_screen/domain/entities/recommendation_for_you/categories_entity.dart';
 import 'package:super_fitness_app/features/home_screen/presentation/pages/home_screen.dart';
+import 'package:super_fitness_app/features/auth/goal_and_activity/presentation/pages/activity_screen.dart';
+import 'package:super_fitness_app/features/auth/goal_and_activity/presentation/pages/goal_screen.dart';
 import 'app_routes.dart';
 import '../../features/exercise/presentation/pages/exercise_screen.dart';
 
@@ -139,6 +141,12 @@ class RouteGenerator {
 
       case AppRoutes.homeScreen:
         return MaterialPageRoute(builder: (context) => HomeScreen());
+
+      case AppRoutes.goalScreen:
+        return MaterialPageRoute(builder: (context) =>  GoalScreen());
+
+      case AppRoutes.activityScreen:
+        return MaterialPageRoute(builder: (context) =>  ActivityScreen());
 
       default:
         return unDefinedRoute();

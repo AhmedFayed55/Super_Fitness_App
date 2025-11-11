@@ -16,4 +16,6 @@ abstract class AppRoutes {
   static const String chat = "/ChatScreen";
   static const String chatConversation = "/ChatConversationView";
   static const String homeScreen = "/homeScreen";
+  static const String goalScreen = "/goalScreen";
+  static const String activityScreen = "/activityScreen";
 }
