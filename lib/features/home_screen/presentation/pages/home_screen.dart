@@ -11,9 +11,12 @@ import 'package:super_fitness_app/features/home_screen/presentation/widgets/reco
 import 'package:super_fitness_app/features/home_screen/presentation/widgets/upcoming_workouts_items.dart';
 import 'package:super_fitness_app/features/home_screen/presentation/widgets/upcoming_workouts_tab.dart';
 import 'package:super_fitness_app/features/home_screen/presentation/widgets/user_profile.dart';
+import 'package:super_fitness_app/features/popular_training/presentation/pages/popular.dart';
 
 class HomeScreen extends StatelessWidget {
-  HomeScreen({super.key});
+  final Function? onPressed;
+  // final UserDataResponseEntity? user;
+  HomeScreen({super.key,required this.onPressed,});
 
   final homeCubit = getIt.get<HomeCubit>();
 
@@ -31,7 +34,7 @@ class HomeScreen extends StatelessWidget {
         child: Scaffold(
           backgroundColor: Colors.transparent,
           body: Padding(
-            padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top),
+            padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top,bottom: 120),
             child: SingleChildScrollView(
               child: Column(
                 children: [
@@ -41,10 +44,16 @@ class HomeScreen extends StatelessWidget {
                   verticalSpace(24),
                   const RecommendationToDay(),
                   verticalSpace(24),
-                  const UpcomingWorkoutsTab(),
+                   UpcomingWorkoutsTab(onClicked: () {
+                     if(onPressed != null) {
+                       onPressed!();
+                     }
+                  },),
                   const UpcomingWorkoutsItems(),
                   verticalSpace(24),
                   const RecommendationForYou(),
+                  verticalSpace(24),
+                  Popular()
                 ],
               ),
             ),

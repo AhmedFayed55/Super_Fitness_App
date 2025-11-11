@@ -58,16 +58,9 @@ class BlurWidget extends StatelessWidget {
                                 ToastMessage.toastMsg(
                                   locale.login_successfully,
                                 );
-                                Future.delayed(
-                                  const Duration(milliseconds: 500),
-                                  () {
-                                    WidgetsBinding.instance
-                                        .addPostFrameCallback((_) {
-                                          context.pushReplacementNamed(
-                                            AppRoutes.appSections,
-                                          );
-                                        });
-                                  },
+                                context.pushReplacementNamed(
+                                  AppRoutes.appSections,
+                                  arguments: state.userData
                                 );
                               } else if (state.errorMsg != null &&
                                   state.showToast) {

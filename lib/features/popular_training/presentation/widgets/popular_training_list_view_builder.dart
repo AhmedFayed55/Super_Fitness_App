@@ -10,6 +10,7 @@ class PopularTrainingListViewBuilder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
+      padding: const EdgeInsets.symmetric(horizontal: 16),
       scrollDirection: Axis.horizontal,
       itemCount: data.length,
       itemBuilder: (context, index) => PopularTrainingCard(

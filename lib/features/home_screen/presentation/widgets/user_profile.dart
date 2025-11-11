@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:skeletonizer/skeletonizer.dart';
-import 'package:super_fitness_app/config/theme/colors.dart';
 import 'package:super_fitness_app/core/extensions/extensions.dart';
+import 'package:super_fitness_app/features/home_screen/presentation/manager/home_view_model.dart';
+
+import '../../../auth/profile/domain/entities/logged_user_data/user_data_response_entity.dart';
 
 class UserProfile extends StatefulWidget {
-  const UserProfile({super.key});
+  final UserDataResponseEntity? user;
+  const UserProfile({super.key,this.user});
 
   @override
   State<UserProfile> createState() => _UserProfileState();
@@ -29,7 +33,7 @@ class _UserProfileState extends State<UserProfile> {
   Widget build(BuildContext context) {
     // var screenWidth = context.width;
     // var screenHeight = context.height;
-    // var cubit = context.read<HomeCubit>();
+    var cubit = context.read<HomeCubit>();
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: Skeletonizer(
@@ -44,7 +48,7 @@ class _UserProfileState extends State<UserProfile> {
                     children: [
                       TextSpan(
                         text:
-                            "${context.localization.hi} firstName ,\n",
+                            "${context.localization.hi} ${cubit.state.userData?.firstName ?? "fayed"} ,\n",
                         style: Theme.of(context).textTheme.displaySmall,
                       ),
                       TextSpan(
@@ -57,9 +61,9 @@ class _UserProfileState extends State<UserProfile> {
               ],
             ),
             CircleAvatar(
-              radius: 38,
-              backgroundColor: AppColors.lightOrange[30],
-              // backgroundImage: AssetImage(cubit.state.userData?.photo ?? ""),
+              radius: 35,
+              backgroundColor: Colors.transparent,
+              backgroundImage: NetworkImage(cubit.state.userData?.photo ?? ""),
             ),
           ],
         ),

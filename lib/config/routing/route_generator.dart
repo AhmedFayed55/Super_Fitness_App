@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:super_fitness_app/core/utils/enums.dart';
 import 'package:super_fitness_app/features/auth/profile/domain/entities/logged_user_data/user_data_response_entity.dart';
+import 'package:super_fitness_app/features/auth/register/presentation/pages/register_screen.dart';
 import 'package:super_fitness_app/features/details_food/presentation/pages/details_food_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:super_fitness_app/features/auth/forget_password/presentation/pages/forget_password_screen.dart';
@@ -47,6 +48,9 @@ class RouteGenerator {
         );
       case AppRoutes.logout:
         return MaterialPageRoute(builder: (context) => const LogoutScreen());
+
+      case AppRoutes.register:
+        return MaterialPageRoute(builder: (context) => const RegisterScreen());
 
       case AppRoutes.contentScreen:
         final args = settings.arguments as ContentType;
@@ -93,12 +97,10 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (context) => EditProfile(user: user));
 
       case AppRoutes.foodScreen:
-        final args = settings.arguments as Map<String, dynamic>;
+        final args = settings.arguments as Map<String,dynamic>;
         final int? index = args['index'];
         final List<CategoriesEntity>? list = args['list'];
-        return MaterialPageRoute(
-          builder: (context) => FoodScreen(index: index, categories: list),
-        );
+        return MaterialPageRoute(builder: (context) => FoodScreen(index: index,categories: list ,));
 
       case AppRoutes.workouts:
         return MaterialPageRoute(builder: (context) => const WorkoutsScreen());
@@ -140,7 +142,7 @@ class RouteGenerator {
         );
 
       case AppRoutes.homeScreen:
-        return MaterialPageRoute(builder: (context) => HomeScreen());
+        return MaterialPageRoute(builder: (context) => HomeScreen(onPressed:null));
 
       case AppRoutes.goalScreen:
         return MaterialPageRoute(builder: (context) =>  GoalScreen());
