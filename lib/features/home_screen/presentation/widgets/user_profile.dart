@@ -29,9 +29,9 @@ class _UserProfileState extends State<UserProfile> {
 
   @override
   Widget build(BuildContext context) {
-    var screenWidth = context.width;
-    var screenHeight = context.height;
-    var cubit = context.read<HomeCubit>();
+    // var screenWidth = context.width;
+    // var screenHeight = context.height;
+    // var cubit = context.read<HomeCubit>();
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: Skeletonizer(
