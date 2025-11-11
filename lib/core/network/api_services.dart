@@ -17,7 +17,6 @@ import 'package:super_fitness_app/features/auth/profile/data/models/logged_user_
 import 'package:super_fitness_app/features/auth/logout/data/model/logout_response_dto.dart';
 import 'package:super_fitness_app/features/auth/goal_and_activity/data/models/register_request_model.dart';
 import 'package:super_fitness_app/features/auth/goal_and_activity/data/models/register_response_model.dart';
-import 'network_constants.dart';
 import 'package:super_fitness_app/features/edit-profile/data/model/edit_user_respone/edit_user_respone.dart';
 import 'package:super_fitness_app/features/popular_training/data_sources/models/request/get_all_exercises_request_dto.dart';
 import 'package:super_fitness_app/features/popular_training/data_sources/models/response/get_all_exercises_response_dto.dart';
