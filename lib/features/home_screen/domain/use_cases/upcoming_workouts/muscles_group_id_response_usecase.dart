@@ -9,6 +9,7 @@ class MusclesGroupIdResponseUseCase {
 
   MusclesGroupIdResponseUseCase(this._repo);
 
-  Future<ApiResult<MusclesGroupIdEntity>> call(String muscleGroupId) =>
-      _repo.getMusclesGroupId(muscleGroupId);
+  Future<ApiResult<MusclesGroupIdEntity>> call(String muscleGroupId) async {
+    return await _repo.getMusclesGroupId(muscleGroupId);
+  }
 }

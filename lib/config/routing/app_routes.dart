@@ -15,4 +15,5 @@ abstract class AppRoutes {
   static const String changePassword = "/changePassword";
   static const String chat = "/ChatScreen";
   static const String chatConversation = "/ChatConversationView";
+  static const String homeScreen = "/homeScreen";
 }

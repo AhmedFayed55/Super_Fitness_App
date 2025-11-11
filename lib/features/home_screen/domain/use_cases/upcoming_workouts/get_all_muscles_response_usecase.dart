@@ -9,5 +9,7 @@ class GetAllMusclesResponseUseCase {
 
   GetAllMusclesResponseUseCase(this._repo);
 
-  Future<ApiResult<GetAllMusclesEntity>> call() => _repo.getAllMuscles();
+  Future<ApiResult<GetAllMusclesEntity>> call() async {
+    return await _repo.getAllMuscles();
+  }
 }
