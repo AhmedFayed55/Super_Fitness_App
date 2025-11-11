@@ -3,7 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mockito/mockito.dart';
 import 'package:mockito/annotations.dart';
-import 'package:super_fitness_app/features/home_screen/domain/entities/recommendation_for_you/categories_dto_entity.dart';
+import 'package:super_fitness_app/features/home_screen/domain/entities/recommendation_for_you/categories_entity.dart';
 import 'package:super_fitness_app/features/home_screen/domain/entities/recommendation_for_you/meals_categories_entity.dart';
 import 'package:super_fitness_app/features/home_screen/presentation/manager/home_view_model.dart';
 import 'package:super_fitness_app/features/home_screen/presentation/manager/home_state.dart';
@@ -63,13 +63,13 @@ void main() {
 
   testWidgets('RecommendationForYou shows text items only', (tester) async {
     final mockCategories = [
-      CategoriesDtoEntity(
+      CategoriesEntity(
         strCategory: "Fitness",
         strCategoryThumb: "",
         idCategory: '1',
         strCategoryDescription: 'Description',
       ),
-      CategoriesDtoEntity(
+      CategoriesEntity(
         strCategory: "Yoga",
         strCategoryThumb: "",
         idCategory: '2',

@@ -1,3 +1,4 @@
+import 'package:super_fitness_app/features/auth/profile/domain/entities/logged_user_data/user_data_response_entity.dart';
 import 'package:super_fitness_app/features/home_screen/domain/entities/recommendation_for_you/meals_categories_entity.dart';
 import 'package:super_fitness_app/features/home_screen/domain/entities/recommendation_to_day/muscles_random_entity.dart';
 import 'package:super_fitness_app/features/home_screen/domain/entities/upcoming_workouts/get_all_muscles_entity.dart';
@@ -15,6 +16,10 @@ class HomeState {
   final MealsCategoriesEntity? forYouData;
   final GetAllMusclesEntity? upcomingTabData;
   final MusclesGroupIdEntity? upcomingTabItemsData;
+  final UserDataResponseEntity? userData;
+  final bool? isLoadingImage;
+  final bool? isSuccessImage;
+  final bool? isErrorImage;
 
   const HomeState({
     this.today = ScreenStatus.initial,
@@ -25,6 +30,10 @@ class HomeState {
     this.forYouData,
     this.upcomingTabData,
     this.upcomingTabItemsData,
+    this.userData,
+    this.isLoadingImage,
+    this.isSuccessImage,
+    this.isErrorImage,
   });
 
   HomeState copyWith({
@@ -36,6 +45,10 @@ class HomeState {
     MealsCategoriesEntity? forYouData,
     GetAllMusclesEntity? upcomingTabData,
     MusclesGroupIdEntity? upcomingTabItemsData,
+    UserDataResponseEntity? userData,
+    bool? isLoadingImage,
+    bool? isSuccessImage,
+    bool? isErrorImage,
   }) {
     return HomeState(
       today: today ?? this.today,
@@ -46,6 +59,10 @@ class HomeState {
       forYouData: forYouData ?? this.forYouData,
       upcomingTabData: upcomingTabData ?? this.upcomingTabData,
       upcomingTabItemsData: upcomingTabItemsData ?? this.upcomingTabItemsData,
+      userData: userData ?? this.userData,
+      isLoadingImage: isLoadingImage ?? this.isLoadingImage,
+      isSuccessImage: isSuccessImage ?? this.isSuccessImage,
+      isErrorImage: isErrorImage ?? this.isErrorImage,
     );
   }
 }

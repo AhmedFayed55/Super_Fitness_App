@@ -6,6 +6,8 @@ class RecommendationForYouEvent extends HomeEvent {}
 
 class UpcomingWorkoutsTabEvent extends HomeEvent {}
 
+class GetUserProfileEvent extends HomeEvent {}
+
 class UpcomingWorkoutsTabItemsEvent extends HomeEvent {
   String musclesGroupId;
 

@@ -2,13 +2,15 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:super_fitness_app/core/network/failures.dart';
-import 'package:super_fitness_app/features/home_screen/domain/entities/recommendation_for_you/categories_dto_entity.dart';
+import 'package:super_fitness_app/features/auth/profile/domain/entities/logged_user_data/user_data_response_entity.dart';
+import 'package:super_fitness_app/features/home_screen/domain/entities/recommendation_for_you/categories_entity.dart';
 import 'package:super_fitness_app/features/home_screen/domain/entities/recommendation_for_you/meals_categories_entity.dart';
 import 'package:super_fitness_app/features/home_screen/domain/entities/recommendation_to_day/muscles_dto_entity.dart';
 import 'package:super_fitness_app/features/home_screen/domain/entities/recommendation_to_day/muscles_random_entity.dart';
 import 'package:super_fitness_app/features/home_screen/domain/entities/upcoming_workouts/get_all_muscles_entity.dart';
 import 'package:super_fitness_app/features/home_screen/domain/entities/upcoming_workouts/muscle_group_dto_entity.dart';
 import 'package:super_fitness_app/features/home_screen/domain/entities/upcoming_workouts/muscles_group_id_entity.dart';
+import 'package:super_fitness_app/features/home_screen/domain/use_cases/get_profile_usecase.dart';
 import 'package:super_fitness_app/features/home_screen/domain/use_cases/recommendation_for_you/recommendation_for_you_usecase.dart';
 import 'package:super_fitness_app/features/home_screen/domain/use_cases/recommendation_to_day/recommendation_to_day_usecase.dart';
 import 'package:super_fitness_app/features/home_screen/domain/use_cases/upcoming_workouts/get_all_muscles_response_usecase.dart';
@@ -24,12 +26,14 @@ import 'home_view_model_test.mocks.dart';
   RecommendationForYouUseCase,
   GetAllMusclesResponseUseCase,
   MusclesGroupIdResponseUseCase,
+  GetUserProfileUseCase,
 ])
 void main() {
   late MockRecommendationToDayUseCase mockRecToDayUseCase;
   late MockRecommendationForYouUseCase mockRecForYouUseCase;
   late MockGetAllMusclesResponseUseCase mockUpcomingTabUseCase;
   late MockMusclesGroupIdResponseUseCase mockUpcomingTabItemsUseCase;
+  late MockGetUserProfileUseCase mockGetUserProfileUseCase;
   late HomeCubit homeCubit;
 
   setUp(() {
@@ -37,12 +41,14 @@ void main() {
     mockRecForYouUseCase = MockRecommendationForYouUseCase();
     mockUpcomingTabUseCase = MockGetAllMusclesResponseUseCase();
     mockUpcomingTabItemsUseCase = MockMusclesGroupIdResponseUseCase();
+    mockGetUserProfileUseCase = MockGetUserProfileUseCase();
 
     homeCubit = HomeCubit(
       mockRecToDayUseCase,
       mockRecForYouUseCase,
       mockUpcomingTabUseCase,
       mockUpcomingTabItemsUseCase,
+      mockGetUserProfileUseCase,
     );
   });
 
@@ -62,7 +68,7 @@ void main() {
       );
 
       when(mockRecToDayUseCase.call()).thenAnswer(
-            (_) async => ApiSuccessResult<MusclesRandomEntity>(data: data),
+        (_) async => ApiSuccessResult<MusclesRandomEntity>(data: data),
       );
 
       await homeCubit.doIntent(RecommendationToDayEvent());
@@ -76,13 +82,13 @@ void main() {
         ApiSuccessResult(
           data: MealsCategoriesEntity(
             categoriesDtoEntity: [
-              CategoriesDtoEntity(
+              CategoriesEntity(
                 idCategory: "1",
                 strCategory: "strCategory 1",
                 strCategoryDescription: "Description 1",
                 strCategoryThumb: "image 1",
               ),
-              CategoriesDtoEntity(
+              CategoriesEntity(
                 idCategory: "2",
                 strCategory: "strCategory 2",
                 strCategoryDescription: "Description 2",
@@ -94,7 +100,7 @@ void main() {
       );
 
       when(mockRecToDayUseCase.call()).thenAnswer(
-            (_) async => ApiErrorResult<MusclesRandomEntity>(
+        (_) async => ApiErrorResult<MusclesRandomEntity>(
           failure: Failure(errorMessage: "error"),
         ),
       );
@@ -103,11 +109,9 @@ void main() {
 
       expect(homeCubit.state.today, ScreenStatus.isError);
     });
-  },);
+  });
 
   group('HomeCubit - UpcomingWorkoutsTabItems', () {
-
-
     test('Success case', () async {
       var data = MusclesGroupIdEntity(
         message: 'message',
@@ -175,13 +179,13 @@ void main() {
     test("Success case", () async {
       final data = MealsCategoriesEntity(
         categoriesDtoEntity: [
-          CategoriesDtoEntity(
+          CategoriesEntity(
             idCategory: "idCategory 1",
             strCategory: "strCategory 1",
             strCategoryThumb: "strCategoryThumb 1",
             strCategoryDescription: "strCategoryDescription 1",
           ),
-          CategoriesDtoEntity(
+          CategoriesEntity(
             idCategory: "idCategory 2",
             strCategory: "strCategory 2",
             strCategoryThumb: "strCategoryThumb 2",
@@ -248,6 +252,55 @@ void main() {
       await homeCubit.doIntent(UpcomingWorkoutsTabEvent());
 
       expect(homeCubit.state.upcomingTab, ScreenStatus.isError);
+    });
+  });
+
+  group("HomeCubit - getUserProfile", () {
+    test("Success case", () async {
+      final data = UserDataResponseEntity(
+        id: "123",
+        firstName: "Mohamed",
+        lastName: "Ali",
+        email: "mohamed@example.com",
+        photo: "photo_url",
+        activityLevel: "activityLevel",
+        age: 1,
+        gender: "gender",
+        height: 1,
+        weight: 1,
+        goal: "goal",
+        createdAt: "createdAt",
+      );
+      provideDummy<ApiResult<UserDataResponseEntity>>(
+        ApiSuccessResult(data: data),
+      );
+
+      when(
+        mockGetUserProfileUseCase.call(),
+      ).thenAnswer((_) async => ApiSuccessResult(data: data));
+
+      await homeCubit.doIntent(GetUserProfileEvent());
+
+      // Assert
+      expect(homeCubit.state.isLoadingImage, false);
+      expect(homeCubit.state.isSuccessImage, true);
+      expect(homeCubit.state.userData, data);
+    });
+
+    test("Error case", () async {
+      final error = ApiErrorResult<UserDataResponseEntity>(
+        failure: Failure(errorMessage: "error"),
+      );
+
+      provideDummy<ApiResult<UserDataResponseEntity>>(error);
+      when(mockGetUserProfileUseCase.call()).thenAnswer((_) async => error);
+
+      await homeCubit.doIntent(GetUserProfileEvent());
+
+      // Assert
+      expect(homeCubit.state.isLoadingImage, false);
+      expect(homeCubit.state.isErrorImage, true);
+      expect(homeCubit.state.userData, null);
     });
   });
 }

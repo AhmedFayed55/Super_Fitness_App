@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:super_fitness_app/core/l10n/translations/app_localizations.dart';
 import 'package:super_fitness_app/features/app_sections/app_sections.dart';
+import 'package:super_fitness_app/features/auth/profile/presentation/pages/profile_screen.dart';
 import 'package:super_fitness_app/features/explore/presentation/page/explore_page.dart';
-import 'package:super_fitness_app/features/profile/presentation/page/profile_page.dart';
 import 'package:super_fitness_app/features/smart_coach/presentation/pages/chat_screen.dart';
 import 'package:super_fitness_app/features/workouts/presentation/pages/workouts_screen.dart';
 
@@ -25,7 +25,7 @@ void main() {
       expect(find.byType(ExplorePage), findsOneWidget);
       expect(find.byType(ChatScreen), findsNothing);
       expect(find.byType(WorkoutsScreen), findsNothing);
-      expect(find.byType(ProfilePage), findsNothing);
+      expect(find.byType(ProfileScreen), findsNothing);
     });
 
     // testWidgets('switches pages when navigation items are tapped', (

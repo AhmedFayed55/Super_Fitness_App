@@ -1,10 +1,12 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 import 'package:super_fitness_app/core/network/api_results.dart';
+import 'package:super_fitness_app/features/auth/profile/domain/entities/logged_user_data/user_data_response_entity.dart';
 import 'package:super_fitness_app/features/home_screen/domain/entities/recommendation_for_you/meals_categories_entity.dart';
 import 'package:super_fitness_app/features/home_screen/domain/entities/recommendation_to_day/muscles_random_entity.dart';
 import 'package:super_fitness_app/features/home_screen/domain/entities/upcoming_workouts/get_all_muscles_entity.dart';
 import 'package:super_fitness_app/features/home_screen/domain/entities/upcoming_workouts/muscles_group_id_entity.dart';
+import 'package:super_fitness_app/features/home_screen/domain/use_cases/get_profile_usecase.dart';
 import 'package:super_fitness_app/features/home_screen/domain/use_cases/recommendation_for_you/recommendation_for_you_usecase.dart';
 import 'package:super_fitness_app/features/home_screen/domain/use_cases/recommendation_to_day/recommendation_to_day_usecase.dart';
 import 'package:super_fitness_app/features/home_screen/domain/use_cases/upcoming_workouts/get_all_muscles_response_usecase.dart';
@@ -18,12 +20,14 @@ class HomeCubit extends Cubit<HomeState> {
   final RecommendationForYouUseCase _recommendationForYouUseCase;
   final GetAllMusclesResponseUseCase _upcomingWorkoutsTabUseCase;
   final MusclesGroupIdResponseUseCase _upcomingWorkoutsTabItemsUseCase;
+  final GetUserProfileUseCase _getUserProfileUseCase;
 
   HomeCubit(
     this._recommendationToDayUseCase,
     this._recommendationForYouUseCase,
     this._upcomingWorkoutsTabUseCase,
     this._upcomingWorkoutsTabItemsUseCase,
+    this._getUserProfileUseCase,
   ) : super(const HomeState());
 
   Future<void> doIntent(HomeEvent event) async {
@@ -39,6 +43,9 @@ class HomeCubit extends Cubit<HomeState> {
         break;
       case UpcomingWorkoutsTabItemsEvent():
         _upcomingWorkoutsTabItems(event.musclesGroupId);
+        break;
+       case GetUserProfileEvent():
+         _getUserProfile();
         break;
       case GetAllHomeDataEvent():
         _getAllHomeData();
@@ -104,12 +111,30 @@ class HomeCubit extends Cubit<HomeState> {
     }
   }
 
+  Future<void> _getUserProfile() async {
+    emit(state.copyWith(isLoadingImage: true));
+    var result = await _getUserProfileUseCase.call();
+    if (result is ApiSuccessResult<UserDataResponseEntity>) {
+      emit(
+        state.copyWith(
+          isLoadingImage: false,
+          userData: result.data,
+          isSuccessImage: true
+        ),
+      );
+    }
+    if (result is ApiErrorResult<UserDataResponseEntity>) {
+      emit(state.copyWith(isLoadingImage: false,isErrorImage: true));
+    }
+  }
+
   Future<void> _getAllHomeData() async {
     await Future.wait([
       _recommendationToDay(),
       _recommendationForYou(),
       _upcomingWorkoutsTab(),
       _upcomingWorkoutsTabItems("67c79f3526895f87ce0aa96b"),
+      _getUserProfile(),
     ]);
   }
 }
