@@ -16,20 +16,6 @@ class RecommendationForYou extends StatefulWidget {
 
 class _RecommendationForYouState extends State<RecommendationForYou> {
 
-  bool _isLoading = true;
-
-  @override
-  void initState() {
-    super.initState();
-    Future.delayed(const Duration(seconds: 3), () {
-      if (mounted) {
-        setState(() {
-          _isLoading = false;
-        });
-      }
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     var screenWidth = context.width;
