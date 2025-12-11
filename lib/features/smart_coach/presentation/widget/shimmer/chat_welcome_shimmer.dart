@@ -20,26 +20,28 @@ class ChatWelcomeShimmer extends StatelessWidget {
         baseColor: base,
         highlightColor: highlight,
         child: Padding(
-          padding: EdgeInsets.symmetric(
-            horizontal: context.mdW(20),
-            vertical: context.mdH(16),
-          ),
+          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 16),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               SizedBox(height: context.mdH(20)),
               Column(
                 children: [
-                  _shimmerBox(context, w: 140, h: 20),
+                  _shimmerBox(context, w: context.mdW(140), h: 20),
                   SizedBox(height: context.mdH(8)),
-                  _shimmerBox(context, w: 180, h: 18),
+                  _shimmerBox(context, w: context.mdW(180), h: 18),
                 ],
               ),
               SizedBox(height: context.mdH(20)),
 
               Expanded(
                 child: Center(
-                  child: _shimmerBox(context, w: 280, h: 280, radius: 24),
+                  child: _shimmerBox(
+                    context,
+                    w: context.mdW(200),
+                    h: context.mdH(280),
+                    radius: 24,
+                  ),
                 ),
               ),
 
@@ -53,7 +55,7 @@ class ChatWelcomeShimmer extends StatelessWidget {
                 ),
                 child: Column(
                   children: [
-                    _shimmerBox(context, w: 220, h: 18),
+                    _shimmerBox(context, w: context.mdW(220), h: 18),
                     SizedBox(height: context.mdH(10)),
                     _shimmerBox(context, w: 140, h: 18),
                     SizedBox(height: context.mdH(40)),

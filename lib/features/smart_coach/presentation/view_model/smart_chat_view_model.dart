@@ -108,7 +108,7 @@ class SmartChatViewModel extends Cubit<SmartChatState> {
   Future<void> _initializeChat() async {
     try {
       _model = GenerativeModel(
-        model: 'gemini-2.5-flash',
+        model: 'gemini-2.5-flash-lite',
         apiKey: dotenv.env['API_KEY']!,
       );
       _chatSession = _model.startChat();
