@@ -45,6 +45,7 @@ class LoginButton extends StatelessWidget {
                   ..onTap = () {
                     context.pushNamed(AppRoutes.register);
                   },
+
               ),
             ],
           ),

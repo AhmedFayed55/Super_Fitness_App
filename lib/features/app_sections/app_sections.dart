@@ -1,12 +1,16 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:super_fitness_app/config/theme/colors.dart';
+import 'package:super_fitness_app/core/di/di.dart';
 import 'package:super_fitness_app/core/extensions/extensions.dart';
 import 'package:super_fitness_app/core/helpers/spacing.dart';
 import 'package:super_fitness_app/core/utils/assets.dart';
+import 'package:super_fitness_app/features/auth/profile/presentation/manager/profile_screen_event.dart';
+import 'package:super_fitness_app/features/auth/profile/presentation/manager/profile_screen_view_model.dart';
 import 'package:super_fitness_app/features/auth/profile/presentation/pages/profile_screen.dart';
-import 'package:super_fitness_app/features/explore/presentation/page/explore_page.dart';
+import 'package:super_fitness_app/features/home_screen/presentation/pages/home_screen.dart';
 import 'package:super_fitness_app/features/smart_coach/presentation/pages/chat_screen.dart';
 import 'package:super_fitness_app/features/workouts/presentation/pages/workouts_screen.dart';
 
@@ -24,10 +28,16 @@ class _AppSectionsState extends State<AppSections> {
   Widget build(BuildContext context) {
     final localization = context.localization;
     final List<Widget> pages = [
-      const ExplorePage(),
+      HomeScreen(onPressed: () {
+        _currentIndex = 2;
+        setState(() {
+        });
+      },),
       const ChatScreen(),
       const WorkoutsScreen(),
-      const ProfileScreen(),
+      BlocProvider(
+          create: (context) => getIt<ProfileScreenViewModel>()..doIntent(LoadUserDataEvent()),
+          child: const ProfileScreen()),
     ];
 
     return Scaffold(

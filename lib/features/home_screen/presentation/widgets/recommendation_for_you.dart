@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:skeletonizer/skeletonizer.dart';
+import 'package:super_fitness_app/config/routing/app_routes.dart';
+import 'package:super_fitness_app/config/routing/routing_extensions.dart';
 import 'package:super_fitness_app/config/theme/colors.dart';
 import 'package:super_fitness_app/core/extensions/extensions.dart';
 import 'package:super_fitness_app/core/helpers/spacing.dart';
@@ -8,7 +10,7 @@ import 'package:super_fitness_app/features/home_screen/presentation/manager/home
 import 'package:super_fitness_app/features/home_screen/presentation/manager/home_view_model.dart';
 
 class RecommendationForYou extends StatefulWidget {
-  const RecommendationForYou({super.key});
+  const RecommendationForYou({super.key,});
 
   @override
   State<RecommendationForYou> createState() => _RecommendationForYouState();
@@ -39,7 +41,10 @@ class _RecommendationForYouState extends State<RecommendationForYou> {
                     ),
                     InkWell(
                       onTap: () {
-                        /// onPressed See All
+                        context.pushNamed(AppRoutes.foodScreen,arguments: {
+                          "CategoryName": "",
+                          "list": state.forYouData?.categoriesDtoEntity,
+                        });
                       },
                       child: Text(
                         context.localization.see_all,
@@ -85,7 +90,10 @@ class _RecommendationForYouState extends State<RecommendationForYou> {
                   itemBuilder: (context, index) {
                     return InkWell(
                       onTap: () {
-                        // print("${cubitState?[index].idCategory}");
+                        context.pushNamed(AppRoutes.foodScreen,arguments: {
+                          "index": index,
+                          "list": state.forYouData?.categoriesDtoEntity,
+                        });
                       },
                       child: Stack(
                         alignment: Alignment.bottomCenter,

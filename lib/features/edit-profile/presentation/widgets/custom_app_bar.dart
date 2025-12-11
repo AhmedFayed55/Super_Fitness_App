@@ -8,6 +8,7 @@ AppBar customAppBar(BuildContext context) {
   var trans = context.localization;
 
   return AppBar(
+    scrolledUnderElevation: 0,
     title: Text(
       trans.edit_profile,
       style: context.textTheme.displayLarge!.copyWith(
