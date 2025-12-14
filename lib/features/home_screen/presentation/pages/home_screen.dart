@@ -16,7 +16,7 @@ import 'package:super_fitness_app/features/popular_training/presentation/pages/p
 class HomeScreen extends StatelessWidget {
   final Function? onPressed;
   // final UserDataResponseEntity? user;
-  HomeScreen({super.key,required this.onPressed,});
+  HomeScreen({super.key, required this.onPressed});
 
   final homeCubit = getIt.get<HomeCubit>();
 
@@ -34,7 +34,10 @@ class HomeScreen extends StatelessWidget {
         child: Scaffold(
           backgroundColor: Colors.transparent,
           body: Padding(
-            padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top,bottom: 120),
+            padding: EdgeInsets.only(
+              top: MediaQuery.of(context).padding.top,
+              bottom: 120,
+            ),
             child: SingleChildScrollView(
               child: Column(
                 children: [
@@ -44,16 +47,18 @@ class HomeScreen extends StatelessWidget {
                   verticalSpace(24),
                   const RecommendationToDay(),
                   verticalSpace(24),
-                   UpcomingWorkoutsTab(onClicked: () {
-                     if(onPressed != null) {
-                       onPressed!();
-                     }
-                  },),
+                  UpcomingWorkoutsTab(
+                    onClicked: () {
+                      if (onPressed != null) {
+                        onPressed!();
+                      }
+                    },
+                  ),
                   const UpcomingWorkoutsItems(),
                   verticalSpace(24),
                   const RecommendationForYou(),
                   verticalSpace(24),
-                  Popular()
+                  Popular(),
                 ],
               ),
             ),

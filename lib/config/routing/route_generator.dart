@@ -97,10 +97,12 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (context) => EditProfile(user: user));
 
       case AppRoutes.foodScreen:
-        final args = settings.arguments as Map<String,dynamic>;
+        final args = settings.arguments as Map<String, dynamic>;
         final int? index = args['index'];
         final List<CategoriesEntity>? list = args['list'];
-        return MaterialPageRoute(builder: (context) => FoodScreen(index: index,categories: list ,));
+        return MaterialPageRoute(
+          builder: (context) => FoodScreen(index: index, categories: list),
+        );
 
       case AppRoutes.workouts:
         return MaterialPageRoute(builder: (context) => const WorkoutsScreen());
@@ -142,15 +144,15 @@ class RouteGenerator {
         );
 
       case AppRoutes.homeScreen:
-        return MaterialPageRoute(builder: (context) => HomeScreen(onPressed:null));
+        return MaterialPageRoute(
+          builder: (context) => HomeScreen(onPressed: null),
+        );
 
       case AppRoutes.goalScreen:
         return MaterialPageRoute(builder: (context) => GoalScreen());
 
       case AppRoutes.activityScreen:
         return MaterialPageRoute(builder: (context) => ActivityScreen());
-      case AppRoutes.register:
-        return MaterialPageRoute(builder: (context) => const RegisterScreen());
 
       default:
         return unDefinedRoute();

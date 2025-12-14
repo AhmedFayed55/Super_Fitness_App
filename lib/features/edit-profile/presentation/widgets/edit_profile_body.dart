@@ -65,6 +65,8 @@ class EditProfileBody extends StatelessWidget {
                     isLoading: state.isLoading,
                     widget: Text(trans.save),
                   ),
+
+                  verticalSpace(context.mdH(24)),
                 ],
               ),
             ),
