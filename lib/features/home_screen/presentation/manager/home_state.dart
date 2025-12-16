@@ -17,9 +17,7 @@ class HomeState {
   final GetAllMusclesEntity? upcomingTabData;
   final MusclesGroupIdEntity? upcomingTabItemsData;
   final UserDataResponseEntity? userData;
-  final bool? isLoadingImage;
-  final bool? isSuccessImage;
-  final bool? isErrorImage;
+  final bool isLoadingImage;
 
   const HomeState({
     this.today = ScreenStatus.initial,
@@ -31,9 +29,7 @@ class HomeState {
     this.upcomingTabData,
     this.upcomingTabItemsData,
     this.userData,
-    this.isLoadingImage,
-    this.isSuccessImage,
-    this.isErrorImage,
+    this.isLoadingImage = true,
   });
 
   HomeState copyWith({
@@ -47,8 +43,6 @@ class HomeState {
     MusclesGroupIdEntity? upcomingTabItemsData,
     UserDataResponseEntity? userData,
     bool? isLoadingImage,
-    bool? isSuccessImage,
-    bool? isErrorImage,
   }) {
     return HomeState(
       today: today ?? this.today,
@@ -61,8 +55,7 @@ class HomeState {
       upcomingTabItemsData: upcomingTabItemsData ?? this.upcomingTabItemsData,
       userData: userData ?? this.userData,
       isLoadingImage: isLoadingImage ?? this.isLoadingImage,
-      isSuccessImage: isSuccessImage ?? this.isSuccessImage,
-      isErrorImage: isErrorImage ?? this.isErrorImage,
+
     );
   }
 }

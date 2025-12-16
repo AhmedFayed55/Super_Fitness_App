@@ -119,12 +119,11 @@ class HomeCubit extends Cubit<HomeState> {
         state.copyWith(
           isLoadingImage: false,
           userData: result.data,
-          isSuccessImage: true
         ),
       );
     }
     if (result is ApiErrorResult<UserDataResponseEntity>) {
-      emit(state.copyWith(isLoadingImage: false,isErrorImage: true));
+      emit(state.copyWith(isLoadingImage: false));
     }
   }
 
