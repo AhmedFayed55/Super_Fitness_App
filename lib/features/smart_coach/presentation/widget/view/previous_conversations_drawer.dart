@@ -23,9 +23,10 @@ class PreviousConversationsDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = context.theme;
     final colorScheme = context.colorScheme;
+    final isRTL = Directionality.of(context) == TextDirection.rtl;
 
     return Align(
-      alignment: Alignment.centerRight,
+      alignment: isRTL ? Alignment.centerLeft : Alignment.centerRight,
       child: Container(
         width: context.mdW(263),
         height: double.infinity,
@@ -33,15 +34,17 @@ class PreviousConversationsDrawer extends StatelessWidget {
           // ignore: deprecated_member_use
           color: AppColors.grey[10]!.withOpacity(0.9),
           borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(context.mdRadius(32)),
-            bottomLeft: Radius.circular(context.mdRadius(32)),
+            topLeft: isRTL ? Radius.zero : Radius.circular(context.mdRadius(32)),
+            bottomLeft: isRTL ? Radius.zero : Radius.circular(context.mdRadius(32)),
+            topRight: isRTL ? Radius.circular(context.mdRadius(32)) : Radius.zero,
+            bottomRight: isRTL ? Radius.circular(context.mdRadius(32)) : Radius.zero,
           ),
           boxShadow: [
             BoxShadow(
               // ignore: deprecated_member_use
               color: AppColors.black.withOpacity(0.4),
               blurRadius: context.mdW(10),
-              offset: Offset(-context.mdW(4), 0),
+              offset: Offset(isRTL ? context.mdW(4) : -context.mdW(4), 0),
             ),
           ],
         ),
@@ -114,9 +117,10 @@ class PreviousConversationsDrawer extends StatelessWidget {
                             horizontal: context.mdW(8),
                           ),
                           child: Row(
+                            textDirection: isRTL ? TextDirection.rtl : TextDirection.ltr,
                             children: [
                               Icon(
-                                Icons.arrow_back_ios_new_rounded,
+                                isRTL ? Icons.arrow_forward_ios_rounded : Icons.arrow_back_ios_new_rounded,
                                 color: colorScheme.primary,
                                 size: context.mdIcon(14),
                               ),

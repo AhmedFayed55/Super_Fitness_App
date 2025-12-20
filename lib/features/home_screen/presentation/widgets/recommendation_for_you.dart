@@ -8,16 +8,16 @@ import 'package:super_fitness_app/core/extensions/extensions.dart';
 import 'package:super_fitness_app/core/helpers/spacing.dart';
 import 'package:super_fitness_app/features/home_screen/presentation/manager/home_state.dart';
 import 'package:super_fitness_app/features/home_screen/presentation/manager/home_view_model.dart';
+import 'package:super_fitness_app/features/home_screen/presentation/widgets/shimmers/home_screen_shimmers.dart';
 
 class RecommendationForYou extends StatefulWidget {
-  const RecommendationForYou({super.key,});
+  const RecommendationForYou({super.key});
 
   @override
   State<RecommendationForYou> createState() => _RecommendationForYouState();
 }
 
 class _RecommendationForYouState extends State<RecommendationForYou> {
-
   @override
   Widget build(BuildContext context) {
     var screenWidth = context.width;
@@ -41,10 +41,13 @@ class _RecommendationForYouState extends State<RecommendationForYou> {
                     ),
                     InkWell(
                       onTap: () {
-                        context.pushNamed(AppRoutes.foodScreen,arguments: {
-                          "CategoryName": "",
-                          "list": state.forYouData?.categoriesDtoEntity,
-                        });
+                        context.pushNamed(
+                          AppRoutes.foodScreen,
+                          arguments: {
+                            "CategoryName": "",
+                            "list": state.forYouData?.categoriesDtoEntity,
+                          },
+                        );
                       },
                       child: Text(
                         context.localization.see_all,
@@ -62,14 +65,7 @@ class _RecommendationForYouState extends State<RecommendationForYou> {
             ),
             verticalSpace(screenHeight * 0.01),
             if (state.forYou == ScreenStatus.isLoading)
-              SizedBox(
-                height: screenWidth * 0.28,
-                child: Center(
-                  child: CircularProgressIndicator(
-                    color: AppColors.lightOrange[10],
-                  ),
-                ),
-              )
+              const UpcomingWorkoutsItemsShimmer()
             else if (state.forYou == ScreenStatus.isError)
               Center(
                 child: Text(
@@ -90,10 +86,13 @@ class _RecommendationForYouState extends State<RecommendationForYou> {
                   itemBuilder: (context, index) {
                     return InkWell(
                       onTap: () {
-                        context.pushNamed(AppRoutes.foodScreen,arguments: {
-                          "index": index,
-                          "list": state.forYouData?.categoriesDtoEntity,
-                        });
+                        context.pushNamed(
+                          AppRoutes.foodScreen,
+                          arguments: {
+                            "index": index,
+                            "list": state.forYouData?.categoriesDtoEntity,
+                          },
+                        );
                       },
                       child: Stack(
                         alignment: Alignment.bottomCenter,
@@ -122,9 +121,8 @@ class _RecommendationForYouState extends State<RecommendationForYou> {
                                   )
                                 : Container(
                                     decoration: BoxDecoration(
-                                      borderRadius: BorderRadiusGeometry.circular(
-                                        20,
-                                      ),
+                                      borderRadius:
+                                          BorderRadiusGeometry.circular(20),
                                       border: Border.all(
                                         width: 2,
                                         color: AppColors.grey[20]!,
@@ -145,10 +143,11 @@ class _RecommendationForYouState extends State<RecommendationForYou> {
                                                 alignment: Alignment.center,
                                                 height: screenWidth * 0.28,
                                                 width: screenWidth * 0.28,
-                                                child: CircularProgressIndicator(
-                                                  color:
-                                                      AppColors.lightOrange[10],
-                                                ),
+                                                child:
+                                                    CircularProgressIndicator(
+                                                      color: AppColors
+                                                          .lightOrange[10],
+                                                    ),
                                               ),
                                             );
                                           },
@@ -164,7 +163,9 @@ class _RecommendationForYouState extends State<RecommendationForYou> {
                               height: screenHeight * 0.037,
                               padding: const EdgeInsets.all(8),
                               decoration: BoxDecoration(
-                                color: AppColors.grey[10]?.withValues(alpha: 0.7),
+                                color: AppColors.grey[10]?.withValues(
+                                  alpha: 0.7,
+                                ),
                                 borderRadius: BorderRadius.circular(20),
                               ),
                               child: Text(

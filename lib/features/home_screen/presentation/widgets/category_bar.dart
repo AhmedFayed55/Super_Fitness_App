@@ -56,12 +56,34 @@ class _CategoryBarState extends State<CategoryBar> {
                 children: [
                   for (int i = 0; i < categories.length; i++) ...[
                     Expanded(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          Image.asset(categories[i].image),
-                          Text(categories[i].name),
-                        ],
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(
+                          horizontal: context.mdW(4),
+                          vertical: context.mdH(8),
+                        ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Flexible(
+                              flex: 2,
+                              child: Image.asset(
+                                categories[i].image,
+                                fit: BoxFit.contain,
+                              ),
+                            ),
+                            SizedBox(height: context.mdH(4)),
+                            Flexible(
+                              flex: 1,
+                              child: Text(
+                                categories[i].name,
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                                textAlign: TextAlign.center,
+                                style: Theme.of(context).textTheme.bodySmall,
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                     if (i != categories.length - 1)

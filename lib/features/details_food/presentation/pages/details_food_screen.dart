@@ -35,7 +35,12 @@ class DetailsFoodScreen extends StatelessWidget {
               }
               return Stack(
                 children: [
-                  Positioned.fill(child: Image.asset(AppAssets.bgDetailsFood)),
+                  Positioned.fill(
+                    child: Image.asset(
+                      AppAssets.bgDetailsFood,
+                      fit: BoxFit.fill,
+                    ),
+                  ),
                   SingleChildScrollView(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,

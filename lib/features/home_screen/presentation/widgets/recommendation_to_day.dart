@@ -6,6 +6,7 @@ import 'package:super_fitness_app/core/extensions/extensions.dart';
 import 'package:super_fitness_app/core/helpers/spacing.dart';
 import 'package:super_fitness_app/features/home_screen/presentation/manager/home_state.dart';
 import 'package:super_fitness_app/features/home_screen/presentation/manager/home_view_model.dart';
+import 'package:super_fitness_app/features/home_screen/presentation/widgets/shimmers/home_screen_shimmers.dart';
 
 class RecommendationToDay extends StatefulWidget {
   const RecommendationToDay({super.key});
@@ -15,7 +16,6 @@ class RecommendationToDay extends StatefulWidget {
 }
 
 class _RecommendationToDayState extends State<RecommendationToDay> {
-
   @override
   Widget build(BuildContext context) {
     var screenWidth = context.width;
@@ -38,14 +38,7 @@ class _RecommendationToDayState extends State<RecommendationToDay> {
             ),
             verticalSpace(screenHeight * 0.01),
             if (state.today == ScreenStatus.isLoading)
-              SizedBox(
-                height: screenWidth * 0.28,
-                child: Center(
-                  child: CircularProgressIndicator(
-                    color: AppColors.lightOrange[10],
-                  ),
-                ),
-              )
+              const RecommendationTodayShimmer()
             else if (state.today == ScreenStatus.isError)
               Center(
                 child: Text(
@@ -109,7 +102,8 @@ class _RecommendationToDayState extends State<RecommendationToDay> {
                                               height: screenWidth * 0.28,
                                               width: screenWidth * 0.28,
                                               child: CircularProgressIndicator(
-                                                color: AppColors.lightOrange[10],
+                                                color:
+                                                    AppColors.lightOrange[10],
                                               ),
                                             ),
                                           );
@@ -125,7 +119,9 @@ class _RecommendationToDayState extends State<RecommendationToDay> {
                               height: screenHeight * 0.037,
                               padding: const EdgeInsets.all(8),
                               decoration: BoxDecoration(
-                                color: AppColors.grey[10]?.withValues(alpha: 0.7),
+                                color: AppColors.grey[10]?.withValues(
+                                  alpha: 0.7,
+                                ),
                                 borderRadius: BorderRadius.circular(20),
                               ),
                               child: Text(

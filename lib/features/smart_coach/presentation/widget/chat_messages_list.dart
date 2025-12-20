@@ -88,6 +88,7 @@ class ChatMessagesList extends StatelessWidget {
                   }) {
                     if (message is! core.TextMessage) return child;
                     final textMessage = message;
+                    final isArabic = viewModel.isArabic(textMessage.text);
 
                     return Padding(
                       padding: EdgeInsets.only(
@@ -97,6 +98,8 @@ class ChatMessagesList extends StatelessWidget {
                         bottom: 6,
                       ),
                       child: Row(
+                        // Force LTR layout so user messages stay on right, bot on left
+                        textDirection: TextDirection.ltr,
                         mainAxisAlignment: isSentByMe
                             ? MainAxisAlignment.end
                             : MainAxisAlignment.start,
@@ -130,17 +133,18 @@ class ChatMessagesList extends StatelessWidget {
                                 borderRadius: BorderRadius.only(
                                   topLeft: const Radius.circular(16),
                                   topRight: const Radius.circular(16),
+                                  // Bubble tail adapts to message text direction
                                   bottomLeft: isSentByMe
                                       ? const Radius.circular(16)
-                                      : Radius.zero,
+                                      : (isArabic ? const Radius.circular(16) : Radius.zero),
                                   bottomRight: isSentByMe
-                                      ? Radius.zero
+                                      ? (isArabic ? const Radius.circular(16) : Radius.zero)
                                       : const Radius.circular(16),
                                 ),
                               ),
                               child: Directionality(
                                 textDirection:
-                                    viewModel.isArabic(textMessage.text)
+                                    isArabic
                                     ? TextDirection.rtl
                                     : TextDirection.ltr,
                                 child: MarkdownBody(
@@ -176,69 +180,51 @@ class ChatMessagesList extends StatelessWidget {
         ),
 
         if (state.isSendingOrReceivingMessage)
-          Builder(
-            builder: (context) {
-              final isRtl = Directionality.of(context) == TextDirection.rtl;
-
-              return Padding(
-                padding: EdgeInsets.only(
-                  left: isRtl ? 60 : 8,
-                  right: isRtl ? 8 : 60,
-                  bottom: 6,
+          Padding(
+            padding: const EdgeInsets.only(
+              left: 8,
+              right: 60,
+              bottom: 6,
+            ),
+            child: Row(
+              // Force LTR so typing indicator stays on left (bot side)
+              textDirection: TextDirection.ltr,
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                CircleAvatar(
+                  radius: 18,
+                  backgroundImage: const AssetImage(AppAssets.robot),
+                  // ignore: deprecated_member_use
+                  backgroundColor: colorScheme.surface.withOpacity(0.1),
                 ),
-                child: Row(
-                  mainAxisAlignment: isRtl
-                      ? MainAxisAlignment.end
-                      : MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    if (!isRtl)
-                      CircleAvatar(
-                        radius: 18,
-                        backgroundImage: const AssetImage(AppAssets.robot),
-                        // ignore: deprecated_member_use
-                        backgroundColor: colorScheme.surface.withOpacity(0.1),
-                      ),
-                    if (!isRtl) const SizedBox(width: 6),
+                const SizedBox(width: 6),
 
-                    Flexible(
-                      child: Container(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 14,
-                          vertical: 10,
-                        ),
-                        decoration: BoxDecoration(
-                          // ignore: deprecated_member_use
-                          color: (AppColors.grey[10]!.withOpacity(0.5)),
-                          borderRadius: BorderRadius.only(
-                            topLeft: const Radius.circular(16),
-                            topRight: const Radius.circular(16),
-                            bottomRight: isRtl
-                                ? Radius.zero
-                                : const Radius.circular(16),
-                            bottomLeft: isRtl
-                                ? const Radius.circular(16)
-                                : Radius.zero,
-                          ),
-                        ),
-                        child: const TypingIndicator(),
+                Flexible(
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 14,
+                      vertical: 10,
+                    ),
+                    decoration: BoxDecoration(
+                      // ignore: deprecated_member_use
+                      color: (AppColors.grey[10]!.withOpacity(0.5)),
+                      borderRadius: const BorderRadius.only(
+                        topLeft: Radius.circular(16),
+                        topRight: Radius.circular(16),
+                        bottomRight: Radius.circular(16),
+                        bottomLeft: Radius.zero,
                       ),
                     ),
-
-                    if (isRtl) const SizedBox(width: 6),
-                    if (isRtl)
-                      CircleAvatar(
-                        radius: 18,
-                        backgroundImage: const AssetImage(AppAssets.robot),
-                        // ignore: deprecated_member_use
-                        backgroundColor: colorScheme.surface.withOpacity(0.1),
-                      ),
-                  ],
+                    child: const TypingIndicator(),
+                  ),
                 ),
-              );
-            },
+              ],
+            ),
           ),
       ],
     );
   }
 }
+
+

@@ -11,7 +11,7 @@ import 'package:super_fitness_app/features/workouts/presentation/view_model/work
 import 'package:super_fitness_app/features/workouts/presentation/view_model/workouts_view_model.dart';
 import 'package:super_fitness_app/features/workouts/presentation/widgets/exercise_card.dart';
 import 'package:super_fitness_app/features/workouts/presentation/widgets/muscle_group_tab.dart';
-import 'package:super_fitness_app/features/workouts/presentation/widgets/shimmer/product_shimmer_card.dart';
+import 'package:super_fitness_app/widgets/product_shimmer_card.dart';
 import 'package:super_fitness_app/features/workouts/presentation/widgets/shimmer/workouts_shimmer.dart';
 
 class WorkoutsView extends StatelessWidget {

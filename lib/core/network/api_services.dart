@@ -13,7 +13,7 @@ import 'package:super_fitness_app/features/auth/forget_password/data_sources/mod
 import 'package:super_fitness_app/features/auth/forget_password/data_sources/models/response/reset_password_response_dto.dart';
 import 'package:super_fitness_app/features/auth/forget_password/data_sources/models/response/verify_reset_code_response_dto.dart';
 import 'package:super_fitness_app/features/auth/login/data/models/response/login_response_dto.dart';
-import 'package:super_fitness_app/features/auth/profile/data/models/logged_user_data/logged_user_data_response_dto.dart';
+import 'package:super_fitness_app/features/profile/data/models/logged_user_data/logged_user_data_response_dto.dart';
 import 'package:super_fitness_app/features/auth/logout/data/model/logout_response_dto.dart';
 import 'package:super_fitness_app/features/auth/goal_and_activity/data/models/register_request_model.dart';
 import 'package:super_fitness_app/features/auth/goal_and_activity/data/models/register_response_model.dart';

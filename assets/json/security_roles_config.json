@@ -9,12 +9,11 @@
       "style": {
         "fontSize": 24,
         "fontWeight": "bold",
-        "color": "#333333",
+        "color": "#FFFFFF",
         "textAlign": {
           "en": "left",
           "ar": "right"
-        },
-        "backgroundColor": "#FFFFFF"
+        }
       }
     },
     {
@@ -26,12 +25,11 @@
       "style": {
         "fontSize": 16,
         "fontWeight": "normal",
-        "color": "#666666",
+        "color": "#FF4100",
         "textAlign": {
           "en": "left",
           "ar": "right"
-        },
-        "backgroundColor": "#FFFFFF"
+        }
       }
     },
     {
@@ -44,12 +42,11 @@
         "title": {
           "fontSize": 20,
           "fontWeight": "bold",
-          "color": "#111111",
+          "color": "#FFFFFF",
           "textAlign": {
             "en": "left",
             "ar": "right"
-          },
-          "backgroundColor": "#F5F5F5"
+          }
         }
       }
     },
@@ -65,7 +62,7 @@
         "ar": "وصول كامل وغير مقيد لجميع إعدادات النظام، وإدارة المستخدمين، والمحتوى. هذا الدور مخصص لمديري النظام فقط."
       },
       "style": {
-        "highlightColor": "#8B0000",
+        "highlightColor": "#E52800",
         "fontWeight": "bold"
       },
       "permissions": [
@@ -127,7 +124,7 @@
         "ar": "يمكنه إدارة المستخدمين غير المدراء. هذا الدور مخصص لقادة الفرق أو موظفي الموارد البشرية."
       },
       "style": {
-        "highlightColor": "#FF5733",
+        "highlightColor": "#FF4100",
         "fontWeight": "normal"
       },
       "permissions": [
@@ -189,7 +186,7 @@
         "ar": "يمكنه إنشاء، تعديل، ونشر المحتوى (مثل المقالات، المنتجات)، ولكن لا يمكنه إدارة المستخدمين أو الإعدادات."
       },
       "style": {
-        "highlightColor": "#FFA07A",
+        "highlightColor": "#FFA080",
         "fontWeight": "normal"
       },
       "permissions": [
@@ -251,7 +248,7 @@
         "ar": "وصول للقراءة فقط. يمكنه عرض المحتوى ولوحات المعلومات ولكن لا يمكنه إجراء أي تغييرات."
       },
       "style": {
-        "highlightColor": "#808080",
+        "highlightColor": "#7C7C7C",
         "fontWeight": "normal"
       },
       "permissions": [

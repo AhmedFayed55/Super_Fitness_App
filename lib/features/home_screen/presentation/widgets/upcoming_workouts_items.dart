@@ -5,6 +5,7 @@ import 'package:super_fitness_app/core/extensions/extensions.dart';
 import 'package:super_fitness_app/core/helpers/spacing.dart';
 import 'package:super_fitness_app/features/home_screen/presentation/manager/home_state.dart';
 import 'package:super_fitness_app/features/home_screen/presentation/manager/home_view_model.dart';
+import 'package:super_fitness_app/features/home_screen/presentation/widgets/shimmers/home_screen_shimmers.dart';
 
 class UpcomingWorkoutsItems extends StatelessWidget {
   const UpcomingWorkoutsItems({super.key});
@@ -17,9 +18,7 @@ class UpcomingWorkoutsItems extends StatelessWidget {
       builder: (context, state) {
         var cubitState = state.upcomingTabItemsData?.musclesDtoEntity;
         if (state.upcomingTabItems == ScreenStatus.isLoading) {
-          return SizedBox(
-              height: screenHeight * 0.1,
-              child: Center(child: CircularProgressIndicator(color: AppColors.lightOrange[10])));
+          return const UpcomingWorkoutsItemsShimmer();
         } else if (state.upcomingTabItemsData?.musclesDtoEntity == null ||
             state.upcomingTabItemsData!.musclesDtoEntity.isEmpty) {
           return Container(

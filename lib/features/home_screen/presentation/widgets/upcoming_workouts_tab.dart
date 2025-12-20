@@ -6,6 +6,7 @@ import 'package:super_fitness_app/core/helpers/spacing.dart';
 import 'package:super_fitness_app/features/home_screen/presentation/manager/home_event.dart';
 import 'package:super_fitness_app/features/home_screen/presentation/manager/home_state.dart';
 import 'package:super_fitness_app/features/home_screen/presentation/manager/home_view_model.dart';
+import 'package:super_fitness_app/features/home_screen/presentation/widgets/shimmers/home_screen_shimmers.dart';
 
 import 'tab_item.dart';
 
@@ -31,8 +32,8 @@ class _UpcomingWorkoutsTabState extends State<UpcomingWorkoutsTab> {
         var cubitState = state.upcomingTabData;
         var homeCubit = context.read<HomeCubit>();
 
-        if (cubitState == null) {
-          return const SizedBox();
+        if (state.upcomingTab == ScreenStatus.isLoading || cubitState == null) {
+          return const UpcomingWorkoutsTabShimmer();
         }
 
         return Column(

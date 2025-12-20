@@ -9,12 +9,11 @@
       "style": {
         "fontSize": 24,
         "fontWeight": "bold",
-        "color": "#333333",
+        "color": "#FFFFFF",
         "textAlign": {
           "en": "center",
           "ar": "center"
-        },
-        "backgroundColor": "#FFFFFF"
+        }
       }
     },
     {
@@ -26,12 +25,11 @@
       "style": {
         "fontSize": 14,
         "fontWeight": "normal",
-        "color": "#666666",
+        "color": "#FF4100",
         "textAlign": {
           "en": "center",
           "ar": "center"
-        },
-        "backgroundColor": "#FFFFFF"
+        }
       }
     },
     {
@@ -43,12 +41,11 @@
       "style": {
         "fontSize": 16,
         "fontWeight": "normal",
-        "color": "#333333",
+        "color": "#FF4100",
         "textAlign": {
           "en": "left",
           "ar": "right"
-        },
-        "backgroundColor": "#FFFFFF"
+        }
       }
     },
     {
@@ -61,12 +58,11 @@
         "title": {
           "fontSize": 18,
           "fontWeight": "bold",
-          "color": "#8B0000",
+          "color": "#FFFFFF",
           "textAlign": {
             "en": "left",
             "ar": "right"
-          },
-          "backgroundColor": "#FFFFFF"
+          }
         }
       },
       "sub_sections": [
@@ -79,6 +75,11 @@
           "content": {
             "en": "We collect information you provide directly to us, such as when you create an account, log your meals, or contact customer support. This includes: \n- Name and Email Address\n- Profile Information (age, gender, weight, height)\n- Meal and activity logs",
             "ar": "نحن نجمع المعلومات التي تقدمها لنا مباشرة، مثل عند إنشاء حساب، أو تسجيل وجباتك، أو الاتصال بدعم العملاء. وهذا يشمل: \n- الاسم وعنوان البريد الإلكتروني\n- معلومات الملف الشخصي (العمر، الجنس، الوزن، الطول)\n- سجلات الوجبات والنشاط"
+          },
+          "style": {
+            "color": "#FFFFFF",
+            "fontSize": 14,
+            "fontWeight": "normal"
           }
         },
         {
@@ -90,6 +91,11 @@
           "content": {
             "en": "To use the AI Trainer, you may provide sensitive data. This includes: \n- Fitness goals and preferences.\n- Photos or videos for form correction analysis (this data is processed by our AI and not viewed by humans without your explicit consent).\n- Performance data (reps, sets, weight lifted).",
             "ar": "لاستخدام المدرب الذكي، قد تقدم بيانات حساسة. وهذا يشمل: \n- أهداف اللياقة البدنية والتفضيلات.\n- الصور أو مقاطع الفيديو لتحليل تصحيح الوضعية (تتم معالجة هذه البيانات بواسطة الذكاء الاصطناعي لدينا ولا يطلع عليها أي شخص دون موافقتك الصريحة).\n- بيانات الأداء (التكرارات، المجموعات، الوزن المرفوع)."
+          },
+          "style": {
+            "color": "#FFFFFF",
+            "fontSize": 14,
+            "fontWeight": "normal"
           }
         },
         {
@@ -101,6 +107,11 @@
           "content": {
             "en": "We automatically collect information about your device and how you use our app, such as device type, IP address, operating system, and crash logs.",
             "ar": "نحن نجمع تلقائيًا معلومات حول جهازك وكيفية استخدامك لتطبيقنا، مثل نوع الجهاز، وعنوان IP، ونظام التشغيل، وسجلات الأعطال."
+          },
+          "style": {
+            "color": "#FFFFFF",
+            "fontSize": 14,
+            "fontWeight": "normal"
           }
         }
       ]
@@ -115,12 +126,11 @@
         "title": {
           "fontSize": 18,
           "fontWeight": "bold",
-          "color": "#8B0000",
+          "color": "#FFFFFF",
           "textAlign": {
             "en": "left",
             "ar": "right"
-          },
-          "backgroundColor": "#FFFFFF"
+          }
         }
       },
       "content": {
@@ -150,12 +160,11 @@
         "title": {
           "fontSize": 18,
           "fontWeight": "bold",
-          "color": "#8B0000",
+          "color": "#FFFFFF",
           "textAlign": {
             "en": "left",
             "ar": "right"
-          },
-          "backgroundColor": "#FFFFFF"
+          }
         }
       },
       "content": {
@@ -183,12 +192,11 @@
         "title": {
           "fontSize": 18,
           "fontWeight": "bold",
-          "color": "#8B0000",
+          "color": "#FFFFFF",
           "textAlign": {
             "en": "left",
             "ar": "right"
-          },
-          "backgroundColor": "#FFFFFF"
+          }
         }
       },
       "content": {
@@ -210,12 +218,11 @@
         "title": {
           "fontSize": 18,
           "fontWeight": "bold",
-          "color": "#8B0000",
+          "color": "#FFFFFF",
           "textAlign": {
             "en": "left",
             "ar": "right"
-          },
-          "backgroundColor": "#FFFFFF"
+          }
         }
       },
       "content": {
@@ -241,12 +248,11 @@
         "title": {
           "fontSize": 18,
           "fontWeight": "bold",
-          "color": "#8B0000",
+          "color": "#FFFFFF",
           "textAlign": {
             "en": "left",
             "ar": "right"
-          },
-          "backgroundColor": "#FFFFFF"
+          }
         }
       },
       "content": {
@@ -268,12 +274,11 @@
         "title": {
           "fontSize": 18,
           "fontWeight": "bold",
-          "color": "#8B0000",
+          "color": "#FFFFFF",
           "textAlign": {
             "en": "left",
             "ar": "right"
-          },
-          "backgroundColor": "#FFFFFF"
+          }
         }
       },
       "content": {
@@ -295,12 +300,11 @@
         "title": {
           "fontSize": 18,
           "fontWeight": "bold",
-          "color": "#FF5733",
+          "color": "#FFFFFF",
           "textAlign": {
             "en": "left",
             "ar": "right"
-          },
-          "backgroundColor": "#FFFFFF"
+          }
         }
       },
       "content": {

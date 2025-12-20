@@ -1,96 +1,129 @@
 import 'package:flutter/material.dart';
-import 'package:shimmer/shimmer.dart';
 import 'package:super_fitness_app/config/theme/colors.dart';
-import 'package:super_fitness_app/core/extensions/extensions.dart';
+import 'package:super_fitness_app/widgets/custom_shimmer.dart';
 
 class ChatWelcomeShimmer extends StatelessWidget {
   const ChatWelcomeShimmer({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final colorScheme = context.colorScheme;
-
-    // Darker shimmer colors for visibility
-    final base = AppColors.grey[60] ?? Colors.grey.shade300;
-    final highlight = AppColors.grey[20] ?? Colors.grey.shade100;
+    final size = MediaQuery.of(context).size;
+    final colorScheme = Theme.of(context).colorScheme;
+    final baseColor = AppColors.grey[60] ?? Colors.grey.shade700;
 
     return Scaffold(
-      backgroundColor: AppColors.grey[10] ?? Colors.grey.shade50,
-      body: Shimmer.fromColors(
-        baseColor: base,
-        highlightColor: highlight,
+      backgroundColor: AppColors.grey[10] ?? Colors.grey.shade900,
+      body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+          padding: EdgeInsets.symmetric(
+            horizontal: size.width * 0.05,
+            vertical: size.height * 0.02,
+          ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              SizedBox(height: context.mdH(20)),
-              Column(
+              // Header area with menu and title
+              SizedBox(height: size.height * 0.01),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  _shimmerBox(context, w: context.mdW(140), h: 20),
-                  SizedBox(height: context.mdH(8)),
-                  _shimmerBox(context, w: context.mdW(180), h: 18),
+                  ShimmerBox(
+                    width: size.width * 0.08,
+                    height: size.width * 0.08,
+                    radius: 8,
+                    color: baseColor,
+                  ),
+                  Column(
+                    children: [
+                      ShimmerBox(
+                        width: size.width * 0.4,
+                        height: size.height * 0.02,
+                        radius: 8,
+                        color: baseColor,
+                      ),
+                      SizedBox(height: size.height * 0.008),
+                      ShimmerBox(
+                        width: size.width * 0.5,
+                        height: size.height * 0.018,
+                        radius: 8,
+                        color: baseColor,
+                      ),
+                    ],
+                  ),
+                  SizedBox(width: size.width * 0.08),
                 ],
               ),
-              SizedBox(height: context.mdH(20)),
 
+              SizedBox(height: size.height * 0.04),
+
+              // Robot image placeholder
               Expanded(
                 child: Center(
-                  child: _shimmerBox(
-                    context,
-                    w: context.mdW(200),
-                    h: context.mdH(280),
-                    radius: 24,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      ShimmerBox(
+                        width: size.width * 0.6,
+                        height: size.width * 0.6,
+                        radius: size.width * 0.05,
+                        color: baseColor,
+                      ),
+                    ],
                   ),
                 ),
               ),
 
+              SizedBox(height: size.height * 0.03),
+
+              // Bottom welcome message and button area
               Container(
-                margin: EdgeInsets.symmetric(horizontal: context.mdW(16)),
-                padding: EdgeInsets.all(context.mdW(24)),
+                width: double.infinity,
+                constraints: BoxConstraints(maxWidth: size.width * 0.9),
+                padding: EdgeInsets.symmetric(
+                  horizontal: size.width * 0.06,
+                  vertical: size.height * 0.025,
+                ),
                 decoration: BoxDecoration(
                   // ignore: deprecated_member_use
-                  color: base.withOpacity(0.5),
-                  borderRadius: BorderRadius.circular(context.mdRadius(28)),
+                  color: baseColor.withOpacity(0.2),
+                  borderRadius: BorderRadius.circular(size.width * 0.06),
                 ),
                 child: Column(
+                  mainAxisSize: MainAxisSize.min,
                   children: [
-                    _shimmerBox(context, w: context.mdW(220), h: 18),
-                    SizedBox(height: context.mdH(10)),
-                    _shimmerBox(context, w: 140, h: 18),
-                    SizedBox(height: context.mdH(40)),
-                    _shimmerBox(
-                      context,
-                      w: double.infinity,
-                      h: 48,
-                      radius: 16,
+                    // Welcome message lines
+                    ShimmerBox(
+                      width: size.width * 0.6,
+                      height: size.height * 0.02,
+                      radius: 6,
+                      color: baseColor,
+                    ),
+                    SizedBox(height: size.height * 0.01),
+                    ShimmerBox(
+                      width: size.width * 0.4,
+                      height: size.height * 0.018,
+                      radius: 6,
+                      color: baseColor,
+                    ),
+
+                    SizedBox(height: size.height * 0.03),
+
+                    // Get started button
+                    ShimmerBox(
+                      width: double.infinity,
+                      height: size.height * 0.06,
+                      radius: size.width * 0.04,
                       // ignore: deprecated_member_use
-                      color: colorScheme.primary.withOpacity(0.4),
+                      color: colorScheme.primary.withOpacity(0.3),
                     ),
                   ],
                 ),
               ),
-              SizedBox(height: context.mdH(24)),
+
+              SizedBox(height: size.height * 0.02),
             ],
           ),
         ),
-      ),
-    );
-  }
-
-  Widget _shimmerBox(
-    BuildContext context, {
-    required double w,
-    required double h,
-    double? radius,
-    Color? color,
-  }) {
-    return Container(
-      width: w,
-      height: h,
-      decoration: BoxDecoration(
-        color: color ?? AppColors.grey[60] ?? Colors.grey.shade300,
-        borderRadius: BorderRadius.circular(radius ?? context.mdRadius(12)),
       ),
     );
   }

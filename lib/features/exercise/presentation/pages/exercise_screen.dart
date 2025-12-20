@@ -12,6 +12,7 @@ import 'package:super_fitness_app/features/exercise/presentation/manager/cubit/e
 import 'package:super_fitness_app/features/exercise/presentation/manager/cubit/exercise_event.dart';
 import 'package:super_fitness_app/features/exercise/presentation/pages/widget/exercise_body.dart';
 import 'package:super_fitness_app/features/exercise/presentation/pages/widget/shammer_loading.dart';
+import 'package:super_fitness_app/widgets/custom_app_bar.dart';
 
 class ExerciseScreen extends StatelessWidget {
   final ExerciseScreenMode mode;
@@ -50,24 +51,12 @@ class ExerciseScreen extends StatelessWidget {
       child: Scaffold(
         extendBodyBehindAppBar: true,
         appBar: AppBar(
-          scrolledUnderElevation: 0,
+          leading: CustomBackButton(onTap: () => context.pop()),
           backgroundColor: Colors.transparent,
-          leading: GestureDetector(
-            onTap: () => context.pop(),
-            child: Container(
-              decoration: BoxDecoration(
-                color: context.theme.colorScheme.primaryContainer,
-                shape: BoxShape.circle,
-              ),
-              child: Center(
-                child: SvgPicture.asset(
-                  height: context.mdH(13),
-                  AppAssets.arrowBackIcon,
-                ),
-              ),
-            ),
-          ),
+          elevation: 0,
+          scrolledUnderElevation: 0,
         ),
+
         body: Container(
           decoration: const BoxDecoration(
             image: DecorationImage(

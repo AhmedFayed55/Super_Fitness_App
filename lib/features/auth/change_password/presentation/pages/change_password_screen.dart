@@ -7,7 +7,7 @@ import 'package:super_fitness_app/core/utils/assets.dart';
 import 'package:super_fitness_app/features/auth/change_password/presentation/manager/change_pass_view_model.dart';
 import 'package:super_fitness_app/features/auth/change_password/presentation/widgets/header_section.dart';
 import 'package:super_fitness_app/features/auth/change_password/presentation/widgets/password_form_section.dart';
-import 'package:super_fitness_app/features/auth/profile/presentation/widgets/profile_app_bar.dart';
+import 'package:super_fitness_app/features/profile/presentation/widgets/profile_app_bar.dart';
 
 class ChangePasswordScreen extends StatelessWidget {
   const ChangePasswordScreen({super.key});

@@ -4,11 +4,11 @@ import 'package:skeletonizer/skeletonizer.dart';
 import 'package:super_fitness_app/core/extensions/extensions.dart';
 import 'package:super_fitness_app/features/home_screen/presentation/manager/home_view_model.dart';
 
-import '../../../auth/profile/domain/entities/logged_user_data/user_data_response_entity.dart';
+import '../../../profile/domain/entities/logged_user_data/user_data_response_entity.dart';
 
 class UserProfile extends StatefulWidget {
   final UserDataResponseEntity? user;
-  const UserProfile({super.key,this.user});
+  const UserProfile({super.key, this.user});
 
   @override
   State<UserProfile> createState() => _UserProfileState();
@@ -48,7 +48,7 @@ class _UserProfileState extends State<UserProfile> {
                     children: [
                       TextSpan(
                         text:
-                            "${context.localization.hi} ${cubit.state.userData?.firstName ?? "fayed"} ,\n",
+                            "${context.localization.hi} ${cubit.state.userData?.firstName ?? ""} ,\n",
                         style: Theme.of(context).textTheme.displaySmall,
                       ),
                       TextSpan(
@@ -61,7 +61,7 @@ class _UserProfileState extends State<UserProfile> {
               ],
             ),
             CircleAvatar(
-              radius: 35,
+              radius: 30,
               backgroundColor: Colors.transparent,
               backgroundImage: NetworkImage(cubit.state.userData?.photo ?? ""),
             ),

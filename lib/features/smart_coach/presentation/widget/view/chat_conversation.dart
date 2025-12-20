@@ -135,9 +135,12 @@ class _ChatConversationViewState extends State<ChatConversationView> {
             builder: (context, drawerState) {
               if (!drawerState.showDrawer) return const SizedBox.shrink();
 
+              final isRTL = Directionality.of(context) == TextDirection.rtl;
               return AnimatedPositioned(
                 duration: const Duration(milliseconds: 300),
-                right: 0,
+                // Position drawer on the correct side based on text direction
+                right: isRTL ? null : 0,
+                left: isRTL ? 0 : null,
                 top: 0,
                 bottom: 0,
                 child: PreviousConversationsDrawer(

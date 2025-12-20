@@ -58,7 +58,13 @@ class DetailsFoodViewModel extends Cubit<DetailsFoodState> {
 
     return YoutubePlayerController(
       initialVideoId: videoId,
-      flags: const YoutubePlayerFlags(autoPlay: false),
+      flags: const YoutubePlayerFlags(
+        autoPlay: true,
+        mute: false,
+        enableCaption: false,
+        hideThumbnail: true,
+        hideControls: false,
+      ),
     );
   }
 }

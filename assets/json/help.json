@@ -9,12 +9,11 @@
       "style": {
         "fontSize": 24,
         "fontWeight": "bold",
-        "color": "#333333",
+        "color": "#FFFFFF",
         "textAlign": {
           "en": "center",
           "ar": "center"
-        },
-        "backgroundColor": "#FFFFFF"
+        }
       }
     },
     {
@@ -26,12 +25,11 @@
       "style": {
         "fontSize": 16,
         "fontWeight": "normal",
-        "color": "#666666",
+        "color": "#FF4100",
         "textAlign": {
           "en": "center",
           "ar": "center"
-        },
-        "backgroundColor": "#FFFFFF"
+        }
       }
     },
     {
@@ -44,12 +42,11 @@
         "title": {
           "fontSize": 20,
           "fontWeight": "bold",
-          "color": "#8B0000",
+          "color": "#FFFFFF",
           "textAlign": {
             "en": "left",
             "ar": "right"
-          },
-          "backgroundColor": "#F5F5F5"
+          }
         }
       },
       "content": [
@@ -68,12 +65,12 @@
             "method": {
               "fontSize": 18,
               "fontWeight": "bold",
-              "color": "#FF5733"
+              "color": "#FF4100"
             },
             "details": {
               "fontSize": 14,
               "fontWeight": "normal",
-              "color": "#555555"
+              "color": "#666666"
             }
           }
         },
@@ -92,12 +89,12 @@
             "method": {
               "fontSize": 18,
               "fontWeight": "bold",
-              "color": "#FF5733"
+              "color": "#FF4100"
             },
             "details": {
               "fontSize": 14,
               "fontWeight": "normal",
-              "color": "#555555"
+              "color": "#FFFFFF"
             }
           }
         }
@@ -113,12 +110,11 @@
         "title": {
           "fontSize": 20,
           "fontWeight": "bold",
-          "color": "#8B0000",
+          "color": "#FFFFFF",
           "textAlign": {
             "en": "left",
             "ar": "right"
-          },
-          "backgroundColor": "#F5F5F5"
+          }
         }
       },
       "content": [

@@ -2,13 +2,13 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:super_fitness_app/core/utils/enums.dart';
-import 'package:super_fitness_app/features/auth/profile/domain/entities/logged_user_data/user_data_response_entity.dart';
+import 'package:super_fitness_app/features/profile/domain/entities/logged_user_data/user_data_response_entity.dart';
 import 'package:super_fitness_app/features/auth/register/presentation/pages/register_screen.dart';
 import 'package:super_fitness_app/features/details_food/presentation/pages/details_food_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:super_fitness_app/features/auth/forget_password/presentation/pages/forget_password_screen.dart';
 import 'package:super_fitness_app/features/auth/login/presentation/pages/login_screen.dart';
-import 'package:super_fitness_app/features/auth/profile/presentation/pages/content_screen.dart';
+import 'package:super_fitness_app/features/profile/presentation/pages/content_screen.dart';
 import 'package:super_fitness_app/features/auth/logout/presentation/pages/logout_screen.dart';
 import 'package:super_fitness_app/features/edit-profile/domain/entities/user.dart';
 import 'package:super_fitness_app/features/edit-profile/presentation/manager/cubit/edit_profile_cubit.dart';

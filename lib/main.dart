@@ -5,6 +5,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:super_fitness_app/config/routing/initial_route.dart';
 import 'package:super_fitness_app/core/di/di.dart';
 import 'package:super_fitness_app/core/general_cubits/locale_cubit.dart';
+import 'package:super_fitness_app/features/smart_coach/presentation/view_model/smart_chat_view_model.dart';
 import 'package:super_fitness_app/firebase_options.dart';
 import 'config/routing/route_generator.dart';
 import 'config/theme/app_theme.dart';
@@ -27,8 +28,13 @@ void main() async {
   await configureDependencies();
 
   runApp(
-    BlocProvider(
-      create: (context) => getIt<LocaleCubit>(),
+    MultiBlocProvider(
+      providers: [
+        BlocProvider<LocaleCubit>(create: (context) => getIt<LocaleCubit>()),
+        BlocProvider<SmartChatViewModel>(
+          create: (context) => getIt<SmartChatViewModel>(),
+        ),
+      ],
       child: const SuperFitnessApp(),
     ),
   );

@@ -34,30 +34,9 @@ class ChatWelcomeView extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.all(context.mdW(20)),
                   child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      const Spacer(),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          BlocBuilder<SmartChatViewModel, SmartChatState>(
-                            builder: (context, state) {
-                              final userName =
-                                  state.user?.firstName ??
-                                  context.localization.user;
-                              return Text(
-                                '${context.localization.hi} $userName,',
-                                style: theme.textTheme.displaySmall,
-                              );
-                            },
-                          ),
-                          SizedBox(height: context.mdH(6)),
-                          Text(
-                            context.localization.i_am_your_smart_coach,
-                            style: theme.textTheme.displayMedium,
-                          ),
-                        ],
-                      ),
-                      const Spacer(flex: 1),
+                      // Menu button positioned based on text direction
                       GestureDetector(
                         onTap: () => viewModel.doIntent(ToggleDrawerEvent()),
                         child: SvgPicture.asset(
@@ -66,6 +45,32 @@ class ChatWelcomeView extends StatelessWidget {
                           height: 24,
                         ),
                       ),
+                      // Title in center
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            BlocBuilder<SmartChatViewModel, SmartChatState>(
+                              builder: (context, state) {
+                                final userName =
+                                    state.user?.firstName ??
+                                    context.localization.user;
+                                return Text(
+                                  '${context.localization.hi} $userName,',
+                                  style: theme.textTheme.displaySmall,
+                                );
+                              },
+                            ),
+                            SizedBox(height: context.mdH(6)),
+                            Text(
+                              context.localization.i_am_your_smart_coach,
+                              style: theme.textTheme.displayMedium,
+                            ),
+                          ],
+                        ),
+                      ),
+                      // Empty space to balance the menu button on the other side
+                      const SizedBox(width: 24),
                     ],
                   ),
                 ),
@@ -129,9 +134,12 @@ class ChatWelcomeView extends StatelessWidget {
             builder: (context, drawerState) {
               if (!drawerState.showDrawer) return const SizedBox.shrink();
 
+              final isRTL = Directionality.of(context) == TextDirection.rtl;
               return AnimatedPositioned(
                 duration: const Duration(milliseconds: 300),
-                right: 0,
+                // Position drawer on the correct side based on text direction
+                right: isRTL ? null : 0,
+                left: isRTL ? 0 : null,
                 top: 0,
                 bottom: 0,
                 child: PreviousConversationsDrawer(

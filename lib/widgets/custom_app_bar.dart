@@ -11,6 +11,9 @@ class CustomBackButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Check if the current language direction is RTL
+    final isRTL = Directionality.of(context) == TextDirection.rtl;
+
     return GestureDetector(
       onTap: onTap ?? context.pop,
       child: Stack(
@@ -21,16 +24,17 @@ class CustomBackButton extends StatelessWidget {
             height: 30,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
-
               color: context.colorScheme.primary,
             ),
           ),
-
           Center(
-            child: SvgPicture.asset(
-              AppAssets.backButton,
-              width: 15,
-              height: 15,
+            child: Transform.rotate(
+              angle: isRTL ? 3.14159 : 0, // 180 degrees in radians (π)
+              child: SvgPicture.asset(
+                AppAssets.backButton,
+                width: 15,
+                height: 15,
+              ),
             ),
           ),
         ],
