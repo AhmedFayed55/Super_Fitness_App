@@ -34,7 +34,7 @@ class HomeScreen extends StatelessWidget {
         child: Scaffold(
           backgroundColor: Colors.transparent,
           body: Padding(
-            padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top,bottom: 120),
+            padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top),
             child: SingleChildScrollView(
               child: Column(
                 children: [
@@ -53,7 +53,8 @@ class HomeScreen extends StatelessWidget {
                   verticalSpace(24),
                   const RecommendationForYou(),
                   verticalSpace(24),
-                  Popular()
+                  Popular(),
+                  verticalSpace(120),
                 ],
               ),
             ),

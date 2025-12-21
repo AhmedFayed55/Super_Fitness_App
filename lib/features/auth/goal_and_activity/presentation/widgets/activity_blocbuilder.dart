@@ -5,13 +5,12 @@ import 'package:super_fitness_app/config/routing/routing_extensions.dart';
 import 'package:super_fitness_app/config/theme/colors.dart';
 import 'package:super_fitness_app/core/components/custom_elevated_button.dart';
 import 'package:super_fitness_app/core/extensions/extensions.dart';
+import 'package:super_fitness_app/core/helpers/enum.dart';
 import 'package:super_fitness_app/core/helpers/flutter_toast.dart';
 import 'package:super_fitness_app/core/helpers/spacing.dart';
 import 'package:super_fitness_app/features/auth/goal_and_activity/presentation/manager/register_event.dart';
 import 'package:super_fitness_app/features/auth/goal_and_activity/presentation/manager/register_state.dart';
 import 'package:super_fitness_app/features/auth/goal_and_activity/presentation/manager/register_view_model.dart';
-
-import '../../../../../core/helpers/enum.dart';
 
 class ActivityBlocBuilder extends StatelessWidget {
   const ActivityBlocBuilder({super.key});
@@ -19,8 +18,7 @@ class ActivityBlocBuilder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var cubit = context.read<RegisterViewModel>();
-    // var cubitState = context.read<RegisterViewModel>().state;
-    var selectedActivityLevel  = "";
+    var selectedActivityLevel = "";
     final List<String> activities = [
       context.localization.rookie,
       context.localization.beginner,
@@ -32,13 +30,17 @@ class ActivityBlocBuilder extends StatelessWidget {
     var screenHeight = context.height;
     return BlocConsumer<RegisterViewModel, RegisterState>(
       listener: (context, state) {
-        if(state.isSuccess){
+        if (state.isSuccess) {
           ToastMessage.toastMsg(context.localization.register_successfully);
-          Future.delayed(const Duration(milliseconds: 500),() {
-            context.pushNamedAndRemoveUntil(AppRoutes.login, predicate: (route) => false,);
-          });
-        } else if(state.isError && state.showToast){
-          ToastMessage.toastMsg(context.localization.something_went_wrong,backgroundColor: context.colorScheme.error);
+          context.pushNamedAndRemoveUntil(
+            AppRoutes.login,
+            predicate: (route) => false,
+          );
+        } else if (state.isError && state.showToast) {
+          ToastMessage.toastMsg(
+            context.localization.something_went_wrong,
+            backgroundColor: context.colorScheme.error,
+          );
         }
       },
       builder: (context, state) {
@@ -87,7 +89,9 @@ class ActivityBlocBuilder extends StatelessWidget {
                         RadioGroup(
                           groupValue: state.activitySelected,
                           onChanged: (value) {
-                            selectedActivityLevel = ActivityLevel.values[activities.indexOf(value!)].name;
+                            selectedActivityLevel = ActivityLevel
+                                .values[activities.indexOf(value!)]
+                                .name;
                             cubit.doIntent(
                               OnSelectedActivityEvent(activity: value),
                             );
@@ -107,10 +111,15 @@ class ActivityBlocBuilder extends StatelessWidget {
                 itemCount: activities.length,
               ),
               CustomElevatedButton(
-                onPressed: state.activitySelected != null ? () {
-                  /// Button OnPressed
-                  context.read<RegisterViewModel>().doIntent(SubmitRegisterEvent(activityLevel: selectedActivityLevel));
-                } : null,
+                onPressed: state.activitySelected != null
+                    ? () {
+                        context.read<RegisterViewModel>().doIntent(
+                          SubmitRegisterEvent(
+                            activityLevel: selectedActivityLevel,
+                          ),
+                        );
+                      }
+                    : null,
                 isLoading: state.isLoading,
                 widget: Text(context.localization.next),
               ),
