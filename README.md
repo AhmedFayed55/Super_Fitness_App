@@ -1018,10 +1018,20 @@ Closes #123
 
 **Development Team**
 
-- **Name:** Ahmed Rajeh
-- **Email:** ahmedrajeh49@gmail.com
-- **LinkedIn:** [Ahmed Rajeh](https://www.linkedin.com/in/ahmed-rajeh-205621221/)
-- **GitHub:** [Eng-M0ataz](https://github.com/Eng-M0ataz)
+- [Ahmed Fayed](https://github.com/AhmedFayed55)
+- [Yahya Eltayeeb](https://github.com/YahyaEltayeeb)
+- [Ahmed Rajeh](https://github.com/rajeh1032)
+- [Mostafa Amer](https://github.com/MostafaAmer978)
+- [Ahmed Yehia](https://github.com/ahmedyhia123)
+
+---
+
+### 👥 GitHub Avatars
+<a href="https://github.com/AhmedFayed55"><img src="https://github.com/AhmedFayed55.png" width="60" /></a>
+<a href="https://github.com/YahyaEltayeeb"><img src="https://github.com/YahyaEltayeeb.png" width="60" /></a>
+<a href="https://github.com/rajeh1032"><img src="https://github.com/rajeh1032.png" width="60" /></a>
+<a href="https://github.com/MostafaAmer978"><img src="https://github.com/MostafaAmer978.png" width="60" /></a>
+<a href="https://github.com/ahmedyhia123"><img src="https://github.com/ahmedyhia123.png" width="60" /></a>
 
 ## 📄 License
 
