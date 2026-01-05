@@ -12,14 +12,9 @@ import 'package:super_fitness_app/features/auth/goal_and_activity/presentation/m
 import 'package:super_fitness_app/features/auth/goal_and_activity/presentation/manager/register_state.dart';
 import 'package:super_fitness_app/features/auth/goal_and_activity/presentation/manager/register_view_model.dart';
 
-class ActivityBlocBuilder extends StatefulWidget {
+class ActivityBlocBuilder extends StatelessWidget {
   const ActivityBlocBuilder({super.key});
 
-  @override
-  State<ActivityBlocBuilder> createState() => _ActivityBlocBuilderState();
-}
-
-class _ActivityBlocBuilderState extends State<ActivityBlocBuilder> {
   @override
   Widget build(BuildContext context) {
     var cubit = context.read<RegisterViewModel>();
@@ -37,13 +32,10 @@ class _ActivityBlocBuilderState extends State<ActivityBlocBuilder> {
       listener: (context, state) {
         if (state.isSuccess) {
           ToastMessage.toastMsg(context.localization.register_successfully);
-          Future.delayed(const Duration(milliseconds: 500), () {
-            if (!context.mounted) return;
-            context.pushNamedAndRemoveUntil(
-              AppRoutes.login,
-              predicate: (route) => false,
-            );
-          });
+          context.pushNamedAndRemoveUntil(
+            AppRoutes.login,
+            predicate: (route) => false,
+          );
         } else if (state.isError && state.showToast) {
           ToastMessage.toastMsg(
             context.localization.something_went_wrong,
@@ -121,7 +113,6 @@ class _ActivityBlocBuilderState extends State<ActivityBlocBuilder> {
               CustomElevatedButton(
                 onPressed: state.activitySelected != null
                     ? () {
-                        /// Button OnPressed
                         context.read<RegisterViewModel>().doIntent(
                           SubmitRegisterEvent(
                             activityLevel: selectedActivityLevel,

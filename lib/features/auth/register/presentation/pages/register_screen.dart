@@ -41,7 +41,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
     return BlocProvider.value(
       value: cubit,
-
       child: Builder(
         builder: (context) {
           return Scaffold(

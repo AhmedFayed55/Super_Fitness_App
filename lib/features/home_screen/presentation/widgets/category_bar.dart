@@ -60,7 +60,7 @@ class _CategoryBarState extends State<CategoryBar> {
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           Image.asset(categories[i].image),
-                          Text(categories[i].name),
+                          Text(categories[i].name,textAlign: TextAlign.center,),
                         ],
                       ),
                     ),

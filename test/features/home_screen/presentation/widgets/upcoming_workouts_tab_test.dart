@@ -28,7 +28,7 @@ void main() {
       locale: const Locale('en'),
       home: BlocProvider<HomeCubit>.value(
         value: mockHomeCubit,
-        child: const Scaffold(body: UpcomingWorkoutsTab()),
+        child:  Scaffold(body: UpcomingWorkoutsTab(onClicked: () {},)),
       ),
     );
   }

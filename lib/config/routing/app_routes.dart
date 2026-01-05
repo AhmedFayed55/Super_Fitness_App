@@ -18,4 +18,5 @@ abstract class AppRoutes {
   static const String homeScreen = "/homeScreen";
   static const String goalScreen = "/goalScreen";
   static const String activityScreen = "/activityScreen";
+  static const String register = "/register";
 }
